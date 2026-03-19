@@ -1,0 +1,52 @@
+# Lobster 工作流：生產一集 Shorts
+# 觸發：radix 收到「做一集 XXX」指令
+
+name: produce_shorts_episode
+trigger: "做一集*"
+
+steps:
+  - name: research
+    agent: researcher
+    prompt: "從 night-thinking 選題庫中，根據用戶指定主題進行研究查證。查 USDA/衛福部數據，找認知反差點，評估爆量潛力。"
+    output: research_report
+
+  - name: write_script
+    agent: scriptwriter
+    prompt: |
+      根據以下研究報告，撰寫完整 episode JSON。
+      要求：
+      - 產出 3-5 個 hook 變體（按認知層級分類）
+      - 判斷最適合的影片型態（standard/ranking/hybrid/quick_cut），說明理由
+      - 先思考創意劇本（情緒弧線、場景構思），再用 seedance skill 翻譯成技術 prompt
+      - 從 characters/ 資產庫選用角色
+      研究報告：{{research_report}}
+    output: episode_json
+
+  - name: review_script
+    agent: reviewer
+    prompt: |
+      審查這份劇本：
+      - 鎖死層：JSON schema 完整？字幕繁中/prompt 簡中？數據有來源？
+      - 護欄層：hook 用了什麼框架？是否符合歷史績效偏好？
+      - 標注 type_rationale 是否合理
+      劇本：{{episode_json}}
+    output: review_result
+    on_fail: goto write_script
+
+  - name: generate_assets
+    agent: asset_gen
+    prompt: "根據 {{episode_json}} 執行素材生成：Gemini 場景圖 + 定裝照，Seedance 影片（或 Pillow 圖卡 + ElevenLabs TTS）"
+    output: asset_paths
+
+  - name: assemble
+    agent: assembler
+    prompt: "組裝最終影片：{{episode_json}} + {{asset_paths}}"
+    output: final_video
+
+  - name: notify
+    action: send_message
+    channel: line
+    message: |
+      新一集完成！
+      {{final_video}}
+      請審片後上傳 YouTube。
