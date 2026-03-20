@@ -151,9 +151,30 @@
 
 ---
 
-## 決策待定
+## 決策已定案（2026-03-20）
 
-- [ ] 最終物種選擇（A/B/C/D 四個方向）
-- [ ] 角色命名（暫名「小靜」，需確認）
-- [ ] 是否需要第二隻配角（初期建議不需要）
+- [x] 最終物種選擇 → **D. 台灣石虎**（暖棕色匹配頻道色調、貓科網路親和力、保育話題加分）
+- [x] 角色命名 → **小靜**（呼應「時時靜好」的「靜」）
+- [x] 視覺風格 → **Duolingo 系角色驅動風格**（大眼、幾何圓潤、表情誇張可讀），知識卡場景時收斂為 Kurzgesagt 風格
+- [x] 石虎特徵鎖定 → 圓形斑點（非條紋）、額頭兩條白色縱線、耳後白斑
+- [x] 是否需要第二隻配角 → 初期不需要
 - [ ] 片頭動態要用 Pillow 做還是靜態圖 + ffmpeg 轉場
+
+## 已建立的資產系統
+
+| 檔案 | 用途 |
+|------|------|
+| `characters/mascot/character.json` | 角色規格 + 表情系統 + 使用規則（asset_gen 的 source of truth） |
+| `characters/mascot/prompt_templates.md` | Gemini prompt 模板（縮圖、片頭、片尾、知識卡） |
+| `characters/mascot/Duolingo_Real_leopard_cat.jpg` | 風格參考圖（style reference） |
+| `schemas/episode.schema.json` → `mascot` 欄位 | scriptwriter 指定每集的表情和用途 |
+
+### 生產流程
+
+```
+scriptwriter 在 episode JSON 中指定 mascot.thumbnail.expression = "surprised"
+  → asset_gen 讀取 character.json 取得 surprised 的描述
+  → asset_gen 用 prompt_templates.md 的縮圖模板組合完整 prompt
+  → Gemini 生成透明背景 PNG
+  → assembler 疊加到縮圖和影片中
+```

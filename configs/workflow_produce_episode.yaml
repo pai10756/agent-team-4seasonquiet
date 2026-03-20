@@ -90,10 +90,22 @@ steps:
     agent: asset_gen
     prompt: |
       根據 episode JSON 執行素材生成。
-      根據 type 欄位決定生成策略：
-      - standard/hybrid: Gemini 場景圖 + 定裝照，Seedance 影片
-      - ranking: Gemini 食材圖，Pillow 圖卡 + ElevenLabs TTS
-      - quick_cut: Gemini 靜態圖 + 字幕疊加
+
+      1. 吉祥物素材（每集必做）：
+         - 讀取 characters/mascot/character.json 取得角色規格
+         - 讀取 characters/mascot/prompt_templates.md 取得 prompt 模板
+         - 根據 episode_json.mascot 欄位決定要生成哪些表情和用途
+         - 每個 prompt 必須包含完整的 CHARACTER_BLOCK + negative prompt
+         - 如果 Gemini 支援圖片參考，附上 Duolingo_Real_leopard_cat.jpg 作為 style reference
+         - 輸出：mascot_thumbnail.png, mascot_endcard.png（透明背景）
+
+      2. 場景素材（根據 type 決定）：
+         - standard/hybrid: Gemini 場景圖 + 定裝照，Seedance 影片
+         - ranking: Gemini 食材圖，Pillow 圖卡 + ElevenLabs TTS
+         - quick_cut: Gemini 靜態圖 + 字幕疊加
+
+      3. 縮圖組合（自動）：
+         - 將場景主圖 + mascot_thumbnail.png 疊加，生成最終縮圖
 
       episode JSON: {{episode_json}}
     output: asset_paths

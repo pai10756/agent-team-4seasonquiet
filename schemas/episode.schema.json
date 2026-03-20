@@ -138,6 +138,11 @@
       "description": "影片分段。standard=Part1+Part2 scenes, ranking=hook+ranking_cards+cta"
     },
 
+    "mascot": {
+      "$ref": "#/$defs/mascot_usage",
+      "description": "吉祥物「小靜」在本集的使用方式，asset_gen 據此生成吉祥物素材"
+    },
+
     "creative_direction": {
       "type": "string",
       "description": "scriptwriter 的創意方向自然語言描述（agent 產物，非 skill 產物）"
@@ -288,6 +293,84 @@
         "prompt": {
           "type": "string",
           "description": "圖片生成 prompt（簡體中文或英文），結尾必須含「不要任何文字」類禁止語"
+        }
+      }
+    },
+
+    "mascot_expression": {
+      "type": "string",
+      "enum": ["default", "surprised", "thinking", "happy", "reminder", "goodbye", "worried", "disgusted", "sleepy", "proud", "shushing", "eating"],
+      "description": "小靜的表情（對應 character.json 的 expressions）。base 6 種 + extended 6 種。"
+    },
+
+    "mascot_usage": {
+      "type": "object",
+      "required": ["thumbnail", "end_card"],
+      "properties": {
+        "thumbnail": {
+          "type": "object",
+          "required": ["expression"],
+          "properties": {
+            "expression": { "$ref": "#/$defs/mascot_expression" },
+            "position": {
+              "type": "string",
+              "enum": ["bottom-left", "bottom-right"],
+              "default": "bottom-right"
+            },
+            "rationale": {
+              "type": "string",
+              "description": "為什麼選這個表情（如：主題有認知反差，用 surprised 強化衝擊）"
+            }
+          }
+        },
+        "title_card": {
+          "type": "object",
+          "properties": {
+            "expression": { "$ref": "#/$defs/mascot_expression" },
+            "position": {
+              "type": "string",
+              "enum": ["bottom-left", "bottom-right"],
+              "default": "bottom-right"
+            }
+          }
+        },
+        "end_card": {
+          "type": "object",
+          "required": ["expression"],
+          "properties": {
+            "expression": {
+              "type": "string",
+              "const": "goodbye",
+              "description": "片尾固定用 goodbye 表情"
+            }
+          }
+        },
+        "prop": {
+          "type": "string",
+          "description": "小靜手持的主題小道具（icon 級別的簡化食材），如 'tiny bowl of porridge'、'tiny egg'、'tiny glass of milk with X mark'。不指定則不拿道具。"
+        },
+        "outfit": {
+          "type": "string",
+          "enum": ["apron", "none", "sport_vest", "sleep_cap", "scarf", "doctor_coat", "lunar_new_year", "mid_autumn", "dragon_boat"],
+          "default": "apron",
+          "description": "服裝選擇（對應 character.json 的 outfit.options + seasonal）。scriptwriter 根據主題選用，不指定時預設 apron。"
+        },
+        "in_video": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["timestamp", "expression", "usage"],
+            "properties": {
+              "timestamp": { "type": "string", "description": "出現時間點" },
+              "expression": { "$ref": "#/$defs/mascot_expression" },
+              "usage": {
+                "type": "string",
+                "enum": ["overlay", "knowledge_card", "transition"],
+                "description": "使用方式"
+              }
+            }
+          },
+          "description": "影片中出現的時機（可選，ranking 型態的知識卡可用）"
         }
       }
     },
