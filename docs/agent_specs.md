@@ -25,19 +25,33 @@
 
 ---
 
+## 契約 Schema（Source of Truth）
+
+所有 agent 之間的交接格式以 `schemas/` 目錄下的 JSON Schema 為唯一標準：
+
+| Schema | 產出者 | 消費者 | 說明 |
+|--------|--------|--------|------|
+| `episode.schema.json` | scriptwriter | reviewer, asset_gen, assembler | 主契約：episode JSON 的完整欄位定義 |
+| `review_result.schema.json` | reviewer | scriptwriter, radix | 結構化審查結果，含錯誤代碼和自動修正標記 |
+| `research_report.schema.json` | researcher | scriptwriter | 研究報告格式，含認知反差點和數據可信度 |
+
+Reviewer 的鎖死層檢查項目直接對應 `review_result.schema.json` 中定義的 violation codes。
+
+---
+
 ## Scriptwriter 三層規範
 
-### 鎖死層（寫進 system prompt）
+### 鎖死層（寫進 system prompt，對應 review_result violation codes）
 
-| 規則 | 原因 |
-|------|------|
-| JSON schema 必須完整（所有必填欄位） | 下游 asset_gen 和 assembler 會壞掉 |
-| 字幕繁體中文，Seedance prompt 簡體中文 | 平台限制 |
-| 每句 6-12 字 | 字幕可讀性 |
-| 結尾必須提到頻道名「時時靜好」+ 告別語 | 品牌辨識（允許措辭變體） |
-| 營養數據必須附 USDA/衛福部來源 | 公信力 |
-| 不說「超級食物」、不做療效宣稱 | 法規合規 |
-| 總時長 ~33 秒（3+15+15） | 格式規格 |
+| 規則 | 原因 | Violation Code |
+|------|------|----------------|
+| JSON schema 必須完整（所有必填欄位） | 下游 asset_gen 和 assembler 會壞掉 | `SCHEMA_INCOMPLETE` |
+| 字幕繁體中文，Seedance prompt 簡體中文 | 平台限制 | `SUBTITLE_NOT_ZHTW` / `PROMPT_NOT_ZHCN` |
+| 每句 6-12 字 | 字幕可讀性 | `SUBTITLE_TOO_LONG` / `SUBTITLE_TOO_SHORT` |
+| 結尾必須提到頻道名「時時靜好」+ 告別語 | 品牌辨識（允許措辭變體） | `MISSING_BRAND_CLOSING` |
+| 營養數據必須附 USDA/衛福部來源 | 公信力 | `MISSING_DATA_SOURCE` |
+| 不說「超級食物」、不做療效宣稱 | 法規合規 | `MEDICAL_CLAIM` |
+| 總時長 ~33 秒（3+15+15） | 格式規格 | `DURATION_OUT_OF_RANGE` |
 
 ### 護欄層（寫進記憶，可被績效數據覆寫）
 
@@ -116,6 +130,24 @@ scriptwriter 自由產出
   → 自由層完全不管
   → 通過 → 進入 asset_gen
 ```
+
+### 收斂機制（防止無限 loop）
+
+```
+第 1 輪審查 → fail
+  → scriptwriter 根據 auto_fixable violations 自動修正
+第 2 輪審查 → fail
+  → 同上，再修一輪
+第 3 輪審查 → 仍 fail
+  → 檢查：剩餘 violations 是否全部 needs_human？
+    ├─ 是 → pass_with_notes，通知人工，管線繼續
+    └─ 否 → 終止工作流，回報錯誤給 radix
+```
+
+Reviewer 輸出格式見 `schemas/review_result.schema.json`，包含：
+- **verdict**: pass / fail / pass_with_notes
+- **violation codes**: 機器可讀錯誤代碼 + field_path + fix_hint
+- **auto_fixable 標記**: scriptwriter 可自動修正 vs 需人工判斷
 
 ---
 

@@ -4,39 +4,109 @@
 name: produce_shorts_episode
 trigger: "做一集*"
 
+# Schema 契約（所有 agent 交接的 source of truth）
+schemas:
+  research_report: ../schemas/research_report.schema.json
+  episode_json: ../schemas/episode.schema.json
+  review_result: ../schemas/review_result.schema.json
+
 steps:
   - name: research
     agent: researcher
-    prompt: "從 night-thinking 選題庫中，根據用戶指定主題進行研究查證。查 USDA/衛福部數據，找認知反差點，評估爆量潛力。"
+    prompt: |
+      從 night-thinking 選題庫中，根據用戶指定主題進行研究查證。
+      查 USDA/衛福部數據，找認知反差點，評估爆量潛力。
+      輸出必須符合 research_report.schema.json。
     output: research_report
+    validate: research_report.schema.json
 
   - name: write_script
     agent: scriptwriter
     prompt: |
       根據以下研究報告，撰寫完整 episode JSON。
       要求：
-      - 產出 3-5 個 hook 變體（按認知層級分類）
-      - 判斷最適合的影片型態（standard/ranking/hybrid/quick_cut），說明理由
+      - 輸出必須符合 episode.schema.json
+      - 產出 3-5 個 hook 變體（按認知層級分類：unaware/problem_aware/solution_aware/audience）
+      - 判斷最適合的影片型態（standard/ranking/hybrid/quick_cut），在 type_rationale 說明理由
       - 先思考創意劇本（情緒弧線、場景構思），再用 seedance skill 翻譯成技術 prompt
       - 從 characters/ 資產庫選用角色
+      {{#if review_result}}
+      ⚠️ 這是第 {{review_result.attempt}} 輪修改。請根據以下審查結果修正：
+      違規項目：{{review_result.lock_layer.violations}}
+      只需修正 auto_fixable 的項目，needs_human 的問題會由人工處理。
+      {{/if}}
       研究報告：{{research_report}}
     output: episode_json
+    validate: episode.schema.json
 
   - name: review_script
     agent: reviewer
     prompt: |
-      審查這份劇本：
-      - 鎖死層：JSON schema 完整？字幕繁中/prompt 簡中？數據有來源？
-      - 護欄層：hook 用了什麼框架？是否符合歷史績效偏好？
-      - 標注 type_rationale 是否合理
+      審查這份劇本，輸出必須符合 review_result.schema.json。
+      當前審查輪次：{{_attempt}}
+
+      鎖死層檢查（violation → verdict: fail）：
+      - SCHEMA_INCOMPLETE: episode.schema.json 必填欄位是否完整
+      - SUBTITLE_NOT_ZHTW: 字幕是否為繁體中文
+      - PROMPT_NOT_ZHCN: Seedance prompt / scene_image prompt 是否為簡體中文
+      - SUBTITLE_TOO_LONG: 字幕是否每句 ≤ 12 字（最多 15 字）
+      - MISSING_BRAND_CLOSING: 結尾是否提到「時時靜好」+ 告別語
+      - MISSING_DATA_SOURCE: 營養數據是否附 USDA/衛福部來源
+      - MEDICAL_CLAIM: 是否有「超級食物」或療效宣稱
+      - DURATION_OUT_OF_RANGE: 總時長是否 ~33 秒（±3 秒）
+      - HOOK_VARIANTS_INSUFFICIENT: hook_variants 是否 ≥ 3 個
+      - SCENE_IMAGE_MISSING_PROHIBITION: prompt 結尾是否含「不要任何文字」類禁止語
+
+      護欄層檢查（guardrail_note，不阻擋）：
+      - hook_framework: hook 是否用了「顛覆認知」框架
+      - numeric_contrast: 數字反差是否 ≥ 3 倍
+      - framing_tone: 正面框架 vs 恐嚇框架
+      - reveal_order: 排行榜揭曉順序是否由低到高
+
+      對每個 violation 標注 auto_fixable: true/false。
       劇本：{{episode_json}}
     output: review_result
-    on_fail: goto write_script
+    validate: review_result.schema.json
+
+    # 收斂機制
+    on_fail:
+      goto: write_script
+      max_retries: 3
+      escalation: |
+        第 1-2 輪：只修正 auto_fixable 的 violation，scriptwriter 自動修改。
+        第 3 輪：如果仍有 violation，檢查是否全部為 needs_human。
+          - 若全部 needs_human → 跳過 review，標記為 pass_with_notes，通知人工。
+          - 若仍有 auto_fixable 未修 → 終止工作流，回報錯誤給 radix。
+    on_needs_human:
+      action: send_message
+      channel: line
+      message: |
+        ⚠️ 劇本審查需要人工介入
+        第 {{review_result.attempt}} 輪審查仍有以下問題無法自動修正：
+        {{review_result.needs_human}}
+        請在 LINE 回覆「繼續」或提供修改指示。
 
   - name: generate_assets
     agent: asset_gen
-    prompt: "根據 {{episode_json}} 執行素材生成：Gemini 場景圖 + 定裝照，Seedance 影片（或 Pillow 圖卡 + ElevenLabs TTS）"
+    prompt: |
+      根據 episode JSON 執行素材生成。
+      根據 type 欄位決定生成策略：
+      - standard/hybrid: Gemini 場景圖 + 定裝照，Seedance 影片
+      - ranking: Gemini 食材圖，Pillow 圖卡 + ElevenLabs TTS
+      - quick_cut: Gemini 靜態圖 + 字幕疊加
+
+      episode JSON: {{episode_json}}
     output: asset_paths
+    # Seedance fallback：API 不可用時退回 quick_cut 模式
+    on_error:
+      - condition: seedance_api_unavailable
+        action: |
+          將 type 降級為 quick_cut，使用 Gemini 靜態圖 + ffmpeg 字幕疊加替代。
+          記錄降級原因到 asset_paths.fallback_note。
+          繼續執行，不中斷管線。
+      - condition: other
+        action: terminate
+        message: "素材生成失敗：{{error}}"
 
   - name: assemble
     agent: assembler
@@ -49,4 +119,5 @@ steps:
     message: |
       新一集完成！
       {{final_video}}
+      {{#if asset_paths.fallback_note}}⚠️ 注意：{{asset_paths.fallback_note}}{{/if}}
       請審片後上傳 YouTube。

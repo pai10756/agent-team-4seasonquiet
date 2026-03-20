@@ -1,0 +1,497 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "episode.schema.json",
+  "title": "時時靜好 Episode JSON",
+  "description": "scriptwriter 輸出、reviewer 驗證、asset_gen / assembler 消費的主契約。所有 agent 交接以此 schema 為 source of truth。",
+  "type": "object",
+
+  "required": [
+    "series", "episode", "type", "topic_title",
+    "format", "format_name",
+    "hook_text", "hook_variants",
+    "type_rationale",
+    "research_sources", "scene_images", "global_spec",
+    "parts", "subtitles", "sound", "music",
+    "youtube_metadata"
+  ],
+
+  "properties": {
+    "series": {
+      "type": "string",
+      "description": "系列名稱",
+      "examples": ["長輩廚房｜吃對了嗎？"]
+    },
+    "sub_series": {
+      "type": "string",
+      "description": "子系列名稱（ranking 型態時使用）",
+      "examples": ["營養素排行榜"]
+    },
+    "episode": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "集數"
+    },
+    "topic_id": {
+      "type": "integer",
+      "description": "對應 night-thinking 選題庫的 topic ID"
+    },
+    "topic_title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "主題標題"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["standard", "ranking", "hybrid", "quick_cut"],
+      "description": "影片型態。standard=Seedance人物敘事, ranking=圖卡排行榜, hybrid=混合, quick_cut=圖文快剪"
+    },
+    "type_rationale": {
+      "type": "string",
+      "minLength": 10,
+      "description": "選擇此型態的理由，需說明判斷依據（數據密度、情緒轉折、成本等）"
+    },
+    "format": {
+      "type": "string",
+      "enum": ["E", "A"],
+      "description": "E=廚房居家, A=演播室主播"
+    },
+    "format_name": {
+      "type": "string",
+      "enum": ["廚房居家", "演播室主播"],
+      "description": "format 的可讀名稱"
+    },
+
+    "hook_text": {
+      "type": "string",
+      "minLength": 6,
+      "description": "主 hook（繁體中文，6-10 字為佳）"
+    },
+    "hook_variants": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": { "$ref": "#/$defs/hook_variant" },
+      "description": "3-5 個 hook 變體，按認知層級分類"
+    },
+
+    "research_sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/research_source" },
+      "description": "研究來源（USDA / PubMed / 衛福部等）"
+    },
+
+    "title_card": {
+      "$ref": "#/$defs/title_card",
+      "description": "片頭標題卡資訊"
+    },
+
+    "scene_images": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/scene_image" },
+      "description": "場景圖定義（Gemini 生成用）"
+    },
+
+    "global_spec": {
+      "type": "string",
+      "minLength": 10,
+      "description": "全域視覺規格（簡體中文），套用到所有視覺素材"
+    },
+
+    "character": {
+      "type": "string",
+      "description": "角色描述（standard/hybrid 型態必填）"
+    },
+    "character_id": {
+      "type": "string",
+      "description": "角色資產庫 ID（對應 elder_kitchen/characters/）"
+    },
+
+    "ranking_data": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "$ref": "#/$defs/ranking_item" },
+      "description": "排行榜數據（ranking/hybrid 型態必填）"
+    },
+    "comparison_note": {
+      "type": "string",
+      "description": "排行榜比較基準說明"
+    },
+    "data_source": {
+      "type": "string",
+      "description": "排行榜主要數據來源"
+    },
+    "myth_bust": {
+      "type": "string",
+      "description": "破除迷思補充"
+    },
+    "production_method": {
+      "type": "string",
+      "description": "製作方式說明"
+    },
+
+    "parts": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "$ref": "#/$defs/part" },
+      "description": "影片分段。standard=Part1+Part2 scenes, ranking=hook+ranking_cards+cta"
+    },
+
+    "creative_direction": {
+      "type": "string",
+      "description": "scriptwriter 的創意方向自然語言描述（agent 產物，非 skill 產物）"
+    },
+    "seedance_prompts": {
+      "type": "object",
+      "properties": {
+        "seedance_part1": { "type": "string" },
+        "seedance_part2": { "type": "string" }
+      },
+      "description": "Seedance 影片生成 prompt（skill 產物，standard/hybrid 型態）"
+    },
+
+    "voiceover": {
+      "$ref": "#/$defs/voiceover",
+      "description": "TTS 配音設定（ranking/hybrid 型態使用）"
+    },
+
+    "sound": {
+      "type": "string",
+      "description": "環境音描述"
+    },
+    "music": {
+      "type": "string",
+      "description": "配樂描述"
+    },
+
+    "subtitles": {
+      "type": "array",
+      "minItems": 5,
+      "items": { "$ref": "#/$defs/subtitle" },
+      "description": "字幕列表（繁體中文，每句 6-12 字）"
+    },
+
+    "youtube_metadata": {
+      "$ref": "#/$defs/youtube_metadata",
+      "description": "YouTube 上傳用元資料"
+    }
+  },
+
+  "allOf": [
+    {
+      "if": {
+        "properties": { "type": { "const": "standard" } }
+      },
+      "then": {
+        "required": ["character"],
+        "properties": {
+          "parts": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/standard_part" }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "type": { "const": "ranking" } }
+      },
+      "then": {
+        "required": ["ranking_data", "voiceover", "comparison_note"]
+      }
+    },
+    {
+      "if": {
+        "properties": { "type": { "const": "hybrid" } }
+      },
+      "then": {
+        "required": ["character", "ranking_data"]
+      }
+    }
+  ],
+
+  "$defs": {
+    "hook_variant": {
+      "type": "object",
+      "required": ["level", "text"],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["unaware", "problem_aware", "solution_aware", "audience"],
+          "description": "認知層級: unaware=完全不知道, problem_aware=知道問題, solution_aware=知道解法, audience=已是觀眾"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 6,
+          "description": "Hook 文案（繁體中文）"
+        },
+        "rationale": {
+          "type": "string",
+          "description": "為什麼這個 hook 對此認知層級有效"
+        }
+      }
+    },
+
+    "research_source": {
+      "type": "object",
+      "required": ["citation", "key_finding"],
+      "properties": {
+        "citation": {
+          "type": "string",
+          "description": "引用來源（期刊/機構名稱 + 年份）"
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https?://",
+          "description": "來源 URL"
+        },
+        "key_finding": {
+          "type": "string",
+          "description": "關鍵發現"
+        }
+      }
+    },
+
+    "title_card": {
+      "type": "object",
+      "required": ["line1", "line2"],
+      "properties": {
+        "line1": { "type": "string" },
+        "line2": { "type": "string" },
+        "source_text": {
+          "type": "string",
+          "description": "資料來源標注"
+        }
+      }
+    },
+
+    "scene_image": {
+      "type": "object",
+      "required": ["id", "part", "description", "prompt"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "part": {
+          "oneOf": [
+            { "type": "integer", "minimum": 1, "maximum": 2 },
+            { "type": "string", "description": "ranking 型態用字串 part 名稱 (hook_bg, food_xxx, cta_bg)" }
+          ],
+          "description": "所屬 part（standard 用數字 1/2，ranking 用字串標識）"
+        },
+        "description": {
+          "type": "string",
+          "description": "場景描述（繁體中文）"
+        },
+        "prompt": {
+          "type": "string",
+          "description": "圖片生成 prompt（簡體中文或英文），結尾必須含「不要任何文字」類禁止語"
+        }
+      }
+    },
+
+    "ranking_item": {
+      "type": "object",
+      "required": ["rank", "food", "value", "unit", "comparison"],
+      "properties": {
+        "rank": { "type": "integer", "minimum": 1 },
+        "food": { "type": "string", "description": "食材名稱（繁體中文）" },
+        "food_en": { "type": "string", "description": "食材英文名" },
+        "value": { "type": "number", "description": "數值" },
+        "unit": { "type": "string", "description": "單位", "examples": ["mg/100g"] },
+        "serving_note": { "type": "string", "description": "一份量換算說明" },
+        "comparison": { "type": "string", "description": "與基準的倍數比較" },
+        "absorption_note": { "type": "string", "description": "吸收率/生物利用率備注" },
+        "food_image": { "type": "string", "description": "食材圖檔名" }
+      }
+    },
+
+    "standard_part": {
+      "type": "object",
+      "required": ["part", "scenes"],
+      "properties": {
+        "part": { "type": "integer", "enum": [1, 2] },
+        "scenes": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/scene" }
+        }
+      }
+    },
+
+    "scene": {
+      "type": "object",
+      "required": ["time", "scene_ref", "scene_desc", "action", "camera", "dialogue"],
+      "properties": {
+        "time": {
+          "type": "string",
+          "pattern": "^\\d+-\\d+秒$",
+          "description": "時間段，格式如 '0-5秒'"
+        },
+        "scene_ref": {
+          "type": "integer",
+          "description": "對應 scene_images[].id"
+        },
+        "scene_desc": {
+          "type": "string",
+          "description": "場景描述（簡體中文，給 Seedance 用）"
+        },
+        "action": {
+          "type": "string",
+          "description": "角色動作描述（簡體中文）"
+        },
+        "camera": {
+          "type": "string",
+          "description": "鏡頭運動（簡體中文，如 '中景缓慢推近至近景'）"
+        },
+        "dialogue": {
+          "type": "string",
+          "description": "台詞（簡體中文），句間用 || 分隔"
+        }
+      }
+    },
+
+    "part": {
+      "type": "object",
+      "required": ["part"],
+      "properties": {
+        "part": {
+          "oneOf": [
+            { "type": "integer" },
+            { "type": "string" }
+          ],
+          "description": "Part 標識（standard 用數字，ranking 用字串如 'hook', 'ranking_cards', 'cta'）"
+        },
+        "duration": { "type": "string", "description": "時間範圍" },
+        "method": {
+          "type": "string",
+          "enum": ["seedance", "pillow_ffmpeg", "gemini_static"],
+          "description": "製作方法"
+        },
+        "scenes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/scene" }
+        },
+        "visual": { "type": "string" },
+        "title_overlay": { "$ref": "#/$defs/title_card" },
+        "cards": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ranking_card" }
+        },
+        "note": { "type": "string" }
+      }
+    },
+
+    "ranking_card": {
+      "type": "object",
+      "required": ["rank", "display_time", "food", "value_display", "bar_ratio"],
+      "properties": {
+        "rank": { "type": "integer" },
+        "display_time": { "type": "string", "description": "顯示時間範圍" },
+        "food": { "type": "string" },
+        "value_display": { "type": "string", "description": "顯示用數值（含單位）" },
+        "bar_ratio": {
+          "type": "number", "minimum": 0, "maximum": 1,
+          "description": "數據條比例（1.0 = 最大值）"
+        },
+        "highlight": { "type": "string", "description": "高亮重點文字" },
+        "food_image_ref": { "type": "integer", "description": "對應 scene_images[].id" }
+      }
+    },
+
+    "voiceover": {
+      "type": "object",
+      "required": ["engine", "segments"],
+      "properties": {
+        "engine": {
+          "type": "string",
+          "enum": ["elevenlabs"],
+          "description": "TTS 引擎"
+        },
+        "model": { "type": "string", "examples": ["eleven_v3"] },
+        "voice_settings": {
+          "type": "object",
+          "properties": {
+            "stability": { "type": "number", "minimum": 0, "maximum": 1 },
+            "similarity_boost": { "type": "number", "minimum": 0, "maximum": 1 },
+            "style": { "type": "number", "minimum": 0, "maximum": 1 },
+            "use_speaker_boost": { "type": "boolean" },
+            "speed": { "type": "number", "minimum": 0.5, "maximum": 2.0 }
+          }
+        },
+        "pronunciation_notes": { "type": "string" },
+        "note": { "type": "string" },
+        "segments": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/voiceover_segment" }
+        }
+      }
+    },
+
+    "voiceover_segment": {
+      "type": "object",
+      "required": ["id", "part", "text"],
+      "properties": {
+        "id": { "type": "integer", "minimum": 0 },
+        "part": { "type": "string", "description": "段落標識" },
+        "text": {
+          "type": "string",
+          "description": "配音文字（簡體中文），可含情緒標記如 [upbeat][warm]"
+        }
+      }
+    },
+
+    "subtitle": {
+      "type": "object",
+      "required": ["text", "start", "end"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 15,
+          "description": "字幕文字（繁體中文，6-12 字為佳，最多 15 字）"
+        },
+        "start": {
+          "type": "number",
+          "minimum": 0,
+          "description": "開始時間（秒）"
+        },
+        "end": {
+          "type": "number",
+          "minimum": 0,
+          "description": "結束時間（秒）"
+        },
+        "style": {
+          "type": "string",
+          "enum": ["main", "ranking", "data", "ranking_champion", "comparison"],
+          "description": "字幕樣式"
+        }
+      }
+    },
+
+    "youtube_metadata": {
+      "type": "object",
+      "required": ["title", "description", "hashtags"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "影片標題，需含「時時靜好」"
+        },
+        "description": {
+          "type": "string",
+          "description": "影片說明，需含研究來源"
+        },
+        "hashtags": {
+          "type": "array",
+          "minItems": 5,
+          "items": { "type": "string", "pattern": "^#" },
+          "description": "Hashtags，必須含 #時時靜好 和 #Shorts"
+        }
+      }
+    }
+  }
+}

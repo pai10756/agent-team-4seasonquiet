@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "research_report.schema.json",
+  "title": "Research Report",
+  "description": "researcher 輸出給 scriptwriter 的研究報告契約。",
+  "type": "object",
+
+  "required": [
+    "topic", "topic_id",
+    "cognitive_gap", "verified_data",
+    "sources", "recommended_type",
+    "engagement_signals"
+  ],
+
+  "properties": {
+    "topic": {
+      "type": "string",
+      "description": "研究主題"
+    },
+    "topic_id": {
+      "type": "integer",
+      "description": "night-thinking 選題庫 ID"
+    },
+
+    "cognitive_gap": {
+      "type": "object",
+      "required": ["common_belief", "actual_finding", "contrast_magnitude"],
+      "description": "認知反差點 — scriptwriter 用來設計 hook",
+      "properties": {
+        "common_belief": {
+          "type": "string",
+          "description": "大眾普遍認知（要被顛覆的）"
+        },
+        "actual_finding": {
+          "type": "string",
+          "description": "研究實際發現"
+        },
+        "contrast_magnitude": {
+          "type": "string",
+          "description": "反差程度描述（如 '12倍差距'、'完全相反'）"
+        }
+      }
+    },
+
+    "verified_data": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["claim", "source_citation", "confidence"],
+        "properties": {
+          "claim": {
+            "type": "string",
+            "description": "可引用的數據聲明"
+          },
+          "source_citation": {
+            "type": "string",
+            "description": "來源引用（期刊+年份 或 機構）"
+          },
+          "source_url": {
+            "type": "string",
+            "pattern": "^https?://"
+          },
+          "confidence": {
+            "type": "string",
+            "enum": ["high", "medium", "low"],
+            "description": "數據可信度: high=RCT/系統回顧, medium=觀察性研究, low=單一小型研究"
+          }
+        }
+      },
+      "description": "已查證的數據點"
+    },
+
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["citation", "key_finding"],
+        "properties": {
+          "citation": { "type": "string" },
+          "url": { "type": "string", "pattern": "^https?://" },
+          "key_finding": { "type": "string" },
+          "study_type": {
+            "type": "string",
+            "enum": ["rct", "meta_analysis", "cohort", "cross_sectional", "review", "guideline", "database"],
+            "description": "研究類型"
+          }
+        }
+      }
+    },
+
+    "recommended_type": {
+      "type": "string",
+      "enum": ["standard", "ranking", "hybrid", "quick_cut"],
+      "description": "建議的影片型態"
+    },
+    "type_reasoning": {
+      "type": "string",
+      "description": "為什麼建議此型態"
+    },
+
+    "engagement_signals": {
+      "type": "object",
+      "required": ["virality_score"],
+      "properties": {
+        "virality_score": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "description": "爆量潛力評分 1-10"
+        },
+        "reasons": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "爆量理由"
+        },
+        "risks": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "潛在風險（如爭議性、合規問題）"
+        }
+      }
+    },
+
+    "ranking_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["item", "value", "unit", "source"],
+        "properties": {
+          "item": { "type": "string" },
+          "value": { "type": "number" },
+          "unit": { "type": "string" },
+          "source": { "type": "string" }
+        }
+      },
+      "description": "如果建議 ranking 型態，提供排行候選數據"
+    }
+  }
+}

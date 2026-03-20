@@ -65,6 +65,8 @@ radix 收到指令（如「做一集維生素C排行榜」）
 
 ### JSON 標注
 
+完整欄位定義見 `schemas/episode.schema.json`（source of truth）。
+
 ```json
 {
   "type": "standard | ranking | hybrid | quick_cut",

@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "review_result.schema.json",
+  "title": "Review Result",
+  "description": "reviewer 輸出的結構化審查結果。machine-readable，讓 scriptwriter 知道「改什麼」而不是「哪裡不好」。",
+  "type": "object",
+
+  "required": ["verdict", "lock_layer", "guardrail_layer", "summary"],
+
+  "properties": {
+    "verdict": {
+      "type": "string",
+      "enum": ["pass", "fail", "pass_with_notes"],
+      "description": "pass=通過, fail=鎖死層違規必須修改, pass_with_notes=護欄層有偏離但不阻擋"
+    },
+
+    "attempt": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "當前是第幾輪審查（由 workflow 注入）"
+    },
+
+    "lock_layer": {
+      "type": "object",
+      "required": ["passed", "violations"],
+      "description": "鎖死層檢查結果 — 任一違規 → verdict 必須為 fail",
+      "properties": {
+        "passed": { "type": "boolean" },
+        "violations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/violation" }
+        }
+      }
+    },
+
+    "guardrail_layer": {
+      "type": "object",
+      "required": ["notes"],
+      "description": "護欄層檢查結果 — 偏離會記錄但不一定阻擋",
+      "properties": {
+        "notes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/guardrail_note" }
+        }
+      }
+    },
+
+    "summary": {
+      "type": "string",
+      "description": "給人讀的簡短審查摘要（1-3 句）"
+    },
+
+    "auto_fixable": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "scriptwriter 可以自動修正的錯誤代碼列表（無需人工介入）"
+    },
+
+    "needs_human": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "需要人工判斷的問題代碼列表"
+    }
+  },
+
+  "$defs": {
+    "violation": {
+      "type": "object",
+      "required": ["code", "severity", "message", "fix_hint"],
+      "properties": {
+        "code": {
+          "type": "string",
+          "enum": [
+            "SCHEMA_INCOMPLETE",
+            "SUBTITLE_NOT_ZHTW",
+            "PROMPT_NOT_ZHCN",
+            "SUBTITLE_TOO_LONG",
+            "SUBTITLE_TOO_SHORT",
+            "MISSING_BRAND_CLOSING",
+            "MISSING_DATA_SOURCE",
+            "MEDICAL_CLAIM",
+            "DURATION_OUT_OF_RANGE",
+            "HOOK_VARIANTS_INSUFFICIENT",
+            "SCENE_IMAGE_MISSING_PROHIBITION",
+            "TYPE_RATIONALE_MISSING"
+          ],
+          "description": "機器可讀錯誤代碼"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["error", "warning"],
+          "description": "error=必修, warning=建議修"
+        },
+        "message": {
+          "type": "string",
+          "description": "人可讀的錯誤描述"
+        },
+        "field_path": {
+          "type": "string",
+          "description": "出錯的 JSON 欄位路徑，如 'subtitles[3].text' 或 'hook_variants'"
+        },
+        "fix_hint": {
+          "type": "string",
+          "description": "具體修正建議，讓 scriptwriter 知道怎麼改"
+        },
+        "auto_fixable": {
+          "type": "boolean",
+          "default": false,
+          "description": "scriptwriter 是否可以不需要人工就自動修正此問題"
+        }
+      }
+    },
+
+    "guardrail_note": {
+      "type": "object",
+      "required": ["aspect", "observation"],
+      "properties": {
+        "aspect": {
+          "type": "string",
+          "enum": [
+            "hook_framework",
+            "numeric_contrast",
+            "framing_tone",
+            "reveal_order",
+            "camera_style",
+            "color_palette"
+          ],
+          "description": "護欄面向"
+        },
+        "observation": {
+          "type": "string",
+          "description": "觀察到的偏離或建議"
+        },
+        "suggestion": {
+          "type": "string",
+          "description": "改進建議（非強制）"
+        }
+      }
+    }
+  }
+}
