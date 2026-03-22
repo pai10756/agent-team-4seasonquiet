@@ -7,7 +7,7 @@
       "name": "製片人 radix",
       "model": "anthropic/claude-sonnet-4-5",
       "description": "接收指令、拆解任務、調度 worker agents、回報結果",
-      "workspace": "d:/projetcts/elder_kitchen",
+      "workspace": "d:/projects/elder_kitchen",
       // radix 的記憶會累積每集績效數據
     },
 
@@ -15,7 +15,7 @@
       "name": "選題研究員",
       "model": "anthropic/claude-sonnet-4-5",
       "description": "從 night-thinking 選題庫挑選主題、查證 USDA/PubMed 數據",
-      "workspace": "d:/projetcts/night-thinking",
+      "workspace": "d:/projects/night-thinking",
       "skills": ["web-search", "web-fetch", "file-read"],
       // 輸出：選題推薦報告（爆量潛力評分、已查證數據、來源）
     },
@@ -24,11 +24,11 @@
       "name": "劇本編劇",
       "model": "anthropic/claude-opus-4-6",
       "description": "產出 episode JSON（含 hook 變體、字幕、Seedance prompt、YouTube 元資料）",
-      "workspace": "d:/projetcts/elder_kitchen",
+      "workspace": "d:/projects/elder_kitchen",
       "memories": [
         // 載入 seedance skill 和 workflow 作為永久知識
-        "d:/projetcts/elder_kitchen/.claude/skills/seedance/SKILL.md",
-        "d:/projetcts/health-digest-factory/SEEDANCE_WORKFLOW.md"
+        "d:/projects/elder_kitchen/.claude/skills/seedance/SKILL.md",
+        "d:/projects/health-digest-factory/SEEDANCE_WORKFLOW.md"
       ],
       // 兩階段工作：1) agent 思考創意劇本 2) seedance skill 翻譯成技術 prompt
     },
@@ -37,7 +37,7 @@
       "name": "素材生成師",
       "model": "anthropic/claude-sonnet-4-5",
       "description": "Gemini 生成定裝照/場景圖、ElevenLabs TTS、Pillow 圖卡、Seedance 影片",
-      "workspace": "d:/projetcts/elder_kitchen",
+      "workspace": "d:/projects/elder_kitchen",
       "skills": ["shell", "file-read"],
       // 工具分工：Gemini = 所有圖片，Seedance = 只做影片
     },
@@ -46,7 +46,7 @@
       "name": "剪輯師",
       "model": "anthropic/claude-sonnet-4-5",
       "description": "執行 assemble_episode.py 組裝最終影片",
-      "workspace": "d:/projetcts/elder_kitchen",
+      "workspace": "d:/projects/elder_kitchen",
       "skills": ["shell"],
     },
 
@@ -54,7 +54,7 @@
       "name": "品質審查員",
       "model": "anthropic/claude-opus-4-6",
       "description": "檢查 hook 力度、數據正確性、字幕格式、三層規範合規",
-      "workspace": "d:/projetcts/elder_kitchen",
+      "workspace": "d:/projects/elder_kitchen",
       // 鎖死層：不過就打回
       // 護欄層：標注偏離但不一定打回
       // 自由層：完全不管

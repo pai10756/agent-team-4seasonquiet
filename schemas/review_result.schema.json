@@ -1,29 +1,27 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "review_result.schema.json",
-  "title": "Review Result",
-  "description": "reviewer 輸出的結構化審查結果。machine-readable，讓 scriptwriter 知道「改什麼」而不是「哪裡不好」。",
+  "title": "Review Result v3",
+  "description": "reviewer 輸出的結構化審查結果。v3 新增 visual_brand_layer 美感與品牌一致性審查。",
   "type": "object",
 
-  "required": ["verdict", "lock_layer", "guardrail_layer", "summary"],
+  "required": ["verdict", "lock_layer", "guardrail_layer", "visual_brand_layer", "summary"],
 
   "properties": {
     "verdict": {
       "type": "string",
-      "enum": ["pass", "fail", "pass_with_notes"],
-      "description": "pass=通過, fail=鎖死層違規必須修改, pass_with_notes=護欄層有偏離但不阻擋"
+      "enum": ["pass", "fail", "pass_with_notes"]
     },
 
     "attempt": {
       "type": "integer",
-      "minimum": 1,
-      "description": "當前是第幾輪審查（由 workflow 注入）"
+      "minimum": 1
     },
 
     "lock_layer": {
       "type": "object",
       "required": ["passed", "violations"],
-      "description": "鎖死層檢查結果 — 任一違規 → verdict 必須為 fail",
+      "description": "鎖死層 — 任一違規 = fail",
       "properties": {
         "passed": { "type": "boolean" },
         "violations": {
@@ -33,10 +31,27 @@
       }
     },
 
+    "visual_brand_layer": {
+      "type": "object",
+      "required": ["passed", "violations"],
+      "description": "美感與品牌一致性審查 — 任一違規 = fail",
+      "properties": {
+        "passed": { "type": "boolean" },
+        "violations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/violation" }
+        },
+        "checklist": {
+          "$ref": "#/$defs/visual_checklist",
+          "description": "Yes/No 快速檢查清單"
+        }
+      }
+    },
+
     "guardrail_layer": {
       "type": "object",
       "required": ["notes"],
-      "description": "護欄層檢查結果 — 偏離會記錄但不一定阻擋",
+      "description": "護欄層 — 偏離記錄但不阻擋",
       "properties": {
         "notes": {
           "type": "array",
@@ -47,19 +62,17 @@
 
     "summary": {
       "type": "string",
-      "description": "給人讀的簡短審查摘要（1-3 句）"
+      "description": "簡短審查摘要（1-3 句）"
     },
 
     "auto_fixable": {
       "type": "array",
-      "items": { "type": "string" },
-      "description": "scriptwriter 可以自動修正的錯誤代碼列表（無需人工介入）"
+      "items": { "type": "string" }
     },
 
     "needs_human": {
       "type": "array",
-      "items": { "type": "string" },
-      "description": "需要人工判斷的問題代碼列表"
+      "items": { "type": "string" }
     }
   },
 
@@ -82,32 +95,61 @@
             "DURATION_OUT_OF_RANGE",
             "HOOK_VARIANTS_INSUFFICIENT",
             "SCENE_IMAGE_MISSING_PROHIBITION",
-            "TYPE_RATIONALE_MISSING"
-          ],
-          "description": "機器可讀錯誤代碼"
+            "TYPE_RATIONALE_MISSING",
+            "MISSING_CORE_CLAIM",
+            "MISSING_SINGLE_TAKEAWAY",
+
+            "MULTIPLE_MAIN_MESSAGES",
+            "VISUAL_NOT_SUPPORTING_MESSAGE",
+            "TOO_MANY_OBJECTS",
+            "TEXT_HARD_TO_SCAN",
+            "CHEAP_SOCIAL_POSTER_STYLE",
+            "HEADLINE_NOT_DOMINANT",
+            "NO_CLEAR_HERO_OBJECT",
+
+            "MASCOT_OVERUSED",
+            "DUPLICATE_MASCOT",
+            "DUPLICATE_3D_MASCOT",
+            "MASCOT_STICKER_LIKE",
+            "MASCOT_IDENTITY_DRIFT",
+            "MASCOT_MATERIAL_DRIFT",
+            "MASCOT_SCALE_TOO_LARGE",
+            "MASCOT_NOT_SUPPORTING_MAIN_MESSAGE",
+            "EMOTION_MISMATCH_WITH_HEADLINE",
+            "HERO_OBJECT_NOT_DOMINANT",
+            "PHOTO_3D_INTEGRATION_POOR",
+            "PHOTO_VECTOR_NOT_INTEGRATED",
+            "OLDER_AUDIENCE_UNFRIENDLY"
+          ]
         },
         "severity": {
           "type": "string",
-          "enum": ["error", "warning"],
-          "description": "error=必修, warning=建議修"
+          "enum": ["error", "warning"]
         },
-        "message": {
-          "type": "string",
-          "description": "人可讀的錯誤描述"
-        },
-        "field_path": {
-          "type": "string",
-          "description": "出錯的 JSON 欄位路徑，如 'subtitles[3].text' 或 'hook_variants'"
-        },
-        "fix_hint": {
-          "type": "string",
-          "description": "具體修正建議，讓 scriptwriter 知道怎麼改"
-        },
+        "message": { "type": "string" },
+        "field_path": { "type": "string" },
+        "fix_hint": { "type": "string" },
         "auto_fixable": {
           "type": "boolean",
-          "default": false,
-          "description": "scriptwriter 是否可以不需要人工就自動修正此問題"
+          "default": false
         }
+      }
+    },
+
+    "visual_checklist": {
+      "type": "object",
+      "description": "Yes/No 快速審查問題",
+      "properties": {
+        "single_main_message": { "type": "boolean", "description": "這張圖是否只有一個主訊息？" },
+        "visual_supports_message": { "type": "boolean", "description": "視覺是否支援該主訊息？" },
+        "headline_readable_1s": { "type": "boolean", "description": "觀眾 1 秒內能否讀到主標？" },
+        "understandable_3s": { "type": "boolean", "description": "觀眾 3 秒內能否理解在講什麼？" },
+        "mascot_single": { "type": "boolean", "description": "是否只有一隻小靜？" },
+        "mascot_no_badge": { "type": "boolean", "description": "小靜是否沒有被用作 badge/貼紙？" },
+        "mascot_emotion_correct": { "type": "boolean", "description": "表情是否正確服務標題？" },
+        "text_large_enough": { "type": "boolean", "description": "字是否夠大（高齡友善）？" },
+        "not_too_busy": { "type": "boolean", "description": "畫面是否不過滿？" },
+        "no_excess_noise": { "type": "boolean", "description": "是否避免過度雜訊？" }
       }
     },
 
@@ -123,18 +165,14 @@
             "framing_tone",
             "reveal_order",
             "camera_style",
-            "color_palette"
-          ],
-          "description": "護欄面向"
+            "color_palette",
+            "layout_balance",
+            "mascot_placement",
+            "hero_object_choice"
+          ]
         },
-        "observation": {
-          "type": "string",
-          "description": "觀察到的偏離或建議"
-        },
-        "suggestion": {
-          "type": "string",
-          "description": "改進建議（非強制）"
-        }
+        "observation": { "type": "string" },
+        "suggestion": { "type": "string" }
       }
     }
   }

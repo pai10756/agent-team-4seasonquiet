@@ -1,0 +1,204 @@
+{
+  "type": "quick_cut",
+  "asset_dir": "test_output\\assets",
+  "success": true,
+  "fallback_note": "Seedance API 不可用，已降級為 quick_cut 模式（靜態圖 + 字幕疊加）",
+  "mascot": {
+    "success": true,
+    "mascot_thumbnail": "test_output\\assets\\mascot_thumbnail.png",
+    "mascot_endcard": "test_output\\assets\\mascot_endcard.png"
+  },
+  "scene_images": [
+    {
+      "id": 1,
+      "path": "test_output\\assets\\scene_1.jpg",
+      "success": true
+    },
+    {
+      "id": 2,
+      "path": "test_output\\assets\\scene_2.jpg",
+      "success": true
+    },
+    {
+      "id": 3,
+      "path": "test_output\\assets\\scene_3.jpg",
+      "success": true
+    },
+    {
+      "id": 4,
+      "path": "test_output\\assets\\scene_4.jpg",
+      "success": true
+    },
+    {
+      "id": 5,
+      "path": "test_output\\assets\\scene_5.jpg",
+      "success": true
+    },
+    {
+      "id": 6,
+      "path": "test_output\\assets\\scene_6.jpg",
+      "success": true
+    },
+    {
+      "id": 7,
+      "path": "test_output\\assets\\scene_7.jpg",
+      "success": true
+    }
+  ],
+  "seedance": [
+    {
+      "part": 1,
+      "path": null,
+      "success": false,
+      "error": "JIMENG_SESSION_ID 未設定"
+    },
+    {
+      "part": 2,
+      "path": null,
+      "success": false,
+      "error": "JIMENG_SESSION_ID 未設定"
+    }
+  ],
+  "ranking_cards": [
+    {
+      "rank": 1,
+      "path": "test_output\\assets\\ranking_card_1.jpg",
+      "success": true
+    },
+    {
+      "rank": 2,
+      "path": "test_output\\assets\\ranking_card_2.jpg",
+      "success": true
+    },
+    {
+      "rank": 3,
+      "path": "test_output\\assets\\ranking_card_3.jpg",
+      "success": true
+    },
+    {
+      "rank": 4,
+      "path": "test_output\\assets\\ranking_card_4.jpg",
+      "success": true
+    }
+  ],
+  "voiceover": [],
+  "tts_narration": {
+    "success": true,
+    "manifest": "test_output\\assets\\tts_manifest.json",
+    "segments": [
+      {
+        "index": 0,
+        "start": 0.5,
+        "end": 2.0,
+        "text": "地瓜比白飯健康？",
+        "path": "test_output\\assets\\tts_segments\\tts_000.mp3"
+      },
+      {
+        "index": 1,
+        "start": 2.0,
+        "end": 3.5,
+        "text": "小心烤錯反更高GI！",
+        "path": "test_output\\assets\\tts_segments\\tts_001.mp3"
+      },
+      {
+        "index": 2,
+        "start": 3.5,
+        "end": 5.5,
+        "text": "白飯GI值70到85。",
+        "path": "test_output\\assets\\tts_segments\\tts_002.mp3"
+      },
+      {
+        "index": 3,
+        "start": 5.5,
+        "end": 7.0,
+        "text": "屬於高GI食物。",
+        "path": "test_output\\assets\\tts_segments\\tts_003.mp3"
+      },
+      {
+        "index": 4,
+        "start": 7.0,
+        "end": 9.0,
+        "text": "蒸地瓜GI值40到50。",
+        "path": "test_output\\assets\\tts_segments\\tts_004.mp3"
+      },
+      {
+        "index": 5,
+        "start": 9.0,
+        "end": 11.0,
+        "text": "屬於低GI食物。",
+        "path": "test_output\\assets\\tts_segments\\tts_005.mp3"
+      },
+      {
+        "index": 6,
+        "start": 11.0,
+        "end": 12.5,
+        "text": "但烤地瓜呢？",
+        "path": "test_output\\assets\\tts_segments\\tts_006.mp3"
+      },
+      {
+        "index": 7,
+        "start": 12.5,
+        "end": 14.5,
+        "text": "竟高達70到94！",
+        "path": "test_output\\assets\\tts_segments\\tts_007.mp3"
+      },
+      {
+        "index": 8,
+        "start": 14.5,
+        "end": 16.0,
+        "text": "比白飯還高！",
+        "path": "test_output\\assets\\tts_segments\\tts_008.mp3"
+      },
+      {
+        "index": 9,
+        "start": 16.0,
+        "end": 18.0,
+        "text": "冰地瓜更厲害！",
+        "path": "test_output\\assets\\tts_segments\\tts_009.mp3"
+      },
+      {
+        "index": 10,
+        "start": 18.0,
+        "end": 21.0,
+        "text": "抗性澱粉助控糖。",
+        "path": "test_output\\assets\\tts_segments\\tts_010.mp3"
+      },
+      {
+        "index": 11,
+        "start": 21.0,
+        "end": 23.0,
+        "text": "地瓜熱量不低。",
+        "path": "test_output\\assets\\tts_segments\\tts_011.mp3"
+      },
+      {
+        "index": 12,
+        "start": 23.0,
+        "end": 25.0,
+        "text": "適量攝取才健康。",
+        "path": "test_output\\assets\\tts_segments\\tts_012.mp3"
+      },
+      {
+        "index": 13,
+        "start": 25.0,
+        "end": 27.0,
+        "text": "烹調方式是關鍵。",
+        "path": "test_output\\assets\\tts_segments\\tts_013.mp3"
+      },
+      {
+        "index": 14,
+        "start": 27.0,
+        "end": 28.5,
+        "text": "聰明吃地瓜！",
+        "path": "test_output\\assets\\tts_segments\\tts_014.mp3"
+      },
+      {
+        "index": 15,
+        "start": 28.5,
+        "end": 33.0,
+        "text": "時時靜好祝您健康。",
+        "path": "test_output\\assets\\tts_segments\\tts_015.mp3"
+      }
+    ]
+  },
+  "thumbnail": "test_output\\assets\\thumbnail.jpg"
+}

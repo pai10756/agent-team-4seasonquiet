@@ -1,0 +1,66 @@
+{
+  "_doc": "Cover card (card 1) fixed template. Only swap: headline, hero object, mascot expression/pose, badge text.",
+
+  "template_id": "cover_3d_v1",
+  "canvas": {"width": 1080, "height": 1920},
+
+  "layout": {
+    "headline_zone": {
+      "x": 72, "y": 100, "w": 936, "h": 450,
+      "role": "Main question headline — MUST be largest element",
+      "text_align": "left",
+      "font_weight": "bold",
+      "color_token": "olive_dark"
+    },
+    "headline_sub_zone": {
+      "x": 72, "y": 560, "w": 700, "h": 120,
+      "role": "Sub-headline — smaller supporting text",
+      "color_token": "brown_text",
+      "opacity": 0.8
+    },
+    "badge_zone": {
+      "x": 820, "y": 80, "w": 200, "h": 200,
+      "role": "Source/year badge — circle or rounded rect",
+      "shape": "circle",
+      "bg_color_token": "sage_green",
+      "text_color_token": "cream_white"
+    },
+    "hero_object_zone": {
+      "x": 280, "y": 720, "w": 600, "h": 700,
+      "role": "Single realistic hero object — MUST be visually dominant",
+      "priority": "primary"
+    },
+    "mascot_zone": {
+      "x": 100, "y": 900, "w": 320, "h": 440,
+      "role": "3D mascot interacting with hero object — sidekick, not star",
+      "priority": "secondary"
+    },
+    "footer_zone": {
+      "x": 0, "y": 1720, "w": 1080, "h": 200,
+      "role": "Optional brand strip — can be empty",
+      "optional": true,
+      "bg_color_token": "sage_green",
+      "opacity": 0.3
+    }
+  },
+
+  "rules": [
+    "Headline MUST be the largest, most prominent element",
+    "Only ONE hero object (e.g., one egg, one bowl, one cup)",
+    "Only ONE mascot, interacting with hero object",
+    "Mascot must be smaller than hero object",
+    "Background: warm realistic lifestyle (kitchen, table, natural light)",
+    "Visual and text must reinforce the same message",
+    "No text rendered by AI — all text added in composition stage"
+  ],
+
+  "swappable_fields": [
+    "headline_main",
+    "headline_sub",
+    "badge_text",
+    "hero_object",
+    "mascot_expression",
+    "mascot_pose",
+    "background_scene"
+  ]
+}

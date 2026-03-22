@@ -136,6 +136,51 @@
         }
       },
       "description": "如果建議 ranking 型態，提供排行候選數據"
+    },
+
+    "misbelief_to_correct": {
+      "type": "string",
+      "description": "要破除的迷思（一句話），例：「一天只能吃一顆蛋」"
+    },
+    "safe_claim": {
+      "type": "string",
+      "description": "安全的結論聲明（不過度簡化），例：「近年研究支持，影響 LDL 的因素更接近整體飲食中的飽和脂肪」"
+    },
+    "unsafe_claims_to_avoid": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "絕對不能出現的說法，例：「膽固醇完全不用管」"
+    },
+
+    "good_cover_objects": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "適合作為封面 hero object 的物件（scriptwriter/asset_gen 用），例：[\"白殼雞蛋\", \"水煮蛋\", \"木桌早餐場景\"]"
+    },
+    "comparison_objects": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "適合做比較卡的物件組，例：[\"蛋 vs 培根\", \"水煮蛋 vs 荷包蛋\"]"
+    },
+    "visualizable_objects": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "可以視覺化的物件清單（所有可用的 hero object 候選）"
+    },
+    "mascot_recommended_pose": {
+      "type": "string",
+      "enum": ["hug_object_side", "lean_on_object", "think_with_object", "hold_badge", "point_up"],
+      "description": "建議的小靜封面姿勢"
+    },
+    "visual_risk_notes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "視覺設計需注意的風險，例：[\"不能讓蛋看起來像壞掉的\", \"避免醫療恐嚇風格\"]"
+    },
+    "audience_sensitivity_notes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "受眾敏感度提醒，例：[\"高膽固醇血症患者需醫囑提醒\"]"
     }
   }
 }

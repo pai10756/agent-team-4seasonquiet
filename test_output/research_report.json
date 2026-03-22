@@ -1,0 +1,126 @@
+{
+  "topic": "地瓜 vs 白飯 升糖指數",
+  "topic_id": 7,
+  "cognitive_gap": {
+    "common_belief": "大眾普遍認為地瓜一定比白飯健康，且任何烹調方式都一樣健康，可以無限量吃。",
+    "actual_finding": "蒸煮地瓜的GI值確實較低，但烤地瓜的GI值可能與白飯相當甚至更高。烹調方式對地瓜的血糖反應影響巨大，且過量攝取地瓜仍會導致熱量超標。",
+    "contrast_magnitude": "顯著反差，大眾普遍低估了烹調方式對地瓜升糖指數的影響，並可能誤認為地瓜可無限制攝取，導致血糖控制不佳或熱量超標。"
+  },
+  "verified_data": [
+    {
+      "claim": "白飯的升糖指數（GI值）通常落在70-85之間，屬於高GI食物。",
+      "source_citation": "Google Search Research (多篇營養學文章)",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHHYwVv7NW_8WhTk0VJdYA6wV-JO5a1nuriZxoZAZAMHY6dj-AcdwxAPNKOI4FSfnBztOEVfW4LR4cpkc9EAWKK29DQl9m1qVif-lLY6WTp2vSTSupF2kr7ggz5RqIIpJL6JTyQMNXKCkhORg==",
+      "confidence": "medium"
+    },
+    {
+      "claim": "蒸地瓜或水煮地瓜的GI值約為40-50，屬於低GI食物。",
+      "source_citation": "Google Search Research (多篇營養學文章)",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHHYwVv7NW_8WhTk0VJdYA6wV-JO5a1nuriZxoZAZAMHY6dj-AcdwxAPNKOI4FSfnBztOEVfW4LR4cpkc9EAWKK29DQl9m1qVif-lLY6WTp2vSTSupF2kr7ggz5RqIIpJL6JTyQMNXKCkhORg==",
+      "confidence": "medium"
+    },
+    {
+      "claim": "烤地瓜的GI值高達70-90，甚至有研究指出可達82-94，屬於高GI食物，可能比白飯還高。",
+      "source_citation": "Google Search Research (減重醫師蕭捷健、營養師張芷銘等)",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHFa96XofgKxoCqVFi6qcIZHVt9qkE6ssm_90JA1m0HsH7t_vDK65vCChcuHBnfqGTLuXxdx2PQ4TzUy9kxoAtr7w8pt3L5qyj0YgogplouMezKeThXW67bP9Z8X1tFwk3DauONgJ5LdvJ3iuZjBYxypjq9fbH6YjioxdAheEktTywwIiUoTNofwOshtb1S7IwVJw==",
+      "confidence": "medium"
+    },
+    {
+      "claim": "將蒸熟或水煮的地瓜放涼或冰鎮後食用，其澱粉會重新排列形成「抗性澱粉」，能有效降低GI值，延緩血糖上升速度。",
+      "source_citation": "Google Search Research (醫師實測)",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEFgwZgy2fFHWPnY45bmNFRN5T06lwa5rNEpvDOiVrxjXHcxnWmUOaRJ-becXkvu8sM07ogU2oNOwSSmidjuBZ2GmEJjLR4XHOdo1C2pMB9ewS03ltlLhwbnayPoM6FqLkLambemw==",
+      "confidence": "low"
+    },
+    {
+      "claim": "地瓜的熱量與一碗白飯相近（100克地瓜約120-130大卡，市售烤地瓜150克約等於一碗100克白飯的熱量），過量攝取仍會導致熱量超標。",
+      "source_citation": "Google Search Research (多篇營養學文章)",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGndL925UA4mp6DNK8jGSwJ84OwSwtsoAcbiyfrHMKMAXBc5V-D2FtWpB1XQ04N4zboSfdfiQvbeEDi41MvEFArczLTxuzhXa2PpCTbAfUPuyqQktxoZl1I5taR6KnUPQX9IJJ_DB9QdOvD0UcTgGymdVTd46CSlrCyGBb1VLJRWHIBPlk2",
+      "confidence": "medium"
+    }
+  ],
+  "sources": [
+    {
+      "citation": "Google Search Research (多篇營養學文章、醫師分享)",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHHYwVv7NW_8WhTk0VJdYA6wV-JO5a1nuriZxoZAZAMHY6dj-AcdwxAPNKOI4FSfnBztOEVfW4LR4cpkc9EAWKK29DQl9m1qVif-lLY6WTp2vSTSupF2kr7ggz5RqIIpJL6JTyQMNXKCkhORg==",
+      "key_finding": "地瓜與白飯GI值比較，烹調方式對地瓜GI值影響巨大，烤地瓜GI值可能高於白飯。",
+      "study_type": "review"
+    },
+    {
+      "citation": "台灣衛福部國民健康署",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFG8ZuQ0PYVS3xSUg1Tk6PrIAFI7bT5rCs4aoaLjNyR8qjDCR-3uZjkCpWG2rs3uC2OaK67Ol00Ykd08lcVUQHST1HUtE2TjWtVwXdyvpdMJvlLzDE9Cv4DIpAtdwF7kETeYeLp6iqHTnYuGN13NI0JZtPkvHOFXcdrVZXMbxiA-w==",
+      "key_finding": "建議選擇低GI食物有助於血糖控制，地瓜因膳食纖維豐富被視為優質碳水化合物來源。",
+      "study_type": "guideline"
+    },
+    {
+      "citation": "Wang S et al., Food research international (Ottawa, Ont.), 2016",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28460992/",
+      "key_finding": "探討甜地瓜的化學成分與健康益處。",
+      "study_type": "review"
+    },
+    {
+      "citation": "Yun D et al., Foods (Basel, Switzerland), 2024",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39517269/",
+      "key_finding": "紫地瓜花青素的提取、分離、功能特性及其在生物聚合物智能包裝中的應用。",
+      "study_type": "review"
+    },
+    {
+      "citation": "Yang S et al., Foods (Basel, Switzerland), 2025",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40001988/",
+      "key_finding": "地瓜澱粉糊化技術與決定因素的進展。",
+      "study_type": "review"
+    },
+    {
+      "citation": "Neela S et al., Food science & nutrition, 2019",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31289641/",
+      "key_finding": "回顧橘肉地瓜的營養成分及其在維生素A缺乏症管理中的作用。",
+      "study_type": "review"
+    },
+    {
+      "citation": "Habinshuti I et al., Ultrasonics sonochemistry, 2020",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32707458/",
+      "key_finding": "超聲波微波輔助酶法生產和表徵地瓜蛋白抗氧化肽。",
+      "study_type": "research"
+    }
+  ],
+  "recommended_type": "hybrid",
+  "type_reasoning": "此主題涉及兩種常見主食的直接比較，並揭示了烹調方式對地瓜升糖指數的巨大影響，打破了多項常見迷思。混合型態能有效呈現數據排名，同時透過敘事解釋背後的科學原理與實用建議，提高觀眾的理解與參與度。",
+  "engagement_signals": {
+    "virality_score": 9,
+    "reasons": [
+      "揭露常見飲食迷思",
+      "提供實用且具體（烹調方式）的健康建議",
+      "數據化比較易於理解",
+      "與大眾健康意識高度相關"
+    ],
+    "risks": [
+      "觀眾可能過度簡化資訊，只記住部分結論",
+      "資訊量較大，需精簡呈現以避免疲勞"
+    ]
+  },
+  "ranking_candidates": [
+    {
+      "item": "蒸地瓜/水煮地瓜",
+      "value": "40-50",
+      "unit": "GI值",
+      "source": "Google Search Research"
+    },
+    {
+      "item": "白飯",
+      "value": "70-85",
+      "unit": "GI值",
+      "source": "Google Search Research"
+    },
+    {
+      "item": "烤地瓜",
+      "value": "70-94",
+      "unit": "GI值",
+      "source": "Google Search Research"
+    },
+    {
+      "item": "冰地瓜",
+      "value": "<40 (低於蒸地瓜)",
+      "unit": "GI值",
+      "source": "Google Search Research"
+    }
+  ]
+}

@@ -1,17 +1,20 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "episode.schema.json",
-  "title": "時時靜好 Episode JSON",
-  "description": "scriptwriter 輸出、reviewer 驗證、asset_gen / assembler 消費的主契約。所有 agent 交接以此 schema 為 source of truth。",
+  "title": "時時靜好 Episode JSON v3",
+  "description": "scriptwriter 輸出、reviewer 驗證、asset_gen / assembler 消費的主契約。v3 加入 3D 吉祥物、視覺導演稿、場景角色定義。",
   "type": "object",
 
   "required": [
     "series", "episode", "type", "topic_title",
-    "format", "format_name",
-    "hook_text", "hook_variants",
     "type_rationale",
-    "research_sources", "scene_images", "global_spec",
-    "parts", "subtitles", "sound", "music",
+    "core_claim", "single_takeaway",
+    "visual_style_token",
+    "hook_text", "hook_variants",
+    "research_sources",
+    "mascot_strategy",
+    "scenes",
+    "subtitles", "sound", "music",
     "youtube_metadata"
   ],
 
@@ -23,8 +26,7 @@
     },
     "sub_series": {
       "type": "string",
-      "description": "子系列名稱（ranking 型態時使用）",
-      "examples": ["營養素排行榜"]
+      "description": "子系列名稱（ranking 型態時使用）"
     },
     "episode": {
       "type": "integer",
@@ -43,22 +45,33 @@
     "type": {
       "type": "string",
       "enum": ["standard", "ranking", "hybrid", "quick_cut"],
-      "description": "影片型態。standard=Seedance人物敘事, ranking=圖卡排行榜, hybrid=混合, quick_cut=圖文快剪"
+      "description": "影片型態"
     },
     "type_rationale": {
       "type": "string",
       "minLength": 10,
-      "description": "選擇此型態的理由，需說明判斷依據（數據密度、情緒轉折、成本等）"
+      "description": "選擇此型態的理由"
     },
-    "format": {
+
+    "core_claim": {
       "type": "string",
-      "enum": ["E", "A"],
-      "description": "E=廚房居家, A=演播室主播"
+      "minLength": 10,
+      "description": "這支片真正要講的唯一核心。例：「真正更該注意的是整體搭配中的飽和脂肪，不是只把雞蛋當成罪魁禍首。」"
     },
-    "format_name": {
+    "single_takeaway": {
       "type": "string",
-      "enum": ["廚房居家", "演播室主播"],
-      "description": "format 的可讀名稱"
+      "minLength": 5,
+      "description": "觀眾離開前只要記住這一句。例：「吃對搭配，比怕蛋更重要。」"
+    },
+    "audience_promise": {
+      "type": "string",
+      "description": "這支片對觀眾的承諾，例：「看完你會知道蛋到底能不能每天吃」"
+    },
+
+    "visual_style_token": {
+      "type": "string",
+      "const": "STYLE_SHIZHI_3D_POSTER_V1",
+      "description": "視覺風格 token，對應 brand_visual_tokens.json"
     },
 
     "hook_text": {
@@ -70,42 +83,25 @@
       "type": "array",
       "minItems": 3,
       "maxItems": 5,
-      "items": { "$ref": "#/$defs/hook_variant" },
-      "description": "3-5 個 hook 變體，按認知層級分類"
+      "items": { "$ref": "#/$defs/hook_variant" }
     },
 
     "research_sources": {
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "#/$defs/research_source" },
-      "description": "研究來源（USDA / PubMed / 衛福部等）"
+      "items": { "$ref": "#/$defs/research_source" }
     },
 
-    "title_card": {
-      "$ref": "#/$defs/title_card",
-      "description": "片頭標題卡資訊"
+    "mascot_strategy": {
+      "$ref": "#/$defs/mascot_strategy",
+      "description": "3D 吉祥物小靜在本集的使用策略"
     },
 
-    "scene_images": {
+    "scenes": {
       "type": "array",
-      "minItems": 1,
-      "items": { "$ref": "#/$defs/scene_image" },
-      "description": "場景圖定義（Gemini 生成用）"
-    },
-
-    "global_spec": {
-      "type": "string",
-      "minLength": 10,
-      "description": "全域視覺規格（簡體中文），套用到所有視覺素材"
-    },
-
-    "character": {
-      "type": "string",
-      "description": "角色描述（standard/hybrid 型態必填）"
-    },
-    "character_id": {
-      "type": "string",
-      "description": "角色資產庫 ID（對應 elder_kitchen/characters/）"
+      "minItems": 2,
+      "items": { "$ref": "#/$defs/scene_card" },
+      "description": "導演稿場景卡列表 — 每張卡有明確角色和視覺規格"
     },
 
     "ranking_data": {
@@ -118,101 +114,66 @@
       "type": "string",
       "description": "排行榜比較基準說明"
     },
-    "data_source": {
+
+    "character": {
       "type": "string",
-      "description": "排行榜主要數據來源"
-    },
-    "myth_bust": {
-      "type": "string",
-      "description": "破除迷思補充"
-    },
-    "production_method": {
-      "type": "string",
-      "description": "製作方式說明"
+      "description": "角色描述（standard/hybrid 型態必填）"
     },
 
-    "parts": {
-      "type": "array",
-      "minItems": 2,
-      "items": { "$ref": "#/$defs/part" },
-      "description": "影片分段。standard=Part1+Part2 scenes, ranking=hook+ranking_cards+cta"
-    },
-
-    "mascot": {
-      "$ref": "#/$defs/mascot_usage",
-      "description": "吉祥物「小靜」在本集的使用方式，asset_gen 據此生成吉祥物素材"
-    },
-
-    "creative_direction": {
-      "type": "string",
-      "description": "scriptwriter 的創意方向自然語言描述（agent 產物，非 skill 產物）"
-    },
     "seedance_prompts": {
       "type": "object",
       "properties": {
         "seedance_part1": { "type": "string" },
         "seedance_part2": { "type": "string" }
       },
-      "description": "Seedance 影片生成 prompt（skill 產物，standard/hybrid 型態）"
+      "description": "Seedance 影片生成 prompt（standard/hybrid 型態）"
     },
 
     "voiceover": {
       "$ref": "#/$defs/voiceover",
-      "description": "TTS 配音設定（ranking/hybrid 型態使用）"
+      "description": "TTS 配音設定"
     },
 
-    "sound": {
-      "type": "string",
-      "description": "環境音描述"
-    },
-    "music": {
-      "type": "string",
-      "description": "配樂描述"
-    },
+    "sound": { "type": "string", "description": "環境音描述" },
+    "music": { "type": "string", "description": "配樂描述" },
 
     "subtitles": {
       "type": "array",
       "minItems": 5,
-      "items": { "$ref": "#/$defs/subtitle" },
-      "description": "字幕列表（繁體中文，每句 6-12 字）"
+      "items": { "$ref": "#/$defs/subtitle" }
     },
 
     "youtube_metadata": {
-      "$ref": "#/$defs/youtube_metadata",
-      "description": "YouTube 上傳用元資料"
-    }
+      "$ref": "#/$defs/youtube_metadata"
+    },
+
+    "scene_images": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/scene_image_legacy" },
+      "description": "Legacy: 向下相容的場景圖定義"
+    },
+    "global_spec": {
+      "type": "string",
+      "description": "Legacy: 全域視覺規格"
+    },
+    "format": { "type": "string" },
+    "format_name": { "type": "string" },
+    "parts": { "type": "array", "description": "Legacy: 影片分段" },
+    "mascot": { "type": "object", "description": "Legacy: 舊版 mascot 欄位" }
   },
 
   "allOf": [
     {
-      "if": {
-        "properties": { "type": { "const": "standard" } }
-      },
-      "then": {
-        "required": ["character"],
-        "properties": {
-          "parts": {
-            "type": "array",
-            "items": { "$ref": "#/$defs/standard_part" }
-          }
-        }
-      }
+      "if": { "properties": { "type": { "const": "standard" } } },
+      "then": { "required": ["character", "seedance_prompts"] }
     },
     {
-      "if": {
-        "properties": { "type": { "const": "ranking" } }
-      },
-      "then": {
-        "required": ["ranking_data", "voiceover", "comparison_note"]
-      }
+      "if": { "properties": { "type": { "const": "ranking" } } },
+      "then": { "required": ["ranking_data", "comparison_note"] }
     },
     {
-      "if": {
-        "properties": { "type": { "const": "hybrid" } }
-      },
-      "then": {
-        "required": ["character", "ranking_data"]
-      }
+      "if": { "properties": { "type": { "const": "hybrid" } } },
+      "then": { "required": ["character", "ranking_data", "seedance_prompts"] }
     }
   ],
 
@@ -223,18 +184,10 @@
       "properties": {
         "level": {
           "type": "string",
-          "enum": ["unaware", "problem_aware", "solution_aware", "audience"],
-          "description": "認知層級: unaware=完全不知道, problem_aware=知道問題, solution_aware=知道解法, audience=已是觀眾"
+          "enum": ["unaware", "problem_aware", "solution_aware", "audience"]
         },
-        "text": {
-          "type": "string",
-          "minLength": 6,
-          "description": "Hook 文案（繁體中文）"
-        },
-        "rationale": {
-          "type": "string",
-          "description": "為什麼這個 hook 對此認知層級有效"
-        }
+        "text": { "type": "string", "minLength": 6 },
+        "rationale": { "type": "string" }
       }
     },
 
@@ -242,135 +195,165 @@
       "type": "object",
       "required": ["citation", "key_finding"],
       "properties": {
-        "citation": {
-          "type": "string",
-          "description": "引用來源（期刊/機構名稱 + 年份）"
-        },
-        "url": {
-          "type": "string",
-          "pattern": "^https?://",
-          "description": "來源 URL"
-        },
-        "key_finding": {
-          "type": "string",
-          "description": "關鍵發現"
-        }
+        "citation": { "type": "string" },
+        "url": { "type": "string", "pattern": "^https?://" },
+        "key_finding": { "type": "string" }
       }
     },
 
-    "title_card": {
+    "mascot_strategy": {
       "type": "object",
-      "required": ["line1", "line2"],
+      "required": ["presence"],
       "properties": {
-        "line1": { "type": "string" },
-        "line2": { "type": "string" },
-        "source_text": {
+        "presence": {
           "type": "string",
-          "description": "資料來源標注"
-        }
-      }
-    },
-
-    "scene_image": {
-      "type": "object",
-      "required": ["id", "part", "description", "prompt"],
-      "properties": {
-        "id": {
-          "type": "integer",
-          "minimum": 1
+          "enum": ["opening_only", "closing_only", "both", "none"],
+          "description": "小靜在哪些卡出現"
         },
-        "part": {
-          "oneOf": [
-            { "type": "integer", "minimum": 1, "maximum": 2 },
-            { "type": "string", "description": "ranking 型態用字串 part 名稱 (hook_bg, food_xxx, cta_bg)" }
-          ],
-          "description": "所屬 part（standard 用數字 1/2，ranking 用字串標識）"
+        "opening_expression": {
+          "$ref": "#/$defs/mascot_expression",
+          "description": "開場卡的表情"
         },
-        "description": {
+        "opening_pose": {
           "type": "string",
-          "description": "場景描述（繁體中文）"
+          "enum": ["hug_object_side", "lean_on_object", "think_with_object", "hold_badge", "point_up"],
+          "description": "開場卡的姿勢"
         },
-        "prompt": {
+        "closing_expression": {
           "type": "string",
-          "description": "圖片生成 prompt（簡體中文或英文），結尾必須含「不要任何文字」類禁止語"
+          "const": "goodbye"
+        },
+        "allow_middle_cards": {
+          "type": "boolean",
+          "default": false,
+          "description": "中間卡是否允許出現小靜（預設不允許）"
+        },
+        "outfit": {
+          "type": "string",
+          "enum": ["apron", "none", "sport_vest", "sleep_cap", "doctor_coat"],
+          "default": "apron"
+        },
+        "prop": {
+          "type": "string",
+          "description": "手持小道具（icon 級別），如 'tiny egg'"
+        },
+        "render_mode": {
+          "type": "string",
+          "const": "3d_exact_reference",
+          "description": "必須使用 3D reference image 生成"
+        },
+        "scale_vs_object": {
+          "type": "string",
+          "enum": ["small", "equal", "large"],
+          "default": "small",
+          "description": "相對 hero object 的大小：small=配角, equal=同等, large=主角"
+        },
+        "allow_extra_mascot": {
+          "type": "boolean",
+          "default": false
+        },
+        "allow_logo_mascot": {
+          "type": "boolean",
+          "default": false
         }
       }
     },
 
     "mascot_expression": {
       "type": "string",
-      "enum": ["default", "surprised", "thinking", "happy", "reminder", "goodbye", "worried", "disgusted", "sleepy", "proud", "shushing", "eating"],
-      "description": "小靜的表情（對應 character.json 的 expressions）。base 6 種 + extended 6 種。"
+      "enum": ["default", "surprised", "thinking", "happy", "reminder", "goodbye", "worried", "proud"]
     },
 
-    "mascot_usage": {
+    "scene_card": {
       "type": "object",
-      "required": ["thumbnail", "end_card"],
+      "required": ["scene_id", "scene_role", "scene_goal", "visual_type"],
       "properties": {
-        "thumbnail": {
-          "type": "object",
-          "required": ["expression"],
-          "properties": {
-            "expression": { "$ref": "#/$defs/mascot_expression" },
-            "position": {
-              "type": "string",
-              "enum": ["bottom-left", "bottom-right"],
-              "default": "bottom-right"
-            },
-            "rationale": {
-              "type": "string",
-              "description": "為什麼選這個表情（如：主題有認知反差，用 surprised 強化衝擊）"
-            }
-          }
-        },
-        "title_card": {
-          "type": "object",
-          "properties": {
-            "expression": { "$ref": "#/$defs/mascot_expression" },
-            "position": {
-              "type": "string",
-              "enum": ["bottom-left", "bottom-right"],
-              "default": "bottom-right"
-            }
-          }
-        },
-        "end_card": {
-          "type": "object",
-          "required": ["expression"],
-          "properties": {
-            "expression": {
-              "type": "string",
-              "const": "goodbye",
-              "description": "片尾固定用 goodbye 表情"
-            }
-          }
-        },
-        "prop": {
+        "scene_id": {
           "type": "string",
-          "description": "小靜手持的主題小道具（icon 級別的簡化食材），如 'tiny bowl of porridge'、'tiny egg'、'tiny glass of milk with X mark'。不指定則不拿道具。"
+          "pattern": "^[0-9]{2}$",
+          "description": "兩位數場景編號，如 '01', '02'"
         },
-        "outfit": {
+        "scene_role": {
           "type": "string",
-          "enum": ["apron", "none", "sport_vest", "sleep_cap", "scarf", "doctor_coat", "lunar_new_year", "mid_autumn", "dragon_boat"],
-          "default": "apron",
-          "description": "服裝選擇（對應 character.json 的 outfit.options + seasonal）。scriptwriter 根據主題選用，不指定時預設 apron。"
+          "enum": ["hook", "flip", "compare", "evidence", "reminder", "closing"],
+          "description": "這張卡的敘事角色"
         },
-        "in_video": {
+        "scene_goal": {
+          "type": "string",
+          "description": "這張卡要達成的觀眾反應"
+        },
+        "on_screen_text_main": {
+          "type": "string",
+          "description": "主標題文字（繁體中文），將在合成階段疊加"
+        },
+        "on_screen_text_sub": {
+          "type": "string",
+          "description": "副標題文字"
+        },
+        "visual_type": {
+          "type": "string",
+          "enum": ["poster_cover", "comparison_card", "evidence_card", "safety_reminder", "brand_closing"],
+          "description": "視覺版型，對應 brand_visual_tokens.json 的 card_types"
+        },
+        "hero_object": {
+          "type": "string",
+          "description": "主視覺物件描述（英文），如 'one large realistic white egg on wooden table'"
+        },
+        "hero_object_priority": {
+          "type": "string",
+          "enum": ["primary", "secondary"],
+          "default": "primary"
+        },
+        "photo_realism_ratio": {
+          "type": "number",
+          "minimum": 0, "maximum": 1,
+          "default": 0.75,
+          "description": "寫實底圖佔比"
+        },
+        "background_scene": {
+          "type": "string",
+          "description": "背景場景描述（英文），如 'warm kitchen interior, soft natural light'"
+        },
+        "mascot_presence": {
+          "type": "boolean",
+          "default": false,
+          "description": "此卡是否有小靜"
+        },
+        "mascot_count": {
+          "type": "integer",
+          "maximum": 1,
+          "default": 0
+        },
+        "mascot_expression": { "$ref": "#/$defs/mascot_expression" },
+        "mascot_pose": {
+          "type": "string",
+          "enum": ["hug_object_side", "lean_on_object", "greet_viewer", "think_with_object", "hold_badge", "point_up"]
+        },
+        "mascot_interaction_mode": {
+          "type": "string",
+          "description": "小靜與 hero object 的互動方式"
+        },
+        "badge_text": {
+          "type": "string",
+          "description": "右上角 badge 文字，如 '2025\\n研究更新'"
+        },
+        "source_badge_text": {
+          "type": "string",
+          "description": "資料來源 badge 文字"
+        },
+        "do_not_include": {
           "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["timestamp", "expression", "usage"],
-            "properties": {
-              "timestamp": { "type": "string", "description": "出現時間點" },
-              "expression": { "$ref": "#/$defs/mascot_expression" },
-              "usage": {
-                "type": "string",
-                "enum": ["overlay", "knowledge_card", "transition"],
-                "description": "使用方式"
-              }
-            }
-          },
-          "description": "影片中出現的時機（可選，ranking 型態的知識卡可用）"
+          "items": { "type": "string" },
+          "description": "此卡明確禁止的視覺元素"
+        },
+        "time_range": {
+          "type": "string",
+          "description": "在影片中的時間範圍，如 '0-3s'"
+        },
+        "animation": {
+          "type": "string",
+          "enum": ["slow_push_in", "slight_drift", "simple_cut", "slide_in", "badge_fade_in", "mascot_wave", "none"],
+          "description": "此卡的動畫效果"
         }
       }
     },
@@ -380,107 +363,13 @@
       "required": ["rank", "food", "value", "unit", "comparison"],
       "properties": {
         "rank": { "type": "integer", "minimum": 1 },
-        "food": { "type": "string", "description": "食材名稱（繁體中文）" },
-        "food_en": { "type": "string", "description": "食材英文名" },
-        "value": { "type": "number", "description": "數值" },
-        "unit": { "type": "string", "description": "單位", "examples": ["mg/100g"] },
-        "serving_note": { "type": "string", "description": "一份量換算說明" },
-        "comparison": { "type": "string", "description": "與基準的倍數比較" },
-        "absorption_note": { "type": "string", "description": "吸收率/生物利用率備注" },
-        "food_image": { "type": "string", "description": "食材圖檔名" }
-      }
-    },
-
-    "standard_part": {
-      "type": "object",
-      "required": ["part", "scenes"],
-      "properties": {
-        "part": { "type": "integer", "enum": [1, 2] },
-        "scenes": {
-          "type": "array",
-          "minItems": 2,
-          "items": { "$ref": "#/$defs/scene" }
-        }
-      }
-    },
-
-    "scene": {
-      "type": "object",
-      "required": ["time", "scene_ref", "scene_desc", "action", "camera", "dialogue"],
-      "properties": {
-        "time": {
-          "type": "string",
-          "pattern": "^\\d+-\\d+秒$",
-          "description": "時間段，格式如 '0-5秒'"
-        },
-        "scene_ref": {
-          "type": "integer",
-          "description": "對應 scene_images[].id"
-        },
-        "scene_desc": {
-          "type": "string",
-          "description": "場景描述（簡體中文，給 Seedance 用）"
-        },
-        "action": {
-          "type": "string",
-          "description": "角色動作描述（簡體中文）"
-        },
-        "camera": {
-          "type": "string",
-          "description": "鏡頭運動（簡體中文，如 '中景缓慢推近至近景'）"
-        },
-        "dialogue": {
-          "type": "string",
-          "description": "台詞（簡體中文），句間用 || 分隔"
-        }
-      }
-    },
-
-    "part": {
-      "type": "object",
-      "required": ["part"],
-      "properties": {
-        "part": {
-          "oneOf": [
-            { "type": "integer" },
-            { "type": "string" }
-          ],
-          "description": "Part 標識（standard 用數字，ranking 用字串如 'hook', 'ranking_cards', 'cta'）"
-        },
-        "duration": { "type": "string", "description": "時間範圍" },
-        "method": {
-          "type": "string",
-          "enum": ["seedance", "pillow_ffmpeg", "gemini_static"],
-          "description": "製作方法"
-        },
-        "scenes": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/scene" }
-        },
-        "visual": { "type": "string" },
-        "title_overlay": { "$ref": "#/$defs/title_card" },
-        "cards": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/ranking_card" }
-        },
-        "note": { "type": "string" }
-      }
-    },
-
-    "ranking_card": {
-      "type": "object",
-      "required": ["rank", "display_time", "food", "value_display", "bar_ratio"],
-      "properties": {
-        "rank": { "type": "integer" },
-        "display_time": { "type": "string", "description": "顯示時間範圍" },
         "food": { "type": "string" },
-        "value_display": { "type": "string", "description": "顯示用數值（含單位）" },
-        "bar_ratio": {
-          "type": "number", "minimum": 0, "maximum": 1,
-          "description": "數據條比例（1.0 = 最大值）"
-        },
-        "highlight": { "type": "string", "description": "高亮重點文字" },
-        "food_image_ref": { "type": "integer", "description": "對應 scene_images[].id" }
+        "food_en": { "type": "string" },
+        "value": { "type": ["number", "string"] },
+        "unit": { "type": "string" },
+        "serving_note": { "type": "string" },
+        "comparison": { "type": "string" },
+        "food_image": { "type": "string" }
       }
     },
 
@@ -488,41 +377,29 @@
       "type": "object",
       "required": ["engine", "segments"],
       "properties": {
-        "engine": {
-          "type": "string",
-          "enum": ["elevenlabs"],
-          "description": "TTS 引擎"
-        },
-        "model": { "type": "string", "examples": ["eleven_v3"] },
+        "engine": { "type": "string", "enum": ["elevenlabs"] },
+        "model": { "type": "string" },
         "voice_settings": {
           "type": "object",
           "properties": {
-            "stability": { "type": "number", "minimum": 0, "maximum": 1 },
-            "similarity_boost": { "type": "number", "minimum": 0, "maximum": 1 },
-            "style": { "type": "number", "minimum": 0, "maximum": 1 },
-            "use_speaker_boost": { "type": "boolean" },
-            "speed": { "type": "number", "minimum": 0.5, "maximum": 2.0 }
+            "stability": { "type": "number" },
+            "similarity_boost": { "type": "number" },
+            "style": { "type": "number" },
+            "speed": { "type": "number" }
           }
         },
-        "pronunciation_notes": { "type": "string" },
-        "note": { "type": "string" },
         "segments": {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/voiceover_segment" }
-        }
-      }
-    },
-
-    "voiceover_segment": {
-      "type": "object",
-      "required": ["id", "part", "text"],
-      "properties": {
-        "id": { "type": "integer", "minimum": 0 },
-        "part": { "type": "string", "description": "段落標識" },
-        "text": {
-          "type": "string",
-          "description": "配音文字（簡體中文），可含情緒標記如 [upbeat][warm]"
+          "items": {
+            "type": "object",
+            "required": ["id", "part", "text"],
+            "properties": {
+              "id": { "type": "integer" },
+              "part": { "type": "string" },
+              "text": { "type": "string" }
+            }
+          }
         }
       }
     },
@@ -531,26 +408,12 @@
       "type": "object",
       "required": ["text", "start", "end"],
       "properties": {
-        "text": {
-          "type": "string",
-          "minLength": 2,
-          "maxLength": 15,
-          "description": "字幕文字（繁體中文，6-12 字為佳，最多 15 字）"
-        },
-        "start": {
-          "type": "number",
-          "minimum": 0,
-          "description": "開始時間（秒）"
-        },
-        "end": {
-          "type": "number",
-          "minimum": 0,
-          "description": "結束時間（秒）"
-        },
+        "text": { "type": "string", "minLength": 2, "maxLength": 15 },
+        "start": { "type": "number", "minimum": 0 },
+        "end": { "type": "number", "minimum": 0 },
         "style": {
           "type": "string",
-          "enum": ["main", "ranking", "data", "ranking_champion", "comparison"],
-          "description": "字幕樣式"
+          "enum": ["main", "ranking", "data", "ranking_champion", "comparison"]
         }
       }
     },
@@ -559,21 +422,23 @@
       "type": "object",
       "required": ["title", "description", "hashtags"],
       "properties": {
-        "title": {
-          "type": "string",
-          "maxLength": 100,
-          "description": "影片標題，需含「時時靜好」"
-        },
-        "description": {
-          "type": "string",
-          "description": "影片說明，需含研究來源"
-        },
+        "title": { "type": "string", "maxLength": 100 },
+        "description": { "type": "string" },
         "hashtags": {
           "type": "array",
           "minItems": 5,
-          "items": { "type": "string", "pattern": "^#" },
-          "description": "Hashtags，必須含 #時時靜好 和 #Shorts"
+          "items": { "type": "string", "pattern": "^#" }
         }
+      }
+    },
+
+    "scene_image_legacy": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "part": {},
+        "description": { "type": "string" },
+        "prompt": { "type": "string" }
       }
     }
   }

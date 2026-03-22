@@ -1,0 +1,62 @@
+{
+  "_doc": "Closing card (last card) fixed template. Minimal swap: closing text only.",
+
+  "template_id": "closing_3d_v1",
+  "canvas": {"width": 1080, "height": 1920},
+
+  "layout": {
+    "closing_text_zone": {
+      "x": 72, "y": 200, "w": 936, "h": 300,
+      "role": "Closing message — large, warm",
+      "text_align": "center",
+      "font_weight": "bold",
+      "color_token": "olive_dark"
+    },
+    "mascot_zone": {
+      "x": 280, "y": 600, "w": 520, "h": 680,
+      "role": "3D mascot facing viewer, waving goodbye",
+      "priority": "primary"
+    },
+    "brand_name_zone": {
+      "x": 72, "y": 1380, "w": 936, "h": 160,
+      "role": "Brand name '時時靜好' — prominent",
+      "text_align": "center",
+      "font_weight": "bold",
+      "color_token": "brown_text"
+    },
+    "tagline_zone": {
+      "x": 72, "y": 1560, "w": 936, "h": 80,
+      "role": "Tagline — '我們下次見' or similar",
+      "text_align": "center",
+      "color_token": "brown_text",
+      "opacity": 0.7
+    },
+    "separator": {
+      "x": 440, "y": 1340, "w": 200, "h": 2,
+      "role": "Thin decorative separator line",
+      "color_token": "warm_wood",
+      "opacity": 0.5
+    }
+  },
+
+  "fixed_values": {
+    "mascot_expression": "goodbye",
+    "mascot_pose": "greet_viewer",
+    "mascot_count": 1,
+    "background": "clean warm gradient, pale cream to warm beige, subtle soft bokeh"
+  },
+
+  "rules": [
+    "Mascot is centered and facing viewer",
+    "Expression MUST be 'goodbye' (waving)",
+    "Background must be clean — no objects, no clutter",
+    "Brand name '時時靜好' must be clearly visible",
+    "NO mascot logo, badge, or extra mascot",
+    "Bottom area empty for safe zone",
+    "No AI-generated text — all text added in composition"
+  ],
+
+  "swappable_fields": [
+    "closing_text"
+  ]
+}

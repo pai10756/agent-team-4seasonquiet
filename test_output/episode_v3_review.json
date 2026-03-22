@@ -1,0 +1,25 @@
+{
+  "verdict": "fail",
+  "attempt": 1,
+  "lock_layer": {
+    "passed": false,
+    "violations": [
+      {
+        "code": "HOOK_TEXT_LENGTH",
+        "severity": "error",
+        "message": "hook_text '地瓜比白飯健康？小心烤錯反更高GI！' 共 18 字，超過 10 字上限",
+        "field_path": "hook_text",
+        "fix_hint": "請精簡 hook_text 至 6-10 字（目前 18 字）",
+        "auto_fixable": true
+      }
+    ]
+  },
+  "guardrail_layer": {
+    "notes": []
+  },
+  "summary": "鎖死層 1 個違規: HOOK_TEXT_LENGTH",
+  "auto_fixable": [
+    "HOOK_TEXT_LENGTH"
+  ],
+  "needs_human": []
+}

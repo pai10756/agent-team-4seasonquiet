@@ -1,0 +1,149 @@
+{
+  "_doc": "時時靜好 Shorts v4 — 保留影片原始旁白，不加 TTS/BGM",
+  "meta": {
+    "title": "熟飯熟菜別放太久，2 小時內分裝冷藏",
+    "canvas": {"width": 1080, "height": 1920},
+    "fps": 24
+  },
+
+  "videos": {
+    "part1": "video_part1.mp4",
+    "part2": "video_part2.mp4"
+  },
+
+  "segments": [
+    {
+      "id": "hook",
+      "time_range": [0, 3],
+      "video_source": "part1",
+      "video_trim": [0, 3],
+      "overlays": [
+        {
+          "asset": "hook_title_v2.png",
+          "type": "fullcard_then_fade",
+          "show_duration": 1.8
+        },
+        {
+          "asset": "mascot_thinking.png",
+          "type": "sticker",
+          "position": {"x": 820, "y": 1350},
+          "scale": 0.40,
+          "fade_in": 0.3,
+          "_note": "下方偏右，保鮮盒旁邊，較大尺寸"
+        }
+      ],
+      "subtitle": {"text": "很多人都會想\n等一下再收就好", "start": 0.3, "end": 2.8}
+    },
+    {
+      "id": "flip",
+      "time_range": [3, 8],
+      "video_source": "part1",
+      "video_trim": [3, 8],
+      "color_adjust": {"temperature": -10, "saturation": -8},
+      "overlays": [
+        {
+          "asset": "badge_2hours.png",
+          "type": "sticker",
+          "position": {"x": "center", "y": "center"},
+          "scale": 0.35,
+          "fade_in": 0.5,
+          "_note": "畫面正中間"
+        }
+      ],
+      "subtitle": {"text": "熟飯熟菜\n別在室溫放太久", "start": 3.5, "end": 7.5}
+    },
+    {
+      "id": "compare",
+      "time_range": [8, 16],
+      "video_source": "part1",
+      "video_trim": [8, 15.1],
+      "overlays": [],
+      "subtitle": {"text": "超過 2 小時\n食安風險就會升高", "start": 9.0, "end": 15.0}
+    },
+    {
+      "id": "evidence",
+      "time_range": [16, 21],
+      "video_source": "part2",
+      "video_trim": [0, 5],
+      "overlays": [
+        {
+          "asset": "label_portion.png",
+          "type": "sticker",
+          "position": {"x": "center", "y": 160},
+          "scale": 0.38,
+          "fade_in": 0.4,
+          "delay": 0.3
+        }
+      ],
+      "subtitle": {"text": "正確做法\n是盡快分裝", "start": 16.5, "end": 20.5}
+    },
+    {
+      "id": "reminder",
+      "time_range": [21, 25],
+      "video_source": "part2",
+      "video_trim": [5, 9],
+      "overlays": [
+        {
+          "asset": "label_refrigerate.png",
+          "type": "sticker",
+          "position": {"x": "center", "y": 160},
+          "scale": 0.38,
+          "fade_in": 0.4
+        },
+        {
+          "asset": "icon_check.png",
+          "type": "sticker",
+          "position": {"x": "right", "y": 1300},
+          "scale": 0.25,
+          "fade_in": 0.8,
+          "delay": 1.5
+        }
+      ],
+      "subtitle": {"text": "再放進冰箱冷藏", "start": 21.5, "end": 24.5}
+    },
+    {
+      "id": "summary",
+      "time_range": [25, 29],
+      "video_source": "part2",
+      "video_trim": [9, 13],
+      "overlays": [],
+      "subtitle": {"text": "做對這一步\n才比較安心", "start": 25.5, "end": 28.5}
+    },
+    {
+      "id": "closing",
+      "time_range": [29, 33],
+      "video_source": "part2",
+      "video_trim": [13, 15.1],
+      "darken": 0.50,
+      "overlays": [
+        {
+          "asset": "mascot_goodbye.png",
+          "type": "sticker",
+          "position": {"x": "center", "y": 1280},
+          "scale": 0.50,
+          "fade_in": 0.3,
+          "_note": "下方居中，較大"
+        },
+        {
+          "asset": "speechbubble_goodbye.png",
+          "type": "sticker",
+          "position": {"x": "center", "y": 1020},
+          "scale": 0.52,
+          "fade_in": 0.5,
+          "delay": 0.4
+        }
+      ],
+      "subtitle": {"text": "時時靜好\n陪你安心懂健康", "start": 29.3, "end": 32.5}
+    }
+  ],
+
+  "subtitles_style": {
+    "font_size": 50,
+    "color": [255, 255, 255],
+    "stroke_color": [0, 0, 0],
+    "stroke_width": 2,
+    "bg_color": [0, 0, 0, 140],
+    "bg_radius": 14,
+    "position_y_from_bottom": 180
+  }
+}

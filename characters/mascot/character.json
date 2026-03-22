@@ -1,116 +1,102 @@
 {
-  "character_id": "xiaojing_v2",
+  "character_id": "xiaojing_3d_v1",
   "character_name": "小靜",
   "character_name_en": "Hsiao-ching",
   "species": "Taiwanese Leopard Cat (Prionailurus bengalensis chinensis)",
-  "style": "Duolingo-inspired character-driven vector illustration",
-  "version": "2.1",
-  "reference_image": "Duolingo_Real_leopard_cat_v2.jpg",
+  "style": "3D smooth matte plastic toy — Studio Ghibli meets Duolingo warmth",
+  "version": "3.0",
+  "render_mode": "3d_exact_reference",
+  "reference_images": {
+    "character": "3d_reference.jpg",
+    "main_card_example": "3d_main_card_reference.jpg"
+  },
+
+  "role_definition": {
+    "_doc": "小靜 = 品牌主持人，不是裝飾貼圖。",
+    "allowed_tasks": [
+      "Opening question — interact with hero object",
+      "Key reminder — pointing up pose",
+      "Closing farewell — waving goodbye",
+      "Brand recognition — consistent identity"
+    ],
+    "forbidden_tasks": [
+      "Standing in corner as decoration",
+      "Used as logo badge",
+      "Appearing as watermark",
+      "Duplicated in same image",
+      "Stealing visual attention from hero object",
+      "Appearing in every middle card"
+    ]
+  },
 
   "locked_identity": {
-    "_doc": "以下是小靜的 DNA，永遠不變。任何 outfit / expression / prop 的變化都不能改動這些。",
-    "construction": "Very round head, soft geometric body, detached simple paws, clean outlines, flat vector sticker-like style, mobile-friendly mascot design",
-    "proportion": "Head-to-body ratio 1:1.2, Q-style but not childish, consistent across all poses",
+    "_doc": "3D 小靜的 DNA，永遠不變。每次生成必須以 reference image 為準。",
+    "construction": "3D smooth matte plastic toy figure, big round head, compact body, short limbs, visible seam lines on head/ears",
+    "proportion": "Head-to-body ratio ~1:1, super-deformed cute proportion, consistent across all poses",
     "body": {
-      "base_color": "warm yellow-brown",
-      "pattern": "a few clear round dark spots on arms, body, and tail (minimal, iconic, mascot-friendly — NOT stripes, NOT tabby markings)",
-      "belly": "cream / off-white"
+      "base_color": "warm yellow-brown (matte plastic)",
+      "pattern": "round dark brown spots on arms, body, and tail (NOT stripes, NOT tabby)",
+      "belly": "cream / off-white",
+      "material": "smooth matte plastic, no fur texture, no pores"
     },
     "head": {
-      "forehead": "two simplified white vertical stripes, thick and prominent (key species identifier, must be visible even at small sizes)",
-      "ears": "black with tiny white ear-back spots (key species identifier)",
-      "eyes": "big expressive round eyes, dark brown pupils with highlight, occupy ~35% of face",
-      "nose": "brick-pink, small",
-      "cheeks": "cream / off-white",
-      "mouth": "simple curved line, varies by expression"
+      "forehead": "two white vertical stripes, thick and prominent (key species identifier)",
+      "ears": "black with tiny white ear-back spots, slight seam line visible",
+      "eyes": "big round dark brown eyes with white highlight dots, ~35% of face",
+      "nose": "brick-pink, small triangular",
+      "cheeks": "cream / off-white, smooth transition",
+      "mouth": "simple curved line, subtle"
     },
-    "tail": "fluffy, clear dark ring markings (NOT tabby stripes), white tip"
+    "tail": "short with clear dark ring/spot markings, NOT tabby stripes",
+    "apron": {
+      "color": "sage green (#A8B88A approx)",
+      "icon": "white bowl with leaf sprout, centered on chest",
+      "style": "simple, clean, part of the toy figure"
+    }
+  },
+
+  "material_spec": {
+    "material": "smooth matte plastic",
+    "finish": "low gloss, like a premium vinyl toy (Pop Mart / Sonny Angel quality)",
+    "shadow": "very soft, diffused",
+    "lighting": "studio softbox, front-top slightly left, subtle warm rim light",
+    "background_for_standalone": "muted pastel / morandi palette solid color"
   },
 
   "outfit": {
-    "_doc": "服裝是可變的，scriptwriter 根據主題選擇。但所有服裝都必須保持簡潔 icon 級別，不能遮蓋角色本體的斑點和體色。",
+    "_doc": "3D 版服裝都是 apron 色變化。預設 sage green apron with bowl-leaf icon。",
     "default": "apron",
     "options": {
       "apron": {
-        "description": "Simple warm-colored apron (cream/beige) with small bowl-with-leaf icon",
-        "prompt_fragment": "wearing a simple cream apron with a small bowl icon on the front",
-        "when": "飲食、烹調、營養主題"
+        "description": "Sage green apron with white bowl-leaf icon (default)",
+        "prompt_fragment": "wearing sage green apron with small white bowl-leaf icon on chest",
+        "when": "飲食、烹調、營養主題 (預設)"
       },
       "none": {
-        "description": "No accessories, bare character",
-        "prompt_fragment": "no clothing or accessories, just the natural leopard cat character",
+        "description": "No apron, bare character",
+        "prompt_fragment": "no apron or accessories, just the natural leopard cat character",
         "when": "通用預設、不特定主題"
       },
       "sport_vest": {
-        "description": "Simple small sport vest in light blue",
-        "prompt_fragment": "wearing a simple light blue sport vest",
+        "description": "Light blue sport vest, same matte plastic material",
+        "prompt_fragment": "wearing a light blue sport vest, same smooth matte plastic material",
         "when": "運動、體態、肌力主題"
       },
       "sleep_cap": {
-        "description": "Small cozy nightcap in warm beige with a tiny star",
-        "prompt_fragment": "wearing a small cozy beige nightcap with a tiny star on the tip",
-        "when": "睡眠、作息、褪黑激素主題"
-      },
-      "scarf": {
-        "description": "Simple warm-toned knit scarf",
-        "prompt_fragment": "wearing a simple warm orange-brown knit scarf",
-        "when": "心理、情緒、壓力、冬季主題"
+        "description": "Small beige nightcap with tiny star",
+        "prompt_fragment": "wearing a small beige nightcap with tiny star, same smooth matte plastic",
+        "when": "睡眠、作息主題"
       },
       "doctor_coat": {
-        "description": "Tiny simplified white coat (icon-level, not realistic)",
-        "prompt_fragment": "wearing a tiny simplified white doctor coat, icon-level simplicity",
-        "when": "醫學知識、健檢、用藥主題"
+        "description": "Tiny white coat, simplified",
+        "prompt_fragment": "wearing a tiny simplified white doctor coat, same smooth matte plastic",
+        "when": "醫學知識、健檢主題"
       }
-    },
-    "seasonal": {
-      "lunar_new_year": {
-        "description": "Red apron + small tangerine icon",
-        "prompt_fragment": "wearing a red apron with a small tangerine icon, festive but simple",
-        "when": "春節限定"
-      },
-      "mid_autumn": {
-        "description": "Deep orange apron + small mooncake icon",
-        "prompt_fragment": "wearing a deep orange apron with a small mooncake icon",
-        "when": "中秋限定"
-      },
-      "dragon_boat": {
-        "description": "Green apron + small rice dumpling icon",
-        "prompt_fragment": "wearing a green apron with a small rice dumpling icon",
-        "when": "端午限定"
-      }
-    },
-    "rules": [
-      "所有服裝都必須是 icon 級別的簡潔，不能有複雜皺褶或材質",
-      "服裝不能遮蓋身體超過 30%，必須保留斑點和體色的可見性",
-      "不指定時預設用 apron",
-      "scriptwriter 可提案新服裝，經確認風格一致後加入 options"
-    ]
+    }
   },
-
-  "prop": {
-    "_doc": "手持小道具，與主題相關，icon 級別。",
-    "rules": [
-      "道具必須簡化為 icon 級別，跟角色風格一致",
-      "道具不改變角色本身的設計，只是額外拿在手上",
-      "不指定則不拿道具"
-    ],
-    "examples": [
-      { "topic": "白粥升糖", "prop": "tiny bowl of porridge" },
-      { "topic": "補鈣排行", "prop": "tiny glass of milk with X mark" },
-      { "topic": "雞蛋膽固醇", "prop": "tiny egg" },
-      { "topic": "烹調方式", "prop": "tiny frying pan" },
-      { "topic": "睡眠品質", "prop": "tiny pillow" },
-      { "topic": "走路運動", "prop": "tiny sneaker" }
-    ]
-  },
-
-  "negative_prompt": "no tiger stripes, no m-shaped house-cat forehead marking, no realistic fur, no complex texture, no busy background, no tabby cat markings, no domestic cat appearance, no ringed tabby tail, no house-cat pattern, no decorative clutter",
-
-  "prompt_base": "A cute Taiwanese leopard cat mascot named 小靜, character-driven illustration style, very simple geometric construction, big expressive and endearing eyes, unique rounded silhouette, detached simple paws, warm yellow-brown fur, cream face and cheeks, two iconic white vertical stripes on the forehead, black ears with small white spots on the back, simplified round dark spots on the body and tail instead of tabby stripes, brick-pink nose, clever and friendly personality, vector cartoon style, highly recognizable on mobile, minimal but memorable, clean outlines, premium but approachable, species-accurate Taiwanese leopard cat markings simplified into a clean mascot language, not a domestic tabby cat, no tiger stripes, no m-shaped house-cat forehead marking, no realistic fur, no complex texture, no busy background",
 
   "expressions": {
-    "_doc": "基本組 6 種覆蓋核心影片情緒。擴充組隨需求新增，流程：scriptwriter 提案 → 設計 prompt_fragment → Gemini 驗證風格一致 → 加入此處 + 更新 schema enum。",
-
+    "_doc": "3D 版表情以微妙差異為主，不要誇張卡通化。配合 expression_map 使用。",
     "_base_expressions": ["default", "surprised", "thinking", "happy", "reminder", "goodbye"],
 
     "default": {
@@ -120,94 +106,68 @@
       "group": "base"
     },
     "surprised": {
-      "description": "Wide open eyes, small O-shaped mouth, startled expression",
-      "prompt_fragment": "wide open eyes, small O-shaped mouth, startled surprised expression, hands slightly raised",
-      "use_case": "縮圖、認知反差 hook、「真的假的」段落",
+      "description": "Slightly wider eyes, subtle O-shaped mouth",
+      "prompt_fragment": "slightly wider eyes, subtle surprised expression, small O mouth, hands slightly raised",
+      "use_case": "認知反差 hook、「真的假的」",
       "group": "base"
     },
     "thinking": {
-      "description": "One paw touching chin, curious eyes looking up or sideways, head slightly tilted",
-      "prompt_fragment": "one paw touching chin, curious eyes looking up, head slightly tilted, thoughtful expression",
-      "use_case": "「你知道嗎」段落、問題鋪陳",
+      "description": "One paw touching chin, curious eyes, head slightly tilted",
+      "prompt_fragment": "one paw touching chin, curious eyes looking slightly up, head tilted, thoughtful",
+      "use_case": "問句封面、迷思鋪陳",
+      "headline_types": ["question", "myth"],
       "group": "base"
     },
     "happy": {
-      "description": "Smiling eyes or crescent eyes, joyful open smile",
-      "prompt_fragment": "crescent squinting eyes, joyful open smile, radiating happiness",
+      "description": "Crescent squinting eyes, joyful smile",
+      "prompt_fragment": "crescent squinting eyes, joyful warm smile, radiating gentle happiness",
       "use_case": "正面結論、解法揭曉",
       "group": "base"
     },
     "reminder": {
-      "description": "Bright attentive eyes, gentle confident smile, one paw raised with index finger pointing up",
-      "prompt_fragment": "bright attentive eyes, gentle confident smile, one paw raised with index finger pointing up, like sharing an important tip",
-      "use_case": "知識提醒、數據引用、重點摘要",
+      "description": "Bright eyes, confident smile, one paw pointing up",
+      "prompt_fragment": "bright attentive eyes, confident smile, one paw raised with index finger up, sharing a tip",
+      "use_case": "知識提醒、重點摘要",
       "group": "base"
     },
     "goodbye": {
-      "description": "Sweet smile, one paw waving toward the viewer",
-      "prompt_fragment": "sweet warm smile, one paw waving toward the viewer, friendly farewell gesture",
-      "use_case": "片尾告別",
+      "description": "Sweet smile, one paw waving toward viewer",
+      "prompt_fragment": "sweet warm smile, one paw waving toward viewer, friendly farewell",
+      "use_case": "片尾告別 (固定)",
       "group": "base"
     },
     "worried": {
-      "description": "Eyebrows slightly raised and angled, small frown, concerned look",
-      "prompt_fragment": "eyebrows slightly raised and angled inward, small worried frown, concerned caring look, one paw near chest",
-      "use_case": "警告性主題、「這個習慣很傷腎」",
-      "group": "extended"
-    },
-    "disgusted": {
-      "description": "Eyes half-closed, tongue slightly out, leaning back",
-      "prompt_fragment": "eyes half-closed with slight disgust, tiny tongue sticking out to one side, leaning back slightly, playful rejection",
-      "use_case": "破除迷思、「你還在吃這個？」",
-      "group": "extended"
-    },
-    "sleepy": {
-      "description": "Heavy half-closed eyes, small yawn or drowsy smile",
-      "prompt_fragment": "heavy half-closed drowsy eyes, small gentle yawn, slightly drooping posture, cozy sleepy mood",
-      "use_case": "睡眠主題、「為什麼越睡越累」",
+      "description": "Eyebrows slightly raised, small frown, concerned",
+      "prompt_fragment": "eyebrows slightly raised inward, small worried frown, concerned caring look",
+      "use_case": "警告性主題",
       "group": "extended"
     },
     "proud": {
-      "description": "Chin slightly raised, confident closed-mouth smile, hands on hips",
-      "prompt_fragment": "chin slightly raised, confident closed-mouth smile, both paws on hips, proud satisfied posture",
-      "use_case": "觀眾學到東西、「現在你比 90% 的人懂」",
-      "group": "extended"
-    },
-    "shushing": {
-      "description": "One paw index finger over lips, playful winking eye, sharing a secret",
-      "prompt_fragment": "one paw with index finger over lips in a shushing gesture, one eye winking, playful secretive smile",
-      "use_case": "揭秘型 hook、「醫生不會告訴你的...」",
-      "group": "extended"
-    },
-    "eating": {
-      "description": "Holding a tiny food item near open mouth, happy anticipation",
-      "prompt_fragment": "holding a tiny food item near open smiling mouth, eyes sparkling with happy anticipation, about to take a bite",
-      "use_case": "飲食示範、「這樣吃才對」",
+      "description": "Chin slightly raised, confident closed smile, hands on hips",
+      "prompt_fragment": "chin slightly raised, confident closed smile, both paws on hips, satisfied",
+      "use_case": "「現在你比 90% 的人懂」",
       "group": "extended"
     }
   },
 
-  "usage_rules": {
-    "thumbnail": {
-      "expression": "surprised (primary) or thinking",
-      "size": "20-25% of frame",
-      "position": "bottom-left or bottom-right corner",
-      "style": "Duolingo-level expression intensity for mobile readability"
-    },
-    "title_card": {
-      "expression": "default or surprised",
-      "size": "15-20% of frame",
-      "position": "beside channel name"
-    },
-    "end_card": {
-      "expression": "goodbye",
-      "size": "30% of frame",
-      "position": "center, with '時時靜好' text"
-    },
-    "knowledge_card": {
-      "expression": "reminder or thinking",
-      "size": "20-30% of frame",
-      "position": "beside infographic element"
-    }
-  }
+  "expression_headline_map": {
+    "_doc": "Prevents emotion mismatch. Reviewer checks this.",
+    "question_myth": ["thinking", "default"],
+    "discovery_flip": ["surprised", "happy"],
+    "reminder_safety": ["reminder", "worried"],
+    "brand_closing": ["goodbye"],
+    "data_evidence": ["reminder", "default"]
+  },
+
+  "presence_rules": {
+    "cover_card": {"allowed": true, "max_count": 1, "interaction": "with hero object"},
+    "middle_cards": {"allowed": false, "override": "only if scene_role explicitly requires"},
+    "closing_card": {"allowed": true, "max_count": 1, "expression": "goodbye"},
+    "mascot_as_logo": false,
+    "mascot_as_badge": false,
+    "mascot_as_watermark": false,
+    "allow_duplicate": false
+  },
+
+  "negative_prompt": "no tiger stripes, no tabby markings, no domestic cat, no realistic fur texture, no glossy material, no multiple mascots, no text, no watermark, no busy background, no harsh shadows, no corner mascot decoration"
 }

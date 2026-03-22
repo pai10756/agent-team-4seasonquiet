@@ -1,0 +1,177 @@
+{
+  "type": "ranking",
+  "asset_dir": "test_output\\ep10_assets",
+  "success": true,
+  "fallback_note": null,
+  "pipeline": "v3_gemini_pillow_hybrid",
+  "cards": [
+    {
+      "scene_id": "01",
+      "path": "test_output\\ep10_assets\\card_01.jpg",
+      "success": true
+    },
+    {
+      "scene_id": "02",
+      "path": "test_output\\ep10_assets\\card_02.jpg",
+      "success": true
+    },
+    {
+      "scene_id": "03",
+      "path": "test_output\\ep10_assets\\card_03.jpg",
+      "success": true
+    },
+    {
+      "scene_id": "04",
+      "path": "test_output\\ep10_assets\\card_04.jpg",
+      "success": true
+    },
+    {
+      "scene_id": "05",
+      "path": "test_output\\ep10_assets\\card_05.jpg",
+      "success": true
+    },
+    {
+      "scene_id": "06",
+      "path": "test_output\\ep10_assets\\card_06.jpg",
+      "success": true
+    }
+  ],
+  "ranking_cards": [
+    {
+      "rank": 1,
+      "path": "test_output\\ep10_assets\\ranking_card_1.jpg",
+      "success": true
+    },
+    {
+      "rank": 2,
+      "path": "test_output\\ep10_assets\\ranking_card_2.jpg",
+      "success": true
+    },
+    {
+      "rank": 3,
+      "path": "test_output\\ep10_assets\\ranking_card_3.jpg",
+      "success": true
+    },
+    {
+      "rank": 4,
+      "path": "test_output\\ep10_assets\\ranking_card_4.jpg",
+      "success": true
+    },
+    {
+      "rank": 5,
+      "path": "test_output\\ep10_assets\\ranking_card_5.jpg",
+      "success": true
+    }
+  ],
+  "tts_narration": {
+    "success": true,
+    "manifest": "test_output\\ep10_assets\\tts_manifest.json",
+    "segments": [
+      {
+        "index": 0,
+        "start": 0.0,
+        "end": 2.5,
+        "text": "一天只能吃一顆蛋？",
+        "path": "test_output\\ep10_assets\\tts_segments\\tts_000.mp3"
+      },
+      {
+        "index": 1,
+        "start": 3.0,
+        "end": 5.0,
+        "text": "這迷思害雞蛋被冤枉",
+        "path": "test_output\\ep10_assets\\tts_segments\\tts_001.mp3"
+      },
+      {
+        "index": 2,
+        "start": 5.0,
+        "end": 7.5,
+        "text": "足足五十多年了！",
+        "path": "test_output\\ep10_assets\\tts_segments\\tts_002.mp3"
+      },
+      {
+        "index": 3,
+        "start": 8.0,
+        "end": 10.0,
+        "text": "真正元兇不是蛋黃",
+        "path": "test_output\\ep10_assets\\tts_segments\\tts_003.mp3"
+      },
+      {
+        "index": 4,
+        "start": 10.0,
+        "end": 12.0,
+        "text": "而是早餐中的它！",
+        "path": "test_output\\ep10_assets\\tts_segments\\tts_004.mp3"
+      },
+      {
+        "index": 5,
+        "start": 12.5,
+        "end": 14.5,
+        "text": "飽和脂肪排行榜",
+        "path": "test_output\\ep10_assets\\tts_segments\\tts_005.mp3"
+      },
+      {
+        "index": 6,
+        "start": 15.0,
+        "end": 17.0,
+        "text": "培根香腸奶油吐司",
+        "path": "test_output\\ep10_assets\\tts_segments\\tts_006.mp3"
+      },
+      {
+        "index": 7,
+        "start": 17.5,
+        "end": 19.5,
+        "text": "蛋黃飽和脂肪最低",
+        "path": "test_output\\ep10_assets\\tts_segments\\tts_007.mp3"
+      },
+      {
+        "index": 8,
+        "start": 20.0,
+        "end": 21.5,
+        "text": "最新研究證實",
+        "path": "test_output\\ep10_assets\\tts_segments\\tts_008.mp3"
+      },
+      {
+        "index": 9,
+        "start": 21.5,
+        "end": 23.0,
+        "text": "每天兩顆蛋可降LDL",
+        "path": "test_output\\ep10_assets\\tts_segments\\tts_009.mp3"
+      },
+      {
+        "index": 10,
+        "start": 23.5,
+        "end": 25.5,
+        "text": "搭配低脂飲食更健康",
+        "path": "test_output\\ep10_assets\\tts_segments\\tts_010.mp3"
+      },
+      {
+        "index": 11,
+        "start": 26.0,
+        "end": 27.5,
+        "text": "高膽固醇請遵醫囑",
+        "path": "test_output\\ep10_assets\\tts_segments\\tts_011.mp3"
+      },
+      {
+        "index": 12,
+        "start": 28.0,
+        "end": 29.5,
+        "text": "吃對搭配比怕蛋重要",
+        "path": "test_output\\ep10_assets\\tts_segments\\tts_012.mp3"
+      },
+      {
+        "index": 13,
+        "start": 30.0,
+        "end": 31.0,
+        "text": "時時靜好",
+        "path": "test_output\\ep10_assets\\tts_segments\\tts_013.mp3"
+      },
+      {
+        "index": 14,
+        "start": 31.5,
+        "end": 33.0,
+        "text": "祝您健康下次見！",
+        "path": "test_output\\ep10_assets\\tts_segments\\tts_014.mp3"
+      }
+    ]
+  }
+}
