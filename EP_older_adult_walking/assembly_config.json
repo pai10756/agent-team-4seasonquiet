@@ -1,0 +1,40 @@
+{
+  "scenes": [
+    {
+      "scene_id": "01",
+      "image": "EP_older_adult_walking/card01.png",
+      "duration": 5,
+      "narration": "很多人都以為，每天一定要走到一萬步，才算健康。但對長輩來說，真的不一定。"
+    },
+    {
+      "scene_id": "02",
+      "image": "EP_older_adult_walking/card02.png",
+      "duration": 7,
+      "narration": "其實，「一萬步」最早不是醫學建議。它是 1965 年日本萬步計，帶起來的口號。先紅的是行銷，不是醫學定論。"
+    },
+    {
+      "scene_id": "03",
+      "image": "EP_older_adult_walking/card03.png",
+      "duration": 8,
+      "narration": "研究發現，六十歲以上的長輩，每天大約走六千到八千步，主要健康效益就已經差不多到了。再走更多，效益大致趨平。"
+    },
+    {
+      "scene_id": "04",
+      "image": "EP_older_adult_walking/card04.png",
+      "duration": 8,
+      "narration": "而且，就算沒空天天走，每週只要有一到兩天，走到大約八千步以上，也還是比完全沒走，好很多。"
+    },
+    {
+      "scene_id": "05",
+      "image": "EP_older_adult_walking/card05.png",
+      "duration": 7,
+      "narration": "所以，重點不是硬拚一萬步。特別是膝蓋本來就不太舒服的長輩，量力而行，持續走，反而更重要。"
+    },
+    {
+      "scene_id": "06",
+      "image": "EP_older_adult_walking/card06.png",
+      "duration": 5,
+      "narration": "時時靜好，陪你安心懂健康。我是小靜，我們下次見。"
+    }
+  ]
+}
