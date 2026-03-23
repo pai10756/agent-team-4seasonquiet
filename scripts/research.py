@@ -3,10 +3,11 @@
 
 負責搜集原始資料（不做整合判斷），整合由 OpenClaw researcher agent (Sonnet) 完成。
 
-三層搜尋：
-  1. Gemini + Google Search grounding — 廣泛搜尋最新研究
-  2. PubMed E-utilities — 權威期刊文獻
-  3. USDA FoodData Central — 營養數據查證
+v2 多角度搜尋：
+  Step 0. Gemini 拆解主題為 2-3 個搜尋子面向
+  Step 1. Gemini + Google Search grounding — 逐面向搜尋，合併去重
+  Step 2. PubMed E-utilities — 逐面向搜尋，合併去重
+  Step 3. USDA FoodData Central — 營養數據查證
 
 輸出模式：
   --mode collect  → 輸出原始搜集資料 JSON（給 agent 整合用）
@@ -16,7 +17,7 @@
   # 搜集模式（推薦，由 researcher agent 整合）
   python scripts/research.py --topic "地瓜 vs 白飯 升糖指數" --mode collect -o raw.json
 
-  # 完整模式（腳本自行整合，獨立執行時用）
+  # 完整模式（腳本自行整合，獨立執行用）
   python scripts/research.py --topic "地瓜 vs 白飯 升糖指數" --topic-id 7 --mode full -o report.json
 
 環境變數:
@@ -28,6 +29,7 @@
 
 import json
 import os
+import subprocess
 import sys
 import time
 import urllib.error
@@ -41,6 +43,7 @@ from validate_schema import validate_research
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GEMINI_SEARCH_MODEL = os.environ.get("GEMINI_SEARCH_MODEL", "gemini-2.5-flash")
+GEMINI_QUICK_MODEL = os.environ.get("GEMINI_QUICK_MODEL", "gemini-3-flash-preview")
 NCBI_API_KEY = os.environ.get("NCBI_API_KEY", "")
 USDA_API_KEY = os.environ.get("USDA_API_KEY", "DEMO_KEY")
 
@@ -52,17 +55,17 @@ def log(msg: str):
 # ── Gemini 輔助（輕量任務用 flash）────────────────────────────
 
 def _gemini_quick(prompt: str, max_tokens: int = 200) -> str:
-    """輕量 Gemini 呼叫（翻譯、提取關鍵字），用 flash 模型。"""
+    """輕量 Gemini 呼叫（翻譯、提取關鍵字），用 2.0-flash（非 thinking 模型）。"""
     if not GEMINI_API_KEY:
         return ""
 
     url = (
         f"https://generativelanguage.googleapis.com/v1beta/models/"
-        f"{GEMINI_SEARCH_MODEL}:generateContent?key={GEMINI_API_KEY}"
+        f"{GEMINI_QUICK_MODEL}:generateContent?key={GEMINI_API_KEY}"
     )
     payload = json.dumps({
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0, "maxOutputTokens": max_tokens},
+        "generationConfig": {"temperature": 0, "maxOutputTokens": 8192},
     }).encode()
 
     try:
@@ -249,52 +252,215 @@ def usda_search(food_query: str, max_results: int = 3) -> list[dict]:
     return results
 
 
-# ── 資料搜集（collect 模式）───────────────────────────────────
+# ── Claude Code WebSearch（補強層）─────────────────────────────
+
+def claude_web_search(queries: list[str]) -> dict:
+    """
+    用 Claude Code CLI 的 WebSearch 補搜 Gemini grounding 漏掉的研究。
+    一次傳入多個 query，讓 Claude 批次搜尋後回傳結構化結果。
+    """
+    if not queries:
+        return {"text": "", "sources": []}
+
+    queries_text = "\n".join(f"- {q}" for q in queries)
+    prompt = (
+        f"Use WebSearch to search for each of the following queries. "
+        f"For each query, find the most authoritative sources "
+        f"(prioritize: Nature, NEJM, JAMA, BMJ, Lancet, AJCN, Cochrane, "
+        f"USDA, WHO, large RCTs, meta-analyses).\n\n"
+        f"Queries:\n{queries_text}\n\n"
+        f"For each finding, output in this exact format (one per line):\n"
+        f"FINDING: [key finding] | SOURCE: [citation] | URL: [url] | TYPE: [rct/meta_analysis/cohort/review/guideline]"
+    )
+
+    try:
+        # 移除所有 Claude Code session 環境變數以允許巢狀呼叫
+        env = os.environ.copy()
+        for key in list(env.keys()):
+            if key.startswith("CLAUDE") and key != "CLAUDE_API_KEY":
+                env.pop(key)
+
+        result = subprocess.run(
+            ["claude", "-p", prompt,
+             "--allowedTools", "WebSearch",
+             "--output-format", "text"],
+            capture_output=True, text=True, encoding="utf-8",
+            timeout=180, cwd=str(BASE), env=env,
+        )
+        if result.returncode != 0:
+            log(f"Claude WebSearch 失敗: {result.stderr[:200]}")
+            return {"text": "", "sources": []}
+
+        output = result.stdout.strip()
+
+        # 解析結構化輸出
+        sources = []
+        findings_text = []
+        for line in output.split("\n"):
+            if line.startswith("FINDING:"):
+                parts = line.split(" | ")
+                finding = {}
+                for part in parts:
+                    part = part.strip()
+                    if part.startswith("FINDING:"):
+                        finding["finding"] = part[8:].strip()
+                    elif part.startswith("SOURCE:"):
+                        finding["citation"] = part[7:].strip()
+                    elif part.startswith("URL:"):
+                        finding["url"] = part[4:].strip()
+                    elif part.startswith("TYPE:"):
+                        finding["study_type"] = part[5:].strip()
+                if finding.get("finding"):
+                    findings_text.append(finding["finding"])
+                if finding.get("url"):
+                    sources.append(finding)
+
+        # 也保留原始文字（包含非結構化的部分）
+        return {
+            "text": output,
+            "sources": sources,
+            "findings": findings_text,
+        }
+
+    except subprocess.TimeoutExpired:
+        log("Claude WebSearch 逾時 (180s)")
+        return {"text": "", "sources": []}
+    except FileNotFoundError:
+        log("Claude CLI 未安裝或不在 PATH 中，跳過 WebSearch 補強")
+        return {"text": "", "sources": []}
+    except Exception as e:
+        log(f"Claude WebSearch 錯誤: {e}")
+        return {"text": "", "sources": []}
+
+
+# ── Step 0: 子面向拆解 ────────────────────────────────────────
+
+def _decompose_angles(topic: str) -> list[str]:
+    """用 Gemini 將主題拆成 3 個搜尋子面向。獨立 API 呼叫，temperature 0.5。"""
+    if not GEMINI_API_KEY:
+        return [topic]
+
+    url = (
+        f"https://generativelanguage.googleapis.com/v1beta/models/"
+        f"{GEMINI_QUICK_MODEL}:generateContent?key={GEMINI_API_KEY}"
+    )
+    prompt = (
+        f"Task: split a health topic into 3 search angles separated by |||.\n"
+        f"Rules: each angle uses DIFFERENT keywords. Mix English and Chinese. "
+        f"You MUST output exactly 3 angles separated by |||.\n\n"
+        f"Topic: 黑巧克力和咖啡抗老化\n"
+        f"Angle1 ||| Angle2 ||| Angle3: dark chocolate cocoa flavanol antioxidant cardiovascular RCT ||| "
+        f"coffee daily intake mortality longevity meta-analysis cohort study ||| "
+        f"theobromine epigenetic aging telomere DNA methylation biomarker\n\n"
+        f"Topic: 白粥升糖指數\n"
+        f"Angle1 ||| Angle2 ||| Angle3: white rice porridge congee glycemic index GI blood sugar ||| "
+        f"rice cooking time starch gelatinization nutrition ||| "
+        f"diabetes diet carbohydrate postprandial glucose response\n\n"
+        f"Topic: {topic}\n"
+        f"Angle1 ||| Angle2 ||| Angle3:"
+    )
+    payload = json.dumps({
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"temperature": 0.5, "maxOutputTokens": 8192},
+    }).encode()
+
+    try:
+        req = urllib.request.Request(
+            url, data=payload,
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            data = json.loads(resp.read())
+        for part in data.get("candidates", [{}])[0].get("content", {}).get("parts", []):
+            if "text" in part:
+                raw = part["text"].strip()
+                angles = [a.strip() for a in raw.split("|||") if a.strip()]
+                angles = [a for a in angles if len(a) > 10]
+                if len(angles) >= 2:
+                    return angles[:3]
+    except Exception as e:
+        log(f"子面向拆解失敗: {e}")
+
+    return [topic]
+
+
+# ── 資料搜集（collect 模式，v2 多角度）─────────────────────────
 
 def collect_raw_data(topic: str, food_keywords: list[str] | None = None) -> dict:
     """
-    搜集三層原始資料，不做整合判斷。
-    回傳給 researcher agent (Sonnet) 做最終整合。
+    v2 多角度搜集：先拆子面向，再逐面向搜 Gemini + PubMed，合併去重。
     """
     log(f"開始搜集: {topic}")
 
-    # Step 1: Gemini + Google Search grounding
+    # Step 0: 拆解子面向
+    log("Step 0: 拆解搜尋子面向...")
+    angles = _decompose_angles(topic)
+    log(f"子面向 ({len(angles)}): {angles}")
+
+    time.sleep(0.5)
+
+    # Step 1: Gemini + Google Search grounding（逐面向搜尋）
     system_prompt = (
         "你是營養學和健康科學的研究助手。"
         "搜尋時優先找：系統回顧(meta-analysis)、RCT、WHO/衛福部/USDA指南。"
         "回答要包含具體數字、研究年份、期刊名稱。"
         "用繁體中文回答。"
     )
-    search_query = (
-        f"最新研究: {topic}\n"
-        f"請搜尋：1) 學術研究和系統回顧 2) 官方營養指南 "
-        f"3) 具體數據和比較數字 4) 常見迷思 vs 實際研究發現"
-    )
-    log("Step 1: Gemini + Google Search grounding...")
-    gemini_result = gemini_grounded_search(search_query, system_prompt)
-    if "error" in gemini_result:
-        log(f"Gemini 搜尋失敗: {gemini_result['error']}")
-        gemini_result = {"text": "", "sources": []}
+    all_gemini_text = []
+    seen_urls = set()
+    all_gemini_sources = []
+
+    for i, angle in enumerate(angles):
+        search_query = (
+            f"最新研究: {angle}\n"
+            f"請搜尋：1) 學術研究和系統回顧 2) 官方營養指南 "
+            f"3) 具體數據和比較數字 4) 常見迷思 vs 實際研究發現"
+        )
+        log(f"Step 1.{i+1}: Gemini 搜尋 [{angle[:40]}...]")
+        result = gemini_grounded_search(search_query, system_prompt)
+        if "error" not in result:
+            all_gemini_text.append(result.get("text", ""))
+            for src in result.get("sources", []):
+                url = src.get("url", "")
+                if url and url not in seen_urls:
+                    seen_urls.add(url)
+                    all_gemini_sources.append(src)
+        else:
+            log(f"  搜尋失敗: {result['error']}")
+        if i < len(angles) - 1:
+            time.sleep(1)
 
     time.sleep(1)
 
-    # Step 2: PubMed
-    log("Step 2: PubMed 搜尋...")
-    en_query = _gemini_quick(
-        f"Convert this Chinese health/nutrition topic into a PubMed search query. "
-        f"Use MeSH-compatible English terms. Use AND between concept groups, "
-        f"OR between synonyms. Wrap multi-word terms in quotes. "
-        f"Output ONLY the query string, nothing else.\n"
-        f"Example: '地瓜 vs 白飯 升糖指數' → '\"sweet potato\" AND \"glycemic index\"'\n"
-        f"Example: '鈣質吸收 維生素D' → 'calcium absorption AND \"vitamin D\"'\n\n"
-        f"Topic: {topic}"
-    )
-    if en_query:
-        log(f"PubMed 搜尋詞: {en_query}")
-    else:
-        en_query = topic
-    pubmed_articles = pubmed_search(en_query)
+    # Step 2: PubMed（逐面向搜尋，去重）
+    log("Step 2: PubMed 多角度搜尋...")
+    seen_pmids = set()
+    all_pubmed = []
 
+    for i, angle in enumerate(angles):
+        en_query = _gemini_quick(
+            f"Convert this Chinese health/nutrition topic into a PubMed search query. "
+            f"Use MeSH-compatible English terms. Use AND between concept groups, "
+            f"OR between synonyms. Wrap multi-word terms in quotes. "
+            f"Output ONLY the query string, nothing else.\n"
+            f"Example: '地瓜 vs 白飯 升糖指數' → '\"sweet potato\" AND \"glycemic index\"'\n"
+            f"Example: '鈣質吸收 維生素D' → 'calcium absorption AND \"vitamin D\"'\n\n"
+            f"Topic: {angle}"
+        )
+        if not en_query:
+            en_query = angle
+        log(f"Step 2.{i+1}: PubMed [{en_query[:50]}...]")
+        articles = pubmed_search(en_query)
+        for art in articles:
+            pmid = art.get("pmid", "")
+            if pmid and pmid not in seen_pmids:
+                seen_pmids.add(pmid)
+                all_pubmed.append(art)
+        if i < len(angles) - 1:
+            time.sleep(0.5)
+
+    log(f"PubMed 合計: {len(all_pubmed)} 篇（去重後）")
     time.sleep(0.5)
 
     # Step 3: USDA
@@ -317,13 +483,29 @@ def collect_raw_data(topic: str, food_keywords: list[str] | None = None) -> dict
     else:
         log("Step 3: 無食材關鍵字，跳過 USDA")
 
+    # Step 4: Claude WebSearch 補強（針對高證據等級研究）
+    claude_data = {"text": "", "sources": [], "findings": []}
+    补_queries = [
+        f"{topic} RCT randomized controlled trial clinical trial",
+        f"{topic} meta-analysis systematic review large cohort study",
+        f"{topic} official guidelines WHO USDA dietary recommendations",
+    ]
+    log("Step 4: Claude WebSearch 補強（搜尋頂刊 RCT / meta-analysis）...")
+    claude_data = claude_web_search(补_queries)
+    if claude_data.get("sources"):
+        log(f"Claude WebSearch: 找到 {len(claude_data['sources'])} 筆補強來源")
+    else:
+        log("Claude WebSearch: 無補強結果或 CLI 不可用")
+
     return {
         "topic": topic,
+        "search_angles": angles,
         "google_search": {
-            "summary": gemini_result.get("text", ""),
-            "sources": gemini_result.get("sources", []),
+            "summary": "\n\n---\n\n".join(all_gemini_text),
+            "sources": all_gemini_sources,
         },
-        "pubmed": pubmed_articles,
+        "claude_search": claude_data,
+        "pubmed": all_pubmed,
         "usda": usda_data,
         "search_model": GEMINI_SEARCH_MODEL,
     }
@@ -352,6 +534,12 @@ def synthesize_with_gemini(topic: str, topic_id: int, raw_data: dict) -> dict:
 
 ## Google Search 來源
 {json.dumps(raw_data.get('google_search', {}).get('sources', []), ensure_ascii=False)[:2000]}
+
+## Claude WebSearch 補強（頂刊 RCT / meta-analysis）
+{raw_data.get('claude_search', {}).get('text', '（無）')[:4000]}
+
+## Claude WebSearch 結構化來源
+{json.dumps(raw_data.get('claude_search', {}).get('sources', []), ensure_ascii=False)[:2000]}
 
 ## PubMed 文獻
 {json.dumps(raw_data.get('pubmed', []), ensure_ascii=False)[:3000]}
@@ -405,6 +593,17 @@ def synthesize_with_gemini(topic: str, topic_id: int, raw_data: dict) -> dict:
 - 比較 ≥3 → ranking/hybrid，有情緒轉折 → standard，純數據 → ranking/quick_cut
 - ranking_candidates 只在建議 ranking/hybrid 時填
 - 繁體中文輸出
+
+### 期刊可信度判斷（重要）
+- 優先引用：Nature 系列、NEJM、JAMA、BMJ、Lancet、AJCN、Circulation、PLoS Medicine、Cochrane Reviews、USDA/WHO/衛福部官方指南
+- 可引用但標注中等可信度：一般 SCI 期刊（有 PubMed 收錄、IF>2）
+- 降級或避免引用：
+  - 被 Jeffrey Beall 列入掠奪性期刊名單的期刊
+  - 被 Web of Science 除名的期刊
+  - 影響因子可疑或自引率異常高的期刊
+  - 例如：Aging (aging-us.com) 已被 Web of Science 除名，應降級為 low confidence
+- 若研究來自可信機構（如 King's College London）但發表在可疑期刊，引用時寫機構名而非期刊名
+- 同一主張如有多個來源，優先引用最高等級期刊的版本
 
 只輸出 JSON。"""
 

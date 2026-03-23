@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_telegram_telegram__reply",
+      "WebFetch(domain:x.com)"
+    ]
+  }
+}

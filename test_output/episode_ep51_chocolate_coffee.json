@@ -1,0 +1,371 @@
+{
+  "series": "時時靜好｜健康新知",
+  "episode": 51,
+  "topic_id": 51,
+  "type": "standard",
+  "type_rationale": "本主題以可可鹼抗老為核心，涉及認知翻轉（巧克力≠抗老）和多項權威研究數據，適合標準敘事型態。有明確的迷思→翻轉→證據→安全提醒的起承轉合結構，情緒密度高，視覺元素豐富（黑巧克力、咖啡、研究數據），適合 Seedance 動態影片呈現。",
+  "topic_title": "黑巧克力和咖啡中的可可鹼能延緩細胞老化",
+
+  "core_claim": "可可鹼與生物老化減緩存在關聯性，但市售巧克力多含高糖高脂，過量食用反而有害。真正的益處來自高可可含量（80%+）的黑巧克力適量攝取，以及適度飲用咖啡，而非放縱吃巧克力。",
+  "single_takeaway": "選 80% 以上黑巧克力，每天一小塊就夠。",
+  "audience_promise": "看完你會知道巧克力和咖啡到底能不能抗老，怎麼吃才對。",
+
+  "visual_style_token": "STYLE_SHIZHI_3D_POSTER_V1",
+
+  "hook_text": "巧克力抗老？你吃的那種不行",
+  "hook_variants": [
+    {
+      "level": "unaware",
+      "text": "吃巧克力可以變年輕？事情沒那麼簡單！",
+      "rationale": "針對看到標題就想多吃巧克力的觀眾，製造懸念。"
+    },
+    {
+      "level": "problem_aware",
+      "text": "黑巧克力真能抗老？最新研究有答案了",
+      "rationale": "針對已聽說巧克力抗氧化但半信半疑的觀眾。"
+    },
+    {
+      "level": "solution_aware",
+      "text": "可可鹼延緩老化 1.6 年？但你得吃對才行",
+      "rationale": "針對已知可可鹼研究的觀眾，強調實踐方法。"
+    },
+    {
+      "level": "audience",
+      "text": "愛喝咖啡吃巧克力？這個研究你一定要看",
+      "rationale": "直接點名目標受眾的日常習慣，引發共鳴。"
+    }
+  ],
+
+  "character": "一位約 55 歲的優雅女性，氣質知性，在明亮溫暖的書房兼廚房空間中，手邊放著一杯黑咖啡和一塊黑巧克力，用溫和但有說服力的語氣分享最新抗老研究發現。",
+
+  "research_sources": [
+    {
+      "citation": "Sesso et al., Am J Clin Nutr (2022) — COSMOS RCT, 21,442人",
+      "url": "https://ajcn.nutrition.org/article/S0002-9165(22)00275-1/fulltext",
+      "key_finding": "每日 500mg 可可黃烷醇補充未顯著降低總心血管事件，但降低心血管死亡率 27%。"
+    },
+    {
+      "citation": "Sheridan et al., King's College London (2025)",
+      "url": "https://www.aging-us.com/article/206344/text",
+      "key_finding": "血清可可鹼濃度每增加一個標準差，GrimAge 老化加速減少約 1.6 年。注意：該期刊曾被質疑，此為初步關聯性研究。"
+    },
+    {
+      "citation": "Behzadi et al., Complement Ther Med (2024) — 統合分析",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0965229924000499",
+      "key_finding": "黑巧克力/可可顯著降低發炎指標 MDA，並增加一氧化氮 NO 水平，具抗氧化作用。"
+    },
+    {
+      "citation": "Freedman et al., N Engl J Med (2012) — NIH-AARP 40萬人世代研究",
+      "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa1112010",
+      "key_finding": "每天 3-5 杯咖啡與全因死亡率降低約 10% 相關。"
+    },
+    {
+      "citation": "台灣衛福部臺北醫院營養師宋佩蓉",
+      "key_finding": "建議選擇可可含量 70% 以上的黑巧克力，每日攝取量控制在 30 公克以內。"
+    },
+    {
+      "citation": "台灣衛生福利部",
+      "key_finding": "成人每日咖啡因攝取量應不超過 300 毫克。"
+    }
+  ],
+
+  "mascot_strategy": {
+    "presence": "both",
+    "opening_expression": "surprised",
+    "opening_pose": "hug_object_side",
+    "closing_expression": "goodbye",
+    "outfit": "apron",
+    "prop": "tiny dark chocolate square",
+    "render_mode": "3d_exact_reference",
+    "scale_vs_object": "small",
+    "allow_extra_mascot": false,
+    "allow_logo_mascot": false
+  },
+
+  "scenes": [
+    {
+      "scene_id": "01",
+      "scene_role": "hook",
+      "scene_goal": "用巧克力抗老的大眾迷思引發好奇，暗示事情沒那麼簡單。",
+      "visual_type": "poster_cover",
+      "on_screen_text_main": "巧克力抗老？",
+      "on_screen_text_sub": "你吃的那種，真的不行",
+      "hero_object": "one large realistic piece of premium dark chocolate with visible cocoa texture, sitting on a cream marble surface, warm dramatic lighting with slight steam effect",
+      "hero_object_priority": "primary",
+      "background_scene": "warm moody kitchen counter with soft natural side light, bokeh background, cream and dark brown tones",
+      "mascot_presence": true,
+      "mascot_count": 1,
+      "mascot_expression": "surprised",
+      "mascot_pose": "hug_object_side",
+      "mascot_interaction_mode": "小靜站在巧克力旁側，表情驚訝地看著巧克力",
+      "badge_text": "2025\n研究更新",
+      "do_not_include": ["正面人臉", "牛奶巧克力", "糖果"],
+      "time_range": "0-3s",
+      "animation": "slow_push_in"
+    },
+    {
+      "scene_id": "02",
+      "scene_role": "flip",
+      "scene_goal": "翻轉「多吃巧克力就能抗老」的迷思，對比市售巧克力 vs 高可可黑巧克力。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "多吃巧克力 ≠ 抗老",
+      "on_screen_text_sub": "市售巧克力高糖高脂，反而有害",
+      "hero_object": "Left side: colorful commercial milk chocolate bars and candy, looking sugary and processed, wrapper partially open showing high sugar content. Right side: a single elegant dark chocolate piece (80%+ cacao), minimal, pure, with cocoa beans beside it. Clean thin vertical dividing line between both sides. Left feels unhealthy and excessive, right feels premium and controlled.",
+      "hero_object_priority": "primary",
+      "background_scene": "clean cream background with subtle paper texture, warm lighting, sage green accent line",
+      "mascot_presence": false,
+      "mascot_count": 0,
+      "badge_text": "迷思\nvs 事實",
+      "do_not_include": ["人臉", "小靜", "品牌 logo"],
+      "time_range": "3-8s",
+      "animation": "slide_in"
+    },
+    {
+      "scene_id": "03",
+      "scene_role": "compare",
+      "scene_goal": "展示可可鹼的雙重來源（黑巧克力 + 咖啡），並帶出關鍵數據：老化減緩 1.6 年。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "可可鹼：老化慢 1.6 年",
+      "on_screen_text_sub": "黑巧克力和咖啡都含有可可鹼",
+      "hero_object": "A clean infographic layout: top section shows a dark chocolate bar and a coffee cup side by side with an arrow pointing to the word 'Theobromine' in sage green. Bottom section shows a simple timeline visualization: two parallel life bars, one shorter labeled 'normal aging' and one 1.6 years longer labeled 'higher theobromine', difference highlighted in sage green.",
+      "hero_object_priority": "primary",
+      "background_scene": "clean cream background with subtle grid lines, modern scientific infographic style",
+      "mascot_presence": false,
+      "mascot_count": 0,
+      "source_badge_text": "King's College London 2025",
+      "do_not_include": ["人臉", "小靜"],
+      "time_range": "8-15s",
+      "animation": "slight_drift"
+    },
+    {
+      "scene_id": "04",
+      "scene_role": "evidence",
+      "scene_goal": "用哈佛 COSMOS RCT 和 NEJM 咖啡研究作為雙重權威背書，建立信任。",
+      "visual_type": "evidence_card",
+      "on_screen_text_main": "心血管死亡率降 27%",
+      "on_screen_text_sub": "COSMOS 試驗：每日 500mg 可可黃烷醇",
+      "hero_object": "A clean evidence presentation: a large green downward arrow with '-27%' text, next to a simplified heart icon. Below it a second data point: a coffee cup icon with text '3-5杯/天 → 死亡率 -10%' with NEJM citation. Both data points cleanly arranged vertically with sage green accent colors. Modern data visualization style, not a medical chart.",
+      "hero_object_priority": "primary",
+      "background_scene": "clean minimalist background, cream base with subtle sage green geometric accents",
+      "mascot_presence": false,
+      "mascot_count": 0,
+      "source_badge_text": "COSMOS RCT 2022 + NEJM 2012",
+      "do_not_include": ["人臉", "小靜", "藥物"],
+      "time_range": "15-23s",
+      "animation": "badge_fade_in"
+    },
+    {
+      "scene_id": "05",
+      "scene_role": "reminder",
+      "scene_goal": "提供衛福部實際建議，強調適量與選擇，避免觀眾過度攝取。",
+      "visual_type": "safety_reminder",
+      "on_screen_text_main": "80% 黑巧，每天 30g 就夠",
+      "on_screen_text_sub": "咖啡因每日不超過 300mg",
+      "hero_object": "A warm lifestyle flat-lay: a small square of dark chocolate (about 30g) on a white ceramic plate, next to a small cup of black coffee, a few cocoa beans scattered artistically. A gentle green checkmark icon near the chocolate. Clean, minimal, inviting. Natural morning light.",
+      "hero_object_priority": "primary",
+      "background_scene": "warm morning kitchen table with natural light streaming in, wooden surface, cream and sage color palette, gentle and reassuring mood",
+      "mascot_presence": false,
+      "mascot_count": 0,
+      "source_badge_text": "台灣衛福部建議",
+      "do_not_include": ["人臉", "小靜", "過量食物"],
+      "time_range": "23-29s",
+      "animation": "simple_cut"
+    },
+    {
+      "scene_id": "06",
+      "scene_role": "closing",
+      "scene_goal": "品牌收尾，小靜溫馨道別，強化品牌記憶。",
+      "visual_type": "brand_closing",
+      "on_screen_text_main": "時時靜好",
+      "on_screen_text_sub": "我是小靜，我們下次見！",
+      "hero_object": "",
+      "background_scene": "soft morning cafe scene with warm golden light, blurred background with green plants, cream and sage color palette",
+      "mascot_presence": true,
+      "mascot_count": 1,
+      "mascot_expression": "goodbye",
+      "mascot_pose": "greet_viewer",
+      "mascot_interaction_mode": "小靜揮手道別，手持一小塊黑巧克力",
+      "do_not_include": ["多隻小靜", "品牌 logo 浮水印"],
+      "time_range": "29-33s",
+      "animation": "mascot_wave"
+    }
+  ],
+
+  "seedance_prompts": {
+    "seedance_part1": "电影级短片，温暖知性风格，9:16竖屏。全域规格：warm暖色温，自然光+暖灯光，木质桌面，咖啡厅/书房氛围。[00:00-00:05] 一位55岁左右的亚洲女性坐在温暖的书房中，面前放着一杯黑咖啡和一块黑巧克力，她拿起巧克力看向镜头，用台湾口音普通话说：「吃巧克力可以变年轻？你吃的那种，真的不行。」镜头从中景缓慢推近。[00:05-00:10] 镜头切至桌面特写，左侧是包装花花绿绿的市售巧克力，右侧是一块深色的高可可黑巧克力，她用手指指向黑巧克力说：「市面上的巧克力大部分是高糖高脂，吃多反而有害。真正有用的，是里面的可可碱。」[00:10-00:16] 镜头推近她手中的黑巧克力和咖啡杯，她说：「英国伦敦国王学院最新研究发现，血液中可可碱浓度较高的人，细胞老化速度慢了将近一点六年。黑巧克力和咖啡，都含有可可碱。」禁止：任何文字、字幕、LOGO或水印。",
+    "seedance_part2": "电影级短片，温暖知性风格，9:16竖屏。全域规格：warm暖色温，自然光+暖灯光，木质桌面。同上一部短片亚洲女性。[00:00-00:07] 她拿起咖啡杯轻轻啜饮一口，然后放下，表情认真地说：「哈佛COSMOS大型试验也发现，每天补充五百毫克可可黄烷醇，心血管死亡率降低了百分之二十七。而《新英格兰医学期刊》追踪四十万人，每天三到五杯咖啡，整体死亡率降低百分之十。」镜头缓推近景。[00:07-00:12] 她掰下一小块黑巧克力放在掌心展示，微笑说：「但关键是适量。台湾卫福部建议：选可可含量百分之八十以上的黑巧克力，每天不超过三十公克。咖啡因每天不超过三百毫克。」[00:12-00:17] 她端起咖啡杯微笑看向镜头说：「选对的巧克力，喝对的咖啡，就是最简单的抗老秘诀。这里是时时静好，我是小静，我们下次见。」镜头定格温暖画面。禁止：任何文字、字幕、LOGO或水印。"
+  },
+
+  "voiceover": {
+    "engine": "elevenlabs",
+    "model": "eleven_multilingual_v2",
+    "voice_settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.3,
+      "speed": 0.95
+    },
+    "segments": [
+      {
+        "id": 1,
+        "part": "hook",
+        "text": "吃巧克力可以變年輕？你吃的那種，真的不行。"
+      },
+      {
+        "id": 2,
+        "part": "flip",
+        "text": "市面上的巧克力，大部分是高糖高脂，吃多反而有害。真正有用的，是裡面的可可鹼。"
+      },
+      {
+        "id": 3,
+        "part": "compare",
+        "text": "英國倫敦國王學院最新研究發現，血液中可可鹼濃度較高的人，細胞老化速度慢了將近一點六年。黑巧克力和咖啡，都含有可可鹼。"
+      },
+      {
+        "id": 4,
+        "part": "evidence",
+        "text": "哈佛COSMOS大型試驗也發現，每天補充五百毫克可可黃烷醇，心血管死亡率降低了百分之二十七。而《新英格蘭醫學期刊》追蹤四十萬人，每天三到五杯咖啡，整體死亡率降低百分之十。"
+      },
+      {
+        "id": 5,
+        "part": "reminder",
+        "text": "但關鍵是適量。台灣衛福部建議，選可可含量百分之八十以上的黑巧克力，每天不超過三十公克。咖啡因每天不超過三百毫克。"
+      },
+      {
+        "id": 6,
+        "part": "closing",
+        "text": "選對的巧克力，喝對的咖啡，就是最簡單的抗老秘訣。這裡是時時靜好，我是小靜，我們下次見。"
+      }
+    ]
+  },
+
+  "subtitles": [
+    {
+      "text": "吃巧克力可以變年輕？",
+      "start": 0.0,
+      "end": 2.0,
+      "style": "main"
+    },
+    {
+      "text": "你吃的那種",
+      "start": 2.0,
+      "end": 3.2,
+      "style": "main"
+    },
+    {
+      "text": "真的不行！",
+      "start": 3.2,
+      "end": 4.5,
+      "style": "main"
+    },
+    {
+      "text": "市售巧克力高糖高脂",
+      "start": 4.5,
+      "end": 6.5,
+      "style": "main"
+    },
+    {
+      "text": "吃多反而有害",
+      "start": 6.5,
+      "end": 8.0,
+      "style": "main"
+    },
+    {
+      "text": "真正有用的是可可鹼",
+      "start": 8.0,
+      "end": 10.0,
+      "style": "main"
+    },
+    {
+      "text": "可可鹼濃度越高",
+      "start": 10.0,
+      "end": 11.5,
+      "style": "main"
+    },
+    {
+      "text": "細胞老化慢 1.6 年",
+      "start": 11.5,
+      "end": 13.5,
+      "style": "data"
+    },
+    {
+      "text": "黑巧克力和咖啡都有",
+      "start": 13.5,
+      "end": 15.5,
+      "style": "main"
+    },
+    {
+      "text": "心血管死亡率降 27%",
+      "start": 15.5,
+      "end": 18.0,
+      "style": "data"
+    },
+    {
+      "text": "每天 3-5 杯咖啡",
+      "start": 18.0,
+      "end": 20.0,
+      "style": "main"
+    },
+    {
+      "text": "死亡率降 10%",
+      "start": 20.0,
+      "end": 22.0,
+      "style": "data"
+    },
+    {
+      "text": "選 80% 以上黑巧克力",
+      "start": 22.5,
+      "end": 24.5,
+      "style": "main"
+    },
+    {
+      "text": "每天不超過 30 公克",
+      "start": 24.5,
+      "end": 26.5,
+      "style": "main"
+    },
+    {
+      "text": "咖啡因不超過 300mg",
+      "start": 26.5,
+      "end": 28.5,
+      "style": "main"
+    },
+    {
+      "text": "選對吃法最簡單抗老",
+      "start": 28.5,
+      "end": 30.5,
+      "style": "main"
+    },
+    {
+      "text": "時時靜好",
+      "start": 30.5,
+      "end": 31.5,
+      "style": "main"
+    },
+    {
+      "text": "我們下次見！",
+      "start": 31.5,
+      "end": 33.0,
+      "style": "main"
+    }
+  ],
+
+  "sound": "咖啡杯輕輕放下的聲音，巧克力掰開的清脆聲，環境輕微白噪音",
+  "music": "溫暖知性配樂，輕鬆的鋼琴與弦樂，帶點優雅感，節奏舒緩",
+
+  "youtube_metadata": {
+    "title": "巧克力抗老？你吃的那種不行！可可鹼讓細胞年輕1.6年｜時時靜好",
+    "description": "吃巧克力就能變年輕？你吃的那種真的不行！市售巧克力高糖高脂，吃多反而加速老化。\n\n最新研究發現，真正有抗老潛力的是「可可鹼」——存在於高純度黑巧克力和咖啡中。\n\n本集重點：\n❶ 可可鹼濃度每增加一個標準差，細胞老化減緩約 1.6 年（King's College London 2025）\n❷ 哈佛 COSMOS 試驗：每日 500mg 可可黃烷醇，心血管死亡率降 27%\n❸ NEJM 追蹤 40 萬人：每天 3-5 杯咖啡，全因死亡率降 10%\n❹ 統合分析證實：黑巧克力顯著降低發炎指標\n\n怎麼吃才對？\n• 選可可含量 80% 以上的黑巧克力\n• 每日不超過 30 公克（台灣衛福部建議）\n• 咖啡因每日不超過 300 毫克\n\n研究來源：\n• Sesso et al., Am J Clin Nutr (2022) — COSMOS RCT\n• Sheridan et al., King's College London (2025)\n• Behzadi et al., Complement Ther Med (2024) — 統合分析\n• Freedman et al., N Engl J Med (2012) — NIH-AARP 世代研究\n• 台灣衛生福利部\n\n覺得有用？分享給愛喝咖啡、愛吃巧克力的朋友！\n留言告訴我，你每天喝幾杯咖啡？\n\n#黑巧克力 #可可鹼 #抗老 #咖啡 #健康飲食 #時時靜好 #飲食迷思 #心血管健康 #Shorts",
+    "hashtags": [
+      "#黑巧克力",
+      "#可可鹼",
+      "#抗老",
+      "#咖啡",
+      "#健康飲食",
+      "#飲食迷思",
+      "#心血管健康",
+      "#時時靜好",
+      "#Shorts"
+    ]
+  }
+}

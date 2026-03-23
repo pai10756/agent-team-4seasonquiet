@@ -13,7 +13,7 @@ BASE = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = BASE / "test_output" / "cards_10000steps"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-API_KEY = "AIzaSyAaVV42BhssBY01VWqr6K7V2JLfGRDD00s"
+API_KEY = os.environ.get("GEMINI_API_KEY", "")
 MODEL = "gemini-3.1-flash-image-preview"
 
 CARDS = {
