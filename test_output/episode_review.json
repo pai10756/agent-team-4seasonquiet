@@ -1,0 +1,25 @@
+{
+  "verdict": "fail",
+  "attempt": 1,
+  "lock_layer": {
+    "passed": false,
+    "violations": [
+      {
+        "code": "SCHEMA_INCOMPLETE",
+        "severity": "error",
+        "message": "Schema 驗證失敗: 42 個錯誤",
+        "field_path": "(root)",
+        "fix_hint": "[(root)] 'character' is a required property; [(root)] 'ranking_data' is a required property; [(root)] 'seedance_prompts' is a required property...",
+        "auto_fixable": true
+      }
+    ]
+  },
+  "guardrail_layer": {
+    "notes": []
+  },
+  "summary": "鎖死層 1 個違規: SCHEMA_INCOMPLETE",
+  "auto_fixable": [
+    "SCHEMA_INCOMPLETE"
+  ],
+  "needs_human": []
+}

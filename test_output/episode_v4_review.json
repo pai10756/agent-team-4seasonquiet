@@ -1,0 +1,14 @@
+{
+  "verdict": "pass",
+  "attempt": 2,
+  "lock_layer": {
+    "passed": true,
+    "violations": []
+  },
+  "guardrail_layer": {
+    "notes": []
+  },
+  "summary": "所有鎖死層檢查通過。",
+  "auto_fixable": [],
+  "needs_human": []
+}

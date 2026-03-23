@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "attempt": 1,
+  "lock_layer": {
+    "passed": true,
+    "violations": []
+  },
+  "visual_brand_layer": {
+    "passed": true,
+    "violations": [],
+    "checklist": {
+      "single_main_message": true,
+      "visual_supports_message": true,
+      "headline_readable_1s": true,
+      "understandable_3s": true,
+      "mascot_single": true,
+      "mascot_no_badge": true,
+      "mascot_emotion_correct": true,
+      "text_large_enough": true,
+      "not_too_busy": true,
+      "no_excess_noise": true
+    }
+  },
+  "guardrail_layer": {
+    "notes": []
+  },
+  "summary": "所有鎖死層和視覺品牌層檢查通過。",
+  "auto_fixable": [],
+  "needs_human": []
+}

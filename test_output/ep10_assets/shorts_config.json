@@ -1,0 +1,50 @@
+{
+  "episode": 10,
+  "title": "一天只能吃一顆蛋？雞蛋膽固醇迷思大解密",
+  "bgm": "C:/Users/shany/projects/agent-team-4seasonquiet/test_output/ep10_assets/bgm.mp3",
+  "bgm_volume": 0.13,
+  "scenes": [
+    {
+      "scene_id": "01",
+      "scene_role": "hook",
+      "image": "C:/Users/shany/projects/agent-team-4seasonquiet/test_output/ep10_assets/gemini/card_1.png",
+      "duration": 4.0,
+      "narration": "很多人都聽過，一天只能吃一顆蛋。"
+    },
+    {
+      "scene_id": "02",
+      "scene_role": "flip",
+      "image": "C:/Users/shany/projects/agent-team-4seasonquiet/test_output/ep10_assets/gemini/card_2.png",
+      "duration": 5.0,
+      "narration": "但這句話，可能早就過時了。真正該注意的，不是蛋。"
+    },
+    {
+      "scene_id": "03",
+      "scene_role": "compare",
+      "image": "C:/Users/shany/projects/agent-team-4seasonquiet/test_output/ep10_assets/gemini/card_3.png",
+      "duration": 7.0,
+      "narration": "像香腸、培根、奶油吐司，飽和脂肪都比蛋高很多。"
+    },
+    {
+      "scene_id": "04",
+      "scene_role": "evidence",
+      "image": "C:/Users/shany/projects/agent-team-4seasonquiet/test_output/ep10_assets/gemini/card_4.png",
+      "duration": 7.0,
+      "narration": "2025年隨機試驗發現，搭配低飽和脂肪飲食，每天吃兩顆蛋，壞膽固醇反而更低。"
+    },
+    {
+      "scene_id": "05",
+      "scene_role": "reminder",
+      "image": "C:/Users/shany/projects/agent-team-4seasonquiet/test_output/ep10_assets/gemini/card_5.png",
+      "duration": 6.0,
+      "narration": "重點不是怕蛋，而是吃對搭配。高膽固醇患者，還是要遵照醫主。"
+    },
+    {
+      "scene_id": "06",
+      "scene_role": "closing",
+      "image": "C:/Users/shany/projects/agent-team-4seasonquiet/test_output/ep10_assets/gemini/card_6.png",
+      "duration": 4.0,
+      "narration": "吃對搭配，比怕蛋更重要。我是小靜，我們下次見。"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+# agent-team-4seasonquiet dependencies
+jsonschema>=4.20.0       # validate_schema.py — JSON Schema Draft 2020-12
+Pillow>=10.0.0           # assemble_episode.py, generate_assets.py — 圖卡生成、縮圖合成
+
+# System dependencies (not pip-installable):
+# ffmpeg — assemble_episode.py 影片組裝、字幕燒錄

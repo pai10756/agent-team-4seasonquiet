@@ -1,0 +1,55 @@
+{
+  "_doc": "Design elements that are FORBIDDEN across all visual outputs. Both asset_gen and reviewer reference this list.",
+
+  "forbidden_mascot": [
+    "duplicate mascot (more than one in same image)",
+    "corner mascot (small mascot tucked in corner as decoration)",
+    "badge mascot (mascot used as logo/badge)",
+    "watermark mascot (semi-transparent mascot overlay)",
+    "footer mascot (mascot at bottom as branding strip)",
+    "mascot larger than hero object",
+    "mascot obscuring headline text",
+    "mascot with different face/markings from reference",
+    "mascot with realistic fur texture (must be smooth matte plastic)",
+    "mascot with glossy/shiny material"
+  ],
+
+  "forbidden_layout": [
+    "multiple main messages on one card",
+    "too many objects (max 1 hero + 1 mascot)",
+    "busy collage layout",
+    "text hard to scan at mobile size",
+    "headline not dominant element",
+    "no clear hero object on cover card"
+  ],
+
+  "forbidden_style": [
+    "cheap social poster style",
+    "neon gradient background",
+    "medical fear/warning aesthetic",
+    "children worksheet style",
+    "infomercial / supplement ad style",
+    "high saturation colors",
+    "hard shadows / harsh lighting",
+    "stock photo watermark aesthetic",
+    "TikTok bomb transitions in video"
+  ],
+
+  "forbidden_typography": [
+    "small unreadable text",
+    "more than 3 font sizes on one card",
+    "decorative fonts / cursive",
+    "text with no contrast against background",
+    "ALL CAPS Chinese text",
+    "text overlap with mascot face"
+  ],
+
+  "forbidden_animation": [
+    "camera shake / handheld effect",
+    "fast flying-in text",
+    "heavy transition effects between cards",
+    "multiple animated elements on same card",
+    "spinning / rotating transitions",
+    "flash / strobe effects"
+  ]
+}

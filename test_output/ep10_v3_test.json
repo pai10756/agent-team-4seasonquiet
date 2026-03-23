@@ -1,0 +1,296 @@
+{
+  "series": "長輩廚房｜吃對了嗎？",
+  "episode": 10,
+  "type": "ranking",
+  "type_rationale": "本主題有多種早餐搭配的飽和脂肪數據可供比較，且內容以數據對比為主，無須人物互動，適合以靜態圖卡搭配排名呈現，高效傳達資訊並減少製作成本。",
+  "topic_title": "雞蛋與膽固醇：被冤枉的好食物",
+  "core_claim": "飲食中的膽固醇對血膽固醇影響很小，真正元兇是飽和脂肪。健康成人每天吃 1-2 顆蛋搭配低飽和脂肪飲食，反而可能降低 LDL 膽固醇。",
+  "single_takeaway": "吃對搭配，比怕蛋更重要。",
+  "visual_style_token": "STYLE_SHIZHI_3D_POSTER_V1",
+  "hook_text": "一天只能吃一顆蛋？",
+  "hook_variants": [
+    {
+      "level": "unaware",
+      "text": "雞蛋膽固醇高，真的嗎？",
+      "rationale": "針對不了解雞蛋膽固醇迷思的觀眾，以疑問句引發好奇。"
+    },
+    {
+      "level": "problem_aware",
+      "text": "蛋黃膽固醇高，該丟掉嗎？",
+      "rationale": "針對擔心蛋黃膽固醇的觀眾，直接點出痛點並暗示有解答。"
+    },
+    {
+      "level": "solution_aware",
+      "text": "最新研究：每天吃蛋更健康？",
+      "rationale": "針對已聽過不同說法，尋求最新資訊的觀眾，強調研究更新。"
+    },
+    {
+      "level": "audience",
+      "text": "長輩怕吃蛋？真相顛覆認知！",
+      "rationale": "直接點名目標受眾「長輩」，並承諾將揭露顛覆性的真相。"
+    }
+  ],
+  "research_sources": [
+    {
+      "citation": "Carter et al., The American Journal of Clinical Nutrition, 2025; 122(1):83",
+      "key_finding": "RCT 證實飽和脂肪（非飲食膽固醇）才是升高 LDL 的主因。每天 2 顆蛋 + 低飽和脂肪飲食可降低 LDL"
+    },
+    {
+      "citation": "Drouin-Chartier et al., BMJ, 2020 (n=1,720,108)",
+      "key_finding": "每天 1 顆蛋與心血管疾病無顯著關聯 (172萬人Meta-analysis)"
+    },
+    {
+      "citation": "U.S. Dietary Guidelines Advisory Committee, 2015",
+      "key_finding": "美國 2015-2020 飲食指南已取消每日膽固醇 300mg 上限"
+    },
+    {
+      "citation": "台灣衛福部國民健康署 — 雞蛋與膽固醇闢謠",
+      "key_finding": "人體膽固醇主要自身生成，飲食中膽固醇不易直接升高血膽固醇"
+    }
+  ],
+  "mascot_strategy": {
+    "presence": "both",
+    "opening_expression": "thinking",
+    "opening_pose": "hug_object_side",
+    "outfit": "apron",
+    "prop": "tiny egg",
+    "render_mode": "3d_exact_reference",
+    "scale_vs_object": "small",
+    "allow_extra_mascot": false,
+    "allow_logo_mascot": false
+  },
+  "scenes": [
+    {
+      "scene_id": "01",
+      "scene_role": "hook",
+      "scene_goal": "引發觀眾對雞蛋膽固醇迷思的好奇與質疑。",
+      "visual_type": "poster_cover",
+      "on_screen_text_main": "一天只能吃一顆蛋？",
+      "on_screen_text_sub": "這句話，可能早就過時了",
+      "hero_object": "one large realistic white egg on a clean white ceramic plate, with a subtle golden glow",
+      "background_scene": "warm kitchen interior, soft natural light from window, blurred background, cream and sage color palette",
+      "mascot_presence": true,
+      "mascot_expression": "thinking",
+      "mascot_pose": "hug_object_side",
+      "do_not_include": [
+        "正面人臉",
+        "多顆蛋"
+      ],
+      "time_range": "0-3s",
+      "animation": "slow_push_in"
+    },
+    {
+      "scene_id": "02",
+      "scene_role": "flip",
+      "scene_goal": "顛覆觀眾對雞蛋膽固醇的傳統認知，製造反轉。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "蛋被冤枉了50年！",
+      "on_screen_text_sub": "真正元兇不是蛋黃，而是飽和脂肪",
+      "hero_object": "Left side: a fresh whole white egg, glowing warmly, looking wholesome and healthy (larger, hero). Right side: greasy bacon strips and a sausage link glistening with visible fat droplets, looking heavy and unhealthy. The two sides are divided by a clean thin vertical line. The egg side should feel clean and light, the bacon side should feel heavy and oily. Realistic food photography, warm lighting.",
+      "background_scene": "clean, modern kitchen countertop, bright lighting, cream and sage color palette",
+      "badge_text": "2025\nRCT更新",
+      "do_not_include": [
+        "人臉",
+        "小靜"
+      ],
+      "time_range": "3-8s",
+      "animation": "slide_in"
+    },
+    {
+      "scene_id": "03",
+      "scene_role": "compare",
+      "scene_goal": "用具體數據比較，證明雞蛋的飽和脂肪含量相對較低。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "早餐飽和脂肪排行榜",
+      "on_screen_text_sub": "誰才是真正的膽固醇幫兇？",
+      "hero_object": "Five breakfast items arranged vertically from top to bottom like a ranking: (1) a sausage link 4.9g, (2) buttered toast 4.5g, (3) bacon strips 3.3g, (4) a fried egg 2.0g, (5) a boiled egg 1.6g. Each item shown as realistic food photo with a horizontal bar chart next to it showing relative amount. The bars get shorter toward the bottom. Warm cream background.",
+      "background_scene": "light wooden table with a clean, slightly blurred background, cream and sage color palette",
+      "do_not_include": [
+        "人臉",
+        "小靜"
+      ],
+      "time_range": "8-15s",
+      "animation": "slight_drift"
+    },
+    {
+      "scene_id": "04",
+      "scene_role": "evidence",
+      "scene_goal": "提供權威研究證據，增強觀眾對新認知的信任。",
+      "visual_type": "evidence_card",
+      "on_screen_text_main": "每天2顆蛋，LDL反而降",
+      "on_screen_text_sub": "前提：搭配低飽和脂肪飲食",
+      "hero_object": "Two beautiful fresh eggs on a clean plate, with a large stylized green downward arrow behind them representing decreasing LDL cholesterol. The arrow is smooth and modern, not a medical chart. Clean infographic style with warm cream background.",
+      "background_scene": "clean, minimalist laboratory or clinic background, cream and sage color palette",
+      "source_badge_text": "Carter et al., AJCN, 2025",
+      "do_not_include": [
+        "人臉",
+        "小靜"
+      ],
+      "time_range": "15-23s",
+      "animation": "badge_fade_in"
+    },
+    {
+      "scene_id": "05",
+      "scene_role": "reminder",
+      "scene_goal": "提醒觀眾飲食建議的適用範圍，避免誤解或濫用。",
+      "visual_type": "safety_reminder",
+      "on_screen_text_main": "吃對搭配，比怕蛋更重要",
+      "on_screen_text_sub": "高膽固醇患者請遵醫囑",
+      "hero_object": "A beautiful wholesome breakfast plate: a perfectly soft-boiled egg cut in half showing golden yolk, next to fresh green vegetables, whole grain bread, and avocado slices. Clean, inviting, healthy lifestyle food photography. Warm natural lighting on cream background.",
+      "background_scene": "bright, fresh kitchen setting with healthy ingredients, soft lighting, cream and sage color palette",
+      "do_not_include": [
+        "人臉",
+        "小靜"
+      ],
+      "time_range": "23-29s",
+      "animation": "simple_cut"
+    },
+    {
+      "scene_id": "06",
+      "scene_role": "closing",
+      "scene_goal": "強化品牌記憶，溫馨告別，期待下次再見。",
+      "visual_type": "brand_closing",
+      "on_screen_text_main": "時時靜好",
+      "on_screen_text_sub": "嗨，我是小靜，我們下次見！",
+      "hero_object": "",
+      "background_scene": "clean warm gradient background, cream and sage colors, with subtle brand elements",
+      "mascot_presence": true,
+      "mascot_expression": "goodbye",
+      "mascot_pose": "wave_goodbye",
+      "do_not_include": [],
+      "time_range": "29-33s",
+      "animation": "mascot_wave"
+    }
+  ],
+  "subtitles": [
+    {
+      "text": "一天只能吃一顆蛋？",
+      "start": 0.0,
+      "end": 2.5
+    },
+    {
+      "text": "這迷思害雞蛋被冤枉",
+      "start": 3.0,
+      "end": 5.0
+    },
+    {
+      "text": "足足五十多年了！",
+      "start": 5.0,
+      "end": 7.5
+    },
+    {
+      "text": "真正元兇不是蛋黃",
+      "start": 8.0,
+      "end": 10.0
+    },
+    {
+      "text": "而是早餐中的它！",
+      "start": 10.0,
+      "end": 12.0
+    },
+    {
+      "text": "飽和脂肪排行榜",
+      "start": 12.5,
+      "end": 14.5
+    },
+    {
+      "text": "培根香腸奶油吐司",
+      "start": 15.0,
+      "end": 17.0
+    },
+    {
+      "text": "蛋黃飽和脂肪最低",
+      "start": 17.5,
+      "end": 19.5
+    },
+    {
+      "text": "最新研究證實",
+      "start": 20.0,
+      "end": 21.5
+    },
+    {
+      "text": "每天兩顆蛋可降LDL",
+      "start": 21.5,
+      "end": 23.0
+    },
+    {
+      "text": "搭配低脂飲食更健康",
+      "start": 23.5,
+      "end": 25.5
+    },
+    {
+      "text": "高膽固醇請遵醫囑",
+      "start": 26.0,
+      "end": 27.5
+    },
+    {
+      "text": "吃對搭配比怕蛋重要",
+      "start": 28.0,
+      "end": 29.5
+    },
+    {
+      "text": "時時靜好",
+      "start": 30.0,
+      "end": 31.0
+    },
+    {
+      "text": "祝您健康下次見！",
+      "start": 31.5,
+      "end": 33.0
+    }
+  ],
+  "ranking_data": [
+    {
+      "rank": 1,
+      "food": "香腸 1 條 (45g)",
+      "value": 4.5,
+      "unit": "g 飽和脂肪",
+      "comparison": "飽和脂肪含量最高"
+    },
+    {
+      "rank": 2,
+      "food": "奶油吐司 1 片",
+      "value": 3.8,
+      "unit": "g 飽和脂肪",
+      "comparison": "飽和脂肪含量次高"
+    },
+    {
+      "rank": 3,
+      "food": "培根 2 片 (16g)",
+      "value": 3.2,
+      "unit": "g 飽和脂肪",
+      "comparison": "飽和脂肪含量偏高"
+    },
+    {
+      "rank": 4,
+      "food": "荷包蛋 1 顆（少油）",
+      "value": 2.0,
+      "unit": "g 飽和脂肪",
+      "comparison": "飽和脂肪含量較低"
+    },
+    {
+      "rank": 5,
+      "food": "水煮蛋 1 顆",
+      "value": 1.6,
+      "unit": "g 飽和脂肪",
+      "comparison": "飽和脂肪含量最低"
+    }
+  ],
+  "comparison_note": "數據來源: USDA FoodData Central",
+  "sound": "輕微廚房環境音，雞蛋烹調的細微聲響",
+  "music": "輕快溫暖，帶點好奇感的烏克麗麗或口哨音樂",
+  "youtube_metadata": {
+    "title": "一天只能吃一顆蛋？雞蛋膽固醇迷思大解密！2025最新研究顛覆認知｜時時靜好",
+    "description": "雞蛋被冤枉了50年！過去總認為雞蛋膽固醇高，會增加心血管疾病風險。但最新研究發現，飲食中的膽固醇對血膽固醇影響很小，真正元兇是飽和脂肪。健康成人每天吃1-2顆蛋，搭配低飽和脂肪飲食，反而可能降低LDL膽固醇！本集將揭露雞蛋的真實營養價值，並告訴您如何健康吃蛋，不再對蛋黃感到恐懼。 \n\n研究來源：\n1. Carter et al., The American Journal of Clinical Nutrition, 2025; 122(1):83\n2. Drouin-Chartier et al., BMJ, 2020 (Meta-analysis of prospective cohort studies, n=1,720,108)\n3. U.S. Dietary Guidelines Advisory Committee, 2015 (美國飲食指南)\n4. 台灣衛福部國民健康署 — 雞蛋與膽固醇闢謠\n\n#時時靜好 #雞蛋 #膽固醇 #健康飲食 #飲食迷思 #飽和脂肪 #低密度膽固醇 #心血管健康 #Shorts",
+    "hashtags": [
+      "#時時靜好",
+      "#雞蛋",
+      "#膽固醇",
+      "#健康飲食",
+      "#飲食迷思",
+      "#飽和脂肪",
+      "#心血管健康",
+      "#Shorts"
+    ]
+  }
+}

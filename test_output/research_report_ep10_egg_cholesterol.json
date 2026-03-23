@@ -1,0 +1,186 @@
+{
+  "topic": "雞蛋與膽固醇：被冤枉的好食物",
+  "topic_id": 10,
+
+  "cognitive_gap": {
+    "common_belief": "雞蛋膽固醇高，每天吃蛋會讓膽固醇飆高、增加心血管疾病風險",
+    "actual_finding": "飲食中的膽固醇對血膽固醇影響很小，真正元兇是飽和脂肪。每天吃 1-2 顆蛋搭配低飽和脂肪飲食，反而可能降低 LDL",
+    "contrast_magnitude": "完全相反 — 被冤枉 50 年，2025 年 RCT 證實每天 2 顆蛋可降 LDL"
+  },
+
+  "verified_data": [
+    {
+      "claim": "每天吃 2 顆蛋（低飽和脂肪飲食下）可降低 LDL 膽固醇，降低心血管風險",
+      "source_citation": "Carter et al., The American Journal of Clinical Nutrition, 2025; 122(1):83",
+      "source_url": "https://ajcn.nutrition.org/article/S0002-9165(25)00253-9/abstract",
+      "confidence": "high"
+    },
+    {
+      "claim": "飽和脂肪攝取量與 LDL 膽固醇正相關，而飲食膽固醇則無顯著相關",
+      "source_citation": "Carter et al., American Journal of Clinical Nutrition, 2025 (Randomized cross-over trial, University of South Australia)",
+      "source_url": "https://www.sciencedaily.com/releases/2025/07/250727235827.htm",
+      "confidence": "high"
+    },
+    {
+      "claim": "每天 1 顆蛋與心血管疾病風險無顯著關聯（172 萬人 Meta-analysis）",
+      "source_citation": "Drouin-Chartier et al., BMJ, 2020 (Meta-analysis of prospective cohort studies, n=1,720,108)",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7190072/",
+      "confidence": "high"
+    },
+    {
+      "claim": "亞洲人群吃蛋與心血管風險呈負相關或無關聯，西方人群因飲食模式（培根、香腸搭配）才有風險",
+      "source_citation": "Carter et al., Current Atherosclerosis Reports, 2023 (Systematic review of 30 studies)",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10285014/",
+      "confidence": "high"
+    },
+    {
+      "claim": "美國 2015-2020 飲食指南已取消每日膽固醇 300mg 上限",
+      "source_citation": "U.S. Dietary Guidelines Advisory Committee, 2015",
+      "confidence": "high"
+    },
+    {
+      "claim": "日本東海大學研究：受試者每天攝取 3 顆蛋黃的膽固醇（750mg）持續 2 週，65% 血膽固醇無變化，44% 壞膽固醇下降、好膽固醇上升",
+      "source_citation": "東海大學醫學系研究團隊（日本）",
+      "confidence": "medium"
+    },
+    {
+      "claim": "一顆大雞蛋含：蛋白質 6-7g、膽固醇 186mg、膽鹼 147mg（佔每日建議量 27-35%）、還有維生素 A/D/E/B12、葉黃素、卵磷脂",
+      "source_citation": "USDA FoodData Central",
+      "source_url": "https://fdc.nal.usda.gov/food-search/?component=1232",
+      "confidence": "high"
+    }
+  ],
+
+  "sources": [
+    {
+      "citation": "Carter et al., American Journal of Clinical Nutrition, 2025; 122(1):83",
+      "url": "https://ajcn.nutrition.org/article/S0002-9165(25)00253-9/abstract",
+      "key_finding": "RCT 證實飽和脂肪（非飲食膽固醇）才是升高 LDL 的主因。每天 2 顆蛋 + 低飽和脂肪飲食可降低 LDL",
+      "study_type": "rct"
+    },
+    {
+      "citation": "Drouin-Chartier et al., BMJ, 2020 (n=1,720,108)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7190072/",
+      "key_finding": "每天 1 顆蛋與心血管疾病無顯著關聯",
+      "study_type": "meta_analysis"
+    },
+    {
+      "citation": "Carter, Connole, Hill, Buckley, Coates. Current Atherosclerosis Reports, 2023",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10285014/",
+      "key_finding": "30 項觀察研究系統回顧：亞洲人群吃蛋無風險，西方風險與飲食模式有關（培根/香腸搭配）",
+      "study_type": "review"
+    },
+    {
+      "citation": "Zhong et al., JAMA, 2019",
+      "url": "https://jamanetwork.com/journals/jama/fullarticle/2728487",
+      "key_finding": "飲食膽固醇與心血管疾病的關聯研究，推動後續大量反駁研究",
+      "study_type": "cohort"
+    },
+    {
+      "citation": "台灣衛福部國民健康署 — 雞蛋與膽固醇闢謠",
+      "url": "https://www.hpa.gov.tw/Pages/Detail.aspx?nodeid=1425&pid=15180",
+      "key_finding": "人體膽固醇主要自身生成，飲食中膽固醇不易直接升高血膽固醇",
+      "study_type": "guideline"
+    },
+    {
+      "citation": "USDA FoodData Central — Egg Nutrition Facts",
+      "url": "https://fdc.nal.usda.gov/food-search/?component=1232",
+      "key_finding": "一顆大雞蛋營養成分完整數據",
+      "study_type": "database"
+    }
+  ],
+
+  "recommended_type": "ranking",
+  "type_reasoning": "主題有明確的「對比轉變」結構（迷思 vs 真相），可用排行圖卡呈現：(1) 不同早餐搭配的飽和脂肪排行 (2) 雞蛋 vs 其他蛋白質來源營養密度比較 (3) 各國飲食指南對蛋的建議變化時間軸。純數據對比，不需要人物演出，適合靜態圖卡 ranking/quick_cut 製作。",
+
+  "engagement_signals": {
+    "virality_score": 9,
+    "reasons": [
+      "顛覆 50 年認知的經典迷思題，認知反差極大",
+      "幾乎每個長輩都有「吃蛋怕膽固醇」的錯誤認知，受眾覆蓋率極高",
+      "2025 年最新 RCT 數據佐證，時效性強",
+      "「被冤枉的好食物」框架具有正面情緒 — 平反、解放感",
+      "培根才是元兇的反轉，製造二次驚喜",
+      "雞蛋是日常食材，行動門檻低（看完就能多吃一顆蛋）"
+    ],
+    "risks": [
+      "高膽固醇血症患者仍需醫師建議，不能過度簡化為「蛋隨便吃」",
+      "部分研究仍有爭議（美國人群 vs 亞洲人群差異），需註明",
+      "避免被解讀為「膽固醇完全無害」的療效宣稱"
+    ]
+  },
+
+  "ranking_candidates": [
+    {
+      "item": "培根 2 片 (16g)",
+      "value": 3.2,
+      "unit": "g 飽和脂肪",
+      "source": "USDA FoodData Central"
+    },
+    {
+      "item": "香腸 1 條 (45g)",
+      "value": 4.5,
+      "unit": "g 飽和脂肪",
+      "source": "USDA FoodData Central"
+    },
+    {
+      "item": "奶油吐司 1 片",
+      "value": 3.8,
+      "unit": "g 飽和脂肪",
+      "source": "USDA FoodData Central"
+    },
+    {
+      "item": "水煮蛋 1 顆",
+      "value": 1.6,
+      "unit": "g 飽和脂肪",
+      "source": "USDA FoodData Central"
+    },
+    {
+      "item": "荷包蛋 1 顆（少油）",
+      "value": 2.0,
+      "unit": "g 飽和脂肪",
+      "source": "USDA FoodData Central"
+    }
+  ],
+
+  "_raw_research_notes": {
+    "description": "以下是研究過程中抓到的原始資料摘要，供 ChatGPT 腳本設計參考",
+
+    "core_narrative": "雞蛋被冤枉了 50 年。1968 年美國心臟協會建議每日膽固醇攝取不超過 300mg，一顆蛋就有 186mg，導致全球恐蛋潮。但 2015 年美國飲食指南取消 300mg 上限，2025 年南澳大學 RCT 更證實：升高 LDL 的元兇是飽和脂肪（培根、香腸），不是蛋裡的膽固醇。每天 2 顆蛋搭配低飽和脂肪飲食，LDL 反而下降。",
+
+    "key_data_points": [
+      "一顆大雞蛋：72 大卡、6-7g 蛋白質、186mg 膽固醇、147mg 膽鹼、維生素 D/A/E/B12、葉黃素、卵磷脂",
+      "人體 70-80% 膽固醇由肝臟自行合成，飲食只佔 20-30%",
+      "2025 RCT (Carter et al., AJCN)：飽和脂肪與 LDL 正相關，飲食膽固醇與 LDL 無顯著相關",
+      "2020 BMJ Meta-analysis (n=172 萬)：每天 1 蛋與 CVD 無關",
+      "2023 系統回顧 (30 studies)：亞洲人群吃蛋無風險，西方風險來自搭配的培根/香腸",
+      "日本東海大學：每天 3 顆蛋黃 x 2 週，65% 血膽固醇不變，44% LDL 下降 + HDL 上升",
+      "膽鹼是大腦必需營養素，蛋是最佳膽鹼來源之一（1 顆 = 每日 27-35%）",
+      "蛋黃中的卵磷脂反而有乳化、分解脂肪的作用",
+      "台灣國健署已澄清：人體膽固醇主要自身生成，飲食膽固醇不易直接升高血膽固醇"
+    ],
+
+    "hook_angles": [
+      "「一顆蛋 186mg 膽固醇，但你的肝臟每天自己做 1000mg」— 數字反差",
+      "「被冤枉 50 年的好食物」— 平反框架",
+      "「培根才是元兇，不是蛋」— 反轉驚喜",
+      "「每天 2 顆蛋，LDL 反而降」— 顛覆認知",
+      "「你丟掉的蛋黃，裝著大腦最需要的營養」— 惋惜框架"
+    ],
+
+    "visual_card_ideas": [
+      "卡1: 迷思 vs 真相對比 — 左半「X 一天只能吃 1 顆蛋」右半「✓ 健康成人每天 2-3 顆沒問題」",
+      "卡2: 飽和脂肪排行榜 — 培根 > 香腸 > 奶油吐司 > 荷包蛋 > 水煮蛋，蛋在最低",
+      "卡3: 一顆蛋的營養成分視覺化 — 蛋白質、膽鹼、維生素 D、葉黃素、卵磷脂",
+      "卡4: 時間軸 — 1968 限制膽固醇 → 2015 取消上限 → 2025 RCT 證實蛋安全",
+      "卡5: 蛋黃 vs 蛋白營養對比 — 蛋黃才是營養精華"
+    ],
+
+    "safety_notes": [
+      "不說「隨便吃、吃多少都沒關係」，要說「健康成人每天 2-3 顆是安全的」",
+      "必須提醒：高膽固醇血症、心血管疾病患者請遵醫囑",
+      "不做療效宣稱：不說「吃蛋治病」，說「研究顯示與 CVD 風險無關」",
+      "強調「搭配」很重要：蛋 + 蔬菜 OK，蛋 + 培根香腸 = 飽和脂肪炸彈"
+    ]
+  }
+}

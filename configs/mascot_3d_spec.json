@@ -1,0 +1,103 @@
+{
+  "character_name": "小靜",
+  "species": "Taiwanese leopard cat mascot",
+  "render_mode": "3d_exact_reference",
+  "reference_images": {
+    "character": "characters/mascot/3d_reference.jpg",
+    "main_card_example": "characters/mascot/3d_main_card_reference.jpg"
+  },
+
+  "identity_lock": {
+    "_doc": "These features MUST remain identical across every generation. Any drift = fail.",
+    "same_face": true,
+    "same_markings": true,
+    "same_green_apron": true,
+    "same_tail_shape": true,
+    "same_ear_shape": true,
+    "forehead_stripes": "two white vertical stripes, thick and prominent",
+    "ears": "black with tiny white ear-back spots",
+    "spots": "round dark spots on arms, body, tail (NOT stripes, NOT tabby)",
+    "body_color": "warm yellow-brown with cream belly",
+    "apron_color": "sage green with white bowl-leaf icon",
+    "apron_icon": "small white bowl with leaf sprout"
+  },
+
+  "material_lock": {
+    "_doc": "3D material must be consistent — smooth matte plastic toy aesthetic.",
+    "material": "smooth matte plastic",
+    "finish": "low gloss",
+    "contrast": "low",
+    "shadow": "very soft",
+    "surface": "clean, no pores, no fur texture, no subsurface scattering"
+  },
+
+  "lighting_lock": {
+    "style": "studio softbox lighting",
+    "direction": "front-top, slightly left",
+    "background_mood": "muted pastel / morandi palette",
+    "rim_light": "subtle warm rim, never harsh"
+  },
+
+  "pose_family": [
+    {
+      "id": "hug_object_side",
+      "description": "Standing beside hero object, both paws hugging it from the side",
+      "use_case": "Cover card — mascot interacts with hero object"
+    },
+    {
+      "id": "lean_on_object",
+      "description": "Leaning on hero object with one paw, relaxed stance",
+      "use_case": "Cover card — casual interaction"
+    },
+    {
+      "id": "greet_viewer",
+      "description": "Facing viewer, one paw waving, friendly smile",
+      "use_case": "Closing card — farewell"
+    },
+    {
+      "id": "think_with_object",
+      "description": "One paw on chin, looking at hero object thoughtfully",
+      "use_case": "Cover card — question/myth type"
+    },
+    {
+      "id": "hold_badge",
+      "description": "Holding a small badge or sign in one paw",
+      "use_case": "Evidence card — showing source badge"
+    },
+    {
+      "id": "point_up",
+      "description": "One paw raised with index finger pointing up, reminder pose",
+      "use_case": "Reminder card"
+    }
+  ],
+
+  "expression_map": {
+    "_doc": "Map headline types to appropriate expressions. Prevents emotion mismatch.",
+    "question_myth": ["thinking", "default"],
+    "discovery_flip": ["surprised", "happy"],
+    "reminder_safety": ["reminder", "worried"],
+    "brand_closing": ["goodbye"],
+    "celebration": ["happy", "proud"]
+  },
+
+  "presence_rules": {
+    "_doc": "When and where mascot can appear in a 6-card set.",
+    "card_1_cover": "allowed",
+    "card_2_to_5_middle": "default_hidden",
+    "card_6_closing": "allowed",
+    "max_count_per_image": 1,
+    "allow_logo_mascot": false,
+    "allow_badge_mascot": false,
+    "allow_corner_sticker": false,
+    "allow_duplicate": false
+  },
+
+  "generation_rules": [
+    "MUST use reference_images.character as exact reference for every generation",
+    "MUST generate mascot on transparent background, separate from scene",
+    "MUST NOT generate mascot together with background in single prompt",
+    "MUST NOT add any text, watermark, or logo to mascot image",
+    "Mascot scale relative to hero object: small (mascot is sidekick, not star)",
+    "Mascot NEVER obscures hero object or headline text"
+  ]
+}

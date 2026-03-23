@@ -1,0 +1,90 @@
+{
+  "_doc": "Brand text overlay system — Level 3 poster quality. Thick stroke + drop shadow, no frost plates.",
+
+  "headline": {
+    "font_family": "C:/Windows/Fonts/msjhbd.ttc",
+    "font_size_cover": 112,
+    "font_size_middle": 92,
+    "font_size_closing": 100,
+    "color": "#2E3326",
+    "stroke_width": 6,
+    "stroke_fill": "#F6F1E7",
+    "shadow_offset": 3,
+    "shadow_color": [0, 0, 0, 50],
+    "line_spacing": 22,
+    "max_width_ratio": 0.80,
+    "align": "left",
+    "anchor_y_cover": 90,
+    "anchor_y_middle": 72,
+    "anchor_y_closing": 100,
+    "prefer_two_lines": true,
+    "_note": "海報式兩行優先。粗描邊 + 淡投影 = 不需要白板底。問號不可落單"
+  },
+
+  "subtitle": {
+    "font_family": "C:/Windows/Fonts/msjh.ttc",
+    "font_size": 44,
+    "color": "#5A4A3C",
+    "stroke_width": 4,
+    "stroke_fill": "#F6F1E7",
+    "shadow_offset": 2,
+    "shadow_color": [0, 0, 0, 40],
+    "line_spacing": 12,
+    "gap_from_headline": 20,
+    "align": "left"
+  },
+
+  "badge": {
+    "font_family": "C:/Windows/Fonts/msjhbd.ttc",
+    "font_size": 28,
+    "shape": "rounded_rect",
+    "fill": "#F3E9DA",
+    "fill_opacity": 230,
+    "stroke": "#B98E72",
+    "stroke_width": 3,
+    "text_color": "#6C5B43",
+    "width": 160,
+    "height": 72,
+    "corner_radius": 14,
+    "position": "top_right",
+    "margin_right": 72,
+    "margin_top": 90
+  },
+
+  "brand_name": {
+    "font_family": "C:/Windows/Fonts/msjhbd.ttc",
+    "font_size": 84,
+    "color": "#4E5538",
+    "stroke_width": 5,
+    "stroke_fill": "#F6F1E7",
+    "shadow_offset": 3,
+    "shadow_color": [0, 0, 0, 40],
+    "align": "center",
+    "show_on_closing": true,
+    "show_duplicate_bottom": false,
+    "_note": "只在主標位置顯示一次，不在底部重複"
+  },
+
+  "text_backing": {
+    "style": "none",
+    "_options": ["none", "local_frost"],
+    "_note": "Level 3 用粗描邊 + 投影取代白板底，通常不需要 frost。只在背景極亂時啟用 local_frost"
+  },
+
+  "drop_shadow": {
+    "enabled": true,
+    "blur_radius": 4,
+    "_note": "極淡柔陰影，讓字微微浮起"
+  },
+
+  "contrast": {
+    "min_ratio_headline": 4.5,
+    "min_ratio_subtitle": 4.5,
+    "min_ratio_brand": 4.5,
+    "_note": "WCAG AA. 粗奶油白描邊保證對比度"
+  },
+
+  "safe_margin": 72,
+  "canvas_width": 1080,
+  "canvas_height": 1920
+}

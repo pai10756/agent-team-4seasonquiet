@@ -1,0 +1,223 @@
+{
+  "series": "長輩廚房｜吃對了嗎？",
+  "episode": 7,
+  "type": "hybrid",
+  "type_rationale": "此主題涉及兩種常見主食的直接比較，並揭示了烹調方式對地瓜升糖指數的巨大影響，打破了多項常見迷思。混合型態能有效呈現數據排名，同時透過敘事解釋背後的科學原理與實用建議，提高觀眾的理解與參與度。",
+  "topic_title": "地瓜 vs 白飯 升糖指數大解密",
+  "format": "E",
+  "format_name": "廚房居家",
+  "hook_text": "地瓜比白飯健康？小心烤地瓜陷阱！",
+  "hook_variants": {
+    "unaware": "吃地瓜很健康？其實你可能吃錯了！",
+    "problem_aware": "為什麼吃地瓜血糖還是高？關鍵是烹調！",
+    "solution_aware": "想控血糖？這樣吃地瓜才對！",
+    "audience": "愛吃地瓜的你，絕對不能錯過這集！"
+  },
+  "research_sources": [
+    {
+      "citation": "Google Search Research (多篇營養學文章、醫師分享)",
+      "key_finding": "地瓜與白飯GI值比較，烹調方式對地瓜GI值影響巨大，烤地瓜GI值可能高於白飯。"
+    },
+    {
+      "citation": "台灣衛福部國民健康署",
+      "key_finding": "建議選擇低GI食物有助於血糖控制，地瓜因膳食纖維豐富被視為優質碳水化合物來源。"
+    }
+  ],
+  "scene_images": [
+    {
+      "id": "intro_scene",
+      "part": 0,
+      "description": "主持人小靜（石虎吉祥物）在廚房桌上，桌上擺放著一碗白飯和一顆蒸熟的地瓜，表情帶點疑惑。",
+      "prompt": "可爱的卡通石虎吉祥物在厨房里，桌上放着一碗白米饭和一颗蒸熟的红薯，石虎表情疑惑，背景是温馨明亮的厨房。不要任何文字、人物、水印、LOGO"
+    },
+    {
+      "id": "white_rice_gi",
+      "part": 1,
+      "description": "特寫一碗白飯，旁邊浮現白飯的GI值數據：70-85 (高GI)。",
+      "prompt": "特写一碗白米饭，旁边浮现“GI值：70-85 (高GI)”的简洁数据图，厨房背景。不要任何文字、人物、水印、LOGO"
+    },
+    {
+      "id": "steamed_sweet_potato_gi",
+      "part": 1,
+      "description": "特寫一顆蒸熟的地瓜，旁邊浮現蒸地瓜的GI值數據：40-50 (低GI)。",
+      "prompt": "特写一颗蒸熟的红薯，旁边浮现“GI值：40-50 (低GI)”的简洁数据图，厨房背景。不要任何文字、人物、水印、LOGO"
+    },
+    {
+      "id": "baked_sweet_potato_gi",
+      "part": 1,
+      "description": "特寫一顆烤地瓜，畫面略帶震驚效果，旁邊浮現烤地瓜的GI值數據：70-94 (高GI)，甚至可能比白飯高。",
+      "prompt": "特写一颗烤红薯，画面有轻微的震动或冲击效果，旁边浮现“GI值：70-94 (高GI)”的醒目数据图，厨房背景。不要任何文字、人物、水印、LOGO"
+    },
+    {
+      "id": "cold_sweet_potato",
+      "part": 2,
+      "description": "特寫冰鎮過的地瓜切片，強調抗性澱粉，畫面呈現清爽感。",
+      "prompt": "特写切片的冰镇红薯，表面有少量水珠，强调其清爽和健康感，厨房背景。不要任何文字、人物、水印、LOGO"
+    },
+    {
+      "id": "calorie_warning",
+      "part": 2,
+      "description": "小靜（石虎吉祥物）拿著地瓜和一個秤，表情略顯嚴肅，提醒熱量攝取。",
+      "prompt": "可爱的卡通石虎吉祥物拿着一块红薯和一个小秤，表情略显严肃，背景是厨房，提醒注意热量。不要任何文字、人物、水印、LOGO"
+    },
+    {
+      "id": "ending_summary",
+      "part": 2,
+      "description": "小靜（石虎吉祥物）開心地豎起大拇指，背景是健康餐點（如蒸地瓜搭配蔬菜），畫面溫馨明亮。",
+      "prompt": "可爱的卡通石虎吉祥物开心地竖起大拇指，背景是健康餐点，如蒸红薯搭配新鲜蔬菜沙拉，画面温馨明亮。不要任何文字、人物、水印、LOGO"
+    }
+  ],
+  "global_spec": "溫馨明亮的廚房場景，搭配清晰的食物特寫，字幕簡潔易懂，背景音樂輕快。",
+  "parts": [
+    {
+      "part_number": 1,
+      "title": "地瓜迷思大揭秘：烹調方式決定GI值",
+      "scenes": [
+        {
+          "time": "0:00",
+          "scene_ref": "intro_scene",
+          "scene_desc": "主持人小靜在廚房，桌上擺放白飯和蒸地瓜，提出疑問。",
+          "action": "小靜看著白飯和地瓜，表情疑惑。",
+          "camera": "中景，隨後推近食物。",
+          "dialogue": "地瓜一定比白飯健康？小心！你可能吃錯了！"
+        },
+        {
+          "time": "0:04",
+          "scene_ref": "white_rice_gi",
+          "scene_desc": "特寫白飯，旁白說明其GI值。",
+          "action": "畫面聚焦白飯，數據圖示浮現。",
+          "camera": "特寫。",
+          "dialogue": "白飯GI值高，70到85。"
+        },
+        {
+          "time": "0:08",
+          "scene_ref": "steamed_sweet_potato_gi",
+          "scene_desc": "特寫蒸地瓜，旁白說明其低GI值。",
+          "action": "畫面切換至蒸地瓜，數據圖示浮現。",
+          "camera": "特寫。",
+          "dialogue": "蒸地瓜低GI，僅40到50。"
+        },
+        {
+          "time": "0:12",
+          "scene_ref": "baked_sweet_potato_gi",
+          "scene_desc": "特寫烤地瓜，揭示其驚人的高GI值。",
+          "action": "畫面切換至烤地瓜，數據圖示以震驚效果浮現，小靜表情驚訝。",
+          "camera": "特寫，略帶晃動感。",
+          "dialogue": "但烤地瓜呢？GI值竟高達94！可能比白飯還高！"
+        }
+      ]
+    },
+    {
+      "part_number": 2,
+      "title": "健康地瓜這樣吃：控血糖與熱量管理",
+      "scenes": [
+        {
+          "time": "0:18",
+          "scene_ref": "cold_sweet_potato",
+          "scene_desc": "介紹冰鎮地瓜的益處。",
+          "action": "畫面展示冰鎮地瓜切片，小靜點頭示意。",
+          "camera": "特寫。",
+          "dialogue": "想吃地瓜控血糖？冰鎮後變抗性澱粉，更健康！"
+        },
+        {
+          "time": "0:23",
+          "scene_ref": "calorie_warning",
+          "scene_desc": "提醒地瓜熱量不低，需適量攝取。",
+          "action": "小靜手持地瓜，用秤示意，表情嚴肅。",
+          "camera": "中景。",
+          "dialogue": "地瓜熱量不低，吃太多還是會胖喔！"
+        },
+        {
+          "time": "0:28",
+          "scene_ref": "ending_summary",
+          "scene_desc": "總結烹調關鍵，鼓勵健康飲食，品牌結尾。",
+          "action": "小靜開心地豎起大拇指，背景是健康餐點。",
+          "camera": "中景。",
+          "dialogue": "烹調方式是關鍵！選對地瓜吃得更安心。關注時時靜好，健康不踩雷！"
+        }
+      ]
+    }
+  ],
+  "subtitles": [
+    "地瓜一定比白飯健康？",
+    "小心！你可能吃錯了！",
+    "白飯GI值高，70到85。",
+    "蒸地瓜低GI，僅40到50。",
+    "但烤地瓜呢？",
+    "GI值竟高達94！",
+    "可能比白飯還高！",
+    "想吃地瓜控血糖？",
+    "冰鎮後變抗性澱粉，更健康！",
+    "地瓜熱量不低，",
+    "吃太多還是會胖喔！",
+    "烹調方式是關鍵！",
+    "選對地瓜吃得更安心。",
+    "關注時時靜好，健康不踩雷！"
+  ],
+  "sound": "開場音效、數據揭示音效、驚訝音效、溫馨結尾音效",
+  "music": "輕快活潑的背景音樂，在揭示烤地瓜高GI時轉為略帶懸疑，結尾回歸溫馨",
+  "youtube_metadata": {
+    "title": "【時時靜好】地瓜比白飯健康？小心烤地瓜的升糖陷阱！#shorts",
+    "description": "你以為地瓜一定比白飯健康？那可不一定！這集「時時靜好」要揭露地瓜的升糖指數（GI值）大迷思！原來，烹調方式對地瓜的血糖影響巨大。蒸地瓜是低GI好選擇，但烤地瓜的GI值可能比白飯更高，甚至高達94！想吃得健康，除了選對烹調方式，還要適量喔！\n\n研究來源：\n- Google Search Research (多篇營養學文章、醫師分享): 揭示地瓜與白飯GI值比較，烹調方式對地瓜GI值影響巨大，烤地瓜GI值可能高於白飯。\n- 台灣衛福部國民健康署: 建議選擇低GI食物有助於血糖控制。\n\n#時時靜好 #健康飲食 #地瓜 #白飯 #升糖指數 #GI值 #飲食迷思 #健康知識 #shorts",
+    "hashtags": [
+      "#時時靜好",
+      "#Shorts",
+      "#健康飲食",
+      "#地瓜",
+      "#白飯",
+      "#升糖指數",
+      "#GI值",
+      "#飲食迷思",
+      "#健康知識"
+    ]
+  },
+  "mascot": {
+    "thumbnail": {
+      "expression": "thinking"
+    },
+    "end_card": {
+      "expression": "goodbye"
+    },
+    "outfit": "apron",
+    "prop": "tiny steamed sweet potato"
+  },
+  "character": {
+    "name": "小靜",
+    "type": "吉祥物",
+    "species": "石虎",
+    "role": "主持人"
+  },
+  "ranking_data": [
+    {
+      "item": "蒸地瓜/水煮地瓜",
+      "value": "40-50",
+      "unit": "GI值",
+      "source": "Google Search Research"
+    },
+    {
+      "item": "白飯",
+      "value": "70-85",
+      "unit": "GI值",
+      "source": "Google Search Research"
+    },
+    {
+      "item": "烤地瓜",
+      "value": "70-94",
+      "unit": "GI值",
+      "source": "Google Search Research"
+    },
+    {
+      "item": "冰地瓜",
+      "value": "<40 (低於蒸地瓜)",
+      "unit": "GI值",
+      "source": "Google Search Research"
+    }
+  ],
+  "seedance_prompts": [
+    "比較白飯、蒸地瓜、烤地瓜的升糖指數（GI值）差異，並說明烹調方式如何影響地瓜的GI值。",
+    "解釋為何烤地瓜的GI值可能比白飯更高，以及其背後的科學原理。",
+    "探討冰鎮地瓜如何形成抗性澱粉，進而降低GI值和對血糖的影響。",
+    "提醒地瓜雖然健康，但仍需注意熱量攝取，避免過量導致體重增加。",
+    "總結不同烹調方式下地瓜的健康益處與潛在風險，提供控血糖的實用飲食建議。"
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "_doc": "素材清單 — 飯菜冷藏 Shorts",
+  "generated_at": "2026-03-22",
+
+  "videos": [
+    {
+      "file": "video_part1.mp4",
+      "role": "前半段 — 廚房猶豫、時鐘快轉、飯菜特寫",
+      "resolution": "405x720",
+      "duration_s": 15.1,
+      "codec": "h264",
+      "fps": 24,
+      "segments_used": ["hook (0-3s)", "flip (3-8s)", "compare (8-15.1s)"]
+    },
+    {
+      "file": "video_part2.mp4",
+      "role": "後半段 — 端保鮮盒、放冰箱、OK手勢、揮手結尾",
+      "resolution": "405x720",
+      "duration_s": 15.1,
+      "codec": "h264",
+      "fps": 24,
+      "segments_used": ["evidence (0-5s)", "reminder (5-9s)", "summary (9-13s)", "closing (13-15.1s)"]
+    }
+  ],
+
+  "overlays": [
+    {
+      "file": "hook_title.png",
+      "role": "開場封面卡 — 熟飯熟菜別放太久",
+      "resolution": "768x1376",
+      "has_alpha": false,
+      "usage": "fullcard overlay at 0-3s, opacity 55%",
+      "segment": "hook"
+    },
+    {
+      "file": "badge_2hours.png",
+      "role": "2小時內要冷藏 badge",
+      "resolution": "768x1376",
+      "has_alpha": false,
+      "usage": "sticker at 3-8s, near clock",
+      "segment": "flip"
+    },
+    {
+      "file": "label_portion.png",
+      "role": "盡快分裝 標籤",
+      "resolution": "1408x768",
+      "has_alpha": false,
+      "usage": "sticker at 16-21s",
+      "segment": "evidence"
+    },
+    {
+      "file": "label_refrigerate.png",
+      "role": "放進冰箱冷藏 標籤",
+      "resolution": "1408x768",
+      "has_alpha": false,
+      "usage": "sticker at 21-25s",
+      "segment": "reminder"
+    },
+    {
+      "file": "icon_check.png",
+      "role": "綠色打勾 icon",
+      "resolution": "1408x768",
+      "has_alpha": false,
+      "usage": "sticker at 21-25s, near OK gesture",
+      "segment": "reminder"
+    },
+    {
+      "file": "mascot_thinking.png",
+      "role": "小靜 — 思考表情（開場用）",
+      "resolution": "1380x752",
+      "has_alpha": false,
+      "usage": "sticker at 0-3s, top-left safe zone",
+      "segment": "hook"
+    },
+    {
+      "file": "mascot_goodbye.png",
+      "role": "小靜 — 揮手再見（片尾用）",
+      "resolution": "1380x752",
+      "has_alpha": false,
+      "usage": "sticker at 29-33s, bottom center",
+      "segment": "closing"
+    },
+    {
+      "file": "brand_title.png",
+      "role": "品牌標題 — 時時靜好",
+      "resolution": "768x1376",
+      "has_alpha": false,
+      "usage": "sticker at 29-33s, upper center",
+      "segment": "closing"
+    },
+    {
+      "file": "speechbubble_goodbye.png",
+      "role": "對話泡泡 — 嗨我是小靜我們下次見",
+      "resolution": "1408x768",
+      "has_alpha": false,
+      "usage": "sticker at 29-33s, above mascot",
+      "segment": "closing"
+    }
+  ],
+
+  "tts": {
+    "engine": "elevenlabs",
+    "voice_id": "r6qgCCGI7RWKXCagm158",
+    "output_dir": "tts/"
+  }
+}

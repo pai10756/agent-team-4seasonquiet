@@ -1,0 +1,114 @@
+{
+  "_doc": "Brand visual design system for 時時靜好. All agents reference this as source of truth for visual decisions.",
+
+  "brand": {
+    "name": "時時靜好",
+    "tagline": "用低壓、可信、好懂的方式，幫觀眾理解健康與生活迷思",
+    "audience": "中高齡者、照顧者、一般家庭健康決策者",
+    "tone": "溫暖、清楚、成熟、可信、生活感",
+    "anti_tone": "不幼態、不廉價、不聳動、不恐嚇"
+  },
+
+  "style_token": "STYLE_SHIZHI_3D_POSTER_V1",
+  "style_definition": {
+    "photo_realism_ratio": 0.75,
+    "vector_3d_ratio": 0.25,
+    "cover_grammar": "large headline poster style",
+    "hero_grammar": "single realistic hero object",
+    "mascot_grammar": "3D mascot as brand sidekick, not decoration",
+    "info_grammar": "one message per card",
+    "emotion_grammar": "mascot expression must serve headline emotion"
+  },
+
+  "palette": {
+    "cream_white": {"hex": "#F6F1E7", "role": "background, whitespace"},
+    "sage_green": {"hex": "#A8B88A", "role": "brand strip, badge bg, separator"},
+    "olive_dark": {"hex": "#4E5538", "role": "primary headline text"},
+    "brown_text": {"hex": "#3B2A1F", "role": "secondary headline, body text"},
+    "warm_wood": {"hex": "#C4A882", "role": "lifestyle photo base tone"},
+    "morandi_bg": {"hex": "#D5CEC0", "role": "card background alternative"}
+  },
+
+  "palette_forbidden": [
+    "high saturation red",
+    "bright neon blue",
+    "cheap gold gradient",
+    "fluorescent gradient",
+    "medical alert red",
+    "pure white (#FFFFFF) as background"
+  ],
+
+  "typography": {
+    "headline": {
+      "style": "large_poster_chinese",
+      "weight": "bold",
+      "min_size_ratio": 0.08,
+      "color": "olive_dark or brown_text",
+      "max_lines": 3
+    },
+    "subtitle": {
+      "weight": "regular",
+      "color": "brown_text",
+      "opacity": 0.8
+    },
+    "badge": {
+      "shape": "circle or rounded_rect",
+      "bg_color": "sage_green or cream_white",
+      "text_color": "olive_dark",
+      "position": "top_right"
+    }
+  },
+
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "safe_margin": 72,
+    "headline_zone_y_max": 550
+  },
+
+  "card_types": {
+    "poster_cover": {
+      "purpose": "Hook card — first impression, one big question",
+      "rules": [
+        "Only ONE main question",
+        "Headline must be dominant (largest element)",
+        "Only ONE hero object",
+        "Mascot is emotion support only",
+        "Visual and text must reinforce same message"
+      ]
+    },
+    "comparison_card": {
+      "purpose": "Show contrast between items",
+      "rules": [
+        "Max 2-3 items compared",
+        "Clear visual hierarchy",
+        "No mascot unless specifically needed"
+      ]
+    },
+    "evidence_card": {
+      "purpose": "Show research source / data",
+      "rules": [
+        "Source badge must be visible",
+        "Data visualization simple and scannable",
+        "No mascot"
+      ]
+    },
+    "safety_reminder": {
+      "purpose": "Important disclaimer or reminder",
+      "rules": [
+        "Warm tone, not alarmist",
+        "Clear single message",
+        "No mascot"
+      ]
+    },
+    "brand_closing": {
+      "purpose": "End card with brand farewell",
+      "rules": [
+        "Mascot facing viewer, greeting/waving",
+        "Clean background",
+        "Brand name prominent",
+        "Bottom area for text overlay"
+      ]
+    }
+  }
+}

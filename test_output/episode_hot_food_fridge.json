@@ -1,0 +1,296 @@
+{
+  "series": "長輩廚房｜吃對了嗎？",
+  "episode": 11,
+  "type": "standard",
+  "type_rationale": "本主題為單一迷思破解型，核心在於翻轉「飯菜要放涼才能進冰箱」的傳統觀念，透過科學證據說明細菌危險溫度帶，敘事結構清晰，適合 standard 型態以故事線引導觀眾從迷思走向正確做法。",
+  "topic_title": "飯菜要冷了才能放冰箱嗎？",
+  "core_claim": "熱飯菜放涼再冰反而更危險，食物在室溫下超過 2 小時就進入細菌快速繁殖的危險溫度帶（7-60°C），現代冰箱完全能承受溫熱食物，應盡快冷藏才安全。",
+  "single_takeaway": "煮好趁早冰，別等放涼！",
+  "audience_promise": "看完你會知道飯菜到底該不該放涼再冰，以及最安全的保存方式",
+  "visual_style_token": "STYLE_SHIZHI_3D_POSTER_V1",
+  "hook_text": "飯菜放涼再冰？大錯特錯！",
+  "hook_variants": [
+    {
+      "level": "unaware",
+      "text": "熱飯菜直接放冰箱，會壞掉嗎？",
+      "rationale": "針對從未質疑過此習慣的觀眾，以疑問句引發好奇。"
+    },
+    {
+      "level": "problem_aware",
+      "text": "飯菜放涼才能冰？你可能放出一堆細菌！",
+      "rationale": "針對知道食物保存很重要但仍遵循舊觀念的觀眾，點出風險。"
+    },
+    {
+      "level": "solution_aware",
+      "text": "FDA 早說了：熱菜要趁早冰！",
+      "rationale": "針對已有食安意識的觀眾，用權威背書強化信心。"
+    },
+    {
+      "level": "audience",
+      "text": "阿嬤堅持放涼再冰？科學說不對！",
+      "rationale": "直接點名長輩習慣，製造世代認知衝突的好奇感。"
+    }
+  ],
+  "character": "一位約 60 歲的家庭主婦，在自家整潔明亮的廚房中，剛煮好一鍋湯，正猶豫要不要等放涼再冰。",
+  "research_sources": [
+    {
+      "citation": "U.S. FDA — Are You Storing Food Safely?",
+      "url": "https://www.fda.gov/consumers/consumer-updates/are-you-storing-food-safely",
+      "key_finding": "熟食應在烹煮後 2 小時內冷藏（室溫超過 32°C 則為 1 小時），不應在室溫下放置過久。"
+    },
+    {
+      "citation": "USDA Food Safety and Inspection Service — Danger Zone (40°F - 140°F)",
+      "key_finding": "細菌在 4-60°C（40-140°F）的危險溫度帶中每 20 分鐘可倍增，2 小時內可從少量繁殖至致病劑量。"
+    },
+    {
+      "citation": "台灣衛福部食藥署 — 食品保存與冷藏建議",
+      "key_finding": "建議熟食儘速冷藏，大量食物可分裝小容器加速降溫，冰箱溫度應維持在 7°C 以下。"
+    }
+  ],
+  "mascot_strategy": {
+    "presence": "both",
+    "opening_expression": "surprised",
+    "opening_pose": "hold_badge",
+    "outfit": "apron",
+    "prop": "tiny pot with lid",
+    "render_mode": "3d_exact_reference",
+    "scale_vs_object": "small",
+    "allow_extra_mascot": false,
+    "allow_logo_mascot": false
+  },
+  "scenes": [
+    {
+      "scene_id": "01",
+      "scene_role": "hook",
+      "scene_goal": "引發觀眾對「飯菜放涼再冰」這個根深柢固習慣的質疑。",
+      "visual_type": "poster_cover",
+      "on_screen_text_main": "飯菜放涼再冰？",
+      "on_screen_text_sub": "這個習慣可能讓你吃進滿滿細菌",
+      "hero_object": "a large realistic steaming hot pot of soup on a modern kitchen countertop, with visible steam rising, warm golden lighting",
+      "background_scene": "warm modern kitchen interior, clean countertop, soft natural light from window, cream and sage color palette",
+      "mascot_presence": true,
+      "mascot_count": 1,
+      "mascot_expression": "surprised",
+      "mascot_pose": "hold_badge",
+      "mascot_interaction_mode": "站在湯鍋旁邊，驚訝地看著冒出的蒸氣",
+      "do_not_include": ["人臉", "多個鍋子", "冰箱內部"],
+      "time_range": "0-3s",
+      "animation": "slow_push_in"
+    },
+    {
+      "scene_id": "02",
+      "scene_role": "flip",
+      "scene_goal": "翻轉觀眾認知：放涼的過程才是細菌繁殖的溫床。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "放涼 = 養細菌！",
+      "on_screen_text_sub": "室溫 2 小時，細菌暴增數萬倍",
+      "hero_object": "Left side: a freshly cooked hot dish with steam, looking clean and safe, with a green checkmark. Right side: the same dish sitting at room temperature with a clock showing 2 hours passed, with cartoon-style tiny bacteria icons multiplying around it, with a red X mark. Split comparison layout, realistic food photography style.",
+      "background_scene": "clean kitchen countertop, neutral warm lighting, cream background",
+      "badge_text": "FDA\n建議",
+      "do_not_include": ["人臉", "小靜"],
+      "time_range": "3-8s",
+      "animation": "slide_in"
+    },
+    {
+      "scene_id": "03",
+      "scene_role": "compare",
+      "scene_goal": "用溫度帶圖解讓觀眾理解細菌危險區間的科學原理。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "7-60°C 危險溫度帶",
+      "on_screen_text_sub": "細菌每 20 分鐘倍增一次",
+      "hero_object": "A large vertical thermometer in the center, with three color-coded zones: blue zone at bottom (below 7°C, labeled safe/冷藏安全), red danger zone in middle (7-60°C, with bacteria icons), and orange zone at top (above 60°C, labeled safe/加熱安全). Clean infographic style, realistic thermometer with stylized zones.",
+      "background_scene": "clean minimal background, cream and sage color palette, soft gradient",
+      "do_not_include": ["人臉", "小靜", "實際食物照片"],
+      "time_range": "8-15s",
+      "animation": "slight_drift"
+    },
+    {
+      "scene_id": "04",
+      "scene_role": "evidence",
+      "scene_goal": "提供權威機構建議與正確做法，增強說服力。",
+      "visual_type": "evidence_card",
+      "on_screen_text_main": "正確做法：分裝趁早冰",
+      "on_screen_text_sub": "大鍋菜分小盒，降溫更快更安全",
+      "hero_object": "Three small glass food containers with lids, each containing different portions of hot food (soup, rice, stir-fry), arranged neatly on a countertop next to an open refrigerator. Steam slightly visible from containers. Clean, organized, practical kitchen scene.",
+      "background_scene": "modern kitchen with open refrigerator visible in background, bright clean lighting, cream and sage color palette",
+      "source_badge_text": "台灣食藥署建議",
+      "do_not_include": ["人臉", "小靜"],
+      "time_range": "15-23s",
+      "animation": "badge_fade_in"
+    },
+    {
+      "scene_id": "05",
+      "scene_role": "reminder",
+      "scene_goal": "提醒觀眾冰箱使用的注意事項，避免矯枉過正。",
+      "visual_type": "safety_reminder",
+      "on_screen_text_main": "煮好趁早冰，別等放涼",
+      "on_screen_text_sub": "冰箱別塞太滿，保持冷氣流通",
+      "hero_object": "A well-organized refrigerator interior, showing proper food storage with adequate spacing between containers, temperature display showing 4°C, clean and organized shelves with labeled containers. Bright, clean, inviting.",
+      "background_scene": "clean refrigerator interior with soft cool lighting, cream and sage accents on container lids",
+      "do_not_include": ["人臉", "小靜"],
+      "time_range": "23-29s",
+      "animation": "simple_cut"
+    },
+    {
+      "scene_id": "06",
+      "scene_role": "closing",
+      "scene_goal": "強化品牌記憶，溫馨告別。",
+      "visual_type": "brand_closing",
+      "on_screen_text_main": "時時靜好",
+      "on_screen_text_sub": "嗨，我是小靜，我們下次見！",
+      "hero_object": "",
+      "background_scene": "clean warm gradient background, cream and sage colors, with subtle brand elements",
+      "mascot_presence": true,
+      "mascot_count": 1,
+      "mascot_expression": "goodbye",
+      "mascot_pose": "greet_viewer",
+      "do_not_include": [],
+      "time_range": "29-33s",
+      "animation": "mascot_wave"
+    }
+  ],
+  "seedance_prompts": {
+    "seedance_part1": "A kitchen scene: a pot of hot soup sits on a countertop with visible steam. Time-lapse effect shows a clock spinning from 0 to 2 hours. As time passes, stylized cartoon bacteria icons begin appearing and multiplying around the pot, growing from a few to thousands. The scene shifts to show a large thermometer with a glowing red danger zone between 7-60°C. Clean, informative animation style, warm kitchen lighting. No text, no watermarks, no logos.",
+    "seedance_part2": "A practical kitchen scene: hands divide a large pot of soup into three small glass containers with lids. The containers are placed into a clean, well-organized refrigerator. The refrigerator temperature display shows 4°C. A green checkmark appears. The scene transitions to a clean cream and sage colored background with the 3D mascot (a Taiwanese leopard cat toy figure wearing a sage green apron) waving goodbye warmly. No text, no watermarks, no logos."
+  },
+  "voiceover": {
+    "engine": "elevenlabs",
+    "segments": [
+      {
+        "id": 1,
+        "part": "hook",
+        "text": "飯菜要放涼才能進冰箱？這個習慣，可能讓你吃進滿滿細菌！"
+      },
+      {
+        "id": 2,
+        "part": "flip",
+        "text": "很多人怕熱菜會壞冰箱，但其實放在室溫才更危險。食物只要在室溫超過兩小時，細菌就會瘋狂繁殖！"
+      },
+      {
+        "id": 3,
+        "part": "compare",
+        "text": "關鍵在這個危險溫度帶。七度到六十度之間，細菌每二十分鐘就能倍增一次。放涼的過程，剛好就在這個區間裡。"
+      },
+      {
+        "id": 4,
+        "part": "evidence",
+        "text": "美國 FDA 跟台灣食藥署都建議，熟食煮好後應盡快冷藏。大鍋菜可以分裝成小盒，降溫更快，也更安全。"
+      },
+      {
+        "id": 5,
+        "part": "reminder",
+        "text": "記住，煮好趁早冰，別傻傻等放涼。冰箱也別塞太滿，要保持冷氣流通才有效。"
+      },
+      {
+        "id": 6,
+        "part": "closing",
+        "text": "時時靜好，祝您健康，我們下次見！"
+      }
+    ]
+  },
+  "subtitles": [
+    {
+      "text": "飯菜要放涼才能冰？",
+      "start": 0.0,
+      "end": 2.0
+    },
+    {
+      "text": "這習慣超級危險！",
+      "start": 2.0,
+      "end": 3.5
+    },
+    {
+      "text": "放涼等於養細菌",
+      "start": 3.5,
+      "end": 5.5
+    },
+    {
+      "text": "室溫兩小時",
+      "start": 5.5,
+      "end": 7.0
+    },
+    {
+      "text": "細菌暴增數萬倍！",
+      "start": 7.0,
+      "end": 8.5
+    },
+    {
+      "text": "七到六十度之間",
+      "start": 8.5,
+      "end": 10.5
+    },
+    {
+      "text": "是細菌的危險溫度帶",
+      "start": 10.5,
+      "end": 12.5
+    },
+    {
+      "text": "每二十分鐘倍增一次",
+      "start": 12.5,
+      "end": 15.0
+    },
+    {
+      "text": "FDA跟食藥署都說",
+      "start": 15.0,
+      "end": 17.0
+    },
+    {
+      "text": "熟食要盡快冷藏！",
+      "start": 17.0,
+      "end": 19.0
+    },
+    {
+      "text": "大鍋菜分裝小盒",
+      "start": 19.0,
+      "end": 21.0
+    },
+    {
+      "text": "降溫更快更安全",
+      "start": 21.0,
+      "end": 23.0
+    },
+    {
+      "text": "煮好趁早冰",
+      "start": 23.0,
+      "end": 25.0
+    },
+    {
+      "text": "別傻傻等放涼！",
+      "start": 25.0,
+      "end": 27.0
+    },
+    {
+      "text": "冰箱別塞太滿喔",
+      "start": 27.0,
+      "end": 29.0
+    },
+    {
+      "text": "時時靜好",
+      "start": 29.5,
+      "end": 31.0
+    },
+    {
+      "text": "祝您健康下次見！",
+      "start": 31.0,
+      "end": 33.0
+    }
+  ],
+  "sound": "廚房環境音，湯鍋冒泡聲、冰箱開關門聲、保鮮盒蓋上的輕微聲響",
+  "music": "溫暖輕快的烏克麗麗配樂，節奏明朗但不急促，烘托居家溫馨感",
+  "youtube_metadata": {
+    "title": "飯菜放涼再冰？大錯特錯！細菌兩小時暴增數萬倍｜時時靜好 #Shorts",
+    "description": "「飯菜要放涼才能放冰箱」是許多家庭根深柢固的習慣，但這個做法其實超級危險！食物在室溫下放置超過 2 小時，就會進入 7-60°C 的細菌危險溫度帶，細菌每 20 分鐘倍增一次。美國 FDA 和台灣食藥署都建議：熟食煮好後應盡快冷藏，大鍋菜分裝小容器可加速降溫。現代冰箱完全能承受溫熱食物，別再等放涼了！\n\n資料來源：\n1. U.S. FDA — Are You Storing Food Safely?\n2. USDA Food Safety and Inspection Service — Danger Zone (40°F - 140°F)\n3. 台灣衛福部食藥署 — 食品保存與冷藏建議\n\n#時時靜好 #Shorts #食品安全 #冰箱保存 #細菌 #危險溫度帶 #廚房知識 #健康生活 #食安迷思 #飯菜保存",
+    "hashtags": [
+      "#時時靜好",
+      "#Shorts",
+      "#食品安全",
+      "#冰箱保存",
+      "#細菌",
+      "#危險溫度帶",
+      "#廚房知識",
+      "#健康生活",
+      "#食安迷思",
+      "#飯菜保存"
+    ]
+  }
+}
