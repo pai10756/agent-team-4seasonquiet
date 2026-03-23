@@ -1,0 +1,202 @@
+{
+  "series": "長輩廚房｜吃對了嗎？",
+  "episode": 12,
+  "type": "quick_cut",
+  "type_rationale": "本主題為單一迷思破解型，以「一萬步來自廣告不是科學」為核心反轉，數據密度中等，不需人物演出，適合靜態圖卡快剪呈現，搭配旁白逐步揭曉。",
+  "topic_title": "每天走一萬步才健康？",
+  "core_claim": "「一萬步」源自 1964 年日本計步器廣告，不是科學建議。Lancet 統合分析（47,471 人）證實 60 歲以上長輩每天走 6,000-8,000 步即可達到最大死亡風險降低效益，超過後效益趨平，硬走一萬步反而增加膝蓋磨損風險。",
+  "single_takeaway": "六千步就夠，走對比走多更重要。",
+  "audience_promise": "看完你會知道每天到底該走幾步，不再硬撐一萬步傷膝蓋",
+  "visual_style_token": "STYLE_SHIZHI_3D_POSTER_V1",
+  "hook_text": "別再走一萬步了！",
+  "hook_variants": [
+    {
+      "level": "unaware",
+      "text": "醫生說：別再逼自己走一萬步",
+      "rationale": "長輩不知道一萬步不是醫學建議，用權威感引發好奇。"
+    },
+    {
+      "level": "problem_aware",
+      "text": "走一萬步膝蓋痛？你根本不需要那麼多",
+      "rationale": "針對已經膝蓋不適但還在硬撐的長輩，直接給出希望。"
+    },
+    {
+      "level": "solution_aware",
+      "text": "一萬步是60年前的廣告，不是科學",
+      "rationale": "針對聽過不同說法的觀眾，用歷史真相製造衝擊。"
+    },
+    {
+      "level": "audience",
+      "text": "47萬人研究揭曉：長輩最佳步數竟然是…",
+      "rationale": "針對頻道老觀眾，用大規模研究數據和懸念吸引點擊。"
+    }
+  ],
+  "research_sources": [
+    {
+      "citation": "Paluch AE et al., Lancet Public Health, 2022 (meta-analysis of 15 cohorts, n=47,471)",
+      "url": "https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(21)00302-9/fulltext",
+      "key_finding": "60歲以上成人每天 6,000-8,000 步達到最大死亡風險降幅，超過後效益趨平"
+    },
+    {
+      "citation": "Lancet Public Health, 2025 — Daily steps and health outcomes systematic review",
+      "url": "https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(25)00164-1/fulltext",
+      "key_finding": "7,000 步即可達到臨床顯著健康改善，3,000→7,000 步死亡風險降 50%"
+    },
+    {
+      "citation": "Inoue K et al., JAMA Network Open, 2023",
+      "url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2802810",
+      "key_finding": "每週僅 1-2 天走 8,000 步，也能顯著降低全因死亡率"
+    },
+    {
+      "citation": "歷史考據：萬步計（manpo-kei）由山佐時計計器於 1964 年東京奧運前推出",
+      "key_finding": "「一萬步」源自日本計步器行銷口號，非醫學研究結論"
+    }
+  ],
+  "mascot_strategy": {
+    "presence": "both",
+    "opening_expression": "surprised",
+    "opening_pose": "point_up",
+    "closing_expression": "goodbye",
+    "outfit": "sport_vest",
+    "prop": "tiny pedometer",
+    "render_mode": "3d_exact_reference",
+    "scale_vs_object": "small",
+    "allow_extra_mascot": false,
+    "allow_logo_mascot": false
+  },
+  "scenes": [
+    {
+      "scene_id": "01",
+      "scene_role": "hook",
+      "scene_goal": "用震撼數字和權威感打破一萬步迷思，讓觀眾停下來看。",
+      "visual_type": "poster_cover",
+      "on_screen_text_main": "別再走一萬步了！",
+      "on_screen_text_sub": "這個數字，根本不是科學建議",
+      "hero_object": "one large realistic digital pedometer showing '10000' on screen with a bold red X crossing it out, placed on a park bench",
+      "background_scene": "morning park scene with walking path, soft golden hour light, trees in background, cream and sage color palette",
+      "mascot_presence": true,
+      "mascot_count": 1,
+      "mascot_expression": "surprised",
+      "mascot_pose": "point_up",
+      "do_not_include": ["人臉", "跑步機"],
+      "time_range": "0-3s",
+      "animation": "slow_push_in"
+    },
+    {
+      "scene_id": "02",
+      "scene_role": "flip",
+      "scene_goal": "揭曉一萬步的真正來源是廣告，製造最大認知衝擊。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "一萬步＝60年前的廣告",
+      "on_screen_text_sub": "1964年日本計步器的行銷口號",
+      "hero_object": "Left side: a vintage 1960s Japanese pedometer (manpo-kei) with retro design and Japanese text. Right side: a modern medical research paper or scientific journal. Clean split layout with thin dividing line.",
+      "background_scene": "clean cream background with subtle paper texture, warm lighting",
+      "badge_text": "1964\n東京奧運",
+      "do_not_include": ["人臉", "小靜"],
+      "time_range": "3-8s",
+      "animation": "slide_in"
+    },
+    {
+      "scene_id": "03",
+      "scene_role": "compare",
+      "scene_goal": "用數據視覺化呈現 6000 步 vs 10000 步的效益差異極小。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "6000步 vs 10000步",
+      "on_screen_text_sub": "死亡風險降幅幾乎一樣！",
+      "hero_object": "A simple infographic showing two shoe icons: left shoe labeled '6000步' with a green checkmark and '死亡風險 -50%', right shoe labeled '10000步' with a yellow equals sign and '風險沒有更低'. Clean bar chart style comparison. The bars are nearly the same height, emphasizing diminishing returns.",
+      "background_scene": "clean white to cream gradient background, minimal design, sage green accent colors",
+      "source_badge_text": "Lancet 2022\n47,471人",
+      "do_not_include": ["人臉", "小靜"],
+      "time_range": "8-15s",
+      "animation": "slight_drift"
+    },
+    {
+      "scene_id": "04",
+      "scene_role": "evidence",
+      "scene_goal": "用權威研究數據強化信任，給出具體最佳步數。",
+      "visual_type": "evidence_card",
+      "on_screen_text_main": "3000→7000步，風險降50%",
+      "on_screen_text_sub": "每週走1-2天也有效！",
+      "hero_object": "A clear dose-response curve graph showing steps on x-axis (3000 to 12000) and mortality risk reduction on y-axis. The curve drops steeply from 3000 to 7000, then flattens dramatically after 8000. A highlighted green zone between 6000-8000 labeled '最佳區間'. Clean infographic style.",
+      "background_scene": "clean cream background with subtle grid lines, modern scientific infographic style",
+      "source_badge_text": "Lancet 2025",
+      "do_not_include": ["人臉", "小靜"],
+      "time_range": "15-23s",
+      "animation": "badge_fade_in"
+    },
+    {
+      "scene_id": "05",
+      "scene_role": "reminder",
+      "scene_goal": "提醒觀眾走對比走多重要，膝蓋不好更要量力而行。",
+      "visual_type": "safety_reminder",
+      "on_screen_text_main": "走對比走多更重要",
+      "on_screen_text_sub": "膝蓋不好，量力而行",
+      "hero_object": "A pair of comfortable walking shoes on a gentle park path, with a soft morning light. A subtle icon of a knee joint with a protective shield symbol nearby. Warm, reassuring, healthy lifestyle photography.",
+      "background_scene": "peaceful morning park path with gentle sunlight, trees, cream and sage color palette",
+      "do_not_include": ["人臉", "小靜", "跑步", "激烈運動"],
+      "time_range": "23-29s",
+      "animation": "simple_cut"
+    },
+    {
+      "scene_id": "06",
+      "scene_role": "closing",
+      "scene_goal": "品牌收尾，溫馨告別。",
+      "visual_type": "brand_closing",
+      "on_screen_text_main": "時時靜好",
+      "on_screen_text_sub": "嗨，我是小靜，我們下次見！",
+      "hero_object": "",
+      "background_scene": "clean warm gradient background, cream and sage colors, with subtle brand elements",
+      "mascot_presence": true,
+      "mascot_count": 1,
+      "mascot_expression": "goodbye",
+      "mascot_pose": "greet_viewer",
+      "do_not_include": [],
+      "time_range": "29-33s",
+      "animation": "mascot_wave"
+    }
+  ],
+  "subtitles": [
+    { "text": "別再走一萬步了！", "start": 0.0, "end": 2.5 },
+    { "text": "這個數字不是科學建議", "start": 3.0, "end": 5.0 },
+    { "text": "它是六十年前的廣告", "start": 5.0, "end": 7.5 },
+    { "text": "1964年日本計步器", "start": 7.5, "end": 9.5 },
+    { "text": "為了東京奧運打的廣告", "start": 9.5, "end": 12.0 },
+    { "text": "最新研究發現", "start": 12.5, "end": 14.0 },
+    { "text": "六千步和一萬步", "start": 14.0, "end": 15.5 },
+    { "text": "死亡風險降幅一樣！", "start": 15.5, "end": 17.5 },
+    { "text": "三千步走到七千步", "start": 18.0, "end": 19.5 },
+    { "text": "風險就能降五成", "start": 19.5, "end": 21.5 },
+    { "text": "每週走一兩天也有效", "start": 22.0, "end": 24.0 },
+    { "text": "膝蓋不好量力而行", "start": 24.5, "end": 26.5 },
+    { "text": "走對比走多更重要", "start": 27.0, "end": 29.0 },
+    { "text": "時時靜好", "start": 30.0, "end": 31.0 },
+    { "text": "祝您健康下次見！", "start": 31.5, "end": 33.0 }
+  ],
+  "voiceover": {
+    "engine": "elevenlabs",
+    "segments": [
+      { "id": 1, "part": "hook", "text": "別再走一萬步了！這個數字，根本不是科學建議。" },
+      { "id": 2, "part": "flip", "text": "它是六十年前，1964年日本計步器公司，為了東京奧運打的廣告口號。" },
+      { "id": 3, "part": "compare", "text": "最新研究發現，六千步和一萬步，死亡風險降幅幾乎一樣！" },
+      { "id": 4, "part": "evidence", "text": "四萬七千人的大型研究證實，從三千步走到七千步，風險就能降五成。每週走一兩天也有效！" },
+      { "id": 5, "part": "reminder", "text": "膝蓋不好的長輩，量力而行。走對，比走多更重要。" },
+      { "id": 6, "part": "closing", "text": "時時靜好，祝您健康，我們下次見！" }
+    ]
+  },
+  "sound": "清晨公園鳥鳴、輕柔腳步聲",
+  "music": "輕快溫暖的晨間散步風格配樂，帶點輕鬆節奏",
+  "youtube_metadata": {
+    "title": "別再走一萬步了！最新研究：長輩最佳步數竟然是…｜時時靜好",
+    "description": "你還在逼自己每天走一萬步嗎？「一萬步」其實是 1964 年日本計步器公司的廣告口號，不是科學建議！\n\nLancet 統合分析（47,471 人、15 項研究）發現：\n✅ 60歲以上長輩，每天走 6,000-8,000 步就能達到最大健康效益\n✅ 從 3,000 步增加到 7,000 步，死亡風險降低 50%\n✅ 超過 8,000 步後效益趨平\n✅ 每週只走 1-2 天 8,000 步也有效\n\n膝蓋不好的長輩，走對比走多更重要！\n\n研究來源：\n1. Paluch AE et al., Lancet Public Health, 2022\n2. Lancet Public Health, 2025 — Daily steps systematic review\n3. Inoue K et al., JAMA Network Open, 2023\n\n#時時靜好 #走路 #一萬步 #健康迷思 #長輩運動 #膝蓋保養 #Shorts",
+    "hashtags": [
+      "#時時靜好",
+      "#走路",
+      "#一萬步迷思",
+      "#健康迷思",
+      "#長輩運動",
+      "#膝蓋保養",
+      "#每日步數",
+      "#Shorts"
+    ]
+  }
+}
