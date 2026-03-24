@@ -6,7 +6,7 @@
   "type_rationale": "本主題以「低脂=健康」的40年信念被三條獨立證據線動搖為核心敘事，具備強烈的迷思翻轉結構（hook→flip→evidence→evidence→reminder→closing）。數據密度高但邏輯清晰，適合標準敘事型態的Seedance動態影片，透過逐層揭露製造情緒高潮。",
   "topic_title": "低脂比較健康？這個信念可能錯了40年",
 
-  "core_claim": "過去40年「低脂飲食比較健康」的主流建議，正被多條高品質研究證據動搖：RCT統合分析顯示限制飽和脂肪未降低心血管死亡率，全脂起司反而與較低失智風險相關，美國最新飲食指南也首次納入全脂乳製品。低脂不等於健康，關鍵是吃真正的食物、避免超加工食品。",
+  "core_claim": "過去40年「低脂飲食比較健康」的主流建議，正被多條高品質研究證據動搖：RCT統合分析顯示限制飽和脂肪未降低心血管風險，全脂起司反而與較低失智風險相關，美國最新飲食指南也首次納入全脂乳製品。低脂不等於健康，關鍵是吃真正的食物、避免超加工食品。",
   "single_takeaway": "別再怕全脂，怕的應該是超加工食品。",
   "audience_promise": "看完你會重新思考低脂飲食到底對不對，以及該怎麼選乳製品。",
 
@@ -112,13 +112,13 @@
       "visual_type": "comparison_card",
       "on_screen_text_main": "少吃脂肪，沒有更健康",
       "on_screen_text_sub": "9 個隨機試驗、13,532 人的結論",
-      "hero_object": "Left side: a clean plate with steamed vegetables and skinless chicken, labeled '低脂飲食' with a red X mark. Right side: a plate with cheese, eggs, salmon and avocado, labeled '正常飲食' with a green equals sign. A thin vertical dividing line between both sides. Below both plates: a simple horizontal bar showing 'heart disease mortality' with both bars at the same height, indicating no difference. Clean infographic style.",
+      "hero_object": "Two plates side by side. Left plate: steamed vegetables and skinless chicken breast, plain and bland looking, labeled '低脂飲食' below. Right plate: cheese wedge, salmon, egg, avocado, rich and colorful, labeled '正常飲食' below. Between the two plates: a very large bold green '＝' equals sign, clearly showing both sides have the same result. Below the equals sign: text '心血管風險：沒有差異' in brown. No bar chart, no graph. Simple, bold, clean.",
       "hero_object_priority": "primary",
       "background_scene": "clean cream background with subtle paper texture, sage green accent elements",
       "mascot_presence": false,
       "mascot_count": 0,
-      "source_badge_text": "Yamada et al., JMA 2025",
-      "do_not_include": ["人臉", "小靜"],
+      "source_badge_text": "日本醫學會期刊 2025｜9個隨機試驗統合分析",
+      "do_not_include": ["人臉", "小靜", "英文文字"],
       "time_range": "3-9s",
       "animation": "slide_in"
     },
@@ -129,13 +129,13 @@
       "visual_type": "comparison_card",
       "on_screen_text_main": "全脂起司：失智風險 -13%",
       "on_screen_text_sub": "低脂乳製品：完全無效",
-      "hero_object": "A clean split comparison: Left side shows a wedge of aged full-fat cheese (golden, rich texture) with a large green downward arrow and '-13%' text. Right side shows a carton of low-fat milk with a gray flat line and '0%' text. The contrast is stark and visual. Below: a timeline bar showing '25 years, 27,670 people' in sage green. Modern infographic style with warm cream background.",
+      "hero_object": "A clean split comparison: Left side shows a wedge of aged full-fat cheese (golden, rich texture) with a large green downward arrow and '-13%' text. Right side shows a carton of plain low-fat milk with a gray flat line and '0%' text. The contrast is stark and visual. Below the comparison: a sage green rounded bar showing '追蹤 25 年｜27,670 人' in Chinese. Modern infographic style with warm cream background.",
       "hero_object_priority": "primary",
       "background_scene": "clean cream background with subtle grid lines, modern scientific infographic style",
       "mascot_presence": false,
       "mascot_count": 0,
-      "source_badge_text": "Neurology 2026",
-      "do_not_include": ["人臉", "小靜"],
+      "source_badge_text": "《神經學》期刊 2026｜瑞典世代研究",
+      "do_not_include": ["人臉", "小靜", "英文文字"],
       "time_range": "9-16s",
       "animation": "slight_drift"
     },
@@ -151,8 +151,8 @@
       "background_scene": "clean minimalist background, cream base with subtle American flag-inspired blue and red accent dots (very subtle, not dominant)",
       "mascot_presence": false,
       "mascot_count": 0,
-      "source_badge_text": "USDA 2025-2030",
-      "do_not_include": ["人臉", "小靜", "政治人物"],
+      "source_badge_text": "美國農業部 2025-2030 飲食指南",
+      "do_not_include": ["人臉", "小靜", "政治人物", "英文文字"],
       "time_range": "16-23s",
       "animation": "badge_fade_in"
     },
@@ -163,7 +163,7 @@
       "visual_type": "safety_reminder",
       "on_screen_text_main": "別怕全脂，怕超加工",
       "on_screen_text_sub": "天然起司 vs 加工起司片，差很多",
-      "hero_object": "A warm lifestyle comparison: Left side shows natural aged cheese wedge, a glass of whole milk, and plain yogurt — clean, wholesome, natural lighting. Right side shows processed cheese slices in plastic wrap, sugary flavored yogurt, and a fast-food cheeseburger — artificial, overly bright, processed feel. A gentle green checkmark on the left, a subtle orange caution icon on the right. Inviting and educational, not scary.",
+      "hero_object": "A beautiful wooden cutting board on a warm kitchen table. On the board: a wedge of aged natural cheese, a small glass of whole milk, a ceramic bowl of plain yogurt with a wooden spoon. Fresh rosemary sprig as garnish. Beside the board: a few walnuts and a linen napkin. Everything looks artisanal, natural, unprocessed. Warm morning window light. Shot from a 45-degree overhead angle.",
       "hero_object_priority": "primary",
       "background_scene": "warm morning kitchen table with natural light, wooden surface, cream and sage color palette, gentle reassuring mood",
       "mascot_presence": false,
@@ -185,7 +185,7 @@
       "mascot_count": 1,
       "mascot_expression": "goodbye",
       "mascot_pose": "greet_viewer",
-      "mascot_interaction_mode": "小靜揮手道別，手持一小塊起司",
+      "mascot_interaction_mode": "小靜坐在一塊大的天然起司上面，一隻手揮手跟觀眾說再見，表情溫暖開心。起司是寫實風格的熟成硬質起司，小靜坐在上面雙腳自然垂下。",
       "do_not_include": ["多隻小靜", "品牌浮水印"],
       "time_range": "29-33s",
       "animation": "mascot_wave"
@@ -193,7 +193,7 @@
   ],
 
   "seedance_prompts": {
-    "seedance_part1": "电影级短片，温暖知性风格，9:16竖屏。全域规格：warm暖色温，自然光+暖灯光，木质桌面，居家厨房氛围。[00:00-00:04] 一位55岁左右的亚洲女性站在厨房里，左手拿着一盒低脂牛奶，右手拿着一瓶全脂牛奶，表情认真地看向镜头说：「低脂牛奶比较健康？这句话，我们可能信错了四十年。」镜头从中景缓慢推近。[00:04-00:09] 她放下牛奶，拿起手机展示画面（模拟研究数据），用认真的语气说：「二零二五年一篇统合分析，汇整了九个随机试验、超过一万三千人的数据，结论是：少吃�的饱和脂肪，心血管死亡率完全没有降低。」镜头特写她认真的表情。[00:09-00:16] 她拿起一块天然起司，语气转为惊讶说：「更让人意外的是，瑞典一项追踪两万七千人、长达二十五年的研究发现，每天吃五十克全脂起司的人，失智风险降低了百分之十三。而低脂乳制品呢？完全没有保护效果。」镜头缓推至起司特写。禁止：任何文字、字幕、LOGO或水印。",
+    "seedance_part1": "电影级短片，温暖知性风格，9:16竖屏。全域规格：warm暖色温，自然光+暖灯光，木质桌面，居家厨房氛围。[00:00-00:04] 一位55岁左右的亚洲女性站在厨房里，左手拿着一盒低脂牛奶，右手拿着一瓶全脂牛奶，表情认真地看向镜头说：「低脂牛奶比较健康？这句话，我们可能信错了四十年。」镜头从中景缓慢推近。[00:04-00:09] 她放下牛奶，拿起手机展示画面（模拟研究数据），用认真的语气说：「二零二五年一篇统合分析，汇整了九个随机试验、超过一万三千人的数据，结论是：少吃�的饱和脂肪，心血管风险完全没有降低。」镜头特写她认真的表情。[00:09-00:16] 她拿起一块天然起司，语气转为惊讶说：「更让人意外的是，瑞典一项追踪两万七千人、长达二十五年的研究发现，每天吃五十克全脂起司的人，失智风险降低了百分之十三。而低脂乳制品呢？完全没有保护效果。」镜头缓推至起司特写。禁止：任何文字、字幕、LOGO或水印。",
     "seedance_part2": "电影级短片，温暖知性风格，9:16竖屏。全域规格同上。同上一部短片亚洲女性。[00:00-00:06] 她站在厨房里，拿起一份报纸/文件展示，语气坚定说：「连美国最新的二零二五到二零三零饮食指南都改了。四十年来第一次，把全脂牛奶、全脂起司、全脂优格纳入健康饮食建议。官方的口号从低脂，变成了吃真正的食物。」镜头中景。[00:06-00:11] 她一手拿天然起司，一手拿加工起司片，表情认真说：「但要注意，全脂不等于乱吃。天然熟成的起司，跟超市里的加工起司片，是完全不同的东西。真正该怕的不是脂肪，是超加工食品。」镜头推近对比的双手。[00:11-00:17] 她放下加工起司片，拿着天然起司微笑看向镜头说：「别再怕全脂了。选天然的、少加工的，就是最简单的健康原则。这里是时时静好，我是小静，我们下次见。」镜头定格温暖画面。禁止：任何文字、字幕、LOGO或水印。"
   },
 
@@ -215,7 +215,7 @@
       {
         "id": 2,
         "part": "flip",
-        "text": "2025年一篇統合分析，彙整了九個隨機試驗、超過一萬三千人的數據，結論是：少吃飽和脂肪，心血管死亡率完全沒有降低。"
+        "text": "2025年一篇統合分析，彙整了九個隨機試驗、超過一萬三千人的數據，結論是：少吃飽和脂肪，心血管風險完全沒有降低。"
       },
       {
         "id": 3,
@@ -272,7 +272,7 @@
       "style": "main"
     },
     {
-      "text": "心血管死亡率沒降低",
+      "text": "心血管風險沒有降低",
       "start": 8.0,
       "end": 9.5,
       "style": "main"
@@ -356,7 +356,7 @@
 
   "youtube_metadata": {
     "title": "低脂牛奶更健康？錯了40年！全脂起司降失智13%｜美國飲食指南也翻盤了｜時時靜好",
-    "description": "你還在選低脂牛奶嗎？最新研究告訴你：這個習慣可能沒有你想的那麼健康。\n\n本集三大證據：\n❶ 2025統合分析（9個RCT、13,532人）：限制飽和脂肪對心血管死亡率完全沒有顯著效果\n❷ 瑞典Neurology 2026研究（27,670人、追蹤25年）：每天50g全脂起司 → 失智風險降低13%，低脂乳製品完全無效\n❸ 美國2025-2030飲食指南：40年來首次將全脂乳製品納入健康飲食建議\n\n重要提醒：\n• 全脂不等於亂吃，天然起司 ≠ 加工起司片\n• 真正該避免的是超加工食品\n• 研究顯示的是關聯性，不是因果關係\n• 有特殊疾病者請遵醫囑\n\n研究來源：\n• Du Y et al., Neurology 2026 — 瑞典Malmö世代研究\n• Yamada S et al., JMA Journal 2025 — RCT統合分析\n• USDA 2025-2030 Dietary Guidelines for Americans\n• Barnes LL et al., NEJM 2023 — MIND飲食RCT\n• Luo J et al., Advances in Nutrition 2024 — 統合分析\n\n覺得有用？分享給還在買低脂牛奶的家人！\n留言告訴我，你家冰箱裡是全脂還是低脂？\n\n#低脂迷思 #全脂牛奶 #起司 #失智預防 #飲食指南 #健康飲食 #飽和脂肪 #超加工食品 #時時靜好 #Shorts",
+    "description": "你還在選低脂牛奶嗎？最新研究告訴你：這個習慣可能沒有你想的那麼健康。\n\n本集三大證據：\n❶ 2025統合分析（9個RCT、13,532人）：限制飽和脂肪對心血管風險完全沒有顯著效果\n❷ 瑞典Neurology 2026研究（27,670人、追蹤25年）：每天50g全脂起司 → 失智風險降低13%，低脂乳製品完全無效\n❸ 美國2025-2030飲食指南：40年來首次將全脂乳製品納入健康飲食建議\n\n重要提醒：\n• 全脂不等於亂吃，天然起司 ≠ 加工起司片\n• 真正該避免的是超加工食品\n• 研究顯示的是關聯性，不是因果關係\n• 有特殊疾病者請遵醫囑\n\n研究來源：\n• Du Y et al., Neurology 2026 — 瑞典Malmö世代研究\n• Yamada S et al., JMA Journal 2025 — RCT統合分析\n• USDA 2025-2030 Dietary Guidelines for Americans\n• Barnes LL et al., NEJM 2023 — MIND飲食RCT\n• Luo J et al., Advances in Nutrition 2024 — 統合分析\n\n覺得有用？分享給還在買低脂牛奶的家人！\n留言告訴我，你家冰箱裡是全脂還是低脂？\n\n#低脂迷思 #全脂牛奶 #起司 #失智預防 #飲食指南 #健康飲食 #飽和脂肪 #超加工食品 #時時靜好 #Shorts",
     "hashtags": [
       "#低脂迷思",
       "#全脂牛奶",

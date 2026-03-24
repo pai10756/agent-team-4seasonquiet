@@ -1,0 +1,42 @@
+{
+  "episode": 52,
+  "title": "低脂比較健康？這個信念可能錯了40年",
+  "scenes": [
+    {
+      "scene_id": "01",
+      "image": "test_output/cards_ep52/card01.png",
+      "duration": 3.5,
+      "narration": "低脂牛奶比較健康？這句話，可能錯了四十年。"
+    },
+    {
+      "scene_id": "02",
+      "image": "test_output/cards_ep52/card02.png",
+      "duration": 6,
+      "narration": "統合分析九個試驗、一萬三千人，結論：少吃飽和脂肪，心血管風險沒有降低。"
+    },
+    {
+      "scene_id": "03",
+      "image": "test_output/cards_ep52/card03.png",
+      "duration": 7,
+      "narration": "瑞典追蹤兩萬七千人二十五年，每天五十克全脂起司，失智風險降百分之十三。低脂乳製品？完全無效。"
+    },
+    {
+      "scene_id": "04",
+      "image": "test_output/cards_ep52/card04.png",
+      "duration": 7,
+      "narration": "美國2025飲食指南也改了，四十年來首次納入全脂乳製品，口號變成「吃真正的食物」。"
+    },
+    {
+      "scene_id": "05",
+      "image": "test_output/cards_ep52/card05.png",
+      "duration": 6,
+      "narration": "但全脂不等於亂吃，天然起司跟加工起司片完全不同，真正該怕的是超加工食品。"
+    },
+    {
+      "scene_id": "06",
+      "image": "test_output/cards_ep52/card06.png",
+      "duration": 4,
+      "narration": "別怕全脂，選天然少加工的就對了。時時靜好，下次見。"
+    }
+  ]
+}
