@@ -1,0 +1,254 @@
+{
+  "series": "時時靜好｜健康新知",
+  "episode": 52,
+  "type": "standard",
+  "type_rationale": "本集主題存在高度認知反差，需清晰闡述挑戰傳統觀念的科學新發現，並提供多角度數據佐證與安全提醒，避免過度簡化，故選用標準型。",
+  "topic_title": "全脂起司：失智症的「護腦」新可能？",
+  "core_claim": "瑞典25年大型研究挑戰傳統認知，發現每日適量攝取高脂起司與鮮奶油，可能與降低失智症風險相關。",
+  "single_takeaway": "全脂起司，或許沒你想的那麼糟，但整體飲食均衡仍是關鍵。",
+  "visual_style_token": "STYLE_SHIZHI_3D_POSTER_V1",
+  "hook_text": "全脂起司，失智元兇？",
+  "hook_variants": [
+    {
+      "level": "unaware",
+      "text": "起司吃多會傷腦嗎？",
+      "rationale": "針對對起司與腦部健康關係不了解的廣泛受眾。"
+    },
+    {
+      "level": "problem_aware",
+      "text": "低脂才健康，全脂很危險？",
+      "rationale": "針對普遍認為飽和脂肪不利健康的受眾，引導思考全脂乳製品的潛在誤解。"
+    },
+    {
+      "level": "solution_aware",
+      "text": "預防失智，飲食怎麼選？",
+      "rationale": "針對積極尋求預防失智飲食方案，並可能接觸到各種矛盾資訊的受眾。"
+    },
+    {
+      "level": "audience",
+      "text": "愛吃起司的你，看過來！",
+      "rationale": "直接針對喜歡吃起司，但可能對其健康影響有疑問的受眾。"
+    }
+  ],
+  "research_sources": [
+    {
+      "citation": "Du Y et al., Neurology 2026;106(2):e214343. PMID 41406402",
+      "key_finding": "瑞典Malmö Diet and Cancer cohort研究發現，每日攝取≥50克高脂起司與全因失智症風險降低13%相關，與血管性失智症風險降低29%相關。"
+    },
+    {
+      "citation": "WHO. Risk Reduction of Cognitive Decline and Dementia: WHO Guidelines. Geneva 2019",
+      "key_finding": "世界衛生組織指南建議透過健康飲食降低失智風險，並建議限制紅肉和全脂乳製品。"
+    },
+    {
+      "citation": "alzheimers.org.uk",
+      "key_finding": "失智症是一種疾病，而非老化的必然結果。約41%的失智症風險可透過生活方式預防。"
+    }
+  ],
+  "mascot_strategy": {
+    "presence": "both",
+    "opening_expression": "surprised",
+    "opening_pose": "hug_object_side",
+    "outfit": "apron",
+    "prop": "tiny cheese wedge",
+    "render_mode": "3d_exact_reference",
+    "scale_vs_object": "small",
+    "allow_extra_mascot": false,
+    "allow_logo_mascot": false
+  },
+  "scenes": [
+    {
+      "scene_id": "01",
+      "scene_role": "hook",
+      "scene_goal": "透過挑戰普遍認知，吸引觀眾好奇心。",
+      "visual_type": "poster_cover",
+      "on_screen_text_main": "全脂起司，失智元兇？",
+      "on_screen_text_sub": "25年研究竟有驚人發現！",
+      "hero_object": "a vibrant, realistic block of aged cheddar cheese on a rustic wooden cutting board, with a small piece cut off",
+      "background_scene": "a cozy, warm kitchen counter with soft, natural light, a blurred cookbook in the background",
+      "mascot_presence": true,
+      "mascot_expression": "surprised",
+      "mascot_pose": "hug_object_side",
+      "do_not_include": [
+        "正面人臉",
+        "任何否定標記"
+      ],
+      "time_range": "0-3s",
+      "animation": "slow_push_in"
+    },
+    {
+      "scene_id": "02",
+      "scene_role": "flip",
+      "scene_goal": "直接揭示研究的顛覆性發現，製造認知反轉。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "顛覆認知：全脂起司竟護腦？",
+      "on_screen_text_sub": "瑞典2.8萬人追蹤25年研究",
+      "hero_object": "a large, inviting slice of full-fat cheese next to a stylized glowing brain icon, both on a clean white surface",
+      "background_scene": "minimalist bright background with subtle cream and sage tones",
+      "mascot_presence": false,
+      "do_not_include": [
+        "任何否定標記",
+        "人臉"
+      ],
+      "time_range": "3-8s",
+      "animation": "slight_drift"
+    },
+    {
+      "scene_id": "03",
+      "scene_role": "evidence",
+      "scene_goal": "提供具體數據，強化研究結果的可信度。",
+      "visual_type": "evidence_card",
+      "on_screen_text_main": "每日50克高脂起司",
+      "on_screen_text_sub": "失智風險降13%，血管性失智降29%",
+      "hero_object": "a small, accurate kitchen scale weighing a generous portion of full-fat cheese, with a subtle brain graphic in the background",
+      "background_scene": "soft, diffused light on a clean, light-colored table",
+      "mascot_presence": false,
+      "badge_text": "2026\n最新研究",
+      "source_badge_text": "Du Y et al., Neurology",
+      "do_not_include": [
+        "任何否定標記",
+        "人臉"
+      ],
+      "time_range": "8-15s",
+      "animation": "slide_in"
+    },
+    {
+      "scene_id": "04",
+      "scene_role": "compare",
+      "scene_goal": "呈現研究結果與普遍建議的差異，凸顯其重要性。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "WHO指南：限制全脂乳製品",
+      "on_screen_text_sub": "與最新研究結果高度反差",
+      "hero_object": "two contrasting scrolls or official-looking documents side-by-side; one with a subtle WHO logo and a 'limit' icon, the other with a scientific paper icon and a 'benefit' arrow",
+      "background_scene": "a clean, professional table setting with a neutral backdrop",
+      "mascot_presence": false,
+      "source_badge_text": "WHO Guidelines 2019",
+      "do_not_include": [
+        "任何否定標記",
+        "人臉",
+        "紅叉"
+      ],
+      "time_range": "15-23s",
+      "animation": "simple_cut"
+    },
+    {
+      "scene_id": "05",
+      "scene_role": "reminder",
+      "scene_goal": "提醒觀眾科學研究的局限性，強調均衡飲食的重要性。",
+      "visual_type": "safety_reminder",
+      "on_screen_text_main": "觀察性研究，非因果證明",
+      "on_screen_text_sub": "整體均衡飲食與生活方式更關鍵",
+      "hero_object": "a beautifully arranged, balanced plate of food including vegetables, fruits, whole grains, and a small portion of cheese, with a magnifying glass hovering over the cheese",
+      "background_scene": "a bright, inviting dining table with soft light",
+      "mascot_presence": false,
+      "do_not_include": [
+        "任何否定標記",
+        "人臉"
+      ],
+      "time_range": "23-29s",
+      "animation": "badge_fade_in"
+    },
+    {
+      "scene_id": "06",
+      "scene_role": "closing",
+      "scene_goal": "品牌告別，加深觀眾對「時時靜好」的印象。",
+      "visual_type": "brand_closing",
+      "on_screen_text_main": "時時靜好",
+      "on_screen_text_sub": "健康新知，下次見！",
+      "hero_object": "",
+      "background_scene": "clean warm gradient background in cream and sage colors",
+      "mascot_presence": true,
+      "mascot_expression": "goodbye",
+      "mascot_pose": "greet_viewer",
+      "do_not_include": [],
+      "time_range": "29-33s",
+      "animation": "mascot_wave"
+    }
+  ],
+  "subtitles": [
+    {
+      "text": "全脂起司，失智元兇？",
+      "start": 0.0,
+      "end": 2.0
+    },
+    {
+      "text": "瑞典25年研究，驚人發現",
+      "start": 2.0,
+      "end": 3.8
+    },
+    {
+      "text": "顛覆認知：全脂起司竟護腦？",
+      "start": 4.0,
+      "end": 6.5
+    },
+    {
+      "text": "挑戰低脂飲食迷思",
+      "start": 6.5,
+      "end": 8.0
+    },
+    {
+      "text": "每日50克高脂起司",
+      "start": 8.5,
+      "end": 10.5
+    },
+    {
+      "text": "失智風險降13%",
+      "start": 10.5,
+      "end": 12.5
+    },
+    {
+      "text": "血管性失智降29%",
+      "start": 12.5,
+      "end": 14.5
+    },
+    {
+      "text": "高脂鮮奶油也有類似效果",
+      "start": 14.5,
+      "end": 16.5
+    },
+    {
+      "text": "WHO指南：限制全脂乳製品",
+      "start": 17.0,
+      "end": 19.5
+    },
+    {
+      "text": "與最新研究高度反差",
+      "start": 19.5,
+      "end": 22.0
+    },
+    {
+      "text": "觀察性研究，非因果證明",
+      "start": 23.0,
+      "end": 25.0
+    },
+    {
+      "text": "整體均衡飲食，生活方式更關鍵",
+      "start": 25.0,
+      "end": 28.5
+    },
+    {
+      "text": "時時靜好，健康新知，下次見！",
+      "start": 29.5,
+      "end": 33.0
+    }
+  ],
+  "sound": "輕柔的環境音，如廚房微風、輕微的餐具聲，間歇性加入起司切割的清脆音效",
+  "music": "輕快、溫暖且帶有探索感的背景音樂，如輕爵士或烏克麗麗小品",
+  "youtube_metadata": {
+    "title": "驚！全脂起司竟能降低失智風險？顛覆認知的瑞典25年研究｜時時靜好",
+    "description": "你是否曾被告知，全脂乳製品對健康不利，特別是認知功能？瑞典一項長達25年、追蹤28000人的大型研究，卻帶來了令人驚訝的發現！本集「時時靜好」將深入探討，每日攝取高脂起司與鮮奶油，如何與全因失智症及血管性失智症風險顯著降低相關，挑戰我們對飲食的傳統認知。\n\n💡 核心發現：每日攝取≥50克高脂起司，失智風險降低13%，血管性失智風險降低29%。\n💡 認知反差：這與世界衛生組織等官方指南中「限制全脂乳製品」的建議形成高度對比。\n💡 溫馨提醒：這是一項觀察性研究，顯示的是相關性而非因果關係。健康飲食模式與生活方式仍是預防失智的關鍵。\n\n資料來源：\n1. Du Y et al., Neurology 2026;106(2):e214343. PMID 41406402. (https://www.neurology.org/doi/10.1212/WNL.0000000000214343)\n2. WHO. Risk Reduction of Cognitive Decline and Dementia: WHO Guidelines. Geneva 2019. (https://www.who.int/publications-detail-redirect/risk-reduction-of-cognitive-decline-and-dementia)\n3. alzheimers.org.uk\n\n#時時靜好 #全脂起司 #失智症 #預防失智 #健康飲食 #腦部健康 #科學新知 #乳製品 #飽和脂肪 #健康迷思 #瑞典研究 #Shorts",
+    "hashtags": [
+      "#時時靜好",
+      "#全脂起司",
+      "#失智症",
+      "#預防失智",
+      "#健康飲食",
+      "#腦部健康",
+      "#科學新知",
+      "#乳製品",
+      "#Shorts",
+      "#健康迷思"
+    ]
+  },
+  "character": "時時靜好",
+  "seedance_prompts": []
+}

@@ -1,0 +1,50 @@
+{
+  "verdict": "fail",
+  "attempt": 1,
+  "lock_layer": {
+    "passed": false,
+    "violations": [
+      {
+        "code": "SCHEMA_INCOMPLETE",
+        "severity": "error",
+        "message": "Schema 驗證失敗: 3 個錯誤",
+        "field_path": "(root)",
+        "fix_hint": "[(root)] 'character' is a required property; [(root)] 'seedance_prompts' is a required property; [subtitles.5.text] '失智風險降13%，血管性失智降29%' is too long",
+        "auto_fixable": true
+      },
+      {
+        "code": "SUBTITLE_TOO_LONG",
+        "severity": "error",
+        "message": "字幕[5] '失智風險降13%，血管性失智降29%' 共 18 字，超過 15 字上限",
+        "field_path": "subtitles[5].text",
+        "fix_hint": "請拆成兩句，每句 6-12 字",
+        "auto_fixable": true
+      }
+    ]
+  },
+  "visual_brand_layer": {
+    "passed": true,
+    "violations": [],
+    "checklist": {
+      "single_main_message": true,
+      "visual_supports_message": true,
+      "headline_readable_1s": true,
+      "understandable_3s": true,
+      "mascot_single": true,
+      "mascot_no_badge": true,
+      "mascot_emotion_correct": true,
+      "text_large_enough": true,
+      "not_too_busy": true,
+      "no_excess_noise": true
+    }
+  },
+  "guardrail_layer": {
+    "notes": []
+  },
+  "summary": "鎖死層 2 個違規: SUBTITLE_TOO_LONG, SCHEMA_INCOMPLETE",
+  "auto_fixable": [
+    "SCHEMA_INCOMPLETE",
+    "SUBTITLE_TOO_LONG"
+  ],
+  "needs_human": []
+}
