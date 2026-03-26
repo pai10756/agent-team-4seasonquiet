@@ -370,6 +370,28 @@ PROMPT_BUILDERS = {
 }
 
 
+def build_prompt_for_scene(episode: dict, scene: dict, prompt_override: str = None) -> list:
+    """Build Gemini API parts for a scene. Used by auto_improve_card.py.
+
+    If prompt_override is given, use it instead of the default prompt builder.
+    Returns list of parts (reference images + text prompt).
+    """
+    visual_type = scene.get("visual_type", "evidence_card")
+    has_mascot = scene.get("mascot_presence", False)
+
+    if prompt_override:
+        prompt_text = prompt_override
+    else:
+        builder = PROMPT_BUILDERS.get(visual_type, build_comparison_card_prompt)
+        prompt_text = builder(scene, episode)
+
+    parts = []
+    if has_mascot or visual_type == "brand_closing":
+        parts.extend(build_reference_parts(include_card_ref=True))
+    parts.append({"text": prompt_text})
+    return parts
+
+
 def generate_card(scene: dict, episode: dict, output_dir: Path) -> Path | None:
     """Generate a single complete card image from a scene definition."""
     scene_id = scene.get("scene_id", "00")

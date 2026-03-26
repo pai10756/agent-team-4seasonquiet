@@ -1,0 +1,146 @@
+{
+  "card01.png": {
+    "scores": {
+      "headline_impact": 10,
+      "safe_zone": 8,
+      "text_quality": 10,
+      "visual_realism": 10,
+      "composition": 10,
+      "brand_consistency": 10,
+      "no_artifacts": 10
+    },
+    "weighted_score": 97.0,
+    "grade": "S",
+    "remarks": {
+      "headline_impact": "標題巨大醒目，成功抓住注意力，且位置符合視覺黃金區。",
+      "safe_zone": "牛奶盒底部與吉祥物腳部位於 Shorts UI 可能遮擋的區域，但非關鍵文字資訊。",
+      "text_quality": "所有文字均為正確繁體中文，排版整齊，對比度高，易於閱讀。",
+      "visual_realism": "畫面光影自然，3D吉祥物與場景融合度高，無AI偽影，整體視覺品質極佳。",
+      "composition": "構圖清晰，主視覺突出，資訊層次分明，視覺動線流暢。",
+      "brand_consistency": "色彩與風格完全符合品牌規範，呈現溫暖知性調性，無違反品牌禁忌。",
+      "no_artifacts": "畫面乾淨，無任何AI浮水印、多餘文字或裝飾元素。"
+    },
+    "top_issue": "牛奶盒底部與吉祥物腳部可能被 Shorts UI 遮擋。",
+    "prompt_suggestion": "在生成 prompt 中加入指示，確保牛奶盒和吉祥物的主體視覺元素能稍微抬高，避免其底部進入 Shorts UI 的危險區，例如：'Ensure the bottom 20% of the image is clear of critical visual elements, slightly raise the milk carton and mascot to avoid potential Shorts UI overlap at the very bottom.'"
+  },
+  "card02.png": {
+    "scores": {
+      "headline_impact": 10,
+      "safe_zone": 5,
+      "text_quality": 10,
+      "visual_realism": 10,
+      "composition": 10,
+      "brand_consistency": 10,
+      "no_artifacts": 10
+    },
+    "weighted_score": 92.5,
+    "grade": "S",
+    "remarks": {
+      "headline_impact": "標題巨大醒目，層次清晰，完美抓住注意力。",
+      "safe_zone": "來源標註位於畫面底部，有被 Shorts UI 遮擋的風險。",
+      "text_quality": "所有文字均為正確繁體中文，排版整齊，對比度高。",
+      "visual_realism": "食物圖片真實自然，光影合理，無明顯 AI 偽影。",
+      "composition": "構圖清晰，資訊流暢，主視覺突出且易於理解。",
+      "brand_consistency": "色彩搭配和整體風格完全符合品牌調性。",
+      "no_artifacts": "畫面乾淨，無任何多餘或不應出現的元素。"
+    },
+    "top_issue": "來源標註（source badge）位置過低，有被 Shorts UI 遮擋的風險。",
+    "prompt_suggestion": "請確保來源標註文字（source badge text）位置更高，避免放置在畫面底部 20% 的危險區域內，以確保在 Shorts 介面中可見。"
+  },
+  "card03.png": {
+    "scores": {
+      "headline_impact": 10,
+      "safe_zone": 10,
+      "text_quality": 10,
+      "visual_realism": 10,
+      "composition": 10,
+      "brand_consistency": 10,
+      "no_artifacts": 10
+    },
+    "weighted_score": 100.0,
+    "grade": "S",
+    "remarks": {
+      "headline_impact": "標題巨大醒目，層次清晰，在視覺黃金區內。",
+      "safe_zone": "所有重要元素均在 Shorts 安全區內，無遮擋風險。",
+      "text_quality": "所有文字均為正確的繁體中文，排版整齊，對比度高。",
+      "visual_realism": "起司和牛奶盒的視覺效果逼真，光影自然，無 AI 偽影。",
+      "composition": "構圖清晰，視覺動線流暢，元素間距舒適，數據表達直觀易懂。",
+      "brand_consistency": "色盤與品牌指南完美符合，整體風格溫暖知性。",
+      "no_artifacts": "畫面完全乾淨，無任何多餘或不該出現的元素。"
+    },
+    "top_issue": "無，此圖卡品質極高，可直接上線。",
+    "prompt_suggestion": "目前的 prompt 已生成出色的圖卡，無需修改。"
+  },
+  "card04.png": {
+    "scores": {
+      "headline_impact": 10,
+      "safe_zone": 10,
+      "text_quality": 5,
+      "visual_realism": 10,
+      "composition": 10,
+      "brand_consistency": 10,
+      "no_artifacts": 10
+    },
+    "weighted_score": 92.5,
+    "grade": "S",
+    "remarks": {
+      "headline_impact": "標題巨大醒目，層次清晰，能快速抓住注意力。",
+      "safe_zone": "所有重要文字和元素都位於 Shorts 安全區內。",
+      "text_quality": "圖卡上的牛奶盒有「LOW FAT MILK」英文字樣，與劇本要求「不包含英文文字」不符。",
+      "visual_realism": "向量圖形乾淨美觀，配色和諧，整體畫面解析度高，具有專業設計水準。",
+      "composition": "構圖清晰，視覺動線流暢，資訊層次分明，主視覺突出。",
+      "brand_consistency": "色盤與品牌規範高度一致，整體風格溫暖知性。",
+      "no_artifacts": "畫面乾淨，無任何多餘或不該出現的元素。"
+    },
+    "top_issue": "牛奶盒上出現英文文字「LOW FAT MILK」，違反了劇本中「不包含英文文字」的要求。",
+    "prompt_suggestion": "在生成提示中明確指出，所有文字，包括產品包裝上的標籤，都必須使用繁體中文，不得出現任何英文。例如：'確保所有文字，包括產品包裝上的標籤，均為繁體中文，不得出現任何英文。'"
+  },
+  "card05.png": {
+    "scores": {
+      "headline_impact": 10,
+      "safe_zone": 10,
+      "text_quality": 10,
+      "visual_realism": 10,
+      "composition": 10,
+      "brand_consistency": 9,
+      "no_artifacts": 10
+    },
+    "weighted_score": 99.0,
+    "grade": "S",
+    "remarks": {
+      "headline_impact": "標題巨大醒目，層次清晰，能快速抓住注意力。",
+      "safe_zone": "所有重要文字和視覺元素均在安全區內，底部留白充足。",
+      "text_quality": "文字為正確繁體中文，無錯字或亂碼，排版整齊，對比度高。",
+      "visual_realism": "攝影品質極佳，食物與場景自然逼真，光影合理，無AI偽影。",
+      "composition": "構圖清晰，視覺動線流暢，主視覺突出，元素間距舒適。",
+      "brand_consistency": "整體風格溫暖知性，色調與品牌精神一致，僅背景非指定奶油色但仍協調。",
+      "no_artifacts": "畫面乾淨，無任何多餘或不應出現的元素。"
+    },
+    "top_issue": "背景顏色為白色而非指定的奶油色，但整體視覺效果仍佳。",
+    "prompt_suggestion": "為確保品牌色盤的嚴格一致性，可在prompt中明確指定背景為 'cream #F6F1E7'，而非僅依賴 'warm morning kitchen' 的描述。"
+  },
+  "card06.png": {
+    "scores": {
+      "headline_impact": 9,
+      "safe_zone": 10,
+      "text_quality": 10,
+      "visual_realism": 10,
+      "composition": 10,
+      "brand_consistency": 10,
+      "no_artifacts": 10
+    },
+    "weighted_score": 98.0,
+    "grade": "S",
+    "remarks": {
+      "headline_impact": "主標題巨大醒目，副標題層次清晰且可讀性高，但多了一行未在劇本中明確指定的文字。",
+      "safe_zone": "所有重要文字和視覺元素都完美避開了 Shorts 的 UI 遮擋區域。",
+      "text_quality": "所有文字均為正確的繁體中文，無錯字、亂碼或不該出現的英文，排版整齊且對比度極佳。",
+      "visual_realism": "背景場景、食物與 3D 吉祥物（小靜）的材質、光影都非常自然逼真，符合專業攝影/設計水準。",
+      "composition": "構圖平衡，視覺動線清晰，小靜作為主視覺突出，資訊層次分明，一目瞭然。",
+      "brand_consistency": "色盤、整體風格與品牌指南完美契合，營造出溫暖知性的氛圍，且無違反品牌禁忌。",
+      "no_artifacts": "畫面完全乾淨，沒有任何 AI 浮水印、多餘文字或重複元素。"
+    },
+    "top_issue": "圖卡中額外增加了劇本未明確指定的文字內容。",
+    "prompt_suggestion": "圖卡中額外顯示了「陪你安心懂健康」這行文字，但劇本的 `on_screen_text_main` 或 `on_screen_text_sub` 並未包含此內容。若此為預期呈現，建議將其明確加入劇本的文字欄位中，例如：`on_screen_text_main: \"時時靜好\\n陪你安心懂健康\"`。"
+  }
+}
