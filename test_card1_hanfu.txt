@@ -1,0 +1,42 @@
+Vertical 9:16 (1080x1920). Premium utility + editorial hybrid poster card, clean and modern, NOT AI art.
+
+BACKGROUND:
+Warm ivory to light-gray gradient with soft vignette.
+Very faint circular almanac/astrolabe watermark line art (ultra low opacity, like embossed paper).
+
+TOP ZONE (top 10%):
+Brand pill label (ox-blood / deep red-brown), centered, subtle soft shadow.
+Text in Traditional Chinese, bold: "2026丙午黃曆"
+Below pill, small creator tag: "時時靜好 @4seasonsquiet"
+
+UPPER-CENTER ZONE (top 15% to 60%) — MAIN VISUAL:
+SUBJECT: Beautiful adult Asian female, age 23 (adult, 20-26), three-quarter profile view facing slightly left. Cinematic ancient aesthetic, NOT cosplay, NOT illustration.
+SKIN: Hyper-realistic skin texture with visible subsurface scattering (SSS), warm nostalgic undertone, subtle film grain across the image. Porcelain-smooth yet natural, never plastic or airbrushed.
+HAIR: Elegant traditional updo, adorned with minimal gold hairpin and tiny pearl accents. Fine baby hairs and loose wisps catching golden backlight with ethereal halo glow and soft haze.
+MAKEUP: Understated period-inspired — matte red lip (cinnabar tone), clean brows with gentle arch, bare lids with faint warm shimmer only. No heavy eye makeup, no false lashes.
+OUTFIT: Layered white fur-trimmed hanfu collar visible at neck and shoulders, luxurious texture. Subtle cream and ivory tones. No loud patterns.
+EXPRESSION: Serene, contemplative, eyes gazing softly downward-left past camera, lips gently closed, quiet confidence.
+LIGHTING: Side backlight from upper-right, strong rim light tracing jawline and hair edge, face has soft directional shadow on one side creating depth and dimension. Dreamy, cinematic, as if bathed in golden-hour winter sunlight filtering through haze. NOT flat lighting.
+CAMERA: Close-up to medium close-up, shot from slightly right of center, shallow depth of field with soft bokeh background. Slight warm color grading, filmic quality.
+The subject must be the dominant visual, occupying the upper-center area of the card. Face clearly visible, upper body framed from shoulders up.
+
+LOWER ZONE (bottom 40%) — TEXT OVERLAY on top of or below the subject body:
+- Huge main Hook text (Traditional Chinese), bold, high contrast, centered:
+  "今天有貴人運，記得往這個方向"
+- Two small rounded chips side by side, centered:
+  Left chip: compass icon + "財神 東南"
+  Right chip: clock icon + "吉時 卯 05-07"
+  Style: elegant bronze-gold outline, understated.
+
+BOTTOM BAR (bottom 8%):
+Soft bronze-gold rounded rectangle date bar, centered:
+"4/1 週三"
+
+LAYOUT RULES:
+- Person ABOVE, text BELOW. Never put text above the person's face.
+- Keep minimal text. No dense paragraphs, no bullet lists.
+- Leave Shorts safe zone: top and bottom 12% empty for UI overlays.
+- Perfect alignment, clean kerning, premium typography.
+
+NEGATIVE:
+no clutter, no tiny dense subtitles, no QR code, no extra logos, no busy icons, no messy background, no harsh colors, no cartoon style, no illustration, no flat lighting, no plastic skin, no cosplay feel, no anime.
