@@ -1,0 +1,202 @@
+{
+  "series": "時時靜好｜健康新知",
+  "episode": 12,
+  "type": "hybrid",
+  "type_rationale": "報告內容包含大量具體的數據（如風險降低百分比、勝算比），適合數據展示和比較；同時也涵蓋了對常見迷思的澄清和飲食原則的解釋，需要一定的敘述性內容。混合型態能有效結合數據的說服力與知識的普及性，提升內容的深度和廣度。",
+  "topic_title": "地中海飲食：脂肪不是敵人，選對才是關鍵",
+  "core_claim": "地中海飲食並非低脂肪飲食，其脂肪含量高於傳統低脂肪飲食，但強調攝取健康的單元不飽和脂肪酸和Omega-3脂肪酸，已被多項大型研究證實比低脂肪飲食更能顯著降低心血管事件風險。",
+  "single_takeaway": "選對好脂肪，心血管更健康！",
+  "visual_style_token": "STYLE_SHIZHI_3D_POSTER_V1",
+  "hook_text": "心臟好，要戒掉所有脂肪？",
+  "hook_variants": [
+    {
+      "level": "unaware",
+      "text": "脂肪是心血管大敵嗎？",
+      "rationale": "直接拋出關於脂肪與心血管健康的普遍疑問，引起觀眾好奇。"
+    },
+    {
+      "level": "problem_aware",
+      "text": "低脂飲食真的最好？",
+      "rationale": "針對已經意識到健康飲食重要性，但可能對低脂飲食有迷思的觀眾。"
+    },
+    {
+      "level": "solution_aware",
+      "text": "怎麼吃才能保護心臟？",
+      "rationale": "吸引正在尋找具體健康飲食方案的觀眾。"
+    },
+    {
+      "level": "audience",
+      "text": "你也被低脂飲食騙了嗎？",
+      "rationale": "直接與觀眾對話，指出可能存在的誤解，增加互動性。"
+    }
+  ],
+  "research_sources": [
+    {
+      "citation": "Estruch R et al., PREDIMED trial, N Engl J Med 2018",
+      "key_finding": "PREDIMED試驗顯示，地中海飲食（補充特級初榨橄欖油或堅果）可使心血管事件風險降低約30%。"
+    },
+    {
+      "citation": "Farajzadeh A et al., Nutrition in Clinical Practice 2024",
+      "key_finding": "統合分析指出，地中海飲食能顯著降低主要不良心血管事件 (MACE) 的發生率（勝算比 OR = 0.52）。"
+    },
+    {
+      "citation": "de Lorgeril M et al., Lyon Diet Heart Study, Circulation 1999",
+      "key_finding": "里昂飲食心臟研究顯示，首次心肌梗塞後遵循地中海式飲食可使復發性心臟事件減少50-70%。"
+    },
+    {
+      "citation": "World Health Organization / Mayo Clinic summary",
+      "key_finding": "WHO、Mayo Clinic和AHA均認可並推薦地中海飲食作為有益心臟健康的飲食模式。"
+    }
+  ],
+  "mascot_strategy": {
+    "presence": "both",
+    "opening_expression": "thinking",
+    "opening_pose": "hug_object_side",
+    "outfit": "apron",
+    "prop": "tiny olive oil bottle",
+    "render_mode": "3d_exact_reference",
+    "scale_vs_object": "small",
+    "allow_extra_mascot": false,
+    "allow_logo_mascot": false
+  },
+  "scenes": [
+    {
+      "scene_id": "01",
+      "scene_role": "hook",
+      "scene_goal": "觀眾好奇：真的要完全戒除脂肪嗎？",
+      "visual_type": "poster_cover",
+      "on_screen_text_main": "心臟好，要戒掉所有脂肪？",
+      "on_screen_text_sub": "別再被低脂迷思誤導了！",
+      "hero_object": "a large, realistic, golden olive oil bottle next to a bowl of fresh green olives on a rustic wooden table",
+      "background_scene": "a warm, sunlit Mediterranean kitchen interior, soft natural light from a window",
+      "mascot_presence": true,
+      "mascot_expression": "thinking",
+      "mascot_pose": "hug_object_side",
+      "do_not_include": [],
+      "time_range": "0-3s",
+      "animation": "slow_push_in"
+    },
+    {
+      "scene_id": "02",
+      "scene_role": "flip",
+      "scene_goal": "顛覆觀眾對脂肪的普遍認知，引出地中海飲食的獨特性。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "地中海飲食：脂肪是朋友！",
+      "on_screen_text_sub": "它含脂肪，卻保護心臟？",
+      "hero_object": "a vibrant, colorful Mediterranean salad bowl with olives, feta cheese, cherry tomatoes, cucumber, and a generous drizzle of olive oil, alongside a whole-grain bread.",
+      "background_scene": "a bright, sunlit outdoor dining setting with a blurred coastal background",
+      "mascot_presence": false,
+      "do_not_include": [],
+      "time_range": "3-8s",
+      "animation": "slide_in"
+    },
+    {
+      "scene_id": "03",
+      "scene_role": "compare",
+      "scene_goal": "具體展示地中海飲食的脂肪比例，與傳統低脂飲食形成數據上的反差。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "不是低脂，是「好脂」！",
+      "on_screen_text_sub": "地中海飲食脂肪佔總熱量32-35%，高於傳統低脂飲食。",
+      "hero_object": "a split screen showing two contrasting plates. Left side: a plain grilled chicken breast with steamed broccoli (representing low-fat). Right side: grilled salmon with avocado slices, a side of quinoa, and a fresh green salad with olive oil dressing (representing Mediterranean diet).",
+      "background_scene": "a clean, modern kitchen counter with subtle wooden accents",
+      "mascot_presence": false,
+      "badge_text": "關鍵差異",
+      "do_not_include": [],
+      "time_range": "8-15s",
+      "animation": "simple_cut"
+    },
+    {
+      "scene_id": "04",
+      "scene_role": "evidence",
+      "scene_goal": "用權威研究數據證明地中海飲食在降低心血管風險上的顯著效果。",
+      "visual_type": "evidence_card",
+      "on_screen_text_main": "心血管風險大降28-31%！",
+      "on_screen_text_sub": "PREDIMED研究證實：地中海飲食優於低脂。",
+      "hero_object": "a stylized, easy-to-understand bar graph showing two bars side-by-side. One bar (labeled '低脂飲食') is taller, the other (labeled '地中海飲食') is significantly shorter, indicating reduced risk. Heart icons or a healthy heart symbol are prominently displayed.",
+      "background_scene": "a subtle scientific research background with abstract patterns",
+      "mascot_presence": false,
+      "source_badge_text": "PREDIMED Trial, N Engl J Med 2018",
+      "do_not_include": [],
+      "time_range": "15-23s",
+      "animation": "badge_fade_in"
+    },
+    {
+      "scene_id": "05",
+      "scene_role": "reminder",
+      "scene_goal": "提供觀眾具體的實踐建議，強調健康脂肪的選擇。",
+      "visual_type": "safety_reminder",
+      "on_screen_text_main": "選對脂肪，健康加倍！",
+      "on_screen_text_sub": "特級初榨橄欖油、堅果、深海魚類都是好選擇。",
+      "hero_object": "a beautifully arranged composition of healthy fat sources: a small bowl of walnuts and almonds, a glass cruet of extra virgin olive oil, and a perfectly grilled piece of salmon on a white plate with lemon wedges and fresh dill.",
+      "background_scene": "a rustic wooden cutting board with scattered fresh herbs like rosemary and thyme",
+      "mascot_presence": false,
+      "badge_text": "WHO/AHA推薦",
+      "do_not_include": [],
+      "time_range": "23-29s",
+      "animation": "slight_drift"
+    },
+    {
+      "scene_id": "06",
+      "scene_role": "closing",
+      "scene_goal": "強化品牌形象，溫馨告別。",
+      "visual_type": "brand_closing",
+      "on_screen_text_main": "時時靜好",
+      "on_screen_text_sub": "下次見，祝您靜好！",
+      "hero_object": "",
+      "background_scene": "clean warm gradient background with a subtle Mediterranean texture",
+      "mascot_presence": true,
+      "mascot_expression": "goodbye",
+      "mascot_pose": "greet_viewer",
+      "do_not_include": [],
+      "time_range": "29-33s",
+      "animation": "mascot_wave"
+    }
+  ],
+  "subtitles": [
+    {
+      "text": "心臟好，要戒掉所有脂肪嗎？",
+      "start": 0.0,
+      "end": 3.0
+    },
+    {
+      "text": "很多人以為低脂最好，這是迷思！",
+      "start": 3.0,
+      "end": 8.0
+    },
+    {
+      "text": "地中海飲食脂肪含量更高，約32-35%。",
+      "start": 8.0,
+      "end": 15.0
+    },
+    {
+      "text": "但它強調好脂肪，心血管風險降31%！",
+      "start": 15.0,
+      "end": 23.0
+    },
+    {
+      "text": "多吃橄欖油、堅果、魚，選對油最重要。",
+      "start": 23.0,
+      "end": 29.0
+    },
+    {
+      "text": "時時靜好，祝您靜好！",
+      "start": 29.0,
+      "end": 33.0
+    }
+  ],
+  "sound": "輕柔地中海鄉村風環境音，食材準備聲",
+  "music": "溫暖輕快，帶有地中海風情的配樂",
+  "youtube_metadata": {
+    "title": "心臟健康迷思破解：地中海飲食，脂肪不是敵人而是朋友！｜時時靜好",
+    "description": "許多人以為低脂飲食是保護心臟的唯一途徑，但科學研究告訴我們，選擇對的脂肪種類更重要！本集時時靜好將揭露地中海飲食的秘密，它如何透過健康的單元不飽和脂肪酸和Omega-3脂肪酸，顯著降低心血管疾病風險。參考PREDIMED研究 (N Engl J Med 2018) 等多項權威資料，讓您吃得安心又健康！\n\n研究來源：\n1. Estruch R et al., PREDIMED trial, N Engl J Med 2018: https://pmc.ncbi.nlm.nih.gov/articles/PMC6949939/\n2. Farajzadeh A et al., Nutrition in Clinical Practice 2024: https://pubmed.ncbi.nlm.nih.gov/38431146/\n3. de Lorgeril M et al., Lyon Diet Heart Study, Circulation 1999: https://www.ahajournals.org/doi/10.1161/CIRCRESAHA.118.313348\n4. World Health Organization / Mayo Clinic summary: https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/mediterranean-diet/art-20047801\n\n#時時靜好 #地中海飲食 #心血管健康 #健康飲食 #好脂肪 #飲食迷思 #科學實證",
+    "hashtags": [
+      "#時時靜好",
+      "#地中海飲食",
+      "#心血管健康",
+      "#健康飲食",
+      "#好脂肪",
+      "#飲食迷思",
+      "#科學實證"
+    ]
+  }
+}

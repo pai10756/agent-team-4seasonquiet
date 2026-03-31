@@ -1,0 +1,217 @@
+{
+  "topic": "地中海飲食降低心血管風險 Mediterranean diet cardiovascular health",
+  "topic_id": 9,
+  "cognitive_gap": {
+    "common_belief": "許多人認為降低心血管風險的關鍵在於嚴格限制所有脂肪攝取，遵循低脂肪飲食。",
+    "actual_finding": "地中海飲食並非低脂肪飲食，其脂肪含量佔總熱量約32-35%，高於傳統低脂肪飲食。然而，它強調攝取健康的單元不飽和脂肪酸（如橄欖油）和Omega-3脂肪酸，並已被多項大型研究證實比低脂肪飲食更能顯著降低心血管事件風險。",
+    "contrast_magnitude": "PREDIMED研究顯示，遵循地中海飲食的組別比低脂飲食組的心血管風險顯著降低28-31%，這表明選擇脂肪的種類比單純限制脂肪總量更為重要，與普遍認知形成強烈反差。"
+  },
+  "verified_data": [
+    {
+      "claim": "PREDIMED研究顯示，遵循地中海飲食並補充特級初榨橄欖油或堅果的組別，其主要心血管事件（心肌梗塞、中風或心血管疾病死亡）的發生率比低脂飲食組顯著降低28-31%。",
+      "source_citation": "Estruch R et al., PREDIMED trial, N Engl J Med 2018",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6949939/",
+      "confidence": "high"
+    },
+    {
+      "claim": "2024年5月發表的一項隨機對照試驗系統回顧及統合分析指出，地中海飲食能顯著降低主要不良心血管事件 (MACE) 的發生率（勝算比 OR = 0.52），心肌梗塞（OR = 0.62）和中風（OR = 0.63）的發生率也顯著降低。",
+      "source_citation": "Farajzadeh A et al., Nutrition in Clinical Practice 2024",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38431146/",
+      "confidence": "high"
+    },
+    {
+      "claim": "針對老年人的系統回顧與統合分析顯示，高度遵循地中海飲食可使全因死亡率風險降低23% (95% CI: 0.70-0.83)。",
+      "source_citation": "PubMed 2024 (meta-analysis)",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39599734/",
+      "confidence": "high"
+    },
+    {
+      "claim": "Lyon Diet Heart Study顯示，首次心肌梗塞後遵循地中海式飲食可使復發性心臟事件減少50-70%。",
+      "source_citation": "de Lorgeril M et al., Lyon Diet Heart Study, Circulation 1999",
+      "source_url": "https://www.ahajournals.org/doi/10.1161/CIRCRESAHA.118.313348",
+      "confidence": "high"
+    },
+    {
+      "claim": "世界衛生組織 (WHO)、美國妙佑醫療國際 (Mayo Clinic) 和美國心臟協會 (AHA) 均認可並推薦地中海飲食作為一種有益心臟健康的飲食模式。",
+      "source_citation": "World Health Organization / Mayo Clinic summary; American Heart Association",
+      "source_url": "https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/mediterranean-diet/art-20047801",
+      "confidence": "high"
+    }
+  ],
+  "sources": [
+    {
+      "citation": "Estruch R et al., PREDIMED trial, N Engl J Med 2018 (retracted & republished)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6949939/",
+      "key_finding": "PREDIMED試驗顯示，地中海飲食（補充特級初榨橄欖油或堅果）可使心血管事件（心肌梗塞、中風、心血管死亡）風險降低約30%。",
+      "study_type": "rct"
+    },
+    {
+      "citation": "Delgado-Lista J et al., CORDIOPREV, Lancet 2022",
+      "url": "https://academic.oup.com/cardiovascres/article/121/16/2465/8317729",
+      "key_finding": "CORDIOPREV試驗顯示，地中海飲食在已確診心血管疾病患者中，可使主要心血管事件減少27%。",
+      "study_type": "rct"
+    },
+    {
+      "citation": "de Lorgeril M et al., Lyon Diet Heart Study, Circulation 1999",
+      "url": "https://www.ahajournals.org/doi/10.1161/CIRCRESAHA.118.313348",
+      "key_finding": "里昂飲食心臟研究顯示，首次心肌梗塞後遵循地中海式飲食可使復發性心臟事件減少50-70%。",
+      "study_type": "rct"
+    },
+    {
+      "citation": "Farajzadeh A et al., Nutrition in Clinical Practice 2024",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38431146/",
+      "key_finding": "4項RCT的統合分析顯示，地中海飲食組的主要不良心血管事件 (MACE) 勝算比為0.52，心肌梗塞為0.62，中風為0.63。",
+      "study_type": "meta_analysis"
+    },
+    {
+      "citation": "Cardiovascular Research, Oxford Academic 2025",
+      "url": "https://academic.oup.com/cardiovascres/article/121/16/2465/8317729",
+      "key_finding": "一項針對超過140萬參與者的系統回顧發現，高度遵循地中海飲食與冠心病、周邊動脈疾病、心房顫動、腦血管疾病和心血管死亡風險降低持續相關。",
+      "study_type": "meta_analysis"
+    },
+    {
+      "citation": "Hareer et al., Nutrition & Dietetics 2025",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11795232/",
+      "key_finding": "傘狀回顧證實地中海飲食對心血管疾病的初級和次級預防均有效。",
+      "study_type": "review"
+    },
+    {
+      "citation": "PubMed 2024 (meta-analysis)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39599734/",
+      "key_finding": "針對老年人的28項研究統合分析顯示，高度遵循地中海飲食可使全因死亡率風險降低23%。",
+      "study_type": "meta_analysis"
+    },
+    {
+      "citation": "Italian Scientific Societies & ISS Task Force, Nutrition Reviews 2025",
+      "url": "https://academic.oup.com/nutritionreviews/advance-article/doi/10.1093/nutrit/nuaf263/8415611",
+      "key_finding": "義大利國家指南系統回顧指出，地中海飲食顯著降低心血管疾病發病率和死亡率，尤其在高風險個體中。",
+      "study_type": "meta_analysis"
+    },
+    {
+      "citation": "World Health Organization / Mayo Clinic summary",
+      "url": "https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/mediterranean-diet/art-20047801",
+      "key_finding": "WHO認可地中海飲食為預防心血管疾病的健康飲食模式。",
+      "study_type": "guideline"
+    },
+    {
+      "citation": "American Heart Association",
+      "url": "https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/nutrition-basics/mediterranean-diet",
+      "key_finding": "AHA推薦地中海式飲食模式，強調蔬菜、水果、全穀物、豆類、魚類、堅果和橄欖油，以促進心血管健康。",
+      "study_type": "guideline"
+    },
+    {
+      "citation": "USDA NESR",
+      "url": "https://nesr.usda.gov/what-relationship-between-adherence-dietary-guidelinesrecommendations-or-specific-dietary-2",
+      "key_finding": "USDA營養證據系統回顧發現，富含水果、蔬菜、全穀物、堅果、豆類、不飽和油（地中海式）的飲食模式與致命和非致命心血管疾病（包括冠心病和中風）風險降低有強烈且一致的證據關聯。",
+      "study_type": "guideline"
+    },
+    {
+      "citation": "Cochrane Library 2019",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEEQh0BCTu6KbWjBQ_b4KxqnoN9Q0xG5_H0sB8Hywdvfok2TfJ3ecTr0FxdG2bJ5XxC-8xoI7wfELmG5gkbRHVPMnM71NuQME1YXF9nWwzFLQt7psoRw3wu6DCzqKPi1qMuy7SA7G5xnWwK51gJfncX2wJN_9v9hQ6Y7ZQG35mNZkFwo5yRQDeXtnbhiBrpt62Dk9Vdp0oe6awKlXC2gNfNUJuY-uPMkw==",
+      "key_finding": "飲食在心血管疾病風險中扮演重要角色，地中海飲食模式因其在1960年代觀察到的較低心血管疾病死亡率而受到關注。",
+      "study_type": "review"
+    },
+    {
+      "citation": "Nutrients 2020",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHdS_qaio2csclzhS7GPHHfAO3ApA_BHPQRdtUX02L4ghV3aHsJFky6mZdFdO-ygIUHHzv_8ZTRWQVV6W_oI6f0B7_zVS023EIH2XfU8ipFepHX-ehq8YGqx9fUXVmo1mhbgCo=",
+      "key_finding": "一項系統回顧與統合分析顯示，地中海飲食對28個代謝症候群組成部分和風險因子中的18個產生了更大的有益變化。",
+      "study_type": "meta_analysis"
+    },
+    {
+      "citation": "衛福部基隆醫院營養室 2022",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEl6_x7IOyKrcd4GjBMTzHFIcrB0T2xMYGT-z3iHElQCY4s6s_vYvGBtu8rLS0SLZN3XBp9Aynq7HoqqaTeCifYl4Ya6YErq4kJ49Y6Uhsm7o6PYvu2NUHwxQjZJF0=",
+      "key_finding": "推廣地中海飲食原則，建議天天攝取多樣蔬菜水果、全穀雜糧、魚類海鮮，並選擇健康脂肪。",
+      "study_type": "guideline"
+    },
+    {
+      "citation": "衛生福利部臺南醫院",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEi31Lw6G8BahtdbSwXoLke0CZ09dp5hqT9iGKKRsVRqsz5x0BJ6GpAE9B3nuXthYxlpNIxY1OS5aOOQZLNw0h6ZKw5YJsU35OhXBcPdZvtYQt19MOOl073Bj2buELv-XC-0WcfrFXX41Oupv2DMfFib4PpdqJvqJqtKrRgzKXZH_TM6xZgKw==",
+      "key_finding": "地中海飲食能遠離肥胖，有效降低慢性病（如糖尿病、高血壓、肥胖、心血管疾病及代謝症候群）的發病率及死亡率，並減少罹患心臟病的風險，保護大腦血管免受損傷，降低中風和記憶力減退的風險。",
+      "study_type": "guideline"
+    },
+    {
+      "citation": "中華民國血脂及動脈硬化學會與台灣血脂衛教協會 2026",
+      "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE6t7eg9rYVWeUR1E2J3UEy58v9YxRHzgJij911AisbpzggdrafDRx2EyPy6OaanckHiRnfaDjRPn-yvj717_5LCZVijsbixAdCUVFQIGi-F5lH9HxZPQHPYq5QlAprGK2pLQU=",
+      "key_finding": "肯定美國最新飲食指引中鼓勵以全食物為主、限制添加糖、減少油炸食物、重視份量控制以及強調膳食纖維與腸道健康的重要性，這些原則與台灣長期推動的健康飲食政策相符。",
+      "study_type": "guideline"
+    },
+    {
+      "citation": "Guasch-Ferré M et al., Journal of internal medicine, 2021",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34423871/",
+      "key_finding": "地中海飲食與健康的綜合概述。",
+      "study_type": "review"
+    },
+    {
+      "citation": "Martínez-González MA et al., Circulation research, 2019",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30817261/",
+      "key_finding": "地中海飲食與心血管健康。",
+      "study_type": "review"
+    },
+    {
+      "citation": "Widmer RJ et al., The American journal of medicine, 2015",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25447615/",
+      "key_finding": "地中海飲食、其組成部分與心血管疾病。",
+      "study_type": "review"
+    },
+    {
+      "citation": "Laffond A et al., Nutrients, 2023",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37571293/",
+      "key_finding": "地中海飲食對心血管疾病和死亡的初級和次級預防的更新系統回顧。",
+      "study_type": "meta_analysis"
+    },
+    {
+      "citation": "Martín-Peláez S et al., Nutrients, 2020",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32726990/",
+      "key_finding": "地中海飲食對第二型糖尿病預防、疾病進展及相關機制的影響。",
+      "study_type": "review"
+    }
+  ],
+  "recommended_type": "hybrid",
+  "type_reasoning": "報告內容包含大量具體的數據（如風險降低百分比、勝算比），適合數據展示和比較；同時也涵蓋了對常見迷思的澄清和飲食原則的解釋，需要一定的敘述性內容。混合型態能有效結合數據的說服力與知識的普及性，提升內容的深度和廣度。",
+  "engagement_signals": {
+    "virality_score": 8,
+    "reasons": [
+      "心血管健康是廣泛關注的健康議題，與大眾生活息息相關。",
+      "報告澄清了關於地中海飲食的常見迷思，提供新的認知角度，具備話題性。",
+      "提供了具體的科學數據和官方指南支持，增加了內容的可信度和說服力。",
+      "提供了在地化食材替代建議，使飲食模式更具實踐性，易於推廣。"
+    ],
+    "risks": [
+      "部分數據（如勝算比）可能對非專業讀者較難理解，需簡化解釋。",
+      "強調「好油」可能被誤解為可無限制攝取，需強調適量原則。",
+      "飲食習慣改變需要長期堅持，推廣時需考慮實踐難度。"
+    ]
+  },
+  "ranking_candidates": [
+    {
+      "item": "橄欖油 (維生素E含量)",
+      "value": 14.8,
+      "unit": "MG/100g",
+      "source": "USDA FDC ID: 167737 (Oil, corn, peanut, and olive)"
+    },
+    {
+      "item": "橄欖油 (維生素K含量)",
+      "value": 21.0,
+      "unit": "UG/100g",
+      "source": "USDA FDC ID: 167737 (Oil, corn, peanut, and olive)"
+    },
+    {
+      "item": "地中海飲食效益：降低心血管事件風險 (PREDIMED研究)",
+      "value": 31,
+      "unit": "%",
+      "source": "PREDIMED trial, N Engl J Med 2018"
+    },
+    {
+      "item": "地中海飲食效益：降低主要不良心血管事件 (MACE) 發生率",
+      "value": 48,
+      "unit": "% (勝算比 OR = 0.52)",
+      "source": "Farajzadeh A et al., Nutrition in Clinical Practice 2024"
+    },
+    {
+      "item": "地中海飲食效益：降低老年人全因死亡率風險",
+      "value": 23,
+      "unit": "%",
+      "source": "PubMed 2024 (meta-analysis)"
+    }
+  ]
+}
