@@ -1,0 +1,36 @@
+{
+  "episode": 13,
+  "model": "gemini-3.1-flash-image-preview",
+  "cards": [
+    {
+      "scene_id": "01",
+      "path": "card_01_hook.png",
+      "success": true
+    },
+    {
+      "scene_id": "02",
+      "path": "card_02_flip.png",
+      "success": true
+    },
+    {
+      "scene_id": "03",
+      "path": "card_03_compare.png",
+      "success": true
+    },
+    {
+      "scene_id": "04",
+      "path": "card_04_evidence.png",
+      "success": true
+    },
+    {
+      "scene_id": "05",
+      "path": "card_05_reminder.png",
+      "success": true
+    },
+    {
+      "scene_id": "06",
+      "path": "card_06_closing.png",
+      "success": true
+    }
+  ]
+}

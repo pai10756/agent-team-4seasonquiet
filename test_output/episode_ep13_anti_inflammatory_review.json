@@ -1,0 +1,61 @@
+{
+  "verdict": "pass",
+  "attempt": 1,
+
+  "lock_layer": {
+    "passed": true,
+    "violations": []
+  },
+
+  "visual_brand_layer": {
+    "passed": true,
+    "violations": [],
+    "checklist": {
+      "single_main_message": true,
+      "visual_supports_message": true,
+      "headline_readable_1s": true,
+      "understandable_3s": true,
+      "mascot_single": true,
+      "mascot_no_badge": true,
+      "mascot_emotion_correct": true,
+      "text_large_enough": true,
+      "not_too_busy": true,
+      "no_excess_noise": true
+    }
+  },
+
+  "guardrail_layer": {
+    "notes": [
+      {
+        "aspect": "hook_framework",
+        "observation": "hook 使用「恐懼驅動」框架（你的食物讓你發炎），屬於顛覆認知型，符合頻道風格。",
+        "suggestion": "可考慮 A/B 測試 solution_aware 版本（三個替換就夠了）是否有更高完播率。"
+      },
+      {
+        "aspect": "numeric_contrast",
+        "observation": "數據對比充足：15:1 vs 2:1 的 Omega 比例、CRP降32%、死亡風險+14%、心血管事件-30%，均超過3倍對比門檻。",
+        "suggestion": "無需調整。"
+      },
+      {
+        "aspect": "hero_object_choice",
+        "observation": "封面卡使用雙面砧板（促發炎vs抗發炎食物對比）作為 hero object，視覺張力強。",
+        "suggestion": "生成時確保左右兩側色彩對比明確（暖紅vs冷綠），避免混成一片。"
+      },
+      {
+        "aspect": "reveal_order",
+        "observation": "揭露順序合理：恐懼開場→超加工數據→Omega失衡→正面證據→可執行建議→收尾。情緒曲線先壓後揚。",
+        "suggestion": "無需調整。"
+      },
+      {
+        "aspect": "color_palette",
+        "observation": "場景描述均遵循 cream/sage/olive dark/brown 色盤，reminder 卡的食物替換畫面溫暖正面。",
+        "suggestion": "無需調整。"
+      }
+    ]
+  },
+
+  "summary": "EP13 抗發炎飲食通過三層審查。Lock layer 全數通過：schema 完整、字幕繁中、Seedance prompt 簡中、品牌收尾正確、無醫療宣稱、時長33秒。Visual brand layer 全數通過：小靜僅出現在開場卡和結尾卡各一隻、表情匹配（thinking 配食物疑問、goodbye 配收尾）、hero object 主導明確。Guardrail 建議 A/B 測試 hook 版本及確保生成時對比色彩清晰。",
+
+  "auto_fixable": [],
+  "needs_human": []
+}

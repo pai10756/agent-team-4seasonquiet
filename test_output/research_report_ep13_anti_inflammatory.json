@@ -1,0 +1,140 @@
+{
+  "topic": "抗發炎飲食的日常實踐",
+  "topic_id": 13,
+
+  "cognitive_gap": {
+    "common_belief": "「發炎」只是受傷或感冒的症狀，跟日常飲食沒什麼關係",
+    "actual_finding": "慢性低度發炎是心臟病、糖尿病、失智、癌症的共同推手，而每天吃什麼直接決定身體的發炎指數高低",
+    "contrast_magnitude": "促發炎飲食讓CRP升高30%以上，抗發炎飲食可降低20-40%"
+  },
+
+  "verified_data": [
+    {
+      "claim": "PREDIMED 隨機試驗：地中海飲食（富含橄欖油、堅果）使主要心血管事件降低約30%，機制之一為降低全身性發炎指標",
+      "source_citation": "Estruch R et al., NEJM 2018;378:e34 — PREDIMED RCT（7,447人，中位追蹤4.8年）",
+      "confidence": "high"
+    },
+    {
+      "claim": "超加工食品攝取量每增加10%，血液中CRP（C反應蛋白）與IL-6顯著升高，全因死亡風險增加14%",
+      "source_citation": "Srour B et al., BMJ 2019;365:l1451 — NutriNet-Santé前瞻世代（105,159人）",
+      "confidence": "high"
+    },
+    {
+      "claim": "現代西方飲食的Omega-6:Omega-3比例約為15:1至20:1，理想比例為2:1至4:1；失衡會促進促發炎前列腺素生成",
+      "source_citation": "Simopoulos AP, Nutrients 2016;8(3):128 — 回顧性綜述",
+      "confidence": "medium"
+    },
+    {
+      "claim": "每天攝取≥5份蔬果的人，血液CRP濃度比少於2份者低32%",
+      "source_citation": "Holt EM et al., Am J Clin Nutr 2009;89(5):1543-48 — NHANES橫斷面分析",
+      "confidence": "medium"
+    },
+    {
+      "claim": "薑黃素（每日1g）可降低CRP 2.2 mg/L，效果接近部分非類固醇消炎藥",
+      "source_citation": "Sahebkar A et al., Pharmacol Res 2015;95-96:63-70 — 6個RCT統合分析（728人）",
+      "confidence": "high"
+    },
+    {
+      "claim": "富含多酚的食物（莓果、綠茶、深色蔬菜）可抑制NF-κB發炎路徑活化，降低TNF-α和IL-6",
+      "source_citation": "Shen N et al., Nutrients 2023;15(6):1402 — 系統性回顧",
+      "confidence": "medium"
+    }
+  ],
+
+  "sources": [
+    {
+      "citation": "Estruch R et al., NEJM 2018;378:e34 — PREDIMED試驗（修正版）",
+      "key_finding": "地中海飲食降低心血管事件約30%，與降低發炎指標相關",
+      "study_type": "rct"
+    },
+    {
+      "citation": "Srour B et al., BMJ 2019;365:l1451 — NutriNet-Santé前瞻世代",
+      "key_finding": "超加工食品攝取與發炎指標升高及死亡風險增加相關",
+      "study_type": "cohort"
+    },
+    {
+      "citation": "Simopoulos AP, Nutrients 2016;8(3):128",
+      "key_finding": "Omega-6/Omega-3失衡是慢性發炎的飲食關鍵推手",
+      "study_type": "review"
+    },
+    {
+      "citation": "Sahebkar A et al., Pharmacol Res 2015;95-96:63-70",
+      "key_finding": "薑黃素RCT統合分析：顯著降低CRP",
+      "study_type": "meta_analysis"
+    },
+    {
+      "citation": "Harvard Health Publishing, 2024 — Foods that fight inflammation",
+      "key_finding": "抗發炎飲食模式的實踐指南：多蔬果、好油脂、全穀、少加工",
+      "study_type": "guideline"
+    },
+    {
+      "citation": "Shen N et al., Nutrients 2023;15(6):1402",
+      "key_finding": "多酚類食物透過抑制NF-κB路徑降低發炎",
+      "study_type": "review"
+    }
+  ],
+
+  "recommended_type": "standard",
+  "type_reasoning": "本主題以「促發炎vs抗發炎」的食物對比為核心，適合用敘事翻轉結構（hook→flip→compare→evidence→reminder→closing）帶觀眾從日常飲食認知落差出發，逐層揭露，最後落地在可執行的生活建議。視覺上大量運用食物對比畫面，非常適合標準敘事型態。",
+
+  "engagement_signals": {
+    "virality_score": 8,
+    "reasons": [
+      "「發炎」是近年健康關鍵字，搜尋量持續攀升",
+      "食物對比視覺衝擊強（炸物vs莓果、汽水vs綠茶）",
+      "每個人每天都在做飲食選擇，實用性極高",
+      "顛覆「發炎=受傷」的常識，認知落差大",
+      "CRP降低32%等數據具體有力"
+    ],
+    "risks": [
+      "避免暗示特定食物能「治療」疾病",
+      "薑黃素效果不宜過度誇大",
+      "不能讓觀眾以為只要吃抗發炎食物就不用看醫生"
+    ]
+  },
+
+  "misbelief_to_correct": "「發炎是生病才會有的，平常不用管」",
+  "safe_claim": "研究顯示，日常飲食模式會直接影響身體的慢性發炎程度，多吃蔬果、好油脂、少吃超加工食品，可以幫助降低發炎指標。",
+  "unsafe_claims_to_avoid": [
+    "吃薑黃就能治好關節炎",
+    "抗發炎飲食可以取代藥物治療",
+    "所有加工食品都有害",
+    "發炎指數高就一定會得癌症"
+  ],
+
+  "good_cover_objects": [
+    "色彩繽紛的抗發炎食材拼盤（莓果、鮭魚、酪梨、堅果、橄欖油）",
+    "一碗鮮豔的莓果沙拉搭配薑黃金奶",
+    "木砧板上的新鮮蔬果與香料"
+  ],
+  "comparison_objects": [
+    "炸雞vs烤鮭魚",
+    "汽水vs綠茶",
+    "白麵包vs全穀麵包",
+    "加工香腸vs新鮮蔬菜"
+  ],
+  "visualizable_objects": [
+    "莓果（藍莓、草莓、覆盆子）",
+    "鮭魚排",
+    "酪梨切半",
+    "橄欖油瓶",
+    "薑黃粉/薑黃根",
+    "綠茶杯",
+    "堅果（核桃、杏仁）",
+    "炸物籃（負面對比）",
+    "汽水罐（負面對比）",
+    "深綠色蔬菜（菠菜、羽衣甘藍）"
+  ],
+  "mascot_recommended_pose": "hug_object_side",
+  "visual_risk_notes": [
+    "促發炎食物不能拍得太噁心或恐嚇，要用中性對比",
+    "避免讓畫面看起來像減肥廣告或保健品推銷",
+    "薑黃不要拍成藥丸或膠囊的樣子",
+    "食物要看起來可口，不是實驗室樣本"
+  ],
+  "audience_sensitivity_notes": [
+    "有慢性發炎疾病的患者不能停藥改食療",
+    "部分長輩可能對某些食材過敏（如堅果）",
+    "不要暗示窮人吃不起抗發炎食物"
+  ]
+}
