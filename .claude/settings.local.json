@@ -3,7 +3,10 @@
     "allow": [
       "mcp__plugin_telegram_telegram__reply",
       "WebFetch(domain:x.com)",
-      "Skill(schedule)"
+      "Skill(schedule)",
+      "WebFetch(domain:ai.google.dev)",
+      "WebFetch(domain:www.aifreeapi.com)",
+      "WebFetch(domain:blog.laozhang.ai)"
     ]
   }
 }

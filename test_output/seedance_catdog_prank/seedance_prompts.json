@@ -1,0 +1,137 @@
+{
+  "title": "貓咪惡作劇：在睡著的狗臉上塗鴉",
+  "narrative_core": {
+    "hook": "橘貓叼著麥克筆，躡手躡腳靠近熟睡的拉布拉多",
+    "conflict": "狗醒來照鏡子發現臉上被塗鴉，回頭瞪貓",
+    "resolution": "貓裝無辜失敗，兩隻相視大笑，友情不變"
+  },
+  "characters": {
+    "cat": {
+      "description": "真實橘貓，圓臉微胖，綠眼，經典橘色虎斑條紋，粉鼻頭，鬼靈精怪",
+      "turnaround": "cat_turnaround_real.png",
+      "role": "惡作劇犯人"
+    },
+    "dog": {
+      "description": "真實金色拉布拉多，棕眼，垂耳，黑濕鼻頭，溫柔憨厚，中大型健壯體格",
+      "turnaround": "dog_turnaround_real.png",
+      "role": "熟睡被害者"
+    }
+  },
+  "environment": {
+    "location": "真實台灣公寓客廳 + 走廊",
+    "props": ["米色狗床", "黑色 Sharpie 麥克筆", "IKEA 全身鏡（走廊牆邊）", "布沙發+抱枕", "落地燈", "書架+植物", "木紋地板", "散落的貓玩具"],
+    "lighting": "暖色調傍晚室內光 — 落地燈為主光（偏左金黃），天花板燈柔和補光，自然偏暖色溫",
+    "time_of_day": "傍晚",
+    "atmosphere": "真實居家生活感，微亂但溫馨"
+  },
+  "global_style": {
+    "render": "PHOTOREALISTIC — 像 iPhone 15 Pro 或 Sony A7IV 拍攝的真實畫面",
+    "color_grade": "warm natural, slight orange tint, authentic home video feel",
+    "texture": "真實毛髮質感，自然光反射，輕微顆粒感",
+    "aspect_ratio": "9:16",
+    "resolution": "1080p",
+    "anti_style": "NOT 3D, NOT cartoon, NOT Pixar, NOT illustration, NOT anime"
+  },
+  "audio_design": {
+    "voiceover": {
+      "narrator": "俏皮活潑的年輕女聲旁白",
+      "tts_service": "ElevenLabs 或 Azure TTS",
+      "azure_voice": "zh-TW-HsiaoChenNeural",
+      "lines": [
+        {"time": "0-2s", "text": "（壓低聲音）噓…你看這隻貓在幹嘛…", "style": "whispering"},
+        {"time": "2-4s", "text": "叼著筆…偷偷摸摸的…", "style": "whispering"},
+        {"time": "4-6s", "text": "天哪，牠在狗臉上畫畫！", "style": "excited"},
+        {"time": "6-7s", "text": "圈圈、叉叉、還有愛心！", "style": "excited"},
+        {"time": "7-9s", "text": "完蛋了…狗醒了…走過去了…", "style": "fearful"},
+        {"time": "9-11s", "text": "牠看到鏡子了！那個表情！", "style": "shocked"},
+        {"time": "11-13s", "text": "哈哈哈哈哈！貓在旁邊裝無辜！", "style": "laughing"},
+        {"time": "13-15s", "text": "結果兩個一起笑成這樣 😂 太可愛了吧！", "style": "laughing"}
+      ]
+    },
+    "bgm": {
+      "0-6s": "Sneaky Pizzicato 潛行風格 — 輕快俏皮的撥弦，音量 15%",
+      "6-7s": "配樂漸弱",
+      "7-9s": "低沉緊張弦樂 suspense pad，音量 10%",
+      "9-10s": "戲劇性 Stinger 驚訝音效（銅管或弦樂衝擊）",
+      "10-10.5s": "完全靜音（喜劇黃金停頓）",
+      "10.5-15s": "歡快 Ukulele + 手拍節奏，音量 20%，漸強到結尾",
+      "reference": "YouTube Audio Library: 'Sneaky Snitch' by Kevin MacLeod 類似風格"
+    },
+    "sfx": [
+      {"time": "0-6s", "sound": "貓爪踩木地板嗒嗒聲（每步一聲，約 5-6 步）"},
+      {"time": "0-7s", "sound": "狗輕微打鼾呼嚕聲（持續低音）"},
+      {"time": "4-6s", "sound": "麥克筆在毛皮上的沙沙聲（2-3 筆畫）"},
+      {"time": "5.5s", "sound": "狗耳朵抖動 + 短促吸氣聲"},
+      {"time": "5.5-6s", "sound": "0.5 秒靜默（緊張停頓）"},
+      {"time": "7s", "sound": "狗打大哈欠的聲音 + 伸懶腰骨頭喀喀聲"},
+      {"time": "7.5s", "sound": "狗爪踩地板的沉重腳步聲（走向鏡子）"},
+      {"time": "9s", "sound": "戲劇性 'boing' 或 slide whistle 音效"},
+      {"time": "10-10.5s", "sound": "完全靜音"},
+      {"time": "11s", "sound": "貓高音喵嗚笑聲（短促）"},
+      {"time": "12-15s", "sound": "狗哈哈喘氣笑聲 + 貓呼嚕笑聲，漸強混合，結尾最大聲"}
+    ]
+  },
+  "seedance_submission": {
+    "total_clips": 1,
+    "meta": {
+      "mode": "i2v",
+      "level": 3,
+      "dur": 15,
+      "ar": "9:16",
+      "res": "1080p"
+    },
+    "files_to_upload": {
+      "Image1": {"file": "cat_turnaround_real.png", "purpose": "橘貓角色鎖定"},
+      "Image2": {"file": "dog_turnaround_real.png", "purpose": "拉布拉多角色鎖定"},
+      "Image3": {"file": "scene01_sneaking_real.png", "purpose": "開場場景構圖 + 環境鎖定"}
+    },
+    "compiled_prompt": "@Image1 橘貓角色鎖定。@Image2 拉布拉多角色鎖定。@Image3 開場場景與環境鎖定。\n\n寫實風格，像iPhone拍攝的真實貓狗居家影片，真實毛髮質感，自然室內暖光，輕微顆粒感。\n\n0-3秒：溫馨客廳傍晚，金色拉布拉多側躺在米色狗床上熟睡，肚子緩慢起伏。橘貓嘴裡叼著黑色麥克筆，從畫面右側躡手躡腳靠近，每步停頓偷看狗有沒有醒，眼神瞇起帶壞笑。緩慢推近，從全景到中景。貓爪踩木地板嗒嗒聲，狗輕微呼嚕聲。\n\n3-6秒：特寫切到狗臉。橘貓前爪握筆，在狗左眼周圍畫圈圈，右眼畫叉叉，鼻子畫愛心。中間狗耳朵突然微抖，貓嚇到縮手停住半秒，確認沒醒後繼續畫，在嘴邊加鬍子。麥克筆沙沙聲。極特寫固定鏡頭。\n\n6-9秒：狗打大哈欠醒來伸懶腰，慢慢站起來。貓迅速後退假裝舔毛。狗走向走廊，經過全身鏡。跟拍狗走向鏡子。\n\n9-11秒：狗看到鏡中自己臉上的塗鴉——圈圈叉叉愛心鬍子，表情從困惑慢慢變成震驚，眼睛瞪大耳朵豎起嘴巴張開。從狗背後拍鏡中倒影。然後狗猛轉頭看向身後的橘貓。\n\n11-13秒：貓坐在地上裝無辜歪頭，舉起一隻前爪。狗瞪著貓，貓嘴角開始忍不住上揚。正面雙角色中景。\n\n13-15秒：貓憋不住大笑，狗也跟著張嘴大笑舌頭伸出，兩隻並肩坐著，狗把大爪子搭在貓肩上，一起開心大笑。狗臉上的塗鴉清晰可見。暖色調溫馨結尾。正面中景定格。貓狗笑聲。\n\n保持兩隻動物外觀全程一致。狗臉上的塗鴉從第3秒畫上後保持到結尾不消失。",
+    "api_params": {
+      "model": "seedance-2.0",
+      "ratio": "9:16",
+      "duration": 15
+    }
+  },
+  "post_production": {
+    "assembly": "Seedance 生成 15 秒影片 + 疊加音軌",
+    "audio_layers": [
+      "Layer 1: Seedance 原生影片（可能含環境音，視生成結果決定保留或靜音）",
+      "Layer 2: 旁白 TTS（主音軌，音量 100%）",
+      "Layer 3: BGM 配樂（音量 15-20%）",
+      "Layer 4: 音效 SFX（音量 60-80%，按時間點疊加）"
+    ],
+    "ffmpeg_workflow": [
+      "1. 生成旁白 MP3（Azure TTS，8 句拼接，對齊時間軸）",
+      "2. 準備 BGM MP3（按時段切換風格）",
+      "3. 準備 SFX 音效包（各音效獨立檔案）",
+      "4. ffmpeg 混音：影片 + 旁白 + BGM + SFX → 最終輸出",
+      "5. 加結尾字幕「友情的證明 ❤️」（13-15秒，白色粗體+黑色陰影，底部居中）"
+    ],
+    "text_overlay": [
+      {"time": "13-15s", "text": "友情的證明 ❤️", "position": "bottom center", "style": "white bold 48px, black drop shadow"}
+    ],
+    "thumbnail": {
+      "file": "scene04_staredown_real.png",
+      "reason": "狗瞪貓的對峙鏡頭，戲劇張力最強，最吸引點擊"
+    },
+    "youtube_meta": {
+      "title": "貓咪趁狗睡著在臉上塗鴉...結局太可愛了😂 #shorts",
+      "description": "橘貓叼著筆偷偷在拉布拉多臉上畫圈圈叉叉，狗醒來照鏡子發現...結果兩個一起笑翻🤣\n\n#貓咪 #狗狗 #搞笑動物 #寵物日常 #橘貓 #拉布拉多 #shorts",
+      "tags": ["貓咪", "狗狗", "搞笑", "寵物", "橘貓", "拉布拉多", "惡作劇", "塗鴉", "shorts"]
+    }
+  },
+  "reference_images_summary": {
+    "character_sheets": [
+      "cat_turnaround_real.png — 橘貓 8 角度寫實攝影棚照",
+      "dog_turnaround_real.png — 拉布拉多 8 角度寫實攝影棚照"
+    ],
+    "scene_references": [
+      "scene01_sneaking_real.png — 貓叼筆靠近熟睡狗（全景）",
+      "scene02_drawing_real.png — 貓在狗臉上畫畫（極特寫）",
+      "scene03_mirror_real.png — 狗照鏡子看到塗鴉臉（走廊）",
+      "scene04_staredown_real.png — 狗回頭瞪貓，貓裝無辜（對峙）",
+      "scene05_laughing_real.png — 兩隻搭肩大笑，狗臉有塗鴉（結尾）"
+    ],
+    "usage_in_seedance": "上傳 @Image1=貓轉身圖 @Image2=狗轉身圖 @Image3=scene01 場景圖。其餘場景圖作為風格參考，不需全部上傳（受 Rule of 12 限制）。"
+  }
+}
