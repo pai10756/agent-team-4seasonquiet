@@ -5,8 +5,16 @@ v3: 3D smooth matte plastic toy 風格，使用 exact reference image。
 每次生成都必須附上 3d_reference.jpg 作為角色參考。
 輸出透明背景 PNG，由 composer 階段合成到最終卡面。
 
+v4 (Seedance 管線 B):
+  --mode turnaround: 以 3d_reference_clean.jpg 為 ref，生成 Seedance 用多角度+多表情定裝照
+  每集必生成（即使穿預設圍裙也不可跳過）
+
 用法:
+  # 管線 A（靜態圖卡，透明背景）
   python scripts/generate_mascot.py <episode.json> --output-dir <assets_dir>
+
+  # 管線 B（Seedance turnaround 定裝照）
+  python scripts/generate_mascot.py <episode.json> --output-dir <assets_dir> --mode turnaround
 
 環境變數:
   GEMINI_API_KEY — Gemini API key
@@ -22,8 +30,20 @@ import urllib.request
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parents[1]
+
+# Load .env
+_env_file = BASE / ".env"
+if _env_file.exists():
+    for _line in _env_file.read_text(encoding="utf-8").splitlines():
+        _line = _line.strip()
+        if not _line or _line.startswith("#") or "=" not in _line:
+            continue
+        _k, _, _v = _line.partition("=")
+        os.environ.setdefault(_k.strip(), _v.strip())
+
 CHARACTER_PATH = BASE / "characters" / "mascot" / "character.json"
 REFERENCE_3D = BASE / "characters" / "mascot" / "3d_reference.jpg"
+REFERENCE_3D_CLEAN = BASE / "characters" / "mascot" / "3d_reference_clean.jpg"
 MASCOT_3D_SPEC = BASE / "configs" / "mascot_3d_spec.json"
 
 GEMINI_API_KEY = os.environ.get("GEMINI_IMAGE_API_KEY", "") or os.environ.get("GEMINI_API_KEY", "")
@@ -346,16 +366,100 @@ def generate_mascot_assets(episode: dict, output_dir: Path) -> dict:
     return results
 
 
+def generate_seedance_turnaround(episode: dict, output_dir: Path) -> dict:
+    """Generate Seedance mascot turnaround card (EP09 workflow).
+
+    每集必須生成（即使穿預設圍裙也不可跳過）。
+    以 3d_reference_clean.jpg 為 ref，生成多角度+多表情定裝照。
+    """
+    if not GEMINI_API_KEY:
+        log("Error: GEMINI_API_KEY not set")
+        return {"success": False, "error": "GEMINI_API_KEY not set"}
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    out_path = output_dir / "mascot_turnaround.png"
+    if out_path.exists():
+        log(f"Turnaround exists: {out_path.name}")
+        return {"success": True, "path": str(out_path)}
+
+    strategy = episode.get("mascot_strategy", {})
+    outfit_key = strategy.get("outfit", "apron")
+    character = load_character()
+    outfit = character.get("outfit", {}).get("options", {}).get(outfit_key, {})
+    outfit_fragment = outfit.get("prompt_fragment",
+                                 "wearing sage green apron with small white bowl-leaf icon on chest")
+    prop = strategy.get("prop", "")
+
+    prompt = f"""Using the reference image as EXACT identity reference, generate a character turnaround sheet.
+
+Character: 小靜 (Taiwanese leopard cat mascot)
+Style: 3D smooth matte plastic toy (Pop Mart / Sonny Angel quality)
+
+Outfit for this episode: {outfit_fragment}
+"""
+    if prop:
+        prompt += f"Prop: holding a tiny {prop} (simplified 3D toy style)\n"
+
+    prompt += """
+Layout (single 3:2 horizontal composite image, clean white background):
+Left side (~50% width): four full-body views in a 2x2 grid:
+  1) Front view, neutral standing pose
+  2) 3/4 left view, slight wave with one paw
+  3) Side profile view (90 degrees), standing naturally
+  4) 3/4 back view (showing back of head, ear spots, tail, apron ties)
+
+Right side (~50% width): 2x3 grid of six BUST SHOTS (head + shoulders + upper chest visible, NOT just floating heads):
+  1) Front face — default neutral smile
+  2) 3/4 angle — happy / excited, big smile, slightly squinted eyes
+  3) Front face — surprised, mouth open O shape, wide eyes
+  4) 3/4 angle — thinking, one paw on chin, slight head tilt
+  5) Front face — reminder, serious but gentle, slight frown
+  6) Front face — goodbye, one paw waving near shoulder, warm gentle smile
+
+MUST match reference exactly: warm yellow-brown body, round dark spots (NOT stripes),
+two white forehead stripes, black ears with white back spots, cream belly,
+smooth matte plastic material, soft shadows.
+
+Quality: clean studio render, consistent lighting across all panels, white background.
+NO text, NO labels, NO watermarks, NO extra characters."""
+
+    # Attach 3d_reference_clean.jpg
+    ref_path = REFERENCE_3D_CLEAN if REFERENCE_3D_CLEAN.exists() else REFERENCE_3D
+    contents_parts = []
+    if ref_path.exists():
+        ref_b64 = base64.b64encode(ref_path.read_bytes()).decode()
+        mime = "image/png" if str(ref_path).endswith(".png") else "image/jpeg"
+        contents_parts.append({"text": "Use this as the EXACT identity reference:"})
+        contents_parts.append({"inlineData": {"mimeType": mime, "data": ref_b64}})
+    contents_parts.append({"text": prompt})
+
+    log(f"Generating Seedance turnaround (outfit={outfit_key})...")
+    img_bytes = _call_gemini_image(prompt, IMAGE_MODEL, contents_parts)
+    if img_bytes:
+        out_path.write_bytes(img_bytes)
+        log(f"Saved: {out_path.name} ({len(img_bytes) // 1024} KB)")
+        return {"success": True, "path": str(out_path)}
+    else:
+        log("FAILED: mascot turnaround generation")
+        return {"success": False, "error": "generation failed"}
+
+
 def main():
     import argparse
     parser = argparse.ArgumentParser(description="Generate 3D mascot assets")
     parser.add_argument("episode", help="episode JSON path")
     parser.add_argument("--output-dir", "-o", required=True, help="output directory")
+    parser.add_argument("--mode", default="card", choices=["card", "turnaround"],
+                        help="card=管線A透明背景, turnaround=管線B Seedance定裝照")
     args = parser.parse_args()
 
     ep = json.loads(Path(args.episode).read_text(encoding="utf-8"))
     output_dir = Path(args.output_dir)
-    results = generate_mascot_assets(ep, output_dir)
+
+    if args.mode == "turnaround":
+        results = generate_seedance_turnaround(ep, output_dir)
+    else:
+        results = generate_mascot_assets(ep, output_dir)
 
     print(json.dumps(results, ensure_ascii=False, indent=2))
     sys.exit(0 if results["success"] else 1)

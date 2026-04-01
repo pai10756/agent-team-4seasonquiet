@@ -332,7 +332,7 @@ def build_ass(subtitles: list[dict], total_duration: float) -> str:
 # ── Standard 組裝（片頭 + Part1 + Part2 + 片尾） ─────────
 
 def assemble_standard(episode: dict, asset_dir: Path, out_dir: Path) -> Path:
-    """接合 title + seedance_part1 + seedance_part2 + endcard。"""
+    """接合 title + seedance_part1 + seedance_part2 + endcard（舊版，含 TTS）。"""
     ffmpeg_exe = get_ffmpeg_exe()
 
     part1 = asset_dir / "seedance_part1.mp4"
@@ -349,6 +349,129 @@ def assemble_standard(episode: dict, asset_dir: Path, out_dir: Path) -> Path:
         segments.append(endcard)
 
     return _concat_and_subtitle(episode, segments, out_dir, ffmpeg_exe, asset_dir)
+
+
+def build_seedance_ass(subtitles: list[dict], total_duration: float) -> str:
+    """Build ASS subtitle file for Seedance pipeline B.
+
+    規格：白色字黑色描邊、字體略大、畫面下半部中間位置。
+    不含浮水印（Seedance 影片自帶品牌收尾）。
+    不含 TITLE_DURATION offset（無片頭卡）。
+    """
+    lines = [
+        "[Script Info]",
+        f"PlayResX: {WIDTH}",
+        f"PlayResY: {HEIGHT}",
+        "ScriptType: v4.00+",
+        "",
+        "[V4+ Styles]",
+        "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, "
+        "OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, "
+        "ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, "
+        "Alignment, MarginL, MarginR, MarginV, Encoding",
+        # 字幕樣式：白字黑描邊、粗體、字體略大(56)、下半部中間(Alignment=2, MarginV=280)
+        "Style: SeedanceSub,Microsoft JhengHei,56,&H00FFFFFF,&H000000FF,"
+        "&H00000000,&H80000000,1,0,0,0,100,100,2,0,1,5,1,2,30,30,280,1",
+    ]
+
+    lines += [
+        "", "[Events]",
+        "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
+    ]
+
+    for sub in subtitles:
+        start = to_ass_time(sub["start"])
+        end = to_ass_time(sub["end"])
+        lines.append(f"Dialogue: 0,{start},{end},SeedanceSub,,0,0,0,,{sub['text']}")
+
+    return "\n".join(lines)
+
+
+def assemble_seedance(episode: dict, asset_dir: Path, out_dir: Path) -> Path:
+    """Seedance 管線 B 組裝（EP09 成熟版）。
+
+    只做 Part1 + Part2 concat → ASS 字幕燒入。
+    不用 TTS（Seedance 內建配音），不用片頭/片尾卡。
+    """
+    ffmpeg_exe = get_ffmpeg_exe()
+
+    part1 = asset_dir / "seedance_part1.mp4"
+    part2 = asset_dir / "seedance_part2.mp4"
+    if not part1.exists() or not part2.exists():
+        log(f"缺少 Seedance 影片: Part1={part1.exists()}, Part2={part2.exists()}")
+        sys.exit(1)
+
+    with tempfile.TemporaryDirectory(prefix="4sq_seedance_") as tmpdir:
+        tmp = Path(tmpdir)
+
+        # 統一格式
+        normalized = []
+        for i, seg in enumerate([part1, part2]):
+            dst = tmp / f"seg_{i:02d}.mp4"
+            shutil.copy2(str(seg), str(dst))
+            norm = tmp / f"norm_{i:02d}.mp4"
+            run_ffmpeg([
+                ffmpeg_exe, "-y", "-i", to_ffmpeg_path(dst),
+                "-c:v", "libx264", "-preset", "medium", "-crf", "18",
+                "-c:a", "aac", "-b:a", "128k", "-ar", "44100", "-ac", "2",
+                "-r", str(FPS), "-s", f"{WIDTH}x{HEIGHT}",
+                "-pix_fmt", "yuv420p",
+                to_ffmpeg_path(norm),
+            ], f"統一格式 Part{i + 1}")
+            normalized.append(norm)
+
+        # concat
+        concat_file = tmp / "concat.txt"
+        concat_file.write_text(
+            "\n".join(f"file '{to_ffmpeg_path(n)}'" for n in normalized),
+            encoding="utf-8",
+        )
+        concat_out = tmp / "concat.mp4"
+        run_ffmpeg([
+            ffmpeg_exe, "-y",
+            "-f", "concat", "-safe", "0",
+            "-i", to_ffmpeg_path(concat_file),
+            "-c", "copy",
+            to_ffmpeg_path(concat_out),
+        ], "接合 Part1 + Part2")
+
+        # 計算總時長
+        from moviepy import VideoFileClip
+        with VideoFileClip(str(concat_out)) as clip:
+            total_duration = clip.duration
+        log(f"接合完成: {total_duration:.1f}s")
+
+        # ASS 字幕（白字黑描邊，畫面下半部中間，無 TTS offset）
+        subtitles = episode.get("subtitles", [])
+        ass_content = build_seedance_ass(subtitles, total_duration)
+        ass_file = tmp / "subs.ass"
+        ass_file.write_text(ass_content, encoding="utf-8-sig")
+        ass_escaped = to_ffmpeg_path(ass_file).replace(":", "\\:")
+
+        vf = f"ass='{ass_escaped}'"
+
+        ep_num = episode.get("episode", 0)
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+        final_name = f"ep{ep_num:02d}_seedance_{ts}.mp4"
+        final_tmp = tmp / final_name
+
+        run_ffmpeg([
+            ffmpeg_exe, "-y",
+            "-i", to_ffmpeg_path(concat_out),
+            "-vf", vf,
+            "-c:v", "libx264", "-preset", "medium", "-crf", "15",
+            "-c:a", "copy",
+            to_ffmpeg_path(final_tmp),
+        ], "字幕燒入")
+
+        final_dir = out_dir / "final"
+        final_dir.mkdir(parents=True, exist_ok=True)
+        final_path = final_dir / final_name
+        shutil.copy2(str(final_tmp), str(final_path))
+
+    size_mb = final_path.stat().st_size / 1024 / 1024
+    log(f"完成: {final_path} ({size_mb:.1f}MB, {total_duration:.1f}s)")
+    return final_path
 
 
 # ── Ranking 組裝（片頭 + 圖卡 slideshow + TTS + 片尾） ──
@@ -656,8 +779,8 @@ def _concat_and_subtitle(episode: dict, segments: list[Path],
 # ── 主流程 ──────────────────────────────────────────────
 
 ASSEMBLERS = {
-    "standard": assemble_standard,
-    "hybrid": assemble_standard,  # hybrid 跟 standard 一樣接合 Seedance 段落
+    "standard": assemble_seedance,     # EP09 成熟版：concat + ASS 字幕，無 TTS
+    "hybrid": assemble_seedance,
     "ranking": assemble_ranking,
     "quick_cut": assemble_quick_cut,
 }
@@ -667,7 +790,7 @@ ASSEMBLERS_V3 = {
     "ranking": assemble_card_scenes,
     "quick_cut": assemble_card_scenes,
     "hybrid": assemble_card_scenes,    # card scenes for non-seedance part
-    "standard": assemble_standard,     # standard still uses Seedance
+    "standard": assemble_seedance,     # EP09 成熟版：concat + ASS 字幕，無 TTS
 }
 
 

@@ -1,0 +1,98 @@
+{
+  "_meta": {
+    "episode": "EP53",
+    "title": "喝茶與長壽",
+    "genre": "Lifestyle/Social",
+    "mode": "I2V（角色参考图 + 场景参考图）",
+    "aspect": "9:16",
+    "style_anchor": "暖调功夫茶纪录片质感",
+    "notes": [
+      "遵循 Seedance v5.0 Director's Formula：Subject + Action + Scene + Camera + Style",
+      "I2V 模式：不重复描述参考图中已有的角色外观（低盘发、米白针织毛衣等）",
+      "对白走 TTS 音轨（@Audio1），不写进视频 prompt",
+      "每段 ≤15 秒、prompt ≤200 中文字",
+      "One-Move Rule：每段仅一个主要镜头运动",
+      "6 个片段独立生成，后期 CapCut/剪映拼接"
+    ]
+  },
+
+  "clip_01_hook": {
+    "duration": "4s",
+    "scene_role": "hook",
+    "prompt": "@Image1 角色锁定。@Image2 场景参考。她坐在木质茶盘前，双手捧起小陶瓷茶杯缓缓凑近下巴，嘴角浮现好奇的微笑，目光直视镜头。紫砂壶壶嘴轻飘热气。缓推，中景推至中近景。暖色晨光，浅景深，茶席木纹清晰。9:16竖屏。",
+    "refs": {
+      "@Image1（必须）": "characters/ep53_tea_host/character_turnaround_v6.png",
+      "@Image2（场景）": "test_output/seedance_tea_longevity/scene01_hook.jpg",
+      "@Audio1（可选）": "TTS 音档：「每天喝茶，真的能让你变年轻？柳叶刀的研究说：是真的。」"
+    }
+  },
+
+  "clip_02_data": {
+    "duration": "6s",
+    "scene_role": "flip",
+    "prompt": "@Image1 角色锁定。@Image2 场景参考。她放下茶杯，右手掌心朝上做讲解手势，身体微微前倾，表情从轻松转为认真。左手自然搭在茶盘边缘。固定中近景，浅景深柔化背景茶具。暖侧光打亮脸部轮廓。9:16竖屏。",
+    "refs": {
+      "@Image1（必须）": "characters/ep53_tea_host/character_turnaround_v6.png",
+      "@Image2（场景）": "test_output/seedance_tea_longevity/scene02_flip_data.jpg",
+      "@Audio1（可选）": "TTS 音档：「2024年统合分析，汇整38项研究…全因死亡风险降低10%…亚洲人心血管降低25%」"
+    }
+  },
+
+  "clip_03_compare": {
+    "duration": "7s",
+    "scene_role": "compare",
+    "prompt": "@Image1 角色锁定。@Image2 场景参考。她拿起一杯金绿色茶，表情转为惊讶，右手食指依次点向桌上一排三个茶杯——少、刚好、太多。手指从左滑到右，节奏清晰。缓推，从她的表情推至三杯特写，再缓拉回中景。暖色调，茶汤反光。9:16竖屏。",
+    "refs": {
+      "@Image1（必须）": "characters/ep53_tea_host/character_turnaround_v6.png",
+      "@Image2（场景）": "test_output/seedance_tea_longevity/scene03_compare_cups.jpg",
+      "@Audio1（可选）": "TTS 音档：「日本追踪研究…每天2-3杯绿茶…失智风险降低44%…超过4杯反而没效果」"
+    }
+  },
+
+  "clip_04_exercise": {
+    "duration": "7s",
+    "scene_role": "evidence",
+    "prompt": "@Image1 角色锁定。@Image2 场景参考。她从茶桌旁站起身，一手持茶杯，另一手握拳做出轻松的慢跑姿势，表情生动强调。站立后重心微微左右晃动，充满活力。跟拍中景，随她站起缓缓上升。自然窗光，木地板温暖色调。9:16竖屏。",
+    "refs": {
+      "@Image1（必须）": "characters/ep53_tea_host/character_turnaround_v6.png",
+      "@Image2（场景）": "test_output/seedance_tea_longevity/scene04_evidence_exercise.jpg",
+      "@Audio1（可选）": "TTS 音档：「喝茶的抗癌效果，只在有运动习惯的人身上才显著…茶+运动才是长寿组合」",
+      "前片截帧（建议）": "clip_03 最后一帧，辅助跨片段一致性"
+    }
+  },
+
+  "clip_05_reminder": {
+    "duration": "6s",
+    "scene_role": "reminder",
+    "prompt": "@Image1 角色锁定。@Image2 场景参考。她重新坐下，从紫砂壶缓慢倒茶入杯，金绿色茶汤细流清晰可见，杯中泛起轻微涟漪。表情认真温柔，偶尔抬眼看镜头。缓推特写倒茶动作，浅景深。暖色调，壶身陶土质感。9:16竖屏。",
+    "refs": {
+      "@Image1（必须）": "characters/ep53_tea_host/character_turnaround_v6.png",
+      "@Image2（场景）": "test_output/seedance_tea_longevity/scene05_reminder.jpg",
+      "@Audio1（可选）": "TTS 音档：「温度别太烫…别空腹喝浓茶…吃饭时不要配茶」"
+    }
+  },
+
+  "clip_06_closing": {
+    "duration": "5s",
+    "scene_role": "closing",
+    "prompt": "@Image1 角色锁定。@Image2 场景参考。她双手捧杯，微微向镜头举杯致意，温暖真诚的微笑，眼角微弯。定格两秒后轻轻点头。固定中近景，金色逆光在发丝边缘形成柔和光晕。暖色调渐暖，画面缓慢微亮。9:16竖屏。",
+    "refs": {
+      "@Image1（必须）": "characters/ep53_tea_host/character_turnaround_v6.png",
+      "@Image2（场景）": "test_output/seedance_tea_longevity/scene06_closing.jpg",
+      "@Audio1（可选）": "TTS 音档：「每天2-3杯，温温的喝…这里是时时静好，我是小静，下次见。」"
+    }
+  },
+
+  "workflow": {
+    "生成顺序": [
+      "1. 上传 @Image1（turnaround_v6）做角色锁定 — 所有片段共用",
+      "2. 按 clip_01 → clip_06 顺序生成",
+      "3. 每个片段上传对应 @Image2（场景参考图）",
+      "4. clip_04 起，建议额外上传前一片段最后一帧做跨片段一致性",
+      "5. 如有 TTS 音档，上传为 @Audio1 启用口型同步（MP3 格式，≤15s）",
+      "6. 每片段生成 3-5 次，挑最佳 take"
+    ],
+    "拼接": "CapCut/剪映 → 6 片段顺序拼接 → 叠加 TTS + BGM → 最终 ~35s Shorts",
+    "face_reference": "characters/ep53_tea_host/face_reference.jpg — 备用臉部鎖定，角色漂移严重时额外上传"
+  }
+}

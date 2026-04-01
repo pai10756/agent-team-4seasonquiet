@@ -4,6 +4,7 @@
   "render_mode": "3d_exact_reference",
   "reference_images": {
     "character": "characters/mascot/3d_reference.jpg",
+    "character_clean": "characters/mascot/3d_reference_clean.jpg",
     "main_card_example": "characters/mascot/3d_main_card_reference.jpg"
   },
 
@@ -92,12 +93,22 @@
     "allow_duplicate": false
   },
 
-  "generation_rules": [
+  "generation_rules_pipeline_a": [
     "MUST use reference_images.character as exact reference for every generation",
     "MUST generate mascot on transparent background, separate from scene",
     "MUST NOT generate mascot together with background in single prompt",
     "MUST NOT add any text, watermark, or logo to mascot image",
     "Mascot scale relative to hero object: small (mascot is sidekick, not star)",
     "Mascot NEVER obscures hero object or headline text"
+  ],
+
+  "generation_rules_pipeline_b_seedance": [
+    "每集必須生成 mascot_turnaround.png（即使穿預設圍裙也不可跳過）",
+    "MUST use reference_images.character_clean (3d_reference_clean.jpg) 為 ref 生成 turnaround",
+    "Turnaround 含多角度（正面/3⁄4/側面/背面）+ 多表情",
+    "turnaround 上傳即夢作為小靜 identity lock",
+    "結尾場景另用 Gemini 生成人物+小靜同框圖作為構圖參考",
+    "結尾互動僅限輕撫頭頂，禁止比愛心/OK 等複雜手勢（Seedance 會變形）",
+    "小靜固定在 Part2 最後一段蹦跳出場 + 品牌收尾"
   ]
 }

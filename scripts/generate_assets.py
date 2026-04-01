@@ -892,46 +892,107 @@ def generate_ranking_cards(episode: dict, asset_dir: Path) -> list[dict]:
     return results
 
 
-def generate_seedance_videos(episode: dict, asset_dir: Path) -> list[dict]:
-    """Generate Seedance videos for standard/hybrid types."""
-    prompts = episode.get("seedance_prompts", {})
-    if not prompts:
+def generate_seedance_scene_images(episode: dict, asset_dir: Path) -> list[dict]:
+    """Generate Seedance scene reference images using Gemini (EP09 workflow).
+
+    讀取 episode.json 中的 seedance_scenes[] 定義，用 Gemini 以
+    character_turnaround 和/或 mascot_turnaround 為 ref 生成場景圖。
+
+    EP09 成熟版流程：
+    - live_scene01~05: 人物場景圖（ref = character_turnaround）
+    - live_scene06_mascot: 人物+小靜同框（ref = character_turnaround + mascot_turnaround）
+    """
+    scenes = episode.get("seedance_scenes", [])
+    if not scenes:
         return []
 
+    char_ref = asset_dir / "character_turnaround.png"
+    mascot_ref = asset_dir / "mascot_turnaround.png"
+    if not mascot_ref.exists():
+        mascot_ref = BASE / "characters" / "mascot" / "3d_reference_clean.jpg"
+
     results = []
-    for part_key in ("seedance_part1", "seedance_part2"):
-        prompt = prompts.get(part_key, "")
+    for scene in scenes:
+        scene_id = scene.get("id", "unknown")
+        out_path = asset_dir / f"live_scene{scene_id}.png"
+        if out_path.exists():
+            results.append({"scene_id": scene_id, "path": str(out_path), "success": True})
+            continue
+
+        prompt = scene.get("prompt", "")
         if not prompt:
             continue
 
-        part_num = 1 if "part1" in part_key else 2
-        out_path = asset_dir / f"seedance_part{part_num}.mp4"
+        refs = []
+        if char_ref.exists():
+            refs.append(char_ref)
+        if scene.get("include_mascot") and mascot_ref.exists():
+            refs.append(mascot_ref)
 
-        if out_path.exists():
-            results.append({"part": part_num, "path": str(out_path), "success": True})
-            continue
+        log(f"Generating scene {scene_id} ({len(refs)} refs)...")
+        img_bytes = call_gemini_image_with_refs(prompt, refs)
+        if img_bytes:
+            out_path.write_bytes(img_bytes)
+            log(f"  Saved: {out_path.name} ({len(img_bytes) // 1024} KB)")
+            results.append({"scene_id": scene_id, "path": str(out_path), "success": True})
+        else:
+            log(f"  FAILED: scene {scene_id}")
+            results.append({"scene_id": scene_id, "path": None, "success": False})
 
-        images = []
-        for scene in episode.get("scene_images", []):
-            if scene.get("part") == part_num:
-                img_path = asset_dir / f"scene_{scene['id']}.jpg"
-                if img_path.exists():
-                    images.append(str(img_path))
-
-        card_path = asset_dir / "character_card.jpg"
-        if card_path.exists():
-            images.append(str(card_path))
-
-        log(f"Submitting Seedance Part{part_num} ({len(images)} images)...")
-        result = generate_seedance_video(prompt, images, str(out_path))
-        results.append({
-            "part": part_num,
-            "path": str(out_path) if result["success"] else None,
-            "success": result["success"],
-            "error": result.get("error"),
-        })
+        time.sleep(3)
 
     return results
+
+
+def call_gemini_image_with_refs(prompt: str, ref_paths: list[Path],
+                                 model: str = None, max_retries: int = 3) -> bytes | None:
+    """Call Gemini image generation with reference images (EP09 pattern)."""
+    model = model or IMAGE_MODEL
+    url = (
+        f"https://generativelanguage.googleapis.com/v1beta/models/"
+        f"{model}:generateContent?key={GEMINI_API_KEY}"
+    )
+    parts = []
+    for ref in ref_paths:
+        if ref.exists():
+            b64 = __import__("base64").b64encode(ref.read_bytes()).decode()
+            mime = "image/png" if str(ref).endswith(".png") else "image/jpeg"
+            parts.append({"inline_data": {"mime_type": mime, "data": b64}})
+    parts.append({"text": prompt})
+
+    payload = json.dumps({
+        "contents": [{"parts": parts}],
+        "generationConfig": {"responseModalities": ["IMAGE"]},
+    }).encode()
+
+    for attempt in range(max_retries):
+        try:
+            req = urllib.request.Request(
+                url, data=payload,
+                headers={"Content-Type": "application/json"},
+                method="POST",
+            )
+            with urllib.request.urlopen(req, timeout=180) as resp:
+                data = json.loads(resp.read())
+            for part in data.get("candidates", [{}])[0].get("content", {}).get("parts", []):
+                if "inlineData" in part:
+                    img_bytes = base64.b64decode(part["inlineData"]["data"])
+                    if len(img_bytes) > 10 * 1024:
+                        return img_bytes
+                    log(f"  Image too small, retrying...")
+            log(f"  No image in response ({model}, attempt {attempt + 1})")
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", errors="ignore")[:300]
+            log(f"  HTTP {e.code} ({model}, attempt {attempt + 1}): {body}")
+            if e.code in (503, 429) and model == IMAGE_MODEL_PRIMARY:
+                return call_gemini_image_with_refs(prompt, ref_paths, IMAGE_MODEL_FALLBACK, max_retries)
+        except Exception as e:
+            log(f"  Error ({model}, attempt {attempt + 1}): {e}")
+            if attempt == max_retries - 1 and model == IMAGE_MODEL_PRIMARY:
+                return call_gemini_image_with_refs(prompt, ref_paths, IMAGE_MODEL_FALLBACK, max_retries)
+        if attempt < max_retries - 1:
+            time.sleep(3 * (attempt + 1))
+    return None
 
 
 # ══════════════════════════════════════════════════════════
@@ -973,21 +1034,15 @@ def generate_all_assets(episode: dict, asset_dir: Path) -> dict:
         scene_results = generate_legacy_scene_images(episode, asset_dir)
         results["scene_images"] = scene_results
 
-    # Type-specific assets
-    if ep_type in ("standard", "hybrid"):
-        if check_api_health():
-            log("[Seedance] Generating videos...")
-            seedance_results = generate_seedance_videos(episode, asset_dir)
-            results["seedance"] = seedance_results
-            if seedance_results and not all(r["success"] for r in seedance_results):
-                log("Seedance failed, falling back to quick_cut")
-                results["fallback_note"] = "Seedance API error, fell back to quick_cut"
-                results["type"] = "quick_cut"
-        else:
-            log("Seedance API unavailable, falling back to quick_cut")
-            results["seedance"] = []
-            results["fallback_note"] = "Seedance API unavailable"
-            results["type"] = "quick_cut"
+    # Type-specific assets: Seedance scene reference images
+    if ep_type in ("standard", "hybrid") and episode.get("seedance_scenes"):
+        log("[Seedance] Generating scene reference images...")
+        scene_results = generate_seedance_scene_images(episode, asset_dir)
+        results["seedance_scenes"] = scene_results
+        if scene_results and not all(r["success"] for r in scene_results):
+            failed = [r["scene_id"] for r in scene_results if not r["success"]]
+            log(f"Warning: Failed Seedance scenes: {failed}")
+        # NOTE: 影片生成由即夢平台手動提交，此處只生成場景參考圖
 
     if ep_type in ("ranking", "hybrid"):
         log("[Ranking] Generating cards + TTS...")

@@ -1,0 +1,369 @@
+{
+  "series": "時時靜好｜健康新知",
+  "episode": 53,
+  "topic_id": 53,
+  "type": "standard",
+  "type_rationale": "「喝茶能讓你變年輕」結合柳葉刀生物老化研究 + 近200萬人統合分析 + 日本失智研究，數據密度高、敘事層次清晰，適合標準 Seedance 動態影片。以「逐層揭露」方式製造情緒高潮：先用生物老化研究 hook → 200萬人數據翻轉 → 失智數據加碼 → 運動提醒收尾。",
+  "topic_title": "每天喝茶能讓你變年輕？柳葉刀研究說是真的",
+
+  "core_claim": "多項大規模研究顯示，每天喝2-3杯茶可降低10%全因死亡風險、減緩生物性老化，並降低44%失智風險。但最新研究也發現：喝茶的抗癌效果只在有運動習慣的人身上顯著，不運動光喝茶等於白喝。茶是好東西，但不是萬靈丹。",
+  "single_takeaway": "每天2-3杯茶加上運動，才是長壽的最佳組合。",
+  "audience_promise": "看完你會知道喝茶到底有多少科學根據，以及怎樣喝才真的有效。",
+
+  "visual_style_token": "STYLE_SHIZHI_3D_POSTER_V1",
+
+  "hook_text": "喝茶變年輕？柳葉刀說是真的",
+  "hook_variants": [
+    {
+      "level": "unaware",
+      "text": "你每天喝的茶，可能正在幫你「逆齡」",
+      "rationale": "針對習慣喝茶但不知道有科學根據的觀眾，用逆齡概念吸引注意。"
+    },
+    {
+      "level": "problem_aware",
+      "text": "喝茶真的能長壽嗎？200萬人研究給答案",
+      "rationale": "針對聽過喝茶養生但半信半疑的觀眾，用大型研究數據建立可信度。"
+    },
+    {
+      "level": "solution_aware",
+      "text": "每天2杯剛好，喝太多反而沒效？",
+      "rationale": "針對已在喝茶的觀眾，用反直覺的劑量效應吸引點擊。"
+    },
+    {
+      "level": "audience",
+      "text": "長輩泡茶不只是習慣，是真的在養生",
+      "rationale": "直接肯定長輩受眾的日常習慣，引發情感共鳴。"
+    }
+  ],
+
+  "character": "茶姐姐——一位約25歲的知性女性，穿著米白色寬鬆針織毛衣，在溫暖的木質茶席前，手捧一杯清茶，用溫和且自信的語氣分享喝茶與長壽的最新科學發現。韓系自然妝感，氣質乾淨清爽。",
+
+  "research_sources": [
+    {
+      "citation": "Kim Y, Je Y. Epidemiology and Health 2024;46:e2024056 — 38個前瞻性世代研究統合分析，1,956,549人",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11573487/",
+      "key_finding": "每天喝約2杯茶可降低10%全因死亡風險（HR 0.90）、14%心血管死亡風險（HR 0.86）。亞洲人群心血管保護效果最強，降低達25%（HR 0.75）。"
+    },
+    {
+      "citation": "Xiang Y et al., The Lancet Regional Health — Western Pacific 2024;42:100955 — 中國7,931人＋英國5,998人雙隊列",
+      "url": "https://www.thelancet.com/journals/lanwpc/article/PIIS2666-6065(23)00273-0/fulltext",
+      "key_finding": "每天約3杯茶（6-8g茶葉）可減緩生物性老化速度，中英兩國隊列均觀察到一致結果。持續飲茶者效果最顯著，中途才開始喝的效果較弱。"
+    },
+    {
+      "citation": "Koreki A et al., Journal of Alzheimer's Disease 2025;103(2):519-527 — 日本JPHC Saku研究，1,155人",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39772974/",
+      "key_finding": "中年時期每天喝2-3杯綠茶，可降低44%認知退化風險（OR 0.56）。男性效果更佳，降低達62%（OR 0.38）。但喝4杯以上反而無顯著效果。"
+    },
+    {
+      "citation": "Hu Y et al., Scientific Reports 2024;14:23535 — 美國NHANES隊列，21,350人",
+      "url": "https://www.nature.com/articles/s41598-024-73962-z",
+      "key_finding": "喝茶＋運動的組合死亡率最低。茶的抗癌保護效果只在有運動習慣的人身上顯著，不運動光喝茶對癌症死亡率無明顯幫助。"
+    },
+    {
+      "citation": "Romelli M et al., Cancer Causes & Control 2025;36(11):1463-1475 — 26項研究統合分析，40,000+癌症患者",
+      "url": "https://link.springer.com/article/10.1007/s10552-025-02033-z",
+      "key_finding": "癌症患者中，喝茶者的癌症惡化風險降低36%（SHR 0.64），對大腸癌（降25%）和乳癌保護效果最顯著。"
+    }
+  ],
+
+  "mascot_strategy": {
+    "presence": "both",
+    "opening_expression": "happy",
+    "opening_pose": "hug_object_side",
+    "closing_expression": "goodbye",
+    "outfit": "apron",
+    "prop": "tiny tea cup",
+    "render_mode": "3d_exact_reference",
+    "scale_vs_object": "small",
+    "allow_extra_mascot": false,
+    "allow_logo_mascot": false
+  },
+
+  "scenes": [
+    {
+      "scene_id": "01",
+      "scene_role": "hook",
+      "scene_goal": "用「喝茶能變年輕」的驚人研究結果抓住注意力，製造好奇心。",
+      "visual_type": "poster_cover",
+      "on_screen_text_main": "喝茶變年輕？",
+      "on_screen_text_sub": "柳葉刀研究說：是真的",
+      "hero_object": "A beautiful ceramic tea cup with clear golden-green tea, steam rising gently, placed on a warm wooden tea tray with scattered dried tea leaves, dramatic warm side lighting creating a golden glow",
+      "hero_object_priority": "primary",
+      "background_scene": "warm traditional tea room interior, soft morning light from paper screen window, cream and sage color palette, natural wood tones, blurred background with tea set",
+      "mascot_presence": true,
+      "mascot_count": 1,
+      "mascot_expression": "happy",
+      "mascot_pose": "hug_object_side",
+      "mascot_interaction_mode": "小靜站在茶杯旁邊，開心地抱著茶杯，表情愉快溫暖",
+      "badge_text": "2024\n柳葉刀研究",
+      "do_not_include": ["正面人臉", "品牌logo", "英文文字"],
+      "time_range": "0-3s",
+      "animation": "slow_push_in"
+    },
+    {
+      "scene_id": "02",
+      "scene_role": "flip",
+      "scene_goal": "用200萬人統合分析數據建立可信度，展示每天2杯茶降低10%死亡風險的核心數據。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "每天 2 杯茶，死亡風險 -10%",
+      "on_screen_text_sub": "200 萬人、38 項研究的結論",
+      "hero_object": "Clean infographic showing two groups: Left side: a simple figure icon with '不喝茶' label in gray. Right side: a figure icon with a tea cup, glowing in sage green, with a large bold '-10%' text and a downward arrow. Below both: a sage green bar showing '1,956,549 人｜38 項研究' in Chinese. Below that: a highlight callout '亞洲人心血管保護 -25%' in warm brown. Modern clean infographic style.",
+      "hero_object_priority": "primary",
+      "background_scene": "clean cream background with subtle paper texture, sage green accent elements",
+      "mascot_presence": false,
+      "mascot_count": 0,
+      "source_badge_text": "Epidemiology and Health 2024｜38項世代研究統合分析",
+      "do_not_include": ["人臉", "小靜", "英文文字"],
+      "time_range": "3-9s",
+      "animation": "slide_in"
+    },
+    {
+      "scene_id": "03",
+      "scene_role": "compare",
+      "scene_goal": "用失智風險數據製造第二波衝擊：喝茶不只延壽，還保護大腦。同時帶出「2-3杯最好，4杯以上沒效」的反直覺發現。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "綠茶 2-3 杯：失智風險 -44%",
+      "on_screen_text_sub": "喝超過 4 杯反而沒效？",
+      "hero_object": "A clean dose-response chart: Three zones from left to right. Zone 1 (1 cup): small green tea cup icon, text '效果有限' in gray. Zone 2 (2-3 cups): medium tea cups icon, highlighted in sage green with golden glow, large bold '-44%' with downward arrow, text '最佳區間' in sage green. Zone 3 (4+ cups): many tea cup icons, text '效果消失' in gray with flat line. Below: brown text '男性效果更強：-62%'. Clean modern infographic, warm cream background.",
+      "hero_object_priority": "primary",
+      "background_scene": "clean cream background with subtle grid lines, warm scientific infographic style",
+      "mascot_presence": false,
+      "mascot_count": 0,
+      "source_badge_text": "《阿茲海默症期刊》2025｜日本 JPHC 世代研究",
+      "do_not_include": ["人臉", "小靜", "英文文字"],
+      "time_range": "9-16s",
+      "animation": "slight_drift"
+    },
+    {
+      "scene_id": "04",
+      "scene_role": "evidence",
+      "scene_goal": "揭示「喝茶＋運動才有效」的關鍵發現，打破「光喝茶就能防癌」的迷思，製造第三波衝擊。",
+      "visual_type": "evidence_card",
+      "on_screen_text_main": "不運動光喝茶 = 白喝？",
+      "on_screen_text_sub": "茶的抗癌效果只在運動者身上顯著",
+      "hero_object": "A 2x2 grid comparison. Top-left: tea cup icon + running shoe icon = golden shield with checkmark, text '喝茶＋運動：最低死亡率'. Top-right: tea cup icon alone = gray shield with question mark, text '只喝茶：抗癌效果不明顯'. Bottom: a large bold text '茶 × 運動 ＝ 最佳組合' in sage green on a cream rounded badge. Clean, bold, modern infographic.",
+      "hero_object_priority": "primary",
+      "background_scene": "clean minimalist background, cream base with subtle warm gradient, energetic but not busy",
+      "mascot_presence": false,
+      "mascot_count": 0,
+      "source_badge_text": "Scientific Reports 2024｜美國 NHANES 21,350 人",
+      "do_not_include": ["人臉", "小靜", "英文文字"],
+      "time_range": "16-23s",
+      "animation": "badge_fade_in"
+    },
+    {
+      "scene_id": "05",
+      "scene_role": "reminder",
+      "scene_goal": "安全提醒：避免觀眾過度解讀，提出溫度、空腹、配藥等注意事項。",
+      "visual_type": "safety_reminder",
+      "on_screen_text_main": "喝對才有效",
+      "on_screen_text_sub": "溫度、時機、搭配都有學問",
+      "hero_object": "A serene tea ceremony scene: a ceramic teapot pouring warm tea into a handmade tea cup on a natural wood tea tray. Beside the cup: a small bamboo tea strainer, a few fresh tea leaves. Warm golden morning light. The tea temperature is visibly comfortable (no intense steam). A small ceramic dish with light snacks nearby. Everything looks artisanal, natural, peaceful. Shot with Sony A7IV, 50mm f/1.8, shallow depth of field, warm color grading.",
+      "hero_object_priority": "primary",
+      "background_scene": "warm morning tea corner with natural light, wooden surface, green plant in soft bokeh background, cream and sage color palette, gentle reassuring mood",
+      "mascot_presence": false,
+      "mascot_count": 0,
+      "do_not_include": ["人臉", "小靜", "醫療器材", "英文文字"],
+      "time_range": "23-29s",
+      "animation": "simple_cut"
+    },
+    {
+      "scene_id": "06",
+      "scene_role": "closing",
+      "scene_goal": "品牌收尾，小靜溫馨道別，強化品牌記憶。",
+      "visual_type": "brand_closing",
+      "on_screen_text_main": "時時靜好",
+      "on_screen_text_sub": "我是小靜，我們下次見！",
+      "hero_object": "",
+      "background_scene": "soft warm tea room scene with morning light, a ceramic tea cup and teapot in soft focus background, cream and sage color palette, peaceful and warm atmosphere",
+      "mascot_presence": true,
+      "mascot_count": 1,
+      "mascot_expression": "goodbye",
+      "mascot_pose": "greet_viewer",
+      "mascot_interaction_mode": "小靜坐在一把小茶壺上面，一隻手揮手跟觀眾說再見，另一隻手抱著一個小茶杯，表情溫暖開心。茶壺是寫實風格的紫砂壺，小靜坐在壺蓋上雙腳自然垂下。",
+      "do_not_include": ["多隻小靜", "品牌浮水印", "英文文字"],
+      "time_range": "29-33s",
+      "animation": "mascot_wave"
+    }
+  ],
+
+  "seedance_prompts": {
+    "seedance_part1": "电影级短片，温暖知性风格，9:16竖屏。全域规格：warm暖色温，自然晨光+木质茶席，传统功夫茶氛围。[00:00-00:04] 一位23-26岁的东亚女性坐在木质茶盘前，深巧克力棕色头发低盘发、碎发修饰脸型，穿着米白色V领宽松麻花针织毛衣，双手捧着一个小陶瓷茶杯凑近下巴，带着好奇神秘的微笑看向镜头说：「每天喝茶，真的能让你变年轻？柳叶刀的研究说：是真的。」镜头从中景缓慢推近，紫砂壶冒着热气。[00:04-00:10] 她放下茶杯，一只手掌心朝上做讲解手势，身体微微前倾，表情认真说：「二零二四年一篇统合分析，汇整了三十八项研究、将近两百万人的数据。结论是每天喝大约两杯茶，全因死亡风险降低百分之十。如果你是亚洲人，心血管保护效果更强，降低百分之二十五。」镜头特写她认真的表情和手势。[00:10-00:17] 她拿起一杯金绿色的茶，表情转为惊讶，用一根手指指着桌上排成一排的三个茶杯说：「更让人意外的是，日本一项追踪研究发现，中年时期每天喝两到三杯绿茶的人，失智风险降低了百分之四十四。男性效果更明显，降低百分之六十二。但有趣的是，喝超过四杯反而没有效果。不是越多越好。」镜头缓推至茶杯特写再拉回她的表情。禁止：任何文字、字幕、LOGO或水印。",
+    "seedance_part2": "电影级短片，温暖知性风格，9:16竖屏。全域规格同上。同上一部短片女性角色（低盘发、米白针织毛衣）。[00:00-00:07] 她从茶桌旁站起身，一手拿着茶杯，另一只手握拳做出轻松的运动姿势，表情强调且生动说：「但最让我惊讶的发现是——喝茶的抗癌效果，只在有运动习惯的人身上才显著。不运动光喝茶，对癌症死亡率没有明显帮助。茶加上运动，才是真正的长寿组合。」镜头中景，动态感。[00:07-00:13] 她重新坐下，优雅地从紫砂壶倒茶入杯，动作缓慢小心，表情认真温柔说：「不过也要提醒，喝对才有效。第一，温度别太烫，超过六十五度反而增加食道癌风险。第二，别空腹喝浓茶，容易茶醉。第三，吃饭时不要配茶，会影响铁质吸收。」镜头推近倒茶动作，金绿色茶汤流线清晰。[00:13-00:18] 她双手捧起一杯温度刚好的茶，微微向镜头举杯致意，温暖真诚的微笑，眼角微弯说：「每天两到三杯，温温的喝，配上运动习惯，就是最简单的养生之道。这里是时时静好，我是小静，我们下次见。」镜头定格温暖画面，金色逆光在发丝边缘形成光晕。禁止：任何文字、字幕、LOGO或水印。"
+  },
+
+  "voiceover": {
+    "engine": "elevenlabs",
+    "model": "eleven_multilingual_v2",
+    "voice_settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.3,
+      "speed": 0.95
+    },
+    "segments": [
+      {
+        "id": 1,
+        "part": "hook",
+        "text": "每天喝茶，真的能讓你變年輕？柳葉刀的研究說：是真的。"
+      },
+      {
+        "id": 2,
+        "part": "flip",
+        "text": "2024年一篇統合分析，彙整了三十八項研究、將近兩百萬人的數據。結論是每天喝大約兩杯茶，全因死亡風險降低百分之十。如果你是亞洲人，心血管保護效果更強，降低百分之二十五。"
+      },
+      {
+        "id": 3,
+        "part": "compare",
+        "text": "更讓人意外的是，日本一項追蹤研究發現，中年時期每天喝兩到三杯綠茶的人，失智風險降低了百分之四十四。男性效果更明顯，降低百分之六十二。但有趣的是，喝超過四杯反而沒有效果。不是越多越好。"
+      },
+      {
+        "id": 4,
+        "part": "evidence",
+        "text": "但最讓我驚訝的發現是——喝茶的抗癌效果，只在有運動習慣的人身上才顯著。不運動光喝茶，對癌症死亡率沒有明顯幫助。茶加上運動，才是真正的長壽組合。"
+      },
+      {
+        "id": 5,
+        "part": "reminder",
+        "text": "不過也要提醒，喝對才有效。第一，溫度別太燙，超過六十五度反而增加食道癌風險。第二，別空腹喝濃茶，容易茶醉。第三，吃飯時不要配茶，會影響鐵質吸收。"
+      },
+      {
+        "id": 6,
+        "part": "closing",
+        "text": "每天兩到三杯，溫溫的喝，配上運動習慣，就是最簡單的養生之道。這裡是時時靜好，我是小靜，我們下次見。"
+      }
+    ]
+  },
+
+  "subtitles": [
+    {
+      "text": "喝茶能變年輕？",
+      "start": 0.0,
+      "end": 2.0,
+      "style": "main"
+    },
+    {
+      "text": "柳葉刀研究說是真的",
+      "start": 2.0,
+      "end": 3.5,
+      "style": "main"
+    },
+    {
+      "text": "38項研究",
+      "start": 3.5,
+      "end": 5.0,
+      "style": "data"
+    },
+    {
+      "text": "近200萬人數據",
+      "start": 5.0,
+      "end": 6.5,
+      "style": "data"
+    },
+    {
+      "text": "每天2杯茶",
+      "start": 6.5,
+      "end": 8.0,
+      "style": "main"
+    },
+    {
+      "text": "死亡風險降10%",
+      "start": 8.0,
+      "end": 9.5,
+      "style": "data"
+    },
+    {
+      "text": "綠茶2-3杯",
+      "start": 9.5,
+      "end": 11.0,
+      "style": "main"
+    },
+    {
+      "text": "失智風險降44%",
+      "start": 11.0,
+      "end": 13.0,
+      "style": "data"
+    },
+    {
+      "text": "男性更強：降62%",
+      "start": 13.0,
+      "end": 14.5,
+      "style": "data"
+    },
+    {
+      "text": "喝超過4杯沒效",
+      "start": 14.5,
+      "end": 16.0,
+      "style": "main"
+    },
+    {
+      "text": "不運動光喝茶=白喝",
+      "start": 16.0,
+      "end": 18.0,
+      "style": "main"
+    },
+    {
+      "text": "茶×運動＝長壽組合",
+      "start": 18.0,
+      "end": 20.0,
+      "style": "main"
+    },
+    {
+      "text": "抗癌效果要配運動",
+      "start": 20.0,
+      "end": 22.0,
+      "style": "main"
+    },
+    {
+      "text": "別喝超過65度的茶",
+      "start": 22.5,
+      "end": 24.5,
+      "style": "main"
+    },
+    {
+      "text": "空腹別喝濃茶",
+      "start": 24.5,
+      "end": 26.0,
+      "style": "main"
+    },
+    {
+      "text": "吃飯時不要配茶",
+      "start": 26.0,
+      "end": 28.0,
+      "style": "main"
+    },
+    {
+      "text": "時時靜好",
+      "start": 29.0,
+      "end": 30.5,
+      "style": "main"
+    },
+    {
+      "text": "我們下次見！",
+      "start": 30.5,
+      "end": 33.0,
+      "style": "main"
+    }
+  ],
+
+  "sound": "茶水倒入杯中的輕柔聲、茶壺蓋打開的清脆聲、木質茶盤上放置杯子的聲音",
+  "music": "東方禪意配樂，古琴為主搭配輕柔竹笛，節奏舒緩溫暖，帶有清晨露水的清新感",
+
+  "youtube_metadata": {
+    "title": "喝茶能變年輕？柳葉刀說是真的！每天2杯降死亡10%｜但不運動等於白喝｜時時靜好",
+    "description": "你每天喝的茶，可能正在幫你「逆齡」！最新研究帶你看喝茶與長壽的科學真相。\n\n本集四大發現：\n❶ 2024統合分析（38項研究、近200萬人）：每天2杯茶 → 全因死亡風險降10%，亞洲人心血管保護更強（降25%）\n❷ 柳葉刀子刊2024研究（中英雙隊列）：每天3杯茶可減緩生物性老化速度\n❸ 日本JPHC 2025研究：每天2-3杯綠茶 → 失智風險降44%，男性降62%。但喝4杯以上反而無效\n❹ NHANES 2024研究（21,350人）：茶的抗癌效果只在有運動習慣的人身上顯著\n\n重要提醒：\n• 溫度別超過65°C，WHO已列為食道癌風險因子\n• 空腹別喝濃茶，容易「茶醉」\n• 吃飯時不要配茶，影響鐵質吸收\n• 服藥期間請諮詢醫師\n• 以上皆為觀察性研究，非因果關係\n\n研究來源：\n• Kim Y & Je Y, Epidemiology and Health 2024 — 38項世代研究統合分析\n• Xiang Y et al., Lancet Regional Health WP 2024 — 茶與生物老化\n• Koreki A et al., J Alzheimer's Dis 2025 — 綠茶與失智\n• Hu Y et al., Scientific Reports 2024 — 茶＋運動\n• Romelli M et al., Cancer Causes & Control 2025 — 茶與癌症存活\n\n覺得有用？分享給愛喝茶的家人朋友！\n留言告訴我，你最常喝什麼茶？\n\n#喝茶 #長壽 #綠茶 #失智預防 #抗老化 #養生 #運動 #柳葉刀 #健康飲食 #時時靜好 #Shorts",
+    "hashtags": [
+      "#喝茶",
+      "#長壽",
+      "#綠茶",
+      "#失智預防",
+      "#抗老化",
+      "#養生",
+      "#運動",
+      "#柳葉刀",
+      "#健康飲食",
+      "#時時靜好",
+      "#Shorts"
+    ]
+  }
+}
