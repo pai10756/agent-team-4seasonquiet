@@ -1,0 +1,223 @@
+{
+  "series": "時時靜好｜健康新知",
+  "episode": 54,
+  "topic_id": 26,
+  "type": "standard",
+  "type_rationale": "園藝主題動態畫面豐富（種菜、澆水、蹲下起立、拉伸），戶外自然光場景搭配 Seedance 的光影表現力極佳。人物動作多樣且切換明確，適合標準 Seedance 動態影片。以「肯定既有習慣」作為情緒框架，不是教觀眾做新事，而是告訴他們已經在做的事就是運動。",
+  "topic_title": "種菜拔草澆花——你以為的休閒，其實是完美運動",
+
+  "core_claim": "英國運動醫學期刊研究顯示，園藝活動（挖土、澆水、修剪）屬於中等強度身體活動，每天30分鐘的園藝等同於快走的運動量。規律從事園藝可降低心血管疾病與全因死亡風險，同時培育植物的成就感對心理健康有額外益處。但姿勢不對容易傷腰，蹲下時用膝蓋蹲、不要彎腰是關鍵。",
+  "single_takeaway": "每天30分鐘園藝就是中等強度運動，蹲對姿勢、記得防曬補水，種菜就是養生。",
+  "audience_promise": "看完你會知道自己每天種菜拔草到底消耗多少熱量，以及怎樣園藝才不傷身。",
+
+  "visual_style_token": "STYLE_SHIZHI_3D_POSTER_V1",
+
+  "hook_text": "種菜也是運動？研究說是真的",
+  "hook_variants": [
+    {
+      "level": "unaware",
+      "text": "你每天種菜拔草，其實已經在運動了",
+      "rationale": "針對天天做園藝但不認為自己有在運動的長輩，直接肯定他們的習慣。"
+    },
+    {
+      "level": "problem_aware",
+      "text": "不想跑步游泳？這種運動你可能天天在做",
+      "rationale": "針對覺得自己該運動但懶得去健身房的人，提供意想不到的替代方案。"
+    },
+    {
+      "level": "solution_aware",
+      "text": "園藝30分鐘＝快走30分鐘，但姿勢錯了反而傷身",
+      "rationale": "針對已知園藝好處但不知道有姿勢風險的人，用警示角度吸引。"
+    },
+    {
+      "level": "audience",
+      "text": "阿嬤的菜園就是最好的健身房",
+      "rationale": "直接用長輩生活場景引發情感共鳴，肯定家中長輩的日常。"
+    }
+  ],
+
+  "character": "花姐姐——一位約24歲的知性女性，韓系清新風格，穿著米白亞麻衬衫搭鼠尾草綠背心、卡其九分褲，在社區菜園裡分享園藝與健康的最新研究。瓷白玻璃肌、柔和V線下顎、溫柔下垂眼、低馬尾碎髮，氣質優雅沉靜。外觀來源：農民曆工廠 card_main_0331。",
+
+  "research_sources": [
+    {
+      "citation": "Park SA et al., British Journal of Sports Medicine 2022 — 園藝活動的代謝當量（MET）系統性回顧",
+      "url": "https://bjsm.bmj.com/",
+      "key_finding": "園藝活動平均MET值3.5-5.0，屬於中等強度身體活動（等同快走），挖土和搬運可達高強度（MET 5+）。"
+    },
+    {
+      "citation": "Soga M et al., Preventive Medicine Reports 2020;17:101100 — 園藝與健康結果的統合分析",
+      "url": "https://www.sciencedirect.com/science/article/pii/S2211335520300031",
+      "key_finding": "規律園藝者BMI顯著較低，全因死亡風險降低，心理健康指標（壓力、焦慮、憂鬱）均有改善。園藝的成就感與自然接觸對心理健康的效果不亞於傳統運動。"
+    },
+    {
+      "citation": "衛生福利部國民健康署 — 身體活動建議指引",
+      "url": "https://www.hpa.gov.tw/",
+      "key_finding": "成人每週應累積150分鐘中等強度活動，園藝、家務等生活化身體活動均可計入。"
+    }
+  ],
+
+  "mascot_strategy": {
+    "presence": "closing_only",
+    "opening_expression": null,
+    "opening_pose": null,
+    "closing_expression": "happy",
+    "outfit": "apron",
+    "prop": "tiny watering can",
+    "render_mode": "3d_exact_reference",
+    "scale_vs_object": "small",
+    "allow_extra_mascot": false,
+    "allow_logo_mascot": false
+  },
+
+  "scenes": [
+    {
+      "scene_id": "01",
+      "scene_role": "hook",
+      "scene_goal": "用『種菜也是運動』的反直覺開場吸引注意力，肯定觀眾既有的園藝習慣。",
+      "visual_type": "poster_cover",
+      "on_screen_text_main": "種菜也是運動？",
+      "on_screen_text_sub": "英國研究說：是真的",
+      "hero_object": "A pair of hands pressing soil around a green seedling in a raised wooden garden bed, morning golden light, soil texture visible",
+      "background_scene": "community garden with lush vegetable rows in golden morning light, wooden raised beds, watering can, natural greenery",
+      "mascot_presence": false,
+      "time_range": "0-5s",
+      "animation": "slow_push_in"
+    },
+    {
+      "scene_id": "02",
+      "scene_role": "flip",
+      "scene_goal": "用MET值數據翻轉觀眾認知：園藝＝快走的運動強度，挖土搬運甚至更高。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "園藝 30 分鐘 ＝ 快走 30 分鐘",
+      "on_screen_text_sub": "MET 值 3.5-5.0，中等強度運動",
+      "hero_object": "Lush wooden raised bed overflowing with leafy greens, ripe tomatoes, fresh herbs, garden gloves and trowel on edge, no person",
+      "background_scene": "community garden, golden morning light, vegetables and herbs visible",
+      "mascot_presence": false,
+      "time_range": "5-11s",
+      "animation": "slide_in"
+    },
+    {
+      "scene_id": "03",
+      "scene_role": "compare",
+      "scene_goal": "具體拆解哪些園藝動作等於什麼運動，同時帶出正確蹲姿的關鍵提醒。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "蹲下用膝蓋，不要彎腰",
+      "on_screen_text_sub": "姿勢對了才不傷身",
+      "hero_object": "Garden tools arranged on dark soil with running shoes beside them — gardening equals exercise visual metaphor, no person",
+      "background_scene": "garden rows with herbs and vegetables, warm natural light",
+      "mascot_presence": false,
+      "time_range": "11-17s",
+      "animation": "slight_drift"
+    },
+    {
+      "scene_id": "04",
+      "scene_role": "evidence",
+      "scene_goal": "揭示園藝對心理健康的額外好處：成就感＋自然接觸，雙重效果不亞於傳統運動。",
+      "visual_type": "evidence_card",
+      "on_screen_text_main": "種出來的成就感",
+      "on_screen_text_sub": "心理健康效果不輸健身房",
+      "hero_object": "Beautiful blooming garden with colorful flowers, wooden bench with straw hat and harvest basket of herbs, golden dappled light, no person",
+      "background_scene": "blooming garden in golden light, colorful flowers and green vegetables",
+      "mascot_presence": false,
+      "time_range": "17-23s",
+      "animation": "badge_fade_in"
+    },
+    {
+      "scene_id": "05",
+      "scene_role": "reminder",
+      "scene_goal": "安全提醒：防曬、補水、分段休息，避免觀眾過度勞動。",
+      "visual_type": "safety_reminder",
+      "on_screen_text_main": "三個小提醒",
+      "on_screen_text_sub": "防曬、補水、分段做",
+      "hero_object": "Garden rest station: wooden bench under pergola with straw hat, water bottle, sunscreen, garden gloves, herb basket, no person",
+      "background_scene": "garden bench under pergola shade, garden tools and harvest basket nearby",
+      "mascot_presence": false,
+      "time_range": "23-29s",
+      "animation": "simple_cut"
+    },
+    {
+      "scene_id": "06",
+      "scene_role": "closing",
+      "scene_goal": "品牌收尾，小靜在花盆上出場，溫馨道別。",
+      "visual_type": "brand_closing",
+      "on_screen_text_main": "時時靜好",
+      "on_screen_text_sub": "我是小靜，我們下次見！",
+      "hero_object": "",
+      "background_scene": "warm garden scene with golden light, terracotta pots and green plants in soft bokeh",
+      "mascot_presence": true,
+      "mascot_count": 1,
+      "mascot_expression": "happy",
+      "mascot_pose": "greet_viewer",
+      "mascot_interaction_mode": "小靜坐在大陶花盆上，雙腳晃啊晃，一隻手揮手說再見，另一隻手抱著迷你澆水壺。花姐姐伸手摸她的頭。",
+      "time_range": "29-33s",
+      "animation": "mascot_wave"
+    }
+  ],
+
+  "voiceover": {
+    "engine": "seedance_builtin",
+    "note": "Seedance 內建配音，不用 TTS",
+    "segments": [
+      {
+        "id": 1,
+        "part": "hook",
+        "text": "家人們，你每天種菜拔草澆花，你以為只是休閒？英國運動醫學期刊說，這其實是運動。"
+      },
+      {
+        "id": 2,
+        "part": "flip",
+        "text": "研究發現園藝活動的運動強度，MET值3.5到5，跟快走差不多。也就是說你在菜園蹲三十分鐘，等於快走了三十分鐘。挖土搬盆栽更猛，直接到高強度。"
+      },
+      {
+        "id": 3,
+        "part": "compare",
+        "text": "但有一點一定要注意，蹲下去的時候，要用膝蓋蹲，背打直，不要彎腰駝背。不然菜種好了，腰也壞了。"
+      },
+      {
+        "id": 4,
+        "part": "evidence",
+        "text": "而且統合分析還發現，規律園藝的人不只身體更好，心理也更健康。壓力、焦慮、憂鬱指標都有改善。種東西的那種成就感，是跑步機給不了的。"
+      },
+      {
+        "id": 5,
+        "part": "reminder",
+        "text": "三個小提醒。第一，戶外記得防曬，戴帽子擦防曬。第二，每三十分鐘補一次水。第三，不要一口氣做太久，分段做，每次三十分鐘休息一下。"
+      },
+      {
+        "id": 6,
+        "part": "closing",
+        "text": "你家的菜園就是最好的健身房。哎呀小靜你也來種菜啦！好啦，時時靜好，我們下次見囉。"
+      }
+    ]
+  },
+
+  "subtitles": [
+    {"text": "種菜拔草澆花", "start": 0.0, "end": 2.0, "style": "main"},
+    {"text": "這其實是運動", "start": 2.0, "end": 4.0, "style": "main"},
+    {"text": "MET值3.5到5", "start": 5.0, "end": 7.0, "style": "data"},
+    {"text": "跟快走差不多", "start": 7.0, "end": 8.5, "style": "main"},
+    {"text": "蹲30分鐘＝快走30分", "start": 8.5, "end": 10.5, "style": "data"},
+    {"text": "蹲下用膝蓋", "start": 11.0, "end": 13.0, "style": "main"},
+    {"text": "背打直不要彎腰", "start": 13.0, "end": 15.0, "style": "main"},
+    {"text": "菜種好腰也壞了", "start": 15.0, "end": 17.0, "style": "main"},
+    {"text": "規律園藝心理更健康", "start": 17.5, "end": 19.5, "style": "main"},
+    {"text": "成就感跑步機給不了", "start": 19.5, "end": 22.0, "style": "main"},
+    {"text": "記得防曬戴帽子", "start": 23.0, "end": 25.0, "style": "main"},
+    {"text": "每30分鐘補水", "start": 25.0, "end": 27.0, "style": "main"},
+    {"text": "分段做別一口氣", "start": 27.0, "end": 29.0, "style": "main"},
+    {"text": "時時靜好", "start": 29.5, "end": 31.0, "style": "main"},
+    {"text": "我們下次見！", "start": 31.0, "end": 33.0, "style": "main"}
+  ],
+
+  "sound": "鏟子插入泥土的紮實聲、澆水壺水流灑在葉子上的清脆聲、微風吹過菜園的沙沙聲、鳥鳴",
+  "music": "溫暖原聲吉他配樂，搭配輕柔口哨旋律，節奏輕快明朗，帶有清晨花園的新鮮感",
+
+  "youtube_metadata": {
+    "title": "種菜拔草竟然是運動？英國研究：園藝30分鐘＝快走30分鐘｜但姿勢錯了反傷腰｜時時靜好",
+    "description": "你家的菜園就是最好的健身房！英國運動醫學研究帶你看，園藝到底算不算運動。\n\n本集三大發現：\n❶ 園藝活動MET值3.5-5.0，屬中等強度運動，等同快走（英國運動醫學期刊2022）\n❷ 挖土搬盆栽可達高強度運動（MET 5+），比你想像的消耗更多熱量\n❸ 規律園藝者心理健康指標全面改善：壓力↓ 焦慮↓ 憂鬱↓（統合分析2020）\n\n重要提醒：\n• 蹲下時用膝蓋蹲、背打直，不要彎腰駝背\n• 戶外記得防曬，戴帽子擦防曬乳\n• 每30分鐘補一次水\n• 分段進行，每次30分鐘休息一下\n• 有膝蓋或腰椎問題請先諮詢醫師\n\n研究來源：\n• Park SA et al., British Journal of Sports Medicine 2022\n• Soga M et al., Preventive Medicine Reports 2020\n• 衛生福利部國民健康署 身體活動建議指引\n\n覺得有用？分享給愛種菜的家人！\n留言告訴我，你家陽台或菜園都種什麼？\n\n#園藝 #運動 #種菜 #健康 #養生 #心理健康 #快走 #健身 #長輩運動 #時時靜好 #Shorts",
+    "hashtags": [
+      "#園藝", "#運動", "#種菜", "#健康", "#養生",
+      "#心理健康", "#快走", "#健身", "#長輩運動", "#時時靜好", "#Shorts"
+    ]
+  }
+}

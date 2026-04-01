@@ -1,0 +1,89 @@
+{
+  "character_id": "garden_host_ep54",
+  "character_name": "花姐姐",
+  "character_name_en": "Garden Host",
+  "origin": "農民曆工廠 card_main_0331.jpg 人像外觀，園藝戶外版",
+  "role": "EP54 園藝也是運動 — 真人主持人角色（Seedance 影片用）",
+  "version": "1.0",
+
+  "appearance": {
+    "ethnicity": "East Asian female",
+    "age_range": "23-25",
+    "face": {
+      "shape": "gentle square jaw with soft V-line contour, high cheekbones, small delicate chin",
+      "skin": "flawless porcelain-clear complexion, dewy luminous glass skin, no blemishes, no freckles",
+      "eyes": "gentle downturned monolid-to-subtle-double-eyelid eyes, dark brown iris, soft feminine gaze",
+      "brows": "straight fluffy textured brows, natural and groomed",
+      "nose": "high straight bridge, refined small tip, delicate nostrils",
+      "lips": "subtle natural pout, soft gradient pink lips (inner pink fading outward), petite mouth",
+      "expression_default": "serene, elegant, quietly confident"
+    },
+    "hair": {
+      "length": "long, past shoulders",
+      "style": "low ponytail with soft face-framing wispy strands, practical for outdoor work",
+      "color": "dark black-brown, silky smooth",
+      "texture": "straight to slightly wavy"
+    },
+    "makeup": {
+      "base": "Korean glass-skin base, dewy luminous, barely-there",
+      "cheeks": "soft peach blush, barely visible",
+      "lips": "gradient glossy lips, inner pink fading outward",
+      "eyes": "clean bare eyelids, zero eyeshadow, no false lashes",
+      "overall": "Korean editorial natural — serene, clean, effortless"
+    }
+  },
+
+  "wardrobe": {
+    "ep54_primary": {
+      "description": "Cream linen button-up shirt, sleeves rolled to elbows, over sage green cotton tank top",
+      "color_outer": "natural cream linen (#F0E8D8)",
+      "color_inner": "muted sage green (#A8B88A), matches brand palette",
+      "bottoms": "khaki wide-leg cropped pants, comfortable garden-ready",
+      "accessories": "woven straw sun hat (carried or worn loosely), simple leather-strap wristwatch",
+      "footwear": "canvas slip-on garden shoes, cream/natural color",
+      "fit": "relaxed, comfortable, ready-to-garden practical style"
+    }
+  },
+
+  "pose_library": {
+    "kneeling_planting": {
+      "description": "Kneeling on garden soil, both hands in dirt, planting a seedling, looking up at camera with satisfied smile",
+      "use_for": "hook / opening scene"
+    },
+    "standing_watering": {
+      "description": "Standing with watering can, pouring water over plants, relaxed posture, one hand on hip",
+      "use_for": "flip / data scene"
+    },
+    "squatting_pruning": {
+      "description": "Proper squat posture (knees bent, back straight), pruning herbs with small scissors, focused expression",
+      "use_for": "evidence / technique scene"
+    },
+    "stretching_garden": {
+      "description": "Standing up from garden work, stretching arms overhead, relieved happy expression, garden behind her",
+      "use_for": "comparison / exercise equivalence scene"
+    },
+    "holding_harvest": {
+      "description": "Holding a small basket of fresh herbs and vegetables at waist level, proud warm smile toward camera",
+      "use_for": "closing / farewell scene"
+    }
+  },
+
+  "seedance_character_prompt": {
+    "en": "Beautiful Korean-style East Asian female, age 23-25. Gentle square jaw with soft V-line contour, high cheekbones, small delicate chin. Gentle downturned eyes, subtle double eyelids, dark brown iris. Straight fluffy textured brows. High straight nose bridge, refined small tip. Subtle natural pout, soft gradient pink lips. Flawless porcelain-clear complexion, dewy luminous glass skin. Long straight dark black-brown hair in low ponytail with face-framing wispy strands. Korean glass-skin makeup, soft peach blush, gradient glossy lips, bare eyelids. Wearing cream linen button-up shirt sleeves rolled to elbows over sage green cotton tank top, khaki wide-leg cropped pants. No logos, no loud prints.",
+    "zh_cn": "韩系清新风格的东亚成年女性，23-25岁。柔和方下颌V线轮廓，高颧骨，小巧下巴。温柔下垂眼，微双眼皮，深棕色虹膜。平直蓬松自然眉。高挺鼻梁，精致鼻尖。自然微嘟嘴，渐变粉色唇。无瑕瓷白水润玻璃肌，无雀斑。长直深黑棕发扎低马尾，脸两侧有碎发。韩系玻璃肌妆容，淡桃色腮红，渐变水润唇，素眼皮。穿米白亚麻衬衫袖卷至肘，内搭鼠尾草绿背心，卡其阔腿九分裤。无标志无花哨图案。"
+  },
+
+  "scene_styling_notes": {
+    "lighting": "Natural outdoor golden-hour sunlight, warm and directional, dappled tree shadow patterns on ground",
+    "color_grading": "Warm earthy tones, golden-green palette, slight film grain — natural outdoor documentary feel",
+    "background_mood": "Community garden / rooftop garden / home balcony garden, lush green plants, soil textures, natural wood raised beds",
+    "camera": "Medium to medium close-up, shallow DOF with green bokeh, handheld slight movement for documentary feel",
+    "negative": "no cartoon, no anime, no plastic skin, no studio lighting, no indoor scenes (except closing), no harsh shadows, no neon colors, no cluttered props, no text on clothing"
+  },
+
+  "brand_integration": {
+    "palette_alignment": "cream linen shirt (#F0E8D8) + sage green tank (#A8B88A) + warm earth/soil tones = brand-native outdoor version",
+    "mascot_coexistence": "花姐姐 appears in Seedance video scenes; 小靜 appears only in Part2 closing segment. They interact in the garden setting — 小靜 hops onto a flowerpot.",
+    "tone": "Warm, encouraging, down-to-earth — affirming existing gardening habits as real exercise"
+  }
+}

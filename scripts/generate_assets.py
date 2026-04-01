@@ -703,7 +703,7 @@ def generate_all_scene_cards(episode: dict, asset_dir: Path) -> list[dict]:
             "path": str(card_path) if ok else None,
             "success": ok,
         })
-        time.sleep(3)
+        time.sleep(10)  # Gemini image gen: 10-12s interval to avoid 429 on free tier
 
     return results
 
@@ -809,7 +809,7 @@ def generate_legacy_scene_images(episode: dict, asset_dir: Path) -> list[dict]:
             results.append({"id": sid, "path": str(out_path), "success": True})
         else:
             results.append({"id": sid, "path": None, "success": False})
-        time.sleep(2)
+        time.sleep(10)  # Gemini image gen: 10s+ interval to avoid 429
 
     return results
 
@@ -939,7 +939,7 @@ def generate_seedance_scene_images(episode: dict, asset_dir: Path) -> list[dict]
             log(f"  FAILED: scene {scene_id}")
             results.append({"scene_id": scene_id, "path": None, "success": False})
 
-        time.sleep(3)
+        time.sleep(10)  # Gemini image gen: 10s+ interval to avoid 429
 
     return results
 

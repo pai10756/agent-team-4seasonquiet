@@ -352,7 +352,7 @@ def generate_mascot_assets(episode: dict, output_dir: Path) -> dict:
             results["mascot_closing"] = str(endcard_path) if ok else None
             if not ok:
                 results["success"] = False
-            time.sleep(2)
+            time.sleep(10)  # Gemini image gen: 10s+ interval to avoid 429
         else:
             log(f"Closing mascot exists: {endcard_path.name}")
             results["mascot_closing"] = str(endcard_path)

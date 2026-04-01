@@ -1,0 +1,185 @@
+{
+  "series": "時時靜好｜健康新知",
+  "episode": 55,
+  "topic_id": 16,
+  "type": "standard",
+  "type_rationale": "咖啡沖泡/倒杯動態畫面豐富，街頭咖啡攤場景有紀實感，『迷思被推翻』的認知翻轉框架適合 Seedance 的人物表情驅動敘事。",
+  "topic_title": "咖啡讓你脫水？這個迷思早就被推翻了",
+
+  "core_claim": "2014年伯明翰大學 PLOS ONE 研究證實，每天3-4杯咖啡不會導致脫水，其利尿效果在習慣性飲用者中幾乎可忽略。咖啡中的水分完全可以計入每日飲水量。但加糖加奶精會抵消健康益處，下午2點後喝可能影響睡眠。",
+  "single_takeaway": "每天1-3杯黑咖啡不會脫水，正常喝水就好，不用額外補水。",
+  "audience_promise": "看完你會知道咖啡到底會不會脫水，以及怎樣喝咖啡才最健康。",
+
+  "visual_style_token": "STYLE_SHIZHI_3D_POSTER_V1",
+
+  "hook_text": "咖啡讓你脫水？迷思被推翻了",
+  "hook_variants": [
+    {
+      "level": "unaware",
+      "text": "有人說喝咖啡會脫水，所以你不敢喝？",
+      "rationale": "針對被長輩告知咖啡利尿會脫水而減少飲用的人。"
+    },
+    {
+      "level": "problem_aware",
+      "text": "喝一杯咖啡要多喝一杯水？研究說不用",
+      "rationale": "針對聽過『喝咖啡要多補水』說法但半信半疑的人。"
+    },
+    {
+      "level": "solution_aware",
+      "text": "每天3杯黑咖啡，研究說不只安全還有益",
+      "rationale": "針對已在喝咖啡但擔心喝太多的人。"
+    },
+    {
+      "level": "audience",
+      "text": "長輩說咖啡傷身？科學說剛好相反",
+      "rationale": "直接挑戰長輩常見觀念，引發世代對話。"
+    }
+  ],
+
+  "character": "咖啡姐姐——一位約24歲的知性女性，韓系清新風格，穿米白針織開衫配白T恤、淺色牛仔褲，在街頭咖啡攤前手捧一杯黑咖啡分享迷思破解。瓷白玻璃肌、溫柔下垂眼、自然捲波髮。外觀來源：農民曆工廠 card_main_0331。",
+
+  "research_sources": [
+    {
+      "citation": "Killer SC et al., PLOS ONE 2014;9(1):e84154 — 伯明翰大學隨機對照試驗",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0084154",
+      "key_finding": "50名習慣性咖啡飲用者分別喝等量咖啡和水，血液和尿液生化指標無顯著差異，證實適量咖啡（4杯/天）不會導致脫水。"
+    },
+    {
+      "citation": "Zhang Y et al., Nutrients 2022 — 咖啡因與水分平衡系統性回顧",
+      "url": "https://www.mdpi.com/journal/nutrients",
+      "key_finding": "系統性回顧確認咖啡因在習慣性飲用者中的利尿效果可忽略，咖啡中的水分可計入每日飲水量。"
+    },
+    {
+      "citation": "衛生福利部食品藥物管理署 — 咖啡因每日攝取建議",
+      "url": "https://www.fda.gov.tw/",
+      "key_finding": "成人每日咖啡因建議攝取量不超過400mg（約3-4杯黑咖啡）。"
+    }
+  ],
+
+  "mascot_strategy": {
+    "presence": "closing_only",
+    "closing_expression": "happy",
+    "outfit": "apron",
+    "prop": "tiny coffee cup",
+    "render_mode": "3d_exact_reference",
+    "scale_vs_object": "small"
+  },
+
+  "scenes": [
+    {
+      "scene_id": "01",
+      "scene_role": "hook",
+      "scene_goal": "用街頭咖啡攤的生活感開場，拋出『咖啡脫水』迷思吸引注意。",
+      "visual_type": "poster_cover",
+      "on_screen_text_main": "咖啡讓你脫水？",
+      "on_screen_text_sub": "這個迷思被推翻了",
+      "hero_object": "A ceramic coffee cup with black coffee, steam rising, on a wooden coffee cart counter with coffee equipment in warm morning light, no person",
+      "background_scene": "urban street coffee stand, wooden cart, espresso machine, warm morning light, blurred street background",
+      "mascot_presence": false,
+      "time_range": "0-5s"
+    },
+    {
+      "scene_id": "02",
+      "scene_role": "flip",
+      "scene_goal": "用伯明翰大學研究數據翻轉迷思：喝咖啡和喝水的脫水指標沒有差異。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "喝咖啡 vs 喝水",
+      "on_screen_text_sub": "脫水指標零差異",
+      "hero_object": "A white ceramic coffee cup and a clear glass of water placed side by side on a wooden cafe table, warm side lighting, no person",
+      "background_scene": "cafe wooden table surface, warm natural window light, clean minimalist composition",
+      "mascot_presence": false,
+      "time_range": "5-11s"
+    },
+    {
+      "scene_id": "03",
+      "scene_role": "compare",
+      "scene_goal": "解釋為什麼習慣性飲用者利尿效果可忽略，咖啡中的水分可計入每日飲水量。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "咖啡的水也算喝水",
+      "on_screen_text_sub": "利尿效果習慣後幾乎消失",
+      "hero_object": "Three coffee cups arranged in a row showing different brew strengths (light to dark), on a wooden counter with a water pitcher beside them, no person",
+      "background_scene": "cafe counter with coffee equipment, warm ambient light, clean composition",
+      "mascot_presence": false,
+      "time_range": "11-17s"
+    },
+    {
+      "scene_id": "04",
+      "scene_role": "evidence",
+      "scene_goal": "揭示加糖加奶精會抵消好處，黑咖啡才是最佳選擇。",
+      "visual_type": "evidence_card",
+      "on_screen_text_main": "加糖奶精＝白喝？",
+      "on_screen_text_sub": "黑咖啡或加少量鮮奶最好",
+      "hero_object": "Side by side: a clean black coffee in white cup vs a sugary milky latte with cream and caramel drizzle, on a wooden table, no person",
+      "background_scene": "cafe table, warm light, contrast between simple and elaborate drinks",
+      "mascot_presence": false,
+      "time_range": "17-23s"
+    },
+    {
+      "scene_id": "05",
+      "scene_role": "reminder",
+      "scene_goal": "安全提醒：下午2點後避免咖啡因、每日不超過400mg、孕婦減量。",
+      "visual_type": "safety_reminder",
+      "on_screen_text_main": "三個小提醒",
+      "on_screen_text_sub": "時間、量、加什麼都有學問",
+      "hero_object": "A warm coffee cup on a saucer with a small analog clock showing 2:00 PM beside it, and a few coffee beans scattered around, on a wooden surface, no person",
+      "background_scene": "cafe table, afternoon warm light, cozy peaceful atmosphere",
+      "mascot_presence": false,
+      "time_range": "23-29s"
+    },
+    {
+      "scene_id": "06",
+      "scene_role": "closing",
+      "scene_goal": "品牌收尾，小靜在咖啡杯旁出場。",
+      "visual_type": "brand_closing",
+      "on_screen_text_main": "時時靜好",
+      "on_screen_text_sub": "我是小靜，我們下次見！",
+      "hero_object": "",
+      "background_scene": "warm cafe scene with coffee cup in soft bokeh, golden warm light",
+      "mascot_presence": true,
+      "mascot_count": 1,
+      "mascot_expression": "happy",
+      "mascot_interaction_mode": "小靜坐在一個大咖啡杯的杯碟上，雙腳晃啊晃，一隻手抱著迷你咖啡杯，另一隻手揮手說再見。",
+      "time_range": "29-33s"
+    }
+  ],
+
+  "voiceover": {
+    "engine": "seedance_builtin",
+    "segments": [
+      {"id": 1, "part": "hook", "text": "家人們，有人跟你說喝咖啡會脫水，叫你少喝嗎？告訴你，這個說法早就被推翻了。"},
+      {"id": 2, "part": "flip", "text": "二零一四年伯明翰大學做了一個實驗，讓五十個人分別喝咖啡和喝水，然後比較血液和尿液。結果兩組完全沒有差異。咖啡不會讓你比喝水更容易脫水。"},
+      {"id": 3, "part": "compare", "text": "為什麼呢？因為你身體已經習慣咖啡因了，利尿效果幾乎消失。而且咖啡百分之九十八都是水，這些水完全可以算進你每天的飲水量。"},
+      {"id": 4, "part": "evidence", "text": "不過有一個重點，喝黑咖啡才有好處。加糖加奶精的那種，糖分和熱量直接抵消掉健康效果。想加東西的話，加少量鮮奶就好。"},
+      {"id": 5, "part": "reminder", "text": "三個提醒。第一，下午兩點以後盡量不要喝，會影響睡眠。第二，一天不要超過三到四杯，大約四百毫克咖啡因。第三，孕婦和對咖啡因敏感的人要減量。"},
+      {"id": 6, "part": "closing", "text": "所以放心喝你的咖啡吧。哎呀小靜你也想喝一杯嗎？好啦，時時靜好，我們下次見囉。"}
+    ]
+  },
+
+  "subtitles": [
+    {"text": "咖啡會讓你脫水？", "start": 0.0, "end": 2.0, "style": "main"},
+    {"text": "這說法被推翻了", "start": 2.0, "end": 4.0, "style": "main"},
+    {"text": "50人實驗", "start": 5.0, "end": 6.5, "style": "data"},
+    {"text": "喝咖啡vs喝水", "start": 6.5, "end": 8.0, "style": "main"},
+    {"text": "脫水指標零差異", "start": 8.0, "end": 10.0, "style": "data"},
+    {"text": "身體已經習慣咖啡因", "start": 11.0, "end": 13.0, "style": "main"},
+    {"text": "利尿效果幾乎消失", "start": 13.0, "end": 15.0, "style": "main"},
+    {"text": "咖啡98%都是水", "start": 15.0, "end": 17.0, "style": "data"},
+    {"text": "黑咖啡才有好處", "start": 17.5, "end": 19.5, "style": "main"},
+    {"text": "加糖奶精抵消效果", "start": 19.5, "end": 21.5, "style": "main"},
+    {"text": "加少量鮮奶就好", "start": 21.5, "end": 23.0, "style": "main"},
+    {"text": "下午2點後別喝", "start": 23.5, "end": 25.5, "style": "main"},
+    {"text": "一天不超過3-4杯", "start": 25.5, "end": 27.5, "style": "data"},
+    {"text": "孕婦敏感者減量", "start": 27.5, "end": 29.0, "style": "main"},
+    {"text": "時時靜好", "start": 29.5, "end": 31.0, "style": "main"},
+    {"text": "我們下次見！", "start": 31.0, "end": 33.0, "style": "main"}
+  ],
+
+  "sound": "咖啡機萃取的嘶嘶聲、咖啡倒入杯中的液體聲、杯碟輕碰聲、街頭環境音",
+  "music": "輕快爵士吉他配樂，搭配輕柔鋼琴，節奏從容自在，帶有都市咖啡館的悠閒感",
+
+  "youtube_metadata": {
+    "title": "咖啡讓你脫水？研究說不會！每天3杯安全又有益｜但加糖奶精等於白喝｜時時靜好",
+    "description": "有人說喝咖啡會脫水，叫你少喝？這個迷思早就被推翻了！\n\n本集重點：\n❶ 伯明翰大學2014研究：50人喝咖啡vs喝水，脫水指標零差異\n❷ 習慣性飲用者利尿效果幾乎可忽略，咖啡中的水分可計入每日飲水量\n❸ 加糖加奶精會抵消健康益處，黑咖啡或加少量鮮奶最好\n\n提醒：\n• 下午2點後避免咖啡因，影響睡眠\n• 每日不超過400mg咖啡因（約3-4杯）\n• 孕婦和咖啡因敏感者請減量\n\n研究來源：\n• Killer SC et al., PLOS ONE 2014 — 伯明翰大學RCT\n• Zhang Y et al., Nutrients 2022 — 系統性回顧\n• 衛福部食藥署咖啡因攝取建議\n\n#咖啡 #脫水迷思 #健康 #黑咖啡 #養生 #咖啡因 #時時靜好 #Shorts",
+    "hashtags": ["#咖啡", "#脫水迷思", "#健康", "#黑咖啡", "#養生", "#咖啡因", "#時時靜好", "#Shorts"]
+  }
+}

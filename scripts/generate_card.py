@@ -471,7 +471,7 @@ def main():
         # All scenes
         for scene in scenes:
             generate_card(scene, episode, output_dir)
-            time.sleep(5)  # Rate limit
+            time.sleep(10)  # Gemini image gen: 10s+ interval to avoid 429
         log("All cards done!")
     else:
         print("Error: Specify --scene <id> or --all", file=sys.stderr)

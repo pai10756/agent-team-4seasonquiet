@@ -227,7 +227,7 @@ def main():
             log(f"FAILED: {card['name']}")
             results.append((card["name"], None))
 
-        time.sleep(5)
+        time.sleep(10)  # Gemini image gen: 10s+ interval to avoid 429
 
     log("\n" + "=" * 50)
     log("RESULTS:")

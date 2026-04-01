@@ -81,13 +81,20 @@ Style Token: `STYLE_SHIZHI_3D_POSTER_V1`
 
 #### 步驟 2：素材生成（Gemini `gemini-3.1-flash-image-preview`）
 
+**API 限速規則：**
+- 每次圖片生成請求間隔 **至少 10 秒**（免費版有隱性圖片配額限制）
+- 429 錯誤：指數退避 10s → 20s → 30s
+- 503 高需求：等待 20s → 40s → 60s
+- 帶 reference image 請求：壓縮至 ~20KB（800×450, JPEG quality 80）避免超時
+- 不要批次一次送超過 10 張，分批跑
+
 | 產出物 | 說明 |
 |--------|------|
-| `character_turnaround.png` | 角色定裝照（3:2 白底，多角度+多表情），Seedance 人物 identity lock |
-| `face_reference.jpg` | 臉部特寫備用，角色漂移嚴重時額外上傳 |
-| `mascot_turnaround.png` | **每集必生成**，以 `3d_reference_clean.jpg` 為 ref，含當集服裝/多角度+多表情 |
-| `live_scene01~05.png` | 人物場景圖（9:16），含人物，無小靜 |
-| `live_scene06_mascot.jpg` | 結尾場景：人物+小靜同框（互動僅限**輕撫頭頂**，禁止比愛心等手勢） |
+| `character_turnaround.png` | 角色定裝照（3:2 白底，多角度+多表情），Seedance 人物 identity lock，**唯一含人臉的素材** |
+| `face_reference.jpg` | 臉部特寫備用，角色漂移嚴重時額外上傳，**含人臉** |
+| `mascot_turnaround.png` | **每集必生成**，以 `3d_reference_clean.jpg` 為 ref（壓縮後上傳），含當集服裝/多角度+多表情 |
+| `scene01~05.jpg` | 場景環境圖（9:16），**不含人臉、不含人物全身**，僅環境/物件/手部特寫，無小靜 |
+| `live_scene06_mascot.jpg` | 結尾場景：**只有小靜**（以 3d_reference_clean 為 ref），無人物，小靜坐在場景物件上 |
 
 #### 步驟 3：Seedance Prompt 撰寫（songguoxs 格式）
 
@@ -108,12 +115,13 @@ Music：配樂描述
 
 - 2 Parts × 15-18 秒，對白直接寫進 prompt（Seedance 自動配音，不用 TTS）
 - 動作逐句拆解微表情/手勢（說"X"時——動作Y）
+- 場景參考圖為無人臉環境圖，Seedance 根據 turnaround 自動合成人物
 - 小靜固定在 Part2 最後一段蹦跳出場 + 品牌收尾
 
 #### 步驟 4：即夢平台手動提交
 
-Part1 上傳：場景參考圖 + `character_turnaround`
-Part2 上傳：`mascot_turnaround` + 場景參考圖 + `character_turnaround` + `live_scene06_mascot.jpg`
+Part1 上傳：`character_turnaround` + 場景環境圖（無人臉）
+Part2 上傳：`character_turnaround` + `mascot_turnaround` + 場景環境圖（無人臉）+ `live_scene06_mascot.jpg`（小靜構圖參考）
 每段生成 3-5 次，手動挑最佳 take。
 
 #### 步驟 5：後製組裝（Agent 自動）

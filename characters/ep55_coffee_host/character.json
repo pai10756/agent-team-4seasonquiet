@@ -1,0 +1,59 @@
+{
+  "character_id": "coffee_host_ep55",
+  "character_name": "咖啡姐姐",
+  "character_name_en": "Coffee Host",
+  "origin": "農民曆工廠 card_main_0331.jpg 人像外觀，咖啡街頭版",
+  "role": "EP55 咖啡不會讓你脫水 — 真人主持人角色（Seedance 影片用）",
+  "version": "1.0",
+
+  "appearance": {
+    "ethnicity": "East Asian female",
+    "age_range": "23-25",
+    "face": {
+      "shape": "gentle square jaw with soft V-line contour, high cheekbones, small delicate chin",
+      "skin": "flawless porcelain-clear complexion, dewy luminous glass skin, no blemishes, no freckles",
+      "eyes": "gentle downturned monolid-to-subtle-double-eyelid eyes, dark brown iris, soft feminine gaze",
+      "brows": "straight fluffy textured brows, natural and groomed",
+      "nose": "high straight bridge, refined small tip, delicate nostrils",
+      "lips": "subtle natural pout, soft gradient pink lips (inner pink fading outward), petite mouth",
+      "expression_default": "serene, elegant, quietly confident"
+    },
+    "hair": {
+      "length": "long, past shoulders",
+      "style": "loose natural waves, center-parted, casually tucked behind one ear",
+      "color": "dark black-brown, silky smooth",
+      "texture": "straight to slightly wavy, natural movement"
+    },
+    "makeup": {
+      "base": "Korean glass-skin base, dewy luminous",
+      "cheeks": "soft peach blush, barely visible",
+      "lips": "gradient glossy lips, warm rosewood tone",
+      "eyes": "clean bare eyelids, zero eyeshadow, no false lashes",
+      "overall": "Korean editorial natural — serene, clean, effortless"
+    }
+  },
+
+  "wardrobe": {
+    "ep55_primary": {
+      "description": "Cream oversized knit cardigan over white cotton T-shirt, light wash straight jeans",
+      "color_outer": "cream white (#F0E8D8)",
+      "color_inner": "clean white",
+      "bottoms": "light wash denim, relaxed straight fit",
+      "accessories": "small gold hoop earrings, simple leather-strap wristwatch",
+      "fit": "relaxed casual cafe-ready, clean and effortless"
+    }
+  },
+
+  "seedance_character_prompt": {
+    "en": "Beautiful Korean-style East Asian female, age 23-25. Gentle square jaw V-line, high cheekbones, small chin. Gentle downturned eyes, subtle double eyelids, dark brown iris. Straight fluffy brows. High straight nose. Gradient pink lips. Flawless porcelain dewy glass skin. Long dark black-brown hair in loose waves center-parted tucked behind one ear. Korean glass-skin makeup, soft peach blush, gradient glossy lips, bare eyelids. Wearing cream oversized knit cardigan over white T-shirt, light wash straight jeans. Small gold hoop earrings. No logos, no loud prints.",
+    "zh_cn": "韩系清新风格东亚女性，23-25岁。柔和方下颌V线轮廓，高颧骨，小巧下巴。温柔下垂眼，微双眼皮，深棕虹膜。平直蓬松眉。高挺鼻梁。渐变粉唇。无瑕瓷白水润玻璃肌。深黑棕长发自然卷波中分，一侧别在耳后。韩系玻璃肌妆容。穿米白宽松针织开衫内搭白T恤，浅色直筒牛仔裤。小金色圈耳环。"
+  },
+
+  "scene_styling_notes": {
+    "lighting": "Warm natural cafe light mixed with soft window light, slight warm color cast",
+    "color_grading": "Warm amber/brown tones, cafe aesthetic, slight film grain",
+    "background_mood": "Urban cafe / street coffee stand, wooden textures, coffee equipment, warm cozy atmosphere",
+    "camera": "Medium to close-up, shallow DOF, handheld documentary feel",
+    "negative": "no cartoon, no anime, no plastic skin, no harsh lighting, no neon, no cluttered, no text on clothing"
+  }
+}

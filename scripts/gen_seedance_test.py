@@ -198,7 +198,7 @@ def main():
         else:
             log(f"  FAILED: {desc}")
 
-        time.sleep(5)
+        time.sleep(10)  # Gemini image gen: 10s+ interval to avoid 429
 
     log("Done! Check output in: " + str(OUTPUT_DIR))
 
