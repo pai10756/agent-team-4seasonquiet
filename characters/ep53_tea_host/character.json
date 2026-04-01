@@ -1,0 +1,96 @@
+{
+  "character_id": "tea_host_ep53",
+  "character_name": "茶姐姐",
+  "character_name_en": "Tea Host",
+  "origin": "Based on 農民曆工廠 0331 card_main model appearance",
+  "role": "EP53 喝茶與長壽 — 真人主持人角色（Seedance 影片用）",
+  "version": "1.0",
+
+  "appearance": {
+    "ethnicity": "East Asian female",
+    "age_range": "23-26",
+    "face": {
+      "shape": "gentle square jaw, soft contour, delicate bone structure",
+      "skin": "porcelain-clear, dewy glass skin, warm undertone, no blemishes",
+      "eyes": "gentle downturned almond eyes, soft double eyelids, dark brown iris",
+      "brows": "fluffy natural textured brows, slightly arched",
+      "nose": "higher bridge, refined, petite tip",
+      "lips": "subtle pout, soft gradient glossy lips, natural pink-peach tone",
+      "expression_default": "serene, contemplative, quiet confidence"
+    },
+    "hair": {
+      "length": "long, past shoulders",
+      "style": "loose natural waves, center-parted, tucked behind one ear",
+      "color": "dark chocolate brown, natural sheen",
+      "texture": "silky smooth, fine strands visible"
+    },
+    "makeup": {
+      "base": "dewy glass skin, minimal foundation, natural glow",
+      "cheeks": "soft peach blush, barely visible",
+      "lips": "gradient glossy lips, peach-to-rose, no bold color",
+      "eyes": "bare lids with faint warm shimmer, no heavy eye makeup, no false lashes",
+      "overall": "Korean editorial natural — clean, fresh, effortless"
+    }
+  },
+
+  "wardrobe": {
+    "ep53_primary": {
+      "description": "Cream / off-white oversized knit sweater, V-neck or slightly off-shoulder",
+      "color": "cream white (#F5F0E8), matches brand palette",
+      "material": "soft chunky knit, cozy texture visible",
+      "fit": "relaxed, slightly oversized, elegant casual",
+      "accessories": "none or minimal — small gold stud earrings only"
+    },
+    "ep53_alternate": {
+      "description": "Light sage linen blouse, matching brand sage green",
+      "color": "muted sage (#A8B88A)",
+      "material": "soft washed linen, natural texture",
+      "fit": "relaxed, slightly rolled sleeves",
+      "context": "Use if tea scene calls for warmer seasonal look"
+    }
+  },
+
+  "pose_library": {
+    "tea_contemplation": {
+      "description": "Chin resting on interlaced fingers, gazing softly downward-left past camera",
+      "reference": "Matches card_main_0331.jpg pose exactly",
+      "use_for": "hook / opening scene"
+    },
+    "holding_teacup": {
+      "description": "Both hands gently cupping a ceramic tea cup at chest level, slight smile, looking at camera",
+      "use_for": "flip / evidence scene"
+    },
+    "pouring_tea": {
+      "description": "One hand on teapot handle, pouring into cup, focused gaze on tea stream",
+      "use_for": "comparison scene, Seedance motion"
+    },
+    "tea_cheers": {
+      "description": "Raising tea cup slightly toward camera, warm gentle smile, eye contact",
+      "use_for": "closing / brand farewell"
+    },
+    "smelling_tea": {
+      "description": "Cup held near nose with both hands, eyes closed, peaceful expression, inhaling aroma",
+      "use_for": "evidence / sensory scene"
+    }
+  },
+
+  "seedance_character_prompt": {
+    "_doc": "Use this block in all Seedance prompts to maintain character consistency across scenes",
+    "en": "Beautiful adult East Asian female, age 23-26. Gentle square face, downturned almond eyes, fluffy natural brows, higher bridge nose, subtle pout lips. Porcelain-clear dewy skin, warm undertone. Long dark chocolate brown hair in loose natural waves, center-parted. Wearing cream off-white oversized knit sweater. Dewy glass-skin makeup, soft peach blush, gradient glossy lips. Korean editorial natural style. No logos, no loud prints.",
+    "zh_cn": "美丽的东亚成年女性，23-26岁。柔和方脸，下垂杏眼，蓬松自然眉毛，高鼻梁，微嘟嘴唇。瓷白水润肌肤，暖色调。深巧克力棕色长发自然卷，中分。穿着米白色宽松针织毛衣。水光肌妆容，淡桃色腮红，渐变水润唇。韩系自然编辑风格。无标志，无花哨图案。"
+  },
+
+  "scene_styling_notes": {
+    "lighting": "Warm golden-hour soft light, slight haze, cinematic warmth. Side backlight creating rim glow on hair edge.",
+    "color_grading": "Warm cream/amber tone, low saturation, slight film grain — matches 時時靜好 brand palette",
+    "background_mood": "Clean, minimal, warm — wooden textures, natural elements, soft bokeh",
+    "camera": "Medium close-up to close-up, shallow DOF, slight warm vignette",
+    "negative": "no cartoon, no anime, no plastic skin, no airbrushed, no cosplay, no harsh lighting, no neon colors, no cluttered background, no text on clothing, no extra people"
+  },
+
+  "brand_integration": {
+    "palette_alignment": "cream (#F6F1E7) sweater + warm wood props + sage green accents = brand-native",
+    "mascot_coexistence": "茶姐姐 appears in Seedance video scenes; 小靜 appears only in static opening/closing cards. They do NOT appear together in the same frame.",
+    "tone": "Warm, credible, approachable — NOT influencer-flashy, NOT clinical"
+  }
+}
