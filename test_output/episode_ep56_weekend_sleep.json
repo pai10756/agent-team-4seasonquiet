@@ -1,0 +1,216 @@
+{
+  "series": "時時靜好｜健康新知",
+  "episode": 56,
+  "topic_id": 8,
+  "type": "quick_cut",
+  "type_rationale": "週末補眠主題數據密度高（代謝指標、社會時差概念），適合靜態圖卡+文字排版清楚呈現數據對比。比較結構（平日 vs 週末）天然適合 comparison_card。",
+  "topic_title": "週末多睡兩小時，你以為在補眠？其實在亂生理時鐘",
+
+  "core_claim": "2019年《Current Biology》研究顯示，週末補眠無法完全逆轉平日睡眠不足造成的代謝損傷，反而打亂晝夜節律、製造「社會時差」效應。與其週末狂睡，不如每天多睡20-30分鐘，平日和週末起床時間差距不超過1小時。",
+  "single_takeaway": "別靠週末補眠，每天多睡20分鐘比週末賴床2小時更有效。",
+  "audience_promise": "看完你會知道週末補眠為什麼沒用，以及真正有效的補眠方法。",
+
+  "visual_style_token": "STYLE_SHIZHI_3D_POSTER_V1",
+
+  "hook_text": "週末補眠沒用？研究說反而更傷",
+  "hook_variants": [
+    {
+      "level": "unaware",
+      "text": "週末多睡兩小時，你以為在補眠？",
+      "rationale": "針對習慣週末賴床的人，用反問引發好奇。"
+    },
+    {
+      "level": "problem_aware",
+      "text": "平日熬夜週末補，為什麼越補越累？",
+      "rationale": "針對已感覺補眠無效但不知道原因的人。"
+    },
+    {
+      "level": "solution_aware",
+      "text": "每天多睡20分鐘，比週末賴床2小時更有效",
+      "rationale": "直接給出解法，吸引想改善睡眠的人。"
+    }
+  ],
+
+  "research_sources": [
+    {
+      "citation": "Depner CM et al., Current Biology 2019;29(6):957-967 — 科羅拉多大學隨機對照試驗",
+      "url": "https://www.cell.com/current-biology/fulltext/S0960-9822(19)30098-3",
+      "key_finding": "週末補眠組的胰島素敏感度並未恢復，肝臟和肌肉胰島素敏感度反而進一步下降。週末補眠無法逆轉平日睡眠不足的代謝損傷。"
+    },
+    {
+      "citation": "Killick R et al., Sleep 2023 — 社會時差與代謝健康系統性回顧",
+      "url": "https://academic.oup.com/sleep",
+      "key_finding": "平日與週末起床時間差距每增加1小時，肥胖和代謝症候群風險增加約11%。規律的睡眠時間比總睡眠時數更重要。"
+    },
+    {
+      "citation": "衛生福利部國民健康署 — 成人睡眠建議",
+      "url": "https://www.hpa.gov.tw/",
+      "key_finding": "成人每日建議睡眠7-9小時，應維持規律作息，避免平日與假日睡眠時間差距過大。"
+    }
+  ],
+
+  "mascot_strategy": {
+    "presence": "both",
+    "opening_expression": "surprised",
+    "opening_pose": "think_with_object",
+    "closing_expression": "goodbye",
+    "outfit": "sleep_cap",
+    "prop": "tiny alarm clock",
+    "render_mode": "3d_exact_reference",
+    "scale_vs_object": "small"
+  },
+
+  "scenes": [
+    {
+      "scene_id": "01",
+      "scene_role": "hook",
+      "scene_goal": "用「週末補眠其實沒用」的反直覺觀點抓住注意力。",
+      "visual_type": "poster_cover",
+      "on_screen_text_main": "週末補眠沒用？",
+      "on_screen_text_sub": "研究說反而更傷身",
+      "hero_object": "A cozy bed with rumpled white sheets and a fluffy pillow, warm morning light streaming through curtains, an alarm clock on the nightstand showing 10:30 AM, suggesting sleeping in",
+      "hero_object_priority": "primary",
+      "background_scene": "warm bedroom with cream walls, soft morning light, cozy sleep atmosphere",
+      "mascot_presence": true,
+      "mascot_count": 1,
+      "mascot_expression": "surprised",
+      "mascot_pose": "think_with_object",
+      "mascot_interaction_mode": "小靜戴著小睡帽，站在鬧鐘旁邊，一隻手摸下巴思考，表情驚訝疑惑",
+      "badge_text": "2019\nCurrent Biology",
+      "do_not_include": ["人臉", "英文文字"],
+      "time_range": "0-3s",
+      "animation": "slow_push_in"
+    },
+    {
+      "scene_id": "02",
+      "scene_role": "flip",
+      "scene_goal": "用科羅拉多大學研究數據翻轉認知：補眠組的代謝指標反而更差。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "補眠組代謝反而更差",
+      "on_screen_text_sub": "胰島素敏感度持續下降",
+      "hero_object": "Clean infographic: Left side shows '平日睡不夠' with tired moon icon in gray, right side shows '週末補眠' with bed icon, below both a red downward arrow with '胰島素敏感度 ↓' text. A highlight box: '補眠無法逆轉代謝損傷'. Modern clean style on cream background.",
+      "hero_object_priority": "primary",
+      "background_scene": "clean cream background with subtle paper texture",
+      "mascot_presence": false,
+      "mascot_count": 0,
+      "source_badge_text": "Current Biology 2019｜科羅拉多大學 RCT",
+      "do_not_include": ["人臉", "小靜", "英文文字"],
+      "time_range": "3-8s",
+      "animation": "slide_in"
+    },
+    {
+      "scene_id": "03",
+      "scene_role": "compare",
+      "scene_goal": "解釋「社會時差」概念：平日和週末起床時間差距越大，健康風險越高。",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "起床時間差 1 小時",
+      "on_screen_text_sub": "肥胖風險增加 11%",
+      "hero_object": "Clean infographic showing two alarm clocks side by side: Left '平日 06:30' in sage green, Right '週末 10:30' in warm brown with a large gap arrow between them labeled '社會時差 4 小時'. Below: a warning badge '每差 1 小時 → 肥胖風險 +11%' in olive dark text. Modern clean style.",
+      "hero_object_priority": "primary",
+      "background_scene": "clean cream background with subtle grid lines",
+      "mascot_presence": false,
+      "mascot_count": 0,
+      "source_badge_text": "Sleep 2023｜社會時差與代謝健康回顧",
+      "do_not_include": ["人臉", "小靜", "英文文字"],
+      "time_range": "8-15s",
+      "animation": "slight_drift"
+    },
+    {
+      "scene_id": "04",
+      "scene_role": "evidence",
+      "scene_goal": "給出正確做法：每天多睡20分鐘比週末賴床更有效。",
+      "visual_type": "evidence_card",
+      "on_screen_text_main": "每天多睡 20 分鐘",
+      "on_screen_text_sub": "比週末賴床 2 小時更有效",
+      "hero_object": "Clean comparison: Left side crossed out '週末賴床 2 小時' with X mark in gray. Right side highlighted '每天 +20 分鐘' with green checkmark in sage green, glowing. Below: '規律 > 總時數' in bold olive dark text with a simple bar chart showing consistent sleep bars vs irregular sleep bars. Modern clean infographic.",
+      "hero_object_priority": "primary",
+      "background_scene": "clean cream background with subtle warm gradient",
+      "mascot_presence": false,
+      "mascot_count": 0,
+      "do_not_include": ["人臉", "小靜", "英文文字"],
+      "time_range": "15-23s",
+      "animation": "badge_fade_in"
+    },
+    {
+      "scene_id": "05",
+      "scene_role": "reminder",
+      "scene_goal": "三個具體行動建議：每天多睡20分、起床差距不超過1小時、午睡20分鐘替代。",
+      "visual_type": "safety_reminder",
+      "on_screen_text_main": "三個好睡建議",
+      "on_screen_text_sub": "規律比補眠更重要",
+      "hero_object": "A serene bedroom nightstand scene: a small analog alarm clock showing 6:30 AM, a glass of water, a lavender sprig in a small vase, warm soft morning light. Everything looks calm, organized, peaceful. Shot with Sony A7IV, 50mm f/1.8, shallow depth of field, warm color grading.",
+      "hero_object_priority": "primary",
+      "background_scene": "warm morning bedroom corner with natural light, cream and sage color palette, gentle reassuring mood",
+      "mascot_presence": false,
+      "mascot_count": 0,
+      "do_not_include": ["人臉", "小靜", "英文文字"],
+      "time_range": "23-29s",
+      "animation": "simple_cut"
+    },
+    {
+      "scene_id": "06",
+      "scene_role": "closing",
+      "scene_goal": "品牌收尾，小靜戴睡帽溫馨道別。",
+      "visual_type": "brand_closing",
+      "on_screen_text_main": "時時靜好",
+      "on_screen_text_sub": "我是小靜，我們下次見！",
+      "hero_object": "",
+      "background_scene": "soft warm bedroom scene with morning light, cream and sage color palette, peaceful atmosphere",
+      "mascot_presence": true,
+      "mascot_count": 1,
+      "mascot_expression": "goodbye",
+      "mascot_pose": "greet_viewer",
+      "mascot_interaction_mode": "小靜戴著可愛的米色小睡帽，坐在一個大枕頭上，一隻手揮手道別，另一隻手抱著迷你鬧鐘，表情溫暖開心。",
+      "do_not_include": ["多隻小靜", "英文文字"],
+      "time_range": "29-33s",
+      "animation": "mascot_wave"
+    }
+  ],
+
+  "voiceover": {
+    "engine": "elevenlabs",
+    "model": "eleven_v3",
+    "voice_settings": {
+      "stability": 0.35,
+      "similarity_boost": 0.85,
+      "style": 0.15,
+      "speed": 1.25
+    },
+    "segments": [
+      {"id": 1, "part": "hook", "text": "週末多睡兩小時，你以為在補眠？研究說這樣反而更傷身。"},
+      {"id": 2, "part": "flip", "text": "科羅拉多大學實驗發現，週末補眠的人，胰島素敏感度不但沒恢復，反而持續下降。補眠根本無法逆轉平日熬夜的代謝損傷。"},
+      {"id": 3, "part": "compare", "text": "更麻煩的是「社會時差」效應。平日和週末起床時間每差一小時，肥胖和代謝症候群風險就增加百分之十一。規律比總時數更重要。"},
+      {"id": 4, "part": "evidence", "text": "正確做法是，與其週末賴床兩小時，不如每天提早二十分鐘上床。如果平日真的睡不夠，中午睡二十分鐘的午覺就好。"},
+      {"id": 5, "part": "reminder", "text": "三個建議。第一，每天多睡二十分鐘。第二，平日和週末起床時間差不超過一小時。第三，真的累就午睡二十分鐘，別靠週末狂補。"},
+      {"id": 6, "part": "closing", "text": "好好睡，規律睡，就是最簡單的養生。這裡是時時靜好，我是小靜，我們下次見。"}
+    ]
+  },
+
+  "subtitles": [
+    {"text": "週末多睡兩小時", "start": 0.0, "end": 2.0, "style": "main"},
+    {"text": "你以為在補眠？", "start": 2.0, "end": 3.5, "style": "main"},
+    {"text": "補眠組代謝更差", "start": 3.5, "end": 5.5, "style": "data"},
+    {"text": "胰島素敏感度下降", "start": 5.5, "end": 7.5, "style": "data"},
+    {"text": "無法逆轉代謝損傷", "start": 7.5, "end": 9.5, "style": "main"},
+    {"text": "社會時差效應", "start": 9.5, "end": 11.5, "style": "main"},
+    {"text": "起床差1小時", "start": 11.5, "end": 13.5, "style": "data"},
+    {"text": "肥胖風險+11%", "start": 13.5, "end": 15.5, "style": "data"},
+    {"text": "每天多睡20分鐘", "start": 15.5, "end": 17.5, "style": "main"},
+    {"text": "比週末賴床更有效", "start": 17.5, "end": 19.5, "style": "main"},
+    {"text": "午睡20分鐘替代", "start": 19.5, "end": 22.0, "style": "main"},
+    {"text": "每天多睡20分", "start": 23.0, "end": 25.0, "style": "main"},
+    {"text": "起床差距≤1小時", "start": 25.0, "end": 27.0, "style": "main"},
+    {"text": "累了午睡就好", "start": 27.0, "end": 29.0, "style": "main"},
+    {"text": "時時靜好", "start": 29.5, "end": 31.0, "style": "main"},
+    {"text": "我們下次見！", "start": 31.0, "end": 33.0, "style": "main"}
+  ],
+
+  "sound": "鬧鐘滴答聲、被子翻動的柔軟聲、窗簾被風吹動的聲音",
+  "music": "輕柔鋼琴配樂，搭配環境音樂盒旋律，節奏緩慢安定，帶有睡前放鬆的氛圍",
+
+  "youtube_metadata": {
+    "title": "週末補眠沒用？研究說反而更傷身！每天多睡20分鐘才是正解｜時時靜好",
+    "description": "週末多睡兩小時，你以為在補眠？最新研究告訴你真相。\n\n本集重點：\n❶ Current Biology 2019研究：週末補眠組胰島素敏感度反而更差，無法逆轉代謝損傷\n❷ 社會時差效應：平日和週末起床差1小時，肥胖風險+11%\n❸ 正確做法：每天多睡20分鐘 > 週末賴床2小時\n\n三個好睡建議：\n• 每天提早20分鐘上床\n• 平日週末起床差距不超過1小時\n• 真的累就午睡20分鐘\n\n研究來源：\n• Depner CM et al., Current Biology 2019\n• Killick R et al., Sleep 2023\n• 衛福部國健署睡眠建議\n\n#睡眠 #補眠 #週末 #生理時鐘 #社會時差 #健康 #養生 #時時靜好 #Shorts",
+    "hashtags": ["#睡眠", "#補眠", "#週末", "#生理時鐘", "#社會時差", "#健康", "#養生", "#時時靜好", "#Shorts"]
+  }
+}

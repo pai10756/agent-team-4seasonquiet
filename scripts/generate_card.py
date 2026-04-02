@@ -47,7 +47,8 @@ def log(msg: str):
 # ── Gemini API ───────────────────────────────────────────
 
 def call_gemini(parts: list, max_retries: int = 5) -> bytes | None:
-    """Call Gemini 3.1 Flash image API, return image bytes or None."""
+    """Call Gemini 3.1 Flash image API via curl (avoids urllib 429 issue)."""
+    import subprocess, tempfile
     url = (
         f"https://generativelanguage.googleapis.com/v1beta/models/"
         f"{IMAGE_MODEL}:generateContent?key={GEMINI_API_KEY}"
@@ -55,50 +56,77 @@ def call_gemini(parts: list, max_retries: int = 5) -> bytes | None:
     payload = json.dumps({
         "contents": [{"parts": parts}],
         "generationConfig": {"responseModalities": ["IMAGE"]},
-    }).encode()
+    })
 
     for attempt in range(max_retries):
         try:
-            req = urllib.request.Request(
-                url, data=payload,
-                headers={"Content-Type": "application/json"},
-                method="POST",
+            # Write payload to temp file for large payloads (e.g. with reference images)
+            with tempfile.NamedTemporaryFile(
+                mode="w", suffix=".json", delete=False, encoding="utf-8"
+            ) as f:
+                f.write(payload)
+                tmp_path = f.name
+
+            result = subprocess.run(
+                ["curl", "-s", "-X", "POST", url,
+                 "-H", "Content-Type: application/json",
+                 "-d", f"@{tmp_path}",
+                 "--max-time", "180"],
+                capture_output=True, text=True, timeout=200,
             )
-            with urllib.request.urlopen(req, timeout=180) as resp:
-                data = json.loads(resp.read())
+            os.unlink(tmp_path)
 
-            for part in data.get("candidates", [{}])[0].get("content", {}).get("parts", []):
-                if "inlineData" in part:
-                    img_bytes = base64.b64decode(part["inlineData"]["data"])
-                    if len(img_bytes) > 10 * 1024:
-                        return img_bytes
-                    log(f"  Image too small ({len(img_bytes)} bytes), retrying...")
-
-            log(f"  No image in response (attempt {attempt + 1})")
-        except urllib.error.HTTPError as e:
-            body = e.read().decode("utf-8", errors="ignore")[:300]
-            log(f"  HTTP {e.code} (attempt {attempt + 1}): {body}")
-            if e.code == 503:
-                wait = 10 * (attempt + 1)
-                log(f"  503 high demand — waiting {wait}s before retry...")
-                time.sleep(wait)
-                continue
+            if not result.stdout.strip():
+                log(f"  Empty response (attempt {attempt + 1})")
+            else:
+                data = json.loads(result.stdout)
+                if "error" in data:
+                    msg = data["error"].get("message", "")[:120]
+                    code = data["error"].get("code", "?")
+                    log(f"  API {code} (attempt {attempt + 1}): {msg}")
+                    if code == 503:
+                        wait = 10 * (attempt + 1)
+                        log(f"  503 high demand — waiting {wait}s...")
+                        time.sleep(wait)
+                        continue
+                else:
+                    for part in data.get("candidates", [{}])[0].get("content", {}).get("parts", []):
+                        if "inlineData" in part:
+                            img_bytes = base64.b64decode(part["inlineData"]["data"])
+                            if len(img_bytes) > 10 * 1024:
+                                return img_bytes
+                            log(f"  Image too small ({len(img_bytes)} bytes), retrying...")
+                    log(f"  No image in response (attempt {attempt + 1})")
         except Exception as e:
             log(f"  Error (attempt {attempt + 1}): {e}")
 
         if attempt < max_retries - 1:
-            time.sleep(3 * (attempt + 1))
+            time.sleep(10 * (attempt + 1))  # 10s+ interval to avoid 429
 
     return None
 
 
 # ── Reference image parts ────────────────────────────────
 
+def _compress_ref_image(path: Path, max_size: int = 800) -> str:
+    """Compress reference image to ~20KB base64 to avoid API quota issues."""
+    from PIL import Image
+    import io
+    img = Image.open(path)
+    ratio = min(max_size / img.width, max_size / max(img.height, 1))
+    if ratio < 1:
+        img = img.resize((int(img.width * ratio), int(img.height * ratio)), Image.LANCZOS)
+    buf = io.BytesIO()
+    img.save(buf, format="JPEG", quality=75)
+    log(f"  Compressed {path.name}: {path.stat().st_size:,} → {len(buf.getvalue()):,} bytes")
+    return base64.b64encode(buf.getvalue()).decode()
+
+
 def build_reference_parts(include_card_ref: bool = True) -> list:
     """Build inlineData parts for mascot + card quality reference images."""
     parts = []
     if REFERENCE_3D.exists():
-        ref_b64 = base64.b64encode(REFERENCE_3D.read_bytes()).decode()
+        ref_b64 = _compress_ref_image(REFERENCE_3D)
         parts.append({"text": (
             "MASCOT REFERENCE — the 3D mascot must look EXACTLY like this "
             "(same face, markings, matte plastic material, green apron, proportions):"
@@ -108,7 +136,7 @@ def build_reference_parts(include_card_ref: bool = True) -> list:
         log("WARNING: 3d_reference.jpg not found")
 
     if include_card_ref and REFERENCE_CARD.exists():
-        card_b64 = base64.b64encode(REFERENCE_CARD.read_bytes()).decode()
+        card_b64 = _compress_ref_image(REFERENCE_CARD)
         parts.append({"text": (
             "CARD QUALITY REFERENCE — the output should match this level of "
             "quality, composition, and visual polish:"
