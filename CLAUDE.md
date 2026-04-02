@@ -68,6 +68,31 @@ Style Token: `STYLE_SHIZHI_3D_POSTER_V1`
 | 浮水印移除 | Pillow 像素 clone 移除 SynthID（Gemini 強制嵌入，無法 prompt 禁用） |
 | 底部規則 | 所有卡片底部 20% 不放文字（Shorts 標題遮擋區） |
 
+#### 管線 A — TTS 語音（assembler）
+
+| 參數 | 值 |
+|------|-----|
+| API | ElevenLabs Text-to-Speech |
+| Model | `eleven_v3` |
+| Voice ID | `yC4SQtHeGxfvfsrKVdz9` |
+| Speed | `1.2` |
+| Stability | `0.35` |
+| Similarity Boost | `0.85` |
+| Style | `0.15` |
+| Speaker Boost | `true` |
+
+#### 管線 A — 影片組裝（assembler）
+
+| 步驟 | 說明 |
+|------|------|
+| Probe TTS 時長 | ffmpeg 測量每段 MP3 實際秒數 |
+| 卡片影片化 | 靜態圖→mp4，時長 = `max(原始節奏, TTS+0.3s)`，僅 fade in/out，**禁止動畫/zoompan** |
+| TTS 音訊串接 | normalize 44100Hz/stereo → pad 到卡片時長 → **concat（禁用 amix，會降音量）** |
+| 合併影音 | `-map 0:v:0 -map 1:a:0`，單一音軌，AAC 128k |
+| 字幕燒入 | ASS 格式，時間根據 TTS probe 動態對齊，FontSize 68，白字 `&H00FFFFFF`，黑框寬 5，MarginV 280 |
+
+輸出規格：1080×1920 (9:16), 30fps, H.264 CRF 18, AAC 128k 44100Hz stereo, 字幕燒入
+
 ### 管線 B：Seedance 影片（EP09 成熟版）
 
 完整流程：角色設計 → 素材生成 → Prompt 撰寫 → 即夢手動提交 → 後製組裝。
