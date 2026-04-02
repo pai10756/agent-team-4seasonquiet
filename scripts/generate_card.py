@@ -148,44 +148,41 @@ def build_reference_parts(include_card_ref: bool = True) -> list:
 
 # ── Prompt builders per card type ────────────────────────
 
-BRAND_STYLE_BLOCK = f"""
-BRAND STYLE SYSTEM (must follow exactly):
-- Canvas: 1080x1920 (9:16 vertical)
-- Background: warm cream ({PALETTE['cream']}) with subtle paper texture
-- Headline: large bold Chinese text in dark olive ({PALETTE['olive_dark']}), must be the LARGEST and most prominent element
-- Subtitle: smaller text in brown ({PALETTE['brown']}), below headline
-- Badge: sage green ({PALETTE['sage']}) rounded rectangle or circle, top-right corner area
-- Overall: 75% photorealistic + 25% 3D elements, warm natural lighting
-- Tone: warm, trustworthy, mature, clean — NOT cheap, NOT medical-scary, NOT childish
-
-SAFE ZONE (critical):
-- The bottom fifth of the image is a DEAD ZONE — do NOT place any text, badge, label, or important visual element there. This area will be covered by YouTube Shorts UI.
-- All text and important content must stay in the upper four-fifths of the image.
-- Source badges should be placed in the lower-middle area, NOT at the very bottom edge.
+BRAND_STYLE_BLOCK = f"""生成一張 1080x1920 的 9:16 直式圖卡。
+品牌視覺系統（必須嚴格遵守）：
+- 背景：儘量使用真實攝影照片填滿整張圖卡，搭配適度的圖表或插圖
+- 標題：大號粗體繁體中文，深橄欖色 {PALETTE['olive_dark']}，必須是畫面中最大最醒目的元素
+- 副標題：較小字，棕色 {PALETTE['brown']}，在標題下方
+- 徽章：鼠尾草綠 {PALETTE['sage']} 圓角矩形，右上角區域
+- 色盤：米白 {PALETTE['cream']}、鼠尾草綠 {PALETTE['sage']}、深橄欖 {PALETTE['olive_dark']}、棕色 {PALETTE['brown']}
+- 整體風格：溫暖、可信賴、成熟、乾淨，不廉價、不恐嚇、不幼稚
+- 底部 20% 是安全區，不放文字，但可以有背景圖片延伸，不要刻意留白底色
+- 在照片背景上的文字加白色半透明陰影或深色底條，確保清晰可讀
 """
 
 NEGATIVE_BLOCK = """
-FORBIDDEN (do NOT include any of these):
-- No watermark, no logo, no signature of any kind
-- No star symbol, no sparkle, no diamond shape, no decorative dot in any corner
-- No SynthID mark, no AI watermark, no small icon or symbol in corners or edges
-- No duplicate mascots (maximum ONE mascot per image)
-- No neon colors, no harsh shadows, no pure white background
-- No comic-style effects, no gradient overlays
-- No English text unless specifically requested
-- Every corner and edge of the image must be completely clean with no marks, symbols, or stamps
+禁止出現以下任何元素：
+- 不要浮水印、商標、簽名
+- 不要星星符號、閃光、鑽石形狀、角落裝飾點
+- 不要 SynthID 標記、AI 浮水印、角落小圖示
+- 不要重複的吉祥物（每張圖最多一隻）
+- 不要霓虹色、強烈陰影、純白背景
+- 不要漫畫風格效果、漸層覆蓋
+- 絕對不要出現任何英文文字
+- 不要手機介面、導航列、按鈕元素
+- 圖片四角和邊緣必須完全乾淨
 """
 
 MASCOT_IDENTITY_BLOCK = """
-MASCOT IDENTITY (3D smooth matte plastic toy, Pop Mart quality):
-- Taiwanese leopard cat, big round head, small body
-- Warm yellow-brown body with round dark spots (NOT stripes, NOT tabby)
-- Two thick white vertical stripes on forehead
-- Black-tipped ears with tiny white patches behind ears
-- Pink nose, big round dark eyes
-- Smooth matte plastic material, low gloss, no fur texture
-- Default outfit: sage green apron with small white bowl-leaf icon
-- Must match the attached reference image EXACTLY
+吉祥物「小靜」身份規格（3D 光滑磨砂塑膠玩具，Pop Mart 品質）：
+- 台灣石虎，大圓頭，小身體，頭身比約 1:1
+- 溫暖黃棕色身體，帶有圓形深棕色斑點（不是條紋，不是虎斑）
+- 額頭有兩條明顯的粗白色垂直條紋
+- 黑色耳尖，耳後有小白斑
+- 粉紅色三角形鼻子，大圓深棕色眼睛帶白色高光
+- 光滑磨砂塑膠材質，低光澤，無毛皮質感
+- 預設穿著鼠尾草綠色圍裙，胸前有白色碗葉圖示
+- 必須與附上的參考圖完全一致
 """
 
 
@@ -389,13 +386,21 @@ IMPORTANT RULES:
 
 # ── Prompt router ────────────────────────────────────────
 
-PROMPT_BUILDERS = {
-    "poster_cover": build_poster_cover_prompt,
-    "comparison_card": build_comparison_card_prompt,
-    "evidence_card": build_evidence_card_prompt,
-    "safety_reminder": build_safety_reminder_prompt,
-    "brand_closing": build_brand_closing_prompt,
-}
+# v5: 使用全中文 prompt builders（防止手機截圖風格+prompt洩露）
+# 英文版保留為 fallback，但預設用中文版
+try:
+    from card_prompts_zh import PROMPT_BUILDERS_ZH
+    PROMPT_BUILDERS = PROMPT_BUILDERS_ZH
+    log("Using Chinese prompt builders (card_prompts_zh)")
+except ImportError:
+    PROMPT_BUILDERS = {
+        "poster_cover": build_poster_cover_prompt,
+        "comparison_card": build_comparison_card_prompt,
+        "evidence_card": build_evidence_card_prompt,
+        "safety_reminder": build_safety_reminder_prompt,
+        "brand_closing": build_brand_closing_prompt,
+    }
+    log("Fallback to English prompt builders")
 
 
 def build_prompt_for_scene(episode: dict, scene: dict, prompt_override: str = None) -> list:

@@ -35,8 +35,8 @@ GEMINI_API_KEY = os.environ.get("GEMINI_IMAGE_API_KEY", "") or os.environ.get("G
 IMAGE_MODEL_PRIMARY = "gemini-3.1-flash-image-preview"
 IMAGE_MODEL_FALLBACK = "gemini-2.5-flash-image"
 IMAGE_MODEL = os.environ.get("GEMINI_IMAGE_MODEL", IMAGE_MODEL_PRIMARY)
-ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "sk_852728a8c248dfe08f1a7fcb71183a893c019a2b499aa253")
-ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "r6qgCCGI7RWKXCagm158")
+ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
+ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "yC4SQtHeGxfvfsrKVdz9")  # Little Ching / 小靜
 
 BRAND_TOKENS_PATH = BASE / "configs" / "brand_visual_tokens.json"
 REFERENCE_3D = BASE / "characters" / "mascot" / "3d_reference.jpg"

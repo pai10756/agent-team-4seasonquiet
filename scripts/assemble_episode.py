@@ -38,7 +38,7 @@ if os.name == "nt":
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
 WIDTH, HEIGHT = 1080, 1920  # v3: upgraded to 1080x1920
-FPS = 24
+FPS = 30  # v5: 30fps per updated spec
 TITLE_DURATION = 3.0
 ENDCARD_DURATION = 4.0  # v3: closing card 29-33s = 4s
 
@@ -301,13 +301,13 @@ def build_ass(subtitles: list[dict], total_duration: float) -> str:
         "&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,2,0,9,0,20,20,1",
     ]
 
-    # 字幕樣式
+    # 字幕樣式 v5: FontSize 82, 黑框寬 5, MarginV 280
     for i, sub in enumerate(subtitles):
-        size = sub.get("size", 48)
-        margin_v = 220
+        size = sub.get("size", 82)
+        margin_v = 280
         lines.append(
-            f"Style: Sub{i},Microsoft JhengHei,{size},&HFFFFFF,&H000000FF,"
-            f"&H00000000,&H80000000,1,0,0,0,100,100,2,0,1,4,1,2,20,20,{margin_v},1"
+            f"Style: Sub{i},Microsoft JhengHei,{size},&H00FFFFFF,&H000000FF,"
+            f"&H00000000,&H80000000,1,0,0,0,100,100,2,0,1,5,1,2,20,20,{margin_v},1"
         )
 
     lines += [
@@ -602,33 +602,11 @@ def assemble_card_scenes(episode: dict, asset_dir: Path, out_dir: Path) -> Path:
         prepared = out_dir / f"prepared_{sid}.jpg"
         _prepare_image_for_video(card_img, prepared)
 
-        # Animation filter based on scene spec
-        animation = scene.get("animation", "slow_push_in")
-        if animation == "slow_push_in":
-            # Gentle 3% zoom over duration
-            total_frames = int(duration * FPS)
-            vf = (
-                f"scale=1120:1984,zoompan=z='min(zoom+0.0003,1.03)'"
-                f":x='(iw-iw/zoom)/2':y='(ih-ih/zoom)/2'"
-                f":d={total_frames}:s={WIDTH}x{HEIGHT}:fps={FPS},"
-                f"fade=in:0:d=0.3,fade=out:st={duration - 0.3}:d=0.3"
-            )
-        elif animation == "slight_drift":
-            total_frames = int(duration * FPS)
-            vf = (
-                f"scale=1120:1984,zoompan=z='1.02'"
-                f":x='(iw-iw/zoom)/2+sin(on/{total_frames}*3.14)*20'"
-                f":y='(ih-ih/zoom)/2'"
-                f":d={total_frames}:s={WIDTH}x{HEIGHT}:fps={FPS},"
-                f"fade=in:0:d=0.3,fade=out:st={duration - 0.3}:d=0.3"
-            )
-        else:
-            # simple_cut / slide_in / none — just static with fade
-            vf = (
-                f"scale={WIDTH}:{HEIGHT}:force_original_aspect_ratio=decrease,"
-                f"pad={WIDTH}:{HEIGHT}:(ow-iw)/2:(oh-ih)/2:black,"
-                f"fade=in:0:d=0.3,fade=out:st={duration - 0.3}:d=0.3"
-            )
+        # v5: 禁止任何動畫/zoompan/fade，直接切換
+        vf = (
+            f"scale={WIDTH}:{HEIGHT}:force_original_aspect_ratio=decrease,"
+            f"pad={WIDTH}:{HEIGHT}:(ow-iw)/2:(oh-ih)/2:black"
+        )
 
         card_video = out_dir / f"card_{sid}.mp4"
         run_ffmpeg([
