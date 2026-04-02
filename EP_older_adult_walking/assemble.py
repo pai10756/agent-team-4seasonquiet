@@ -19,11 +19,8 @@ except ImportError:
     FFMPEG = "ffmpeg"
 
 # ── Config ──────────────────────────────────────────────
-ELEVENLABS_API_KEY = os.environ.get(
-    "ELEVENLABS_API_KEY",
-    "sk_852728a8c248dfe08f1a7fcb71183a893c019a2b499aa253"
-)
-ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "r6qgCCGI7RWKXCagm158")
+ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
+ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "yC4SQtHeGxfvfsrKVdz9")
 
 CARD_W, CARD_H = 1080, 1920
 FPS = 30

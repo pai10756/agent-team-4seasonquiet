@@ -10,7 +10,7 @@ Style: Watermark,Microsoft JhengHei,22,&H80FFFFFF,&H000000FF,&H00000000,&H000000
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 1,0:00:00.00,0:00:00.00,Watermark,,0,0,0,,時時靜好
+Dialogue: 1,0:00:00.00,0:00:44.76,Watermark,,0,0,0,,時時靜好
 Dialogue: 0,0:00:00.00,0:00:02.47,Default,,0,0,0,,種花種草也能長肌肉
 Dialogue: 0,0:00:02.47,0:00:03.84,Default,,0,0,0,,最新研究說
 Dialogue: 0,0:00:03.84,0:00:04.67,Default,,0,0,0,,是真的

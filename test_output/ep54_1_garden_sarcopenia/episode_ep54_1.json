@@ -1,0 +1,102 @@
+{
+  "series": "時時靜好｜健康新知",
+  "episode": "54-1",
+  "topic_id": 26,
+  "type": "quick_cut",
+  "topic_title": "種花種草也能長肌肉？園藝治療抗肌少症的新發現",
+  "core_claim": "2026年QJM期刊研究發現，有肌少症風險的年長女性參與12週園藝治療課程後，肌肉力量和肌肉量都有顯著改善。園藝活動MET值3.5-5.0，屬於中等強度運動，挖土、搬盆、蹲站等動作天然包含阻力訓練元素，加上培育植物的成就感對心理健康有額外益處。",
+  "single_takeaway": "種花種草不只是休閒，12週園藝治療就能有效增加肌力、對抗肌少症。",
+  "scenes": [
+    {
+      "scene_id": "01",
+      "scene_role": "hook",
+      "visual_type": "poster_cover",
+      "on_screen_text_main": "種花也能長肌肉？",
+      "on_screen_text_sub": "園藝治療抗肌少症新發現",
+      "hero_object": "Elderly woman's hands in garden gloves planting flowers in a terracotta pot, warm golden light, soil and green plants visible",
+      "background_scene": "Warm community garden morning light, raised beds with flowers",
+      "mascot_presence": true,
+      "mascot_expression": "surprised",
+      "mascot_pose": "think_with_object",
+      "mascot_interaction_mode": "小靜站在花盆旁，一手摸下巴思考，表情驚訝",
+      "badge_text": "2026\nQJM 研究"
+    },
+    {
+      "scene_id": "02",
+      "scene_role": "flip",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "12 週園藝治療",
+      "on_screen_text_sub": "肌力和肌肉量顯著改善",
+      "hero_object": "Clean infographic: left side shows a wilting plant icon labeled 肌少症風險, right side shows a blooming flower icon labeled 園藝治療12週 with upward arrow showing 肌力↑ 肌肉量↑. Below: 挖土搬盆蹲站=天然阻力訓練",
+      "source_badge_text": "QJM 2026｜肌少症風險年長女性"
+    },
+    {
+      "scene_id": "03",
+      "scene_role": "compare",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "園藝 = 中等強度運動",
+      "on_screen_text_sub": "MET 值 3.5-5.0，跟快走差不多",
+      "hero_object": "Side by side comparison: left shows garden tools (shovel spade pruner) with MET 3.5-5.0, right shows walking shoes with MET 3.5-4.0, equals sign between them. Below: 挖土搬盆栽更到高強度",
+      "source_badge_text": "Br J Sports Med 2022"
+    },
+    {
+      "scene_id": "04",
+      "scene_role": "evidence",
+      "visual_type": "evidence_card",
+      "on_screen_text_main": "身體和心理雙重效果",
+      "on_screen_text_sub": "成就感是跑步機給不了的",
+      "hero_object": "Split visual: top half shows strong arm muscle icon with 肌力提升, bottom half shows happy brain icon with 心理健康改善. Center highlight: 種出來的成就感 is unique benefit"
+    },
+    {
+      "scene_id": "05",
+      "scene_role": "reminder",
+      "visual_type": "safety_reminder",
+      "on_screen_text_main": "三個園藝養生建議",
+      "on_screen_text_sub": "安全又有效的園藝運動",
+      "hero_object": "Real photography background: warm wooden table with garden gloves small potted herbs and pruning shears. Three numbered tips overlaid: 1 every day 30 min gardening 2 squat with knees not waist 3 sunscreen and hydrate",
+      "background_scene": "Warm garden scene natural light"
+    },
+    {
+      "scene_id": "06",
+      "scene_role": "closing",
+      "visual_type": "brand_closing",
+      "on_screen_text_main": "時時靜好",
+      "on_screen_text_sub": "我是小靜，我們下次見！",
+      "background_scene": "Warm garden scene with flower pots in soft bokeh",
+      "mascot_presence": true,
+      "mascot_expression": "goodbye",
+      "mascot_pose": "greet_viewer",
+      "mascot_interaction_mode": "小靜坐在大花盆上，一手揮手道別，另一手抱著小鏟子，表情溫暖開心"
+    }
+  ],
+  "voiceover_segments": [
+    {
+      "id": 1,
+      "text": "種花種草也能長肌肉？最新研究說，是真的。"
+    },
+    {
+      "id": 2,
+      "text": "二零二六年 QJM 期刊發現，有肌少症風險的長輩，參加十二週園藝治療後，肌力和肌肉量都明顯提升。"
+    },
+    {
+      "id": 3,
+      "text": "為什麼？因為園藝活動的運動強度跟快走差不多，挖土搬盆蹲站，天然就是阻力訓練。"
+    },
+    {
+      "id": 4,
+      "text": "而且園藝對心理健康也有幫助。種出東西的那種成就感，是跑步機給不了的。"
+    },
+    {
+      "id": 5,
+      "text": "三個建議。每天園藝三十分鐘。蹲下用膝蓋不要彎腰。記得防曬補水。"
+    },
+    {
+      "id": 6,
+      "text": "你家的花園就是最好的健身房。時時靜好，我們下次見。"
+    }
+  ],
+  "youtube_metadata": {
+    "title": "種花也能長肌肉？12週園藝治療抗肌少症｜QJM 2026最新研究｜時時靜好",
+    "description": "種花種草不只是休閒，最新研究發現還能對抗肌少症！\n\n❶ QJM 2026研究：12週園藝治療顯著增加肌少症風險長輩的肌力和肌肉量\n❷ 園藝MET值3.5-5.0，等同快走的中等強度運動\n❸ 挖土搬盆蹲站＝天然阻力訓練，加上成就感的心理效益\n\n三個建議：\n• 每天園藝30分鐘\n• 蹲下用膝蓋、背打直\n• 記得防曬補水\n\n研究來源：\n• QJM 2026 (DOI: 10.1093/qjmed/hcag094)\n• Br J Sports Med 2022\n\n#園藝 #肌少症 #長輩運動 #健康 #養生 #時時靜好 #Shorts"
+  }
+}
