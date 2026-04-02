@@ -64,9 +64,20 @@ Style Token: `STYLE_SHIZHI_3D_POSTER_V1`
 | 步驟 | 說明 |
 |------|------|
 | Gemini 直出 | `gemini-3.1-flash-image-preview` 一次生成完整卡片（含文字排版） |
-| 小靜注入 | card_01/06 附 `characters/mascot/3d_reference_clean.jpg` 作為 exact reference |
+| 小靜注入 | card_01/06 附 `characters/mascot/3d_reference_clean.jpg` 壓縮至 ~20KB 作為 exact reference |
 | 浮水印移除 | Pillow 像素 clone 移除 SynthID（Gemini 強制嵌入，無法 prompt 禁用） |
-| 底部規則 | 所有卡片底部 20% 不放文字（Shorts 標題遮擋區） |
+| Prompt 語言 | **全中文撰寫**（英文 prompt 易生成手機截圖風格或洩露 prompt 文字） |
+
+#### 管線 A — 圖卡設計規範
+
+| 規則 | 說明 |
+|------|------|
+| 背景 | **儘量使用真實攝影照片**當背景，填滿整張圖卡，搭配適度的圖表或插圖 |
+| 底部 20% | 安全區，**不放文字**（Shorts 標題遮擋），但可以有圖片/背景延伸，**不要刻意留白底色** |
+| 文字可讀性 | 在照片背景上的文字加白色半透明陰影或深色底條，確保清晰可讀 |
+| 攝影風格 | 用相機參數 prompt（Sony A7IV, 50mm f/1.8）效果好 |
+| 敏感詞 | 中國平台敏感詞避免（如「推翻」改用「不成立」「打破」） |
+| 資訊卡 | 數據/建議類卡片直接在圖卡上排版文字（如三個建議用編號列出），不要只放裝飾照片 |
 
 #### 管線 A — TTS 語音（assembler）
 
@@ -74,22 +85,24 @@ Style Token: `STYLE_SHIZHI_3D_POSTER_V1`
 |------|-----|
 | API | ElevenLabs Text-to-Speech |
 | Model | `eleven_v3` |
-| Voice ID | `yC4SQtHeGxfvfsrKVdz9` |
+| Voice ID | `yC4SQtHeGxfvfsrKVdz9`（Little Ching / 小靜） |
 | Speed | `1.2` |
 | Stability | `0.35` |
 | Similarity Boost | `0.85` |
 | Style | `0.15` |
 | Speaker Boost | `true` |
+| 後製加速 | ffmpeg `atempo=1.1`（TTS 生成後再加速 10%） |
+| 旁白原則 | 精簡，每 5 秒段落 20-25 字內，控制 Shorts 總長 ≤ 60 秒 |
 
 #### 管線 A — 影片組裝（assembler）
 
 | 步驟 | 說明 |
 |------|------|
 | Probe TTS 時長 | ffmpeg 測量每段 MP3 實際秒數 |
-| 卡片影片化 | 靜態圖→mp4，時長 = `max(原始節奏, TTS+0.3s)`，僅 fade in/out，**禁止動畫/zoompan** |
+| 卡片影片化 | 靜態圖→mp4，時長 = `max(原始節奏, TTS+0.3s)`，**禁止任何動畫/zoompan/fade，直接切換** |
 | TTS 音訊串接 | normalize 44100Hz/stereo → pad 到卡片時長 → **concat（禁用 amix，會降音量）** |
 | 合併影音 | `-map 0:v:0 -map 1:a:0`，單一音軌，AAC 128k |
-| 字幕燒入 | ASS 格式，時間根據 TTS probe 動態對齊，FontSize 68，白字 `&H00FFFFFF`，黑框寬 5，MarginV 280 |
+| 字幕燒入 | ASS 格式，時間根據 TTS probe 動態對齊，**FontSize 82**，白字 `&H00FFFFFF`，黑框寬 5，MarginV 280 |
 
 輸出規格：1080×1920 (9:16), 30fps, H.264 CRF 18, AAC 128k 44100Hz stereo, 字幕燒入
 
