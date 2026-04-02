@@ -66,14 +66,14 @@ Style Token: `STYLE_SHIZHI_3D_POSTER_V1`
 | Gemini 直出 | `gemini-3.1-flash-image-preview` 一次生成完整卡片（含文字排版） |
 | 小靜注入 | card_01/06 附 `characters/mascot/3d_reference_clean.jpg` 壓縮至 ~20KB 作為 exact reference |
 | 浮水印移除 | Pillow 像素 clone 移除 SynthID（Gemini 強制嵌入，無法 prompt 禁用） |
-| Prompt 語言 | **全中文撰寫**（英文 prompt 易生成手機截圖風格或洩露 prompt 文字） |
+| Prompt 語言 | **英文撰寫打 API**（中文 prompt 易觸發 429 配額限制），但圖卡上文字指定繁體中文：`All text Traditional Chinese. No English on card. No phone UI.` |
 
 #### 管線 A — 圖卡設計規範
 
 | 規則 | 說明 |
 |------|------|
 | 背景 | **儘量使用真實攝影照片**當背景，填滿整張圖卡，搭配適度的圖表或插圖 |
-| 底部 20% | 安全區，**不放文字**（Shorts 標題遮擋），但可以有圖片/背景延伸，**不要刻意留白底色** |
+| 底部 20% | 安全區，**所有文字（含來源標註 source badge）都不放**（Shorts 標題遮擋），但可以有圖片/背景延伸，**不要刻意留白底色** |
 | 文字可讀性 | 在照片背景上的文字加白色半透明陰影或深色底條，確保清晰可讀 |
 | 攝影風格 | 用相機參數 prompt（Sony A7IV, 50mm f/1.8）效果好 |
 | 敏感詞 | 中國平台敏感詞避免（如「推翻」改用「不成立」「打破」） |
@@ -93,6 +93,7 @@ Style Token: `STYLE_SHIZHI_3D_POSTER_V1`
 | Speaker Boost | `true` |
 | 後製加速 | ffmpeg `atempo=1.1`（TTS 生成後再加速 10%） |
 | 旁白原則 | 精簡，每 5 秒段落 20-25 字內，控制 Shorts 總長 ≤ 60 秒 |
+| 多音字檢查 | 旁白完成後掃描破音字/多音字，用同音異體字替代（如「數杯數」→「算杯數」） |
 
 #### 管線 A — 影片組裝（assembler）
 
@@ -105,6 +106,40 @@ Style Token: `STYLE_SHIZHI_3D_POSTER_V1`
 | 字幕燒入 | ASS 格式，時間根據 TTS probe 動態對齊，**FontSize 82**，白字 `&H00FFFFFF`，黑框寬 5，MarginV 280 |
 
 輸出規格：1080×1920 (9:16), 30fps, H.264 CRF 18, AAC 128k 44100Hz stereo, 字幕燒入
+
+#### 管線 A — Gemini API 注意事項
+
+| 項目 | 說明 |
+|------|------|
+| urllib timeout | **300 秒**（正常 20 秒，高負載可達 60-200 秒） |
+| 請求間隔 | 至少 **12 秒**（免費版圖片生成有隱性配額） |
+| reference image | 壓縮至 ~20KB（800×450, JPEG quality 80）避免超時 |
+| 429 退避 | 指數退避 20s → 40s → 60s |
+| 503 高需求 | 等待 30s → 60s → 120s |
+| Prompt 語言 | 英文打 API 較穩定，中文 prompt 容易觸發 429 |
+
+#### 管線 A — 全自動腳本模板
+
+每集可建立獨立 `run_full.py`，包含劇本資料+圖卡 prompt+TTS+組裝，一次跑完：
+```
+python test_output/epXX_topic/run_full.py
+```
+參考 `test_output/ep57_water_myth/run_full.py`。
+
+## 事實查核閘門（劇本→生產之間，必經）
+
+```
+研究 → 劇本 → 🔍 事實查核 → 圖卡 → TTS → 組裝
+```
+
+| 查核項 | 說明 |
+|--------|------|
+| **數據溯源** | 旁白中每個數字必須對應到具體研究來源 URL + 原文引述，**不得補腦推斷** |
+| **交叉比對** | 用 web search 驗證關鍵宣稱（至少查 2 個獨立來源） |
+| **不得概括** | AI 不能從摘要推斷原始研究沒有明確寫出的數據（如「約一半」需查實際百分比） |
+| **來源層級** | 優先引用：原始論文 > 系統性回顧 > 官方指引 > 新聞報導 |
+| **多音字掃描** | TTS 旁白完成後檢查破音字，用同音異體字替代 |
+| **敏感詞掃描** | 檢查中國平台敏感詞（如「推翻」→「不成立」） |
 
 ### 管線 B：Seedance 影片（EP09 成熟版）
 
@@ -171,11 +206,12 @@ Part2 上傳：`character_turnaround` + `mascot_turnaround` + 場景環境圖（
 
 不用 TTS，Seedance 內建配音。`scripts/assemble_episode.py` 處理。
 
-## 審查三層機制（v3）
+## 審查四層機制（v3.1）
 
 reviewer 迴圈最多 3 輪，詳見 `configs/workflow_produce_episode.yaml`：
 - **鎖死層**：schema 完整性、語言、醫療宣稱、品牌結尾、core_claim、single_takeaway
-- **視覺品牌層（v3 新增）**：小靜一致性（不重複、不濫用、表情匹配）、hero object 主導、標題可讀
+- **事實查核層（v3.1 新增）**：旁白每個數據必須溯源到具體研究 URL，不得補腦推斷，交叉比對至少 2 個獨立來源
+- **視覺品牌層**：小靜一致性（不重複、不濫用、表情匹配）、hero object 主導、標題可讀、底部 20% 無任何文字
 - **護欄層**：LLM 判斷 hook 力度、節奏、框架（偏離記錄但不阻擋）
 - 第 1-2 輪：auto_fixable violations → scriptwriter 自動修正
 - 第 3 輪：仍有 auto_fixable 未修 → 終止；全部 needs_human → pass_with_notes，通知人工

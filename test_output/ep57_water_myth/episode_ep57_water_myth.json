@@ -1,0 +1,102 @@
+{
+  "series": "時時靜好｜健康新知",
+  "episode": 57,
+  "topic_id": 12,
+  "type": "quick_cut",
+  "topic_title": "每天要喝8杯水？這個說法根本沒有科學根據",
+  "core_claim": "「每天8杯水」的說法沒有科學根據。2022年《Science》研究追蹤26國5604人，發現每日水分需求因人而異（1.5-4升），且約兩到四成來自食物。身體的口渴機制已經足夠精準，正常人跟著渴的感覺喝就對了。",
+  "single_takeaway": "不用算杯數，渴了就喝，尿液淡黃色就表示喝夠了。",
+  "scenes": [
+    {
+      "scene_id": "01",
+      "scene_role": "hook",
+      "visual_type": "poster_cover",
+      "on_screen_text_main": "每天8杯水？",
+      "on_screen_text_sub": "這個說法沒有科學根據",
+      "hero_object": "一個透明玻璃杯裝滿清水，旁邊排列著8個小水杯，溫暖的木桌上，柔和自然晨光",
+      "background_scene": "溫暖的廚房木桌場景，柔和晨光從窗戶灑入",
+      "mascot_presence": true,
+      "mascot_expression": "surprised",
+      "mascot_pose": "think_with_object",
+      "mascot_interaction_mode": "小靜站在水杯旁邊，一隻手摸下巴思考，表情驚訝疑惑",
+      "badge_text": "2022\nScience 研究"
+    },
+    {
+      "scene_id": "02",
+      "scene_role": "flip",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "26國 5604人研究",
+      "on_screen_text_sub": "每日需水量因人而異",
+      "hero_object": "簡潔的資訊圖：左邊一個人形圖示標示「1.5升」，右邊一個人形圖示標示「4升」，中間一個雙向箭頭標示「因人而異」。下方標註「年齡、體重、氣候、活動量都會影響」",
+      "source_badge_text": "Science 2022｜26國 5,604人追蹤研究"
+    },
+    {
+      "scene_id": "03",
+      "scene_role": "compare",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "兩到四成的水從食物來",
+      "on_screen_text_sub": "水果蔬菜湯品都算",
+      "hero_object": "左右對比：左邊一杯清水標示「直接喝水 60-80%」，右邊一盤水果蔬菜湯品標示「食物中的水分 20-40%」。簡潔圓餅圖或對比圖示",
+      "source_badge_text": "Science 2022"
+    },
+    {
+      "scene_id": "04",
+      "scene_role": "evidence",
+      "visual_type": "evidence_card",
+      "on_screen_text_main": "渴了就喝就對了",
+      "on_screen_text_sub": "身體的口渴機制比你想像的精準",
+      "hero_object": "一個人的手拿起一杯水正要喝的真實攝影特寫，旁邊有一個簡潔的打勾圖示標示「口渴=該喝水了」。溫暖光線，Sony A7IV 淺景深風格"
+    },
+    {
+      "scene_id": "05",
+      "scene_role": "reminder",
+      "visual_type": "safety_reminder",
+      "on_screen_text_main": "三個喝水建議",
+      "on_screen_text_sub": "簡單判斷喝夠沒",
+      "hero_object": "真實攝影背景：溫暖木桌上一杯清水和幾顆水果。圖卡上列出三個建議：❶ 渴了就喝，不用算杯數 ❷ 尿液淡黃色就表示喝夠了 ❸ 運動流汗後多補充",
+      "background_scene": "溫暖的生活場景，自然光"
+    },
+    {
+      "scene_id": "06",
+      "scene_role": "closing",
+      "visual_type": "brand_closing",
+      "on_screen_text_main": "時時靜好",
+      "on_screen_text_sub": "我是小靜，我們下次見！",
+      "background_scene": "柔和溫暖的廚房背景，木質桌面，一杯水在散景中",
+      "mascot_presence": true,
+      "mascot_expression": "goodbye",
+      "mascot_pose": "greet_viewer",
+      "mascot_interaction_mode": "小靜坐在一個大玻璃水杯旁邊，一隻手揮手道別，另一隻手抱著迷你水杯，表情溫暖開心"
+    }
+  ],
+  "voiceover_segments": [
+    {
+      "id": 1,
+      "text": "每天要喝八杯水？告訴你，這個說法根本沒有科學根據。"
+    },
+    {
+      "id": 2,
+      "text": "二零二二年 Science 期刊追蹤了二十六個國家五千多人，發現每日需水量因人而異，從一點五升到四升都有。"
+    },
+    {
+      "id": 3,
+      "text": "而且你每天喝的水，大約兩到四成是從食物來的。水果、蔬菜、湯，這些都算。"
+    },
+    {
+      "id": 4,
+      "text": "其實你的身體比你想的聰明。口渴機制非常精準，渴了就喝就對了。"
+    },
+    {
+      "id": 5,
+      "text": "三個建議。渴了就喝不用算杯數。尿液淡黃色就表示喝夠了。運動流汗後多補充。"
+    },
+    {
+      "id": 6,
+      "text": "別再算杯數了。時時靜好，我們下次見。"
+    }
+  ],
+  "youtube_metadata": {
+    "title": "每天8杯水是錯的？Science研究：渴了就喝才對｜時時靜好",
+    "description": "每天要喝8杯水？這個說法根本沒有科學根據！\n\n❶ Science 2022研究（26國5604人）：每日需水量1.5-4升，因人而異\n❷ 約兩到四成水分來自食物（水果蔬菜湯品）\n❸ 口渴機制很精準，渴了就喝就對了\n\n三個喝水建議：\n• 渴了就喝，不用算杯數\n• 尿液淡黃色=喝夠了\n• 運動流汗後多補充\n\n#喝水 #8杯水 #迷思 #健康 #養生 #時時靜好 #Shorts"
+  }
+}
