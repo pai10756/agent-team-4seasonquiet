@@ -1,0 +1,42 @@
+{
+  "scenes": [
+    {
+      "scene_id": "01",
+      "image": "test_output/cards_ep56/card_01.jpg",
+      "duration": 3,
+      "narration": "週末多睡兩小時，你以為在補眠？研究說這樣反而更傷身。"
+    },
+    {
+      "scene_id": "02",
+      "image": "test_output/cards_ep56/card_02.jpg",
+      "duration": 6,
+      "narration": "科羅拉多大學實驗發現，週末補眠的人，胰島素敏感度不但沒恢復，反而持續下降。補眠根本無法逆轉平日熬夜的代謝損傷。"
+    },
+    {
+      "scene_id": "03",
+      "image": "test_output/cards_ep56/card_03.jpg",
+      "duration": 7,
+      "narration": "更麻煩的是社會時差效應。平日和週末起床時間每差一小時，肥胖和代謝症候群風險就增加百分之十一。規律比總時數更重要。"
+    },
+    {
+      "scene_id": "04",
+      "image": "test_output/cards_ep56/card_04.jpg",
+      "duration": 8,
+      "narration": "正確做法是，與其週末賴床兩小時，不如每天提早二十分鐘上床。如果平日真的睡不夠，中午睡二十分鐘的午覺就好。"
+    },
+    {
+      "scene_id": "05",
+      "image": "test_output/cards_ep56/card_05.jpg",
+      "duration": 6,
+      "narration": "三個建議。第一，每天多睡二十分鐘。第二，平日和週末起床時間差不超過一小時。第三，真的累就午睡二十分鐘，別靠週末狂補。"
+    },
+    {
+      "scene_id": "06",
+      "image": "test_output/cards_ep56/card_06.jpg",
+      "duration": 4,
+      "narration": "好好睡，規律睡，就是最簡單的養生。這裡是時時靜好，我是小靜，我們下次見。"
+    }
+  ],
+  "bgm": null,
+  "bgm_volume": 0.08
+}

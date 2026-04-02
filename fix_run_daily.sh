@@ -54,7 +54,7 @@ fi
 if [ "$FAIL" -eq 0 ]; then
     echo ""
     echo "📋 Step 4: 比對主題庫..."
-    if ! GOOGLE_API_KEY=AIzaSyC7mcJZ-XaQVDN8erpvxHsMmV6qFzBDYa4 python3 "$FACTORY_DIR/scripts/match_digest_to_topics.py"; then
+    if ! GOOGLE_API_KEY=AIzaSyDtcq2dBDykN72jEwyhLvz362xsxs6Qigs python3 "$FACTORY_DIR/scripts/match_digest_to_topics.py"; then
         echo "⚠️ Step 4 比對失敗（不影響主流程）"
     fi
 fi

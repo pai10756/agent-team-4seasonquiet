@@ -1,0 +1,35 @@
+﻿[Script Info]
+PlayResX: 1080
+PlayResY: 1920
+ScriptType: v4.00+
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Microsoft JhengHei,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,1,0,0,0,100,100,2,0,1,5,1,2,20,20,280,1
+Style: Watermark,Microsoft JhengHei,22,&H80FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,2,0,9,0,20,20,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:40.52,Watermark,,0,0,0,,時時靜好
+Dialogue: 0,0:00:00.00,0:00:01.73,Default,,0,0,0,,週末多睡兩小時
+Dialogue: 0,0:00:01.73,0:00:03.21,Default,,0,0,0,,你以為在補眠
+Dialogue: 0,0:00:03.21,0:00:04.94,Default,,0,0,0,,研究說反而更傷
+Dialogue: 0,0:00:05.24,0:00:06.26,Default,,0,0,0,,實驗發現
+Dialogue: 0,0:00:06.26,0:00:07.79,Default,,0,0,0,,週末補眠的人
+Dialogue: 0,0:00:07.79,0:00:10.85,Default,,0,0,0,,胰島素敏感度反而持續下降
+Dialogue: 0,0:00:10.85,0:00:13.39,Default,,0,0,0,,補眠無法逆轉代謝損傷
+Dialogue: 0,0:00:13.69,0:00:15.58,Default,,0,0,0,,還有社會時差效應
+Dialogue: 0,0:00:15.58,0:00:17.70,Default,,0,0,0,,起床時間每差一小時
+Dialogue: 0,0:00:17.70,0:00:20.53,Default,,0,0,0,,肥胖風險就增加百分之十一
+Dialogue: 0,0:00:20.83,0:00:22.22,Default,,0,0,0,,與其週末賴床
+Dialogue: 0,0:00:22.22,0:00:24.99,Default,,0,0,0,,不如每天提早二十分鐘上床
+Dialogue: 0,0:00:24.99,0:00:25.69,Default,,0,0,0,,真的累
+Dialogue: 0,0:00:25.69,0:00:27.54,Default,,0,0,0,,午睡二十分鐘就好
+Dialogue: 0,0:00:28.83,0:00:29.85,Default,,0,0,0,,三個建議
+Dialogue: 0,0:00:29.85,0:00:31.87,Default,,0,0,0,,每天多睡二十分鐘
+Dialogue: 0,0:00:31.87,0:00:34.66,Default,,0,0,0,,起床時間差不超過一小時
+Dialogue: 0,0:00:34.66,0:00:36.18,Default,,0,0,0,,累了午睡就好
+Dialogue: 0,0:00:36.48,0:00:37.12,Default,,0,0,0,,好好睡
+Dialogue: 0,0:00:37.12,0:00:37.76,Default,,0,0,0,,規律睡
+Dialogue: 0,0:00:37.76,0:00:38.61,Default,,0,0,0,,時時靜好
+Dialogue: 0,0:00:38.61,0:00:39.68,Default,,0,0,0,,我們下次見

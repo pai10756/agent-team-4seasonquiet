@@ -1,0 +1,35 @@
+﻿[Script Info]
+PlayResX: 1080
+PlayResY: 1920
+ScriptType: v4.00+
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Microsoft JhengHei,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,1,0,0,0,100,100,2,0,1,5,1,2,20,20,280,1
+Style: Watermark,Microsoft JhengHei,22,&H80FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,2,0,9,0,20,20,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:43.88,Watermark,,0,0,0,,時時靜好
+Dialogue: 0,0:00:00.00,0:00:01.49,Default,,0,0,0,,每天要喝八杯水
+Dialogue: 0,0:00:01.49,0:00:02.12,Default,,0,0,0,,告訴你
+Dialogue: 0,0:00:02.12,0:00:04.67,Default,,0,0,0,,這個說法根本沒有科學根據
+Dialogue: 0,0:00:04.97,0:00:10.66,Default,,0,0,0,,二零二二年 Science 期刊追蹤了二十六個國家五千多人
+Dialogue: 0,0:00:10.66,0:00:12.82,Default,,0,0,0,,發現每日需水量因人而異
+Dialogue: 0,0:00:12.82,0:00:14.79,Default,,0,0,0,,從一點五升到四升都有
+Dialogue: 0,0:00:15.09,0:00:17.26,Default,,0,0,0,,而且你每天喝的水
+Dialogue: 0,0:00:17.26,0:00:20.51,Default,,0,0,0,,大約兩到四成是從食物來的
+Dialogue: 0,0:00:20.51,0:00:21.06,Default,,0,0,0,,水果
+Dialogue: 0,0:00:21.06,0:00:21.60,Default,,0,0,0,,蔬菜
+Dialogue: 0,0:00:21.60,0:00:21.87,Default,,0,0,0,,湯
+Dialogue: 0,0:00:21.87,0:00:22.95,Default,,0,0,0,,這些都算
+Dialogue: 0,0:00:23.25,0:00:25.71,Default,,0,0,0,,其實你的身體比你想的聰明
+Dialogue: 0,0:00:25.71,0:00:27.35,Default,,0,0,0,,口渴機制非常精準
+Dialogue: 0,0:00:27.35,0:00:28.79,Default,,0,0,0,,渴了就喝就對了
+Dialogue: 0,0:00:31.25,0:00:32.29,Default,,0,0,0,,三個建議
+Dialogue: 0,0:00:32.29,0:00:34.62,Default,,0,0,0,,渴了就喝不用算杯數
+Dialogue: 0,0:00:34.62,0:00:37.47,Default,,0,0,0,,尿液淡黃色就表示喝夠了
+Dialogue: 0,0:00:37.47,0:00:39.54,Default,,0,0,0,,運動流汗後多補充
+Dialogue: 0,0:00:39.84,0:00:41.18,Default,,0,0,0,,別再算杯數了
+Dialogue: 0,0:00:41.18,0:00:42.07,Default,,0,0,0,,時時靜好
+Dialogue: 0,0:00:42.07,0:00:43.19,Default,,0,0,0,,我們下次見
