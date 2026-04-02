@@ -28,7 +28,11 @@ if env_file.exists():
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
 ELEVENLABS_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
 VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "yC4SQtHeGxfvfsrKVdz9")
-GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent?key={GEMINI_KEY}"
+GEMINI_MODELS = [
+    "gemini-3.1-flash-image-preview",
+    "gemini-3-pro-image-preview",  # fallback: 不同配額路徑
+]
+GEMINI_URL_TPL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key=" + GEMINI_KEY
 MASCOT_REF = BASE / "characters" / "mascot" / "3d_reference_clean.jpg"
 WIDTH, HEIGHT, FPS = 1080, 1920, 30
 
@@ -118,6 +122,7 @@ EPISODE = {
 # Phase 3: 圖卡生成（英文 prompt 打 API）
 # ══════════════════════════════════════
 def gen_card(name, prompt, ref_path=None):
+    """Generate card with auto-fallback: flash → pro if 429."""
     parts = [{"text": prompt}]
     if ref_path:
         from PIL import Image
@@ -132,27 +137,33 @@ def gen_card(name, prompt, ref_path=None):
         ]
     payload = json.dumps({"contents": [{"parts": parts}], "generationConfig": {"responseModalities": ["IMAGE"]}}).encode()
 
-    for attempt in range(3):
-        try:
-            start = time.time()
-            req = urllib.request.Request(GEMINI_URL, data=payload,
-                headers={"Content-Type": "application/json"}, method="POST")
-            with urllib.request.urlopen(req, timeout=300) as resp:
-                data = json.loads(resp.read())
-            elapsed = time.time() - start
-            for p in data.get("candidates", [{}])[0].get("content", {}).get("parts", []):
-                if "inlineData" in p:
-                    img_bytes = base64.b64decode(p["inlineData"]["data"])
-                    if len(img_bytes) > 10000:
-                        (OUT / f"{name}.jpg").write_bytes(img_bytes)
-                        log(f"  OK {name} ({len(img_bytes)//1024}KB, {elapsed:.0f}s)")
-                        return True
-            log(f"  {name} #{attempt+1}: no image ({elapsed:.0f}s)")
-        except urllib.error.HTTPError as e:
-            log(f"  {name} #{attempt+1}: HTTP {e.code}")
-        except Exception as e:
-            log(f"  {name} #{attempt+1}: {e}")
-        time.sleep(20)
+    for model in GEMINI_MODELS:
+        api_url = GEMINI_URL_TPL.format(model=model)
+        for attempt in range(2):
+            try:
+                start = time.time()
+                req = urllib.request.Request(api_url, data=payload,
+                    headers={"Content-Type": "application/json"}, method="POST")
+                with urllib.request.urlopen(req, timeout=300) as resp:
+                    data = json.loads(resp.read())
+                elapsed = time.time() - start
+                for p in data.get("candidates", [{}])[0].get("content", {}).get("parts", []):
+                    if "inlineData" in p:
+                        img_bytes = base64.b64decode(p["inlineData"]["data"])
+                        if len(img_bytes) > 10000:
+                            (OUT / f"{name}.jpg").write_bytes(img_bytes)
+                            log(f"  OK {name} ({len(img_bytes)//1024}KB, {elapsed:.0f}s, {model})")
+                            return True
+                log(f"  {name} #{attempt+1}: no image ({elapsed:.0f}s, {model})")
+            except urllib.error.HTTPError as e:
+                code = e.code
+                log(f"  {name} #{attempt+1}: HTTP {code} ({model})")
+                if code == 429:
+                    log(f"  → 429 on {model}, trying fallback...")
+                    break  # skip to next model
+            except Exception as e:
+                log(f"  {name} #{attempt+1}: {e} ({model})")
+            time.sleep(20)
     log(f"  FAILED {name}")
     return False
 

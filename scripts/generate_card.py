@@ -27,6 +27,7 @@ BASE = Path(__file__).resolve().parents[1]
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 IMAGE_MODEL = "gemini-3.1-flash-image-preview"
+IMAGE_MODEL_FALLBACK = "gemini-3-pro-image-preview"  # fallback: 不同配額路徑，429 時自動切換
 
 REFERENCE_3D = BASE / "characters" / "mascot" / "3d_reference_clean.jpg"
 REFERENCE_CARD = BASE / "characters" / "mascot" / "3d_main_card_reference.jpg"
@@ -46,62 +47,51 @@ def log(msg: str):
 
 # ── Gemini API ───────────────────────────────────────────
 
-def call_gemini(parts: list, max_retries: int = 5) -> bytes | None:
-    """Call Gemini 3.1 Flash image API via curl (avoids urllib 429 issue)."""
-    import subprocess, tempfile
-    url = (
-        f"https://generativelanguage.googleapis.com/v1beta/models/"
-        f"{IMAGE_MODEL}:generateContent?key={GEMINI_API_KEY}"
-    )
+def call_gemini(parts: list, max_retries: int = 3) -> bytes | None:
+    """Call Gemini image API with auto-fallback: flash → pro if 429."""
     payload = json.dumps({
         "contents": [{"parts": parts}],
         "generationConfig": {"responseModalities": ["IMAGE"]},
-    })
+    }).encode()
 
-    for attempt in range(max_retries):
-        try:
-            # Write payload to temp file for large payloads (e.g. with reference images)
-            with tempfile.NamedTemporaryFile(
-                mode="w", suffix=".json", delete=False, encoding="utf-8"
-            ) as f:
-                f.write(payload)
-                tmp_path = f.name
+    for model in [IMAGE_MODEL, IMAGE_MODEL_FALLBACK]:
+        url = (
+            f"https://generativelanguage.googleapis.com/v1beta/models/"
+            f"{model}:generateContent?key={GEMINI_API_KEY}"
+        )
+        for attempt in range(max_retries):
+            try:
+                start = time.time()
+                req = urllib.request.Request(url, data=payload,
+                    headers={"Content-Type": "application/json"}, method="POST")
+                with urllib.request.urlopen(req, timeout=300) as resp:
+                    data = json.loads(resp.read())
+                elapsed = time.time() - start
 
-            result = subprocess.run(
-                ["curl", "-s", "-X", "POST", url,
-                 "-H", "Content-Type: application/json",
-                 "-d", f"@{tmp_path}",
-                 "--max-time", "180"],
-                capture_output=True, text=True, timeout=200,
-            )
-            os.unlink(tmp_path)
+                for part in data.get("candidates", [{}])[0].get("content", {}).get("parts", []):
+                    if "inlineData" in part:
+                        img_bytes = base64.b64decode(part["inlineData"]["data"])
+                        if len(img_bytes) > 10 * 1024:
+                            log(f"  OK ({len(img_bytes)//1024}KB, {elapsed:.0f}s, {model})")
+                            return img_bytes
+                        log(f"  Image too small ({len(img_bytes)} bytes), retrying...")
+                log(f"  No image (attempt {attempt+1}, {elapsed:.0f}s, {model})")
+            except urllib.error.HTTPError as e:
+                code = e.code
+                log(f"  HTTP {code} (attempt {attempt+1}, {model})")
+                if code == 429:
+                    log(f"  → 429 on {model}, trying fallback...")
+                    break  # skip to next model
+                if code == 503:
+                    wait = 15 * (attempt + 1)
+                    log(f"  503 — waiting {wait}s...")
+                    time.sleep(wait)
+                    continue
+            except Exception as e:
+                log(f"  Error (attempt {attempt+1}): {e}")
 
-            if not result.stdout.strip():
-                log(f"  Empty response (attempt {attempt + 1})")
-            else:
-                data = json.loads(result.stdout)
-                if "error" in data:
-                    msg = data["error"].get("message", "")[:120]
-                    code = data["error"].get("code", "?")
-                    log(f"  API {code} (attempt {attempt + 1}): {msg}")
-                    if code == 503:
-                        wait = 10 * (attempt + 1)
-                        log(f"  503 high demand — waiting {wait}s...")
-                        time.sleep(wait)
-                        continue
-                else:
-                    for part in data.get("candidates", [{}])[0].get("content", {}).get("parts", []):
-                        if "inlineData" in part:
-                            img_bytes = base64.b64decode(part["inlineData"]["data"])
-                            if len(img_bytes) > 10 * 1024:
-                                return img_bytes
-                            log(f"  Image too small ({len(img_bytes)} bytes), retrying...")
-                    log(f"  No image in response (attempt {attempt + 1})")
-        except Exception as e:
-            log(f"  Error (attempt {attempt + 1}): {e}")
-
-        if attempt < max_retries - 1:
-            time.sleep(10 * (attempt + 1))  # 10s+ interval to avoid 429
+            if attempt < max_retries - 1:
+                time.sleep(12)
 
     return None
 
