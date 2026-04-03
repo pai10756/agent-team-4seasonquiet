@@ -1,0 +1,33 @@
+﻿[Script Info]
+PlayResX: 1080
+PlayResY: 1920
+ScriptType: v4.00+
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Microsoft JhengHei,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,1,0,0,0,100,100,2,0,1,5,1,2,20,20,280,1
+Style: Watermark,Microsoft JhengHei,22,&H80FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,2,0,9,0,20,20,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:40.23,Watermark,,0,0,0,,時時靜好
+Dialogue: 0,0:00:00.00,0:00:02.05,Default,,0,0,0,,午睡超過三十分鐘
+Dialogue: 0,0:00:02.05,0:00:03.85,Default,,0,0,0,,小心越睡越傷身
+Dialogue: 0,0:00:04.15,0:00:07.17,Default,,0,0,0,,四十四篇研究統合分析發現
+Dialogue: 0,0:00:07.17,0:00:08.68,Default,,0,0,0,,超過三十分鐘
+Dialogue: 0,0:00:08.68,0:00:11.20,Default,,0,0,0,,心血管和代謝風險增加
+Dialogue: 0,0:00:11.20,0:00:13.46,Default,,0,0,0,,三十分鐘以內沒問題
+Dialogue: 0,0:00:13.76,0:00:15.09,Default,,0,0,0,,時間點也重要
+Dialogue: 0,0:00:15.09,0:00:17.30,Default,,0,0,0,,下午一到三點午睡最好
+Dialogue: 0,0:00:17.30,0:00:19.95,Default,,0,0,0,,早上睡反而跟失智風險有關
+Dialogue: 0,0:00:20.76,0:00:22.31,Default,,0,0,0,,二十分鐘就夠
+Dialogue: 0,0:00:22.31,0:00:23.09,Default,,0,0,0,,專注力
+Dialogue: 0,0:00:23.09,0:00:23.87,Default,,0,0,0,,記憶力
+Dialogue: 0,0:00:23.87,0:00:25.42,Default,,0,0,0,,協調力都提升
+Dialogue: 0,0:00:28.76,0:00:29.78,Default,,0,0,0,,三個秘訣
+Dialogue: 0,0:00:29.78,0:00:31.56,Default,,0,0,0,,二十分鐘設鬧鐘
+Dialogue: 0,0:00:31.56,0:00:33.09,Default,,0,0,0,,下午一到三點
+Dialogue: 0,0:00:33.09,0:00:35.89,Default,,0,0,0,,常睡太久醒不來就看醫生
+Dialogue: 0,0:00:36.19,0:00:37.97,Default,,0,0,0,,睡對了就是養生
+Dialogue: 0,0:00:37.97,0:00:38.99,Default,,0,0,0,,時時靜好
+Dialogue: 0,0:00:38.99,0:00:39.76,Default,,0,0,0,,下次見

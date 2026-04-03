@@ -115,12 +115,15 @@ Style Token: `STYLE_SHIZHI_3D_POSTER_V1`
 
 | 項目 | 說明 |
 |------|------|
+| 總請求大小 | **20 MB** 上限（含文字 prompt + inline 圖片 base64） |
+| **Prompt 長度** | **精簡在 300 字（英文）以內**。Flash Image 適合精簡 prompt，長 prompt 消耗更多 TPM 容易觸發 429 |
+| Prompt 語言 | **英文**打 API 較穩定（中文 prompt 消耗更多 tokens 且容易觸發 429） |
+| reference image | 壓縮至 ~20KB（800×450, JPEG quality 80），每張 inline 圖片消耗 ~1,120 tokens |
 | urllib timeout | **300 秒**（正常 20 秒，高負載可達 60-200 秒） |
 | 請求間隔 | 至少 **12 秒**（免費版圖片生成有隱性配額） |
-| reference image | 壓縮至 ~20KB（800×450, JPEG quality 80）避免超時 |
-| 429 退避 | 指數退避 20s → 40s → 60s |
+| Fallback 模型 | `gemini-3.1-flash-image-preview` 429 時自動切換 `gemini-3-pro-image-preview`（不同配額路徑） |
+| 429 退避 | 切換 fallback 模型，或指數退避 20s → 40s → 60s |
 | 503 高需求 | 等待 30s → 60s → 120s |
-| Prompt 語言 | 英文打 API 較穩定，中文 prompt 容易觸發 429 |
 
 #### 管線 A — 全自動腳本模板
 
