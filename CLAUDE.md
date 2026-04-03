@@ -143,6 +143,11 @@ python test_output/epXX_topic/run_full.py
 
 檢查模組：`scripts/preflight_check.py`
 
+**生成後檢查（post-check）：**
+- 底部 20% 模糊/遮罩偵測：比較底部與中間區域的邊緣細節量，底部過於平滑就警告
+- 用法：`python scripts/preflight_check.py --postcheck test_output/epXX/`
+- 圖卡生成後自動跑，有問題的卡片建議重生成（prompt 加 `NO blur NO gradient NO white bar at bottom`）
+
 ## 事實查核閘門（劇本→生產之間，必經）
 
 ```

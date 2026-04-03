@@ -153,6 +153,7 @@ REQUIRED_PHRASES = [
     "No phone UI",
     "Bottom 20%",
     "Traditional Chinese",
+    "NO blur NO gradient",
 ]
 
 
@@ -242,8 +243,96 @@ def run_preflight(cards: list[tuple[str, str]], narrations: list[str],
         return True
 
 
+# ══════════════════════════════════════
+# 7. 生成後：底部 20% 模糊/遮罩偵測
+# ══════════════════════════════════════
+def check_bottom_blur(card_paths: list, threshold: float = 15.0) -> list[str]:
+    """
+    檢查生成圖卡底部 20% 是否被模糊/漸層/白條遮住。
+    比較底部 20% 和中間 20% 的邊緣細節量（Laplacian variance）。
+    如果底部明顯比中間模糊，就警告。
+
+    card_paths: [Path, ...] 圖卡路徑
+    threshold: 底部 variance / 中間 variance 的比值低於此值就警告
+    """
+    try:
+        from PIL import Image, ImageFilter
+        import numpy as np
+    except ImportError:
+        return ["  ⚠️ 無法執行底部模糊偵測（需要 Pillow + numpy）"]
+
+    warnings = []
+    for path in card_paths:
+        from pathlib import Path as P
+        p = P(path)
+        if not p.exists():
+            continue
+        img = Image.open(p).convert("L")  # grayscale
+        w, h = img.size
+
+        # 中間 20% 區域
+        mid_top = int(h * 0.4)
+        mid_bottom = int(h * 0.6)
+        mid_region = img.crop((0, mid_top, w, mid_bottom))
+
+        # 底部 20% 區域
+        bot_top = int(h * 0.8)
+        bot_region = img.crop((0, bot_top, w, h))
+
+        # Laplacian edge detection → variance = 越高越多細節
+        mid_edges = mid_region.filter(ImageFilter.FIND_EDGES)
+        bot_edges = bot_region.filter(ImageFilter.FIND_EDGES)
+
+        mid_var = np.array(mid_edges, dtype=float).var()
+        bot_var = np.array(bot_edges, dtype=float).var()
+
+        ratio = (bot_var / mid_var * 100) if mid_var > 0 else 0
+
+        if ratio < threshold:
+            warnings.append(
+                f"  ⚠️ {p.name}: 底部可能被模糊遮住（細節量 {ratio:.0f}%，中間為 100%，閾值 {threshold:.0f}%）"
+            )
+        else:
+            print(f"  ✓ {p.name}: 底部正常（細節量 {ratio:.0f}%）")
+
+    return warnings
+
+
+def run_postcheck(card_dir) -> bool:
+    """生成後檢查。card_dir: 包含 card_XX.jpg 的目錄。"""
+    from pathlib import Path as P
+    card_dir = P(card_dir)
+    cards = sorted(card_dir.glob("card_*.jpg"))
+    if not cards:
+        print("  沒有找到圖卡")
+        return True
+
+    print("=" * 50)
+    print("🔍 Post-generation 自動檢查")
+    print("=" * 50)
+
+    print("\n🖼️ 底部 20% 模糊偵測：")
+    warnings = check_bottom_blur(cards)
+    if warnings:
+        for w in warnings:
+            print(w)
+        print("\n⚠️ 建議重新生成有問題的圖卡（prompt 加強 NO blur NO gradient）")
+        return False
+    else:
+        print("\n✅ 所有圖卡底部正常")
+        return True
+
+
 if __name__ == "__main__":
-    # CLI demo
-    print("Pre-flight check module loaded.")
-    print("Usage: from preflight_check import run_preflight")
-    print("       run_preflight(cards, narrations, facts_checked=True)")
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "--postcheck":
+        # python scripts/preflight_check.py --postcheck test_output/ep58_nap_timing/
+        if len(sys.argv) > 2:
+            run_postcheck(sys.argv[2])
+        else:
+            print("Usage: python scripts/preflight_check.py --postcheck <card_dir>")
+    else:
+        print("Pre-flight check module loaded.")
+        print("Usage: from preflight_check import run_preflight, run_postcheck")
+        print("       run_preflight(cards, narrations, facts_checked=True)")
+        print("       run_postcheck('test_output/epXX/')")
