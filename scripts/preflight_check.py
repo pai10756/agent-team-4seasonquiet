@@ -221,7 +221,24 @@ def run_preflight(cards: list[tuple[str, str]], narrations: list[str],
     else:
         print("  ✓ 標準語句完整")
 
-    # 6. 事實查核閘門
+    # 6. 小靜服裝檢查
+    print("\n👗 小靜服裝自動選擇：")
+    try:
+        from mascot_outfit import select_outfit
+        if hasattr(cards, '__iter__') and len(cards) > 0:
+            # 嘗試從第一個 card prompt 推斷主題
+            topic = cards[0][0] if cards else ""
+        else:
+            topic = ""
+        # 用旁白推斷主題
+        combined_narration = " ".join(narrations) if narrations else ""
+        outfit = select_outfit(combined_narration)
+        print(f"  → 自動選擇：{outfit['outfit']}（{outfit['zh_fragment']}）")
+        print(f"  → Prompt 片段：{outfit['prompt_fragment']}")
+    except ImportError:
+        print("  ⚠️ mascot_outfit.py 未找到，跳過")
+
+    # 7. 事實查核閘門
     print("\n🔬 事實查核：")
     if facts_checked:
         print("  ✓ 已完成事實查核")
