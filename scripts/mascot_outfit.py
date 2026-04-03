@@ -16,8 +16,8 @@ OUTFIT_RULES = [
         "outfit": "sport_vest",
         "prompt_fragment": "wearing a light blue sport vest instead of apron",
         "zh_fragment": "穿著淺藍色運動背心，不穿圍裙",
-        "keywords": ["運動", "肌力", "快走", "體適能", "平衡", "跌倒", "太極", "伸展",
-                     "肌少症", "園藝運動", "exercise", "muscle", "walking", "balance"],
+        "keywords": ["運動", "肌力", "快走", "體適能", "太極", "伸展",
+                     "肌少症", "園藝運動", "exercise", "muscle", "walking"],
     },
     {
         "outfit": "doctor_coat",
