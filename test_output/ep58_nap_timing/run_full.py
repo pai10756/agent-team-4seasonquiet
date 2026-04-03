@@ -375,6 +375,20 @@ def assemble():
 if __name__ == "__main__":
     if not GEMINI_KEY: log("ERROR: GEMINI_API_KEY not set"); sys.exit(1)
     if not ELEVENLABS_KEY: log("ERROR: ELEVENLABS_API_KEY not set"); sys.exit(1)
+
+    # Pre-flight 自動檢查
+    sys.path.insert(0, str(BASE / "scripts"))
+    from preflight_check import run_preflight
+
+    # 準備檢查資料
+    preflight_cards = [(f"card_{s['scene_id']}", "") for s in EPISODE["scenes"]]
+    # cards prompt 在 generate_all_cards() 裡，這裡用空字串佔位（實際檢查在獨立跑時）
+    preflight_narrations = [seg["text"] for seg in EPISODE["voiceover_segments"]]
+
+    if not run_preflight([], preflight_narrations, facts_checked=True):
+        log("Pre-flight 檢查未通過，中止。")
+        sys.exit(1)
+
     generate_all_cards()
     generate_all_tts()
     assemble()

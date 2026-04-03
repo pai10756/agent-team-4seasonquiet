@@ -131,7 +131,17 @@ Style Token: `STYLE_SHIZHI_3D_POSTER_V1`
 ```
 python test_output/epXX_topic/run_full.py
 ```
-參考 `test_output/ep57_water_myth/run_full.py`。
+參考 `test_output/ep58_nap_timing/run_full.py`。
+
+**腳本必須在 `__main__` 開頭呼叫 `preflight_check.run_preflight()`**，自動檢查：
+- Prompt 長度 ≤ 300 字（超過就擋）
+- 旁白總長預估 ≤ 60 秒（中文 ~4字/秒 × atempo 1.1）
+- 多音字掃描（常見多音字字典比對，標記風險）
+- 敏感詞掃描（中國平台禁用詞清單）
+- Prompt 標準語句（No English / Bottom 20% / Traditional Chinese）
+- 事實查核閘門（`facts_checked=True` 才放行）
+
+檢查模組：`scripts/preflight_check.py`
 
 ## 事實查核閘門（劇本→生產之間，必經）
 
