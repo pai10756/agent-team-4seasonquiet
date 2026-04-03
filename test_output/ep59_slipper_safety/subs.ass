@@ -1,0 +1,40 @@
+﻿[Script Info]
+PlayResX: 1080
+PlayResY: 1920
+ScriptType: v4.00+
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Microsoft JhengHei,82,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,1,0,0,0,100,100,2,0,1,5,1,2,20,20,280,1
+Style: Watermark,Microsoft JhengHei,22,&H80FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,2,0,9,0,20,20,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:50.02,Watermark,,0,0,0,,時時靜好
+Dialogue: 0,0:00:00.00,0:00:01.85,Default,,0,0,0,,你家的拖鞋安全嗎
+Dialogue: 0,0:00:01.85,0:00:05.32,Default,,0,0,0,,台灣每六位長輩就有一位曾經跌倒
+Dialogue: 0,0:00:05.62,0:00:08.07,Default,,0,0,0,,七萬多件跌倒分析發現
+Dialogue: 0,0:00:08.07,0:00:10.52,Default,,0,0,0,,穿沒有後跟的開口拖鞋
+Dialogue: 0,0:00:10.52,0:00:12.98,Default,,0,0,0,,跌倒住院風險明顯增加
+Dialogue: 0,0:00:12.98,0:00:15.67,Default,,0,0,0,,夾腳拖和露趾涼拖最危險
+Dialogue: 0,0:00:15.97,0:00:17.42,Default,,0,0,0,,關鍵在鞋底
+Dialogue: 0,0:00:17.42,0:00:19.15,Default,,0,0,0,,把拖鞋翻過來
+Dialogue: 0,0:00:19.15,0:00:21.45,Default,,0,0,0,,有深紋路的才防滑
+Dialogue: 0,0:00:21.45,0:00:24.34,Default,,0,0,0,,光滑的底遇水就像溜冰
+Dialogue: 0,0:00:24.64,0:00:25.82,Default,,0,0,0,,四招挑對
+Dialogue: 0,0:00:25.82,0:00:26.41,Default,,0,0,0,,第一
+Dialogue: 0,0:00:26.41,0:00:28.17,Default,,0,0,0,,鞋底有深紋路
+Dialogue: 0,0:00:28.17,0:00:28.76,Default,,0,0,0,,第二
+Dialogue: 0,0:00:28.76,0:00:30.53,Default,,0,0,0,,PU或橡膠底
+Dialogue: 0,0:00:30.53,0:00:32.30,Default,,0,0,0,,按下去有彈性
+Dialogue: 0,0:00:32.30,0:00:32.89,Default,,0,0,0,,第三
+Dialogue: 0,0:00:32.89,0:00:34.07,Default,,0,0,0,,包覆腳背
+Dialogue: 0,0:00:34.07,0:00:34.65,Default,,0,0,0,,第四
+Dialogue: 0,0:00:34.65,0:00:36.13,Default,,0,0,0,,有後跟固定
+Dialogue: 0,0:00:36.43,0:00:37.49,Default,,0,0,0,,三個提醒
+Dialogue: 0,0:00:37.49,0:00:39.60,Default,,0,0,0,,浴室地板保持乾燥
+Dialogue: 0,0:00:39.60,0:00:42.51,Default,,0,0,0,,進出浴室一定穿防滑拖鞋
+Dialogue: 0,0:00:42.51,0:00:44.36,Default,,0,0,0,,加裝扶手更安心
+Dialogue: 0,0:00:44.66,0:00:48.08,Default,,0,0,0,,一雙好拖鞋就是最簡單的防跌投資
+Dialogue: 0,0:00:48.08,0:00:49.00,Default,,0,0,0,,時時靜好
+Dialogue: 0,0:00:49.00,0:00:49.68,Default,,0,0,0,,下次見

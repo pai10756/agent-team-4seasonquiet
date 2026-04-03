@@ -1,0 +1,85 @@
+{
+  "series": "時時靜好｜生活智慧",
+  "episode": 59,
+  "topic_title": "你家拖鞋安全嗎？四招挑對防滑拖鞋",
+  "core_claim": "七萬多件長輩跌倒分析顯示，穿開口式拖鞋顯著增加跌倒住院風險。2024年綜合回顧與2026年美國老年醫學會建議指出，鞋底紋路、材質彈性、腳背包覆和後跟固定是預防跌倒的四大關鍵。台灣65歲以上每6人就有1人曾跌倒，浴室是室內第三大跌傷地點。",
+  "single_takeaway": "買拖鞋翻過來看鞋底、用手按材質、確認包腳背、有後跟固定，四招就能大幅降低跌倒風險。",
+  "scenes": [
+    {
+      "scene_id": "01",
+      "scene_role": "hook",
+      "visual_type": "poster_cover",
+      "on_screen_text_main": "你家拖鞋安全嗎？",
+      "on_screen_text_sub": "每6位長輩就有1位曾跌倒",
+      "mascot_presence": true,
+      "badge_text": "國健署統計"
+    },
+    {
+      "scene_id": "02",
+      "scene_role": "flip",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "這種拖鞋最危險",
+      "on_screen_text_sub": "七萬件跌倒分析的結論",
+      "source_badge_text": "老年醫學研究年報 2024｜70,196件跌倒分析"
+    },
+    {
+      "scene_id": "03",
+      "scene_role": "compare",
+      "visual_type": "comparison_card",
+      "on_screen_text_main": "鞋底翻過來比一比",
+      "on_screen_text_sub": "紋路深淺差很多"
+    },
+    {
+      "scene_id": "04",
+      "scene_role": "evidence",
+      "visual_type": "evidence_card",
+      "on_screen_text_main": "四招挑對防滑拖鞋",
+      "on_screen_text_sub": "在店裡就能自己檢查"
+    },
+    {
+      "scene_id": "05",
+      "scene_role": "reminder",
+      "visual_type": "safety_reminder",
+      "on_screen_text_main": "浴室安全三提醒",
+      "on_screen_text_sub": "拖鞋只是第一步"
+    },
+    {
+      "scene_id": "06",
+      "scene_role": "closing",
+      "visual_type": "brand_closing",
+      "on_screen_text_main": "時時靜好",
+      "on_screen_text_sub": "我是小靜，我們下次見！",
+      "mascot_presence": true
+    }
+  ],
+  "voiceover_segments": [
+    {
+      "id": 1,
+      "text": "你家的拖鞋安全嗎？台灣每六位長輩就有一位曾經跌倒。"
+    },
+    {
+      "id": 2,
+      "text": "七萬多件跌倒分析發現，穿沒有後跟的開口拖鞋，跌倒住院風險明顯增加。夾腳拖和露趾涼拖最危險。"
+    },
+    {
+      "id": 3,
+      "text": "關鍵在鞋底。把拖鞋翻過來，有深紋路的才防滑。光滑的底遇水就像溜冰。"
+    },
+    {
+      "id": 4,
+      "text": "四招挑對。第一，鞋底有深紋路。第二，PU或橡膠底，按下去有彈性。第三，包覆腳背。第四，有後跟固定。"
+    },
+    {
+      "id": 5,
+      "text": "三個提醒。浴室地板保持乾燥。進出浴室一定穿防滑拖鞋。加裝扶手更安心。"
+    },
+    {
+      "id": 6,
+      "text": "一雙好拖鞋就是最簡單的防跌投資。時時靜好，下次見。"
+    }
+  ],
+  "youtube_metadata": {
+    "title": "你家拖鞋安全嗎？四招挑對防滑拖鞋｜7萬件跌倒分析｜時時靜好",
+    "description": "台灣每6位長輩就有1位曾跌倒，浴室是第三大跌傷地點！\n\n❶ 70,196件跌倒分析：開口式拖鞋顯著增加跌倒住院風險\n❷ 2024綜合回顧+2026 JAGS建議：四大挑選標準\n❸ RCT實驗：PU/EVA止滑鞋底顯著改善平衡\n\n四招挑對防滑拖鞋：\n• 鞋底有深紋路\n• PU或橡膠底（按下去有彈性）\n• 包覆腳背\n• 有後跟固定\n\n#防滑拖鞋 #長輩安全 #防跌 #浴室安全 #時時靜好 #Shorts"
+  }
+}
